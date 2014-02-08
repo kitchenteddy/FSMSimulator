@@ -27,8 +27,16 @@ public class DrawableLabel implements Drawable
 	 * @generated
 	 */
 	public DrawableLabel(){
-		super();
+            this.actLabel = null;
 	}
+        
+        public Label GetLabel() {
+            return this.actLabel;
+        }
+        
+        public void SetLabel(Label NewLabel) {
+            this.actLabel = NewLabel;
+        }
 
 	/**
 	 * <!-- begin-user-doc -->

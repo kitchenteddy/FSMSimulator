@@ -27,8 +27,16 @@ public class DrawablePath implements Drawable
 	 * @generated
 	 */
 	public DrawablePath(){
-		
+            this.actPath = null;
 	}
+        
+        public Path GetPath() {
+            return this.actPath;
+        }
+        
+        public void SetPath(Path NewPath ) {
+            this.actPath = NewPath;
+        }
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -1,6 +1,7 @@
 package union.codebreakers.view.drawable;
 
 import union.codebreakers.helper.Canvas;
+import union.codebreakers.model.State;
 
 
 /**
@@ -11,17 +12,27 @@ import union.codebreakers.helper.Canvas;
 
 public class DrawableState implements Drawable
 {
-	
+	private State actState;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
 	public DrawableState(){
-		super();
+		this.actState = null;
 	}
 
-	/**
+        
+        public State GetState() {
+            return this.actState;
+        }
+        
+        public void SetState(State NewState ) {
+            this.actState = NewState;
+        }
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
