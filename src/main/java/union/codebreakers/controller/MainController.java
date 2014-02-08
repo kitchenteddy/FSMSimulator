@@ -6,6 +6,8 @@
 
 package union.codebreakers.controller;
 
+import union.codebreakers.gui.MainFrame;
+
 /**
  *
  * @author 3lf
@@ -14,5 +16,7 @@ public class MainController {
 
         public static void main(String [] args)
 	{
+            MainFrame myFrame = new MainFrame();
+            myFrame.show();
 	}
 }
