@@ -1,5 +1,8 @@
 package union.codebreakers.model.drawer;
 
+import union.codebreakers.helper.Canvas;
+import union.codebreakers.model.drawable.Drawable;
+
 
 
 /**

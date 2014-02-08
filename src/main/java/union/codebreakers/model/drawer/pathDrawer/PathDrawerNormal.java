@@ -1,5 +1,7 @@
 package union.codebreakers.model.drawer.pathDrawer;
 
+import union.codebreakers.model.drawable.Drawable;
+
 
 /**
  * <!-- begin-user-doc -->

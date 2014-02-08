@@ -1,5 +1,7 @@
 package union.codebreakers.model;
 
+import union.codebreakers.helper.Point;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -9,32 +11,6 @@ package union.codebreakers.model;
 
 public class ModelPath implements Movable, Path, Collidable
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private State startPoint;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private State endPoint;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private ModelLabel label;
 	
 	/**
 	 * <!-- begin-user-doc -->

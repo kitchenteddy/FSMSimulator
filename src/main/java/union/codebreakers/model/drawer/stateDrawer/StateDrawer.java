@@ -1,5 +1,10 @@
 package union.codebreakers.model.drawer.stateDrawer;
 
+import union.codebreakers.helper.Canvas;
+import union.codebreakers.model.ModelState;
+import union.codebreakers.model.drawable.Drawable;
+import union.codebreakers.model.drawer.Drawer;
+
 
 /**
  * <!-- begin-user-doc -->

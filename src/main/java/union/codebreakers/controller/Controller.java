@@ -1,5 +1,7 @@
 package union.codebreakers.controller;
 
+import union.codebreakers.model.Automata;
+
 
 /**
  * <!-- begin-user-doc -->

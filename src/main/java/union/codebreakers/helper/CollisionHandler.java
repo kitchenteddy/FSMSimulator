@@ -1,5 +1,8 @@
 package union.codebreakers.helper;
 
+import union.codebreakers.model.Collidable;
+import union.codebreakers.model.ModelState;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -27,31 +30,7 @@ public class CollisionHandler implements CollisionHandlerGeneric
 	
 	public Collidable CheckCollision(Point Pnt) {
 		// TODO : to implement
-		return new Collidable();	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public boolean CheckCollisionStates(ModelState El, Point Pnt) {
-		// TODO : to implement
-		return false;	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public Collidable CheckCollision(Point Ptn) {
-		// TODO : to implement
-		return new Collidable();	
+            return null;
 	}
 	
 	/**

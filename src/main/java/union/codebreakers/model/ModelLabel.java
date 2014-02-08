@@ -1,5 +1,8 @@
 package union.codebreakers.model;
 
+import union.codebreakers.helper.LabelType;
+import union.codebreakers.helper.Point;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -26,15 +29,6 @@ public class ModelLabel implements Movable, Label, Collidable
 	 */
 	
 	public Point position;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public LabelType type;
 	
 	/**
 	 * <!-- begin-user-doc -->

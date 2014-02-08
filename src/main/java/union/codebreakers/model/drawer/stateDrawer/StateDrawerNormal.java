@@ -1,5 +1,8 @@
 package union.codebreakers.model.drawer.stateDrawer;
 
+import union.codebreakers.helper.Canvas;
+import union.codebreakers.model.ModelState;
+
 
 /**
  * <!-- begin-user-doc -->

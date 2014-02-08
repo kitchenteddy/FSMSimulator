@@ -1,5 +1,8 @@
 package union.codebreakers.model.drawable;
 
+import union.codebreakers.helper.Canvas;
+import union.codebreakers.model.Label;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -27,17 +30,6 @@ public class DrawableLabel implements Drawable
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void Draw(Canvas Canvas) {
-		// TODO : to implement	
-	}
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->

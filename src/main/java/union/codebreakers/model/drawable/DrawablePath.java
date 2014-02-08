@@ -1,5 +1,8 @@
 package union.codebreakers.model.drawable;
 
+import union.codebreakers.helper.Canvas;
+import union.codebreakers.model.Path;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -24,20 +27,9 @@ public class DrawablePath implements Drawable
 	 * @generated
 	 */
 	public DrawablePath(){
-		super();
+		
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void Draw(Canvas Canvas) {
-		// TODO : to implement	
-	}
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->

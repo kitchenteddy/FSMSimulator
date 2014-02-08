@@ -1,5 +1,7 @@
 package union.codebreakers.model;
 
+import union.codebreakers.helper.Point;
+
 
 
 /**

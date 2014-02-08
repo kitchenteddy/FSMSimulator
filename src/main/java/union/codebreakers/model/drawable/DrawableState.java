@@ -1,5 +1,7 @@
 package union.codebreakers.model.drawable;
 
+import union.codebreakers.helper.Canvas;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -9,14 +11,6 @@ package union.codebreakers.model.drawable;
 
 public class DrawableState implements Drawable
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private State actState;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -27,17 +21,6 @@ public class DrawableState implements Drawable
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void Draw(Canvas Canvas) {
-		// TODO : to implement	
-	}
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->

@@ -1,5 +1,7 @@
 package union.codebreakers.model.drawable;
 
+import union.codebreakers.helper.Canvas;
+
 
 /**
  * <!-- begin-user-doc -->

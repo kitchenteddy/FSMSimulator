@@ -1,5 +1,8 @@
 package union.codebreakers.model;
 
+import union.codebreakers.helper.Point;
+import union.codebreakers.helper.StateType;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -9,32 +12,6 @@ package union.codebreakers.model;
 
 public class ModelState implements State, Movable, Collidable
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private StateType type;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private String name;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private Iterable outgoingPaths;
 	
 	/**
 	 * <!-- begin-user-doc -->

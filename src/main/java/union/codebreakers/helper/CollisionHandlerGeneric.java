@@ -1,5 +1,8 @@
 package union.codebreakers.helper;
 
+import union.codebreakers.model.Collidable;
+import union.codebreakers.model.ModelState;
+
 
 
 /**
