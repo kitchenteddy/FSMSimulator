@@ -13,3 +13,7 @@ dependencies {
 test {
      include '**/*Suite.class'
 }
+
+apply plugin: 'application'
+
+mainClassName="MainController"
