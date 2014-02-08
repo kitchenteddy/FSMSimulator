@@ -10,7 +10,7 @@ import union.codebreakers.view.drawable.Drawable;
  * <!--  end-user-doc  -->
  * @generated
  */
-public  interface Drawer 
+public interface Drawer 
 {
 	/**
 	 * <!-- begin-user-doc -->
@@ -18,9 +18,6 @@ public  interface Drawer
 	 * @generated
 	 * @ordered
 	 */
-	
-	public void Draw(Drawable El, Canvas Where) ;
-	
-	
+	public void Draw(Drawable El, Canvas Where);
 }
 

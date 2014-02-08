@@ -1,6 +1,8 @@
 package union.codebreakers.view.drawer.labelDrawer;
 
+import union.codebreakers.helper.Canvas;
 import union.codebreakers.view.drawable.Drawable;
+import union.codebreakers.view.drawer.DrawerSpecific;
 
 
 /**
@@ -9,27 +11,16 @@ import union.codebreakers.view.drawable.Drawable;
  * @generated
  */
 
-public class LabelDrawerPath extends LabelDrawer
+public class LabelDrawerPath implements DrawerSpecific
 {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public LabelDrawerPath(){
-		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
+     * @param obj
 	 * @generated
 	 * @ordered
 	 */
-	
-	public void Draw(Drawable obj) {
-		// TODO : to implement	
+	public void Draw(Drawable obj, Canvas Where) {
+		System.out.print("LabelDrawerPath");
 	}
-	
 }
-
