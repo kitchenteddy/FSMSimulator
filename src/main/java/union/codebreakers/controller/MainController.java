@@ -9,8 +9,11 @@ package union.codebreakers.controller;
 import union.codebreakers.gui.MainFrame;
 import union.codebreakers.helper.LabelType;
 import union.codebreakers.model.ModelLabel;
+import union.codebreakers.model.ModelPath;
 import union.codebreakers.view.drawable.DrawableLabel;
+import union.codebreakers.view.drawable.DrawablePath;
 import union.codebreakers.view.drawer.labelDrawer.LabelDrawer;
+import union.codebreakers.view.drawer.pathDrawer.PathDrawer;
 
 /**
  *
@@ -23,18 +26,29 @@ public class MainController {
 //            MainFrame myFrame = new MainFrame();
 //            myFrame.show();
             
-            // my testing
-            LabelDrawer drawer = new LabelDrawer();
-            
-            DrawableLabel label = new DrawableLabel();
-            ModelLabel model = new ModelLabel();
-            model.SetType( LabelType.ePath );
-            
-            label.SetLabel( model );
-            drawer.Draw(label, null);
+            /*  Lukas testing drawers
+                ******************************** LABEL test
+                LabelDrawer drawer = new LabelDrawer();
 
-//            model.SetType( LabelType.eState );
-            drawer.Draw(label, null);
-           
+                DrawableLabel label = new DrawableLabel();
+                ModelLabel model = new ModelLabel();
+                model.SetType( LabelType.ePath );
+
+                label.SetLabel( model );
+                drawer.Draw(label, null);
+
+                model.SetType( LabelType.eState );
+                drawer.Draw(label, null);
+            
+            
+                ******************************** PATH test
+                PathDrawer drawer = new PathDrawer();
+
+                DrawablePath path = new DrawablePath();
+                ModelPath model = new ModelPath();
+
+                path.SetPath( model );
+                drawer.Draw(path, null);
+            */
 	}
 }

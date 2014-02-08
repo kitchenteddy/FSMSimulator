@@ -1,5 +1,6 @@
 package union.codebreakers.view.drawer.pathDrawer;
 
+import union.codebreakers.helper.Canvas;
 import union.codebreakers.view.drawable.Drawable;
 
 
@@ -27,7 +28,7 @@ public class PathDrawerNormal extends PathDrawer
 	 * @ordered
 	 */
 	
-	public void Draw(Drawable El) {
+	public void Draw(Drawable El, Canvas Where) {
 		// TODO : to implement	
 	}
 	
