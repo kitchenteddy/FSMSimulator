@@ -1,6 +1,7 @@
-package union.codebreakers.model.drawer.labelDrawer;
+package union.codebreakers.view.drawer.stateDrawer;
 
-import union.codebreakers.model.drawable.Drawable;
+import union.codebreakers.helper.Canvas;
+import union.codebreakers.model.ModelState;
 
 
 /**
@@ -9,14 +10,14 @@ import union.codebreakers.model.drawable.Drawable;
  * @generated
  */
 
-public class LabelDrawerState extends LabelDrawer
+public class StateDrawerStarting extends StateDrawer
 {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public LabelDrawerState(){
+	public StateDrawerStarting(){
 		super();
 	}
 
@@ -27,7 +28,7 @@ public class LabelDrawerState extends LabelDrawer
 	 * @ordered
 	 */
 	
-	public void Draw(Drawable Obj) {
+	public void Draw(ModelState State, Canvas Canvas) {
 		// TODO : to implement	
 	}
 	

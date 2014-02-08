@@ -1,7 +1,9 @@
-package union.codebreakers.model.drawable;
+package union.codebreakers.view.drawer.labelDrawer;
 
 import union.codebreakers.helper.Canvas;
-import union.codebreakers.model.Path;
+import union.codebreakers.model.ModelState;
+import union.codebreakers.view.drawable.Drawable;
+import union.codebreakers.view.drawer.Drawer;
 
 
 /**
@@ -10,24 +12,15 @@ import union.codebreakers.model.Path;
  * @generated
  */
 
-public class DrawablePath implements Drawable
+public class LabelDrawer implements Drawer
 {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
-	 * @ordered
 	 */
-	
-	private Path actPath;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public DrawablePath(){
-		
+	public LabelDrawer(){
+		super();
 	}
 
 	/**
@@ -37,7 +30,18 @@ public class DrawablePath implements Drawable
 	 * @ordered
 	 */
 	
-	public void Draw(Canvas Canvas) {
+	public void Draw(ModelState El, Canvas Where) {
+		// TODO : to implement	
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	public void Draw(Drawable El, Canvas Where) {
 		// TODO : to implement	
 	}
 	

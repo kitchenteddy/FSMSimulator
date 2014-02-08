@@ -1,9 +1,9 @@
-package union.codebreakers.model.drawer.pathDrawer;
+package union.codebreakers.view.drawer.pathDrawer;
 
 import union.codebreakers.helper.Canvas;
 import union.codebreakers.model.ModelState;
-import union.codebreakers.model.drawable.Drawable;
-import union.codebreakers.model.drawer.Drawer;
+import union.codebreakers.view.drawable.Drawable;
+import union.codebreakers.view.drawer.Drawer;
 
 
 /**

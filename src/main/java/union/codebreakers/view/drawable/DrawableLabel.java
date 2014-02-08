@@ -1,4 +1,4 @@
-package union.codebreakers.model.drawable;
+package union.codebreakers.view.drawable;
 
 import union.codebreakers.helper.Canvas;
 import union.codebreakers.model.Label;

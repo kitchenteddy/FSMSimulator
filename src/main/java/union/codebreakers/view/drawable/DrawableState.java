@@ -1,6 +1,6 @@
-package union.codebreakers.model.drawer.pathDrawer;
+package union.codebreakers.view.drawable;
 
-import union.codebreakers.model.drawable.Drawable;
+import union.codebreakers.helper.Canvas;
 
 
 /**
@@ -9,14 +9,15 @@ import union.codebreakers.model.drawable.Drawable;
  * @generated
  */
 
-public class PathDrawerNormal extends PathDrawer
+public class DrawableState implements Drawable
 {
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 */
-	public PathDrawerNormal(){
+	public DrawableState(){
 		super();
 	}
 
@@ -27,7 +28,7 @@ public class PathDrawerNormal extends PathDrawer
 	 * @ordered
 	 */
 	
-	public void Draw(Drawable El) {
+	public void Draw(Canvas Canvas) {
 		// TODO : to implement	
 	}
 	

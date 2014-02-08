@@ -1,6 +1,6 @@
-package union.codebreakers.model.drawer.labelDrawer;
+package union.codebreakers.view.drawer.labelDrawer;
 
-import union.codebreakers.model.drawable.Drawable;
+import union.codebreakers.view.drawable.Drawable;
 
 
 /**

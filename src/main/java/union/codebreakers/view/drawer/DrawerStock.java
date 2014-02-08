@@ -1,8 +1,8 @@
-package union.codebreakers.model.drawer;
+package union.codebreakers.view.drawer;
 
 import union.codebreakers.helper.Canvas;
-import union.codebreakers.model.drawable.Drawable;
-import union.codebreakers.model.drawable.DrawableState;
+import union.codebreakers.view.drawable.Drawable;
+import union.codebreakers.view.drawable.DrawableState;
 
 
 /**

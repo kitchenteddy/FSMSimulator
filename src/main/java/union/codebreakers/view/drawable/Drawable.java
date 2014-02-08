@@ -1,8 +1,6 @@
-package union.codebreakers.model.drawer;
+package union.codebreakers.view.drawable;
 
 import union.codebreakers.helper.Canvas;
-import union.codebreakers.model.drawable.Drawable;
-
 
 
 /**
@@ -10,7 +8,7 @@ import union.codebreakers.model.drawable.Drawable;
  * <!--  end-user-doc  -->
  * @generated
  */
-public  interface Drawer 
+public  interface Drawable 
 {
 	/**
 	 * <!-- begin-user-doc -->
@@ -19,7 +17,7 @@ public  interface Drawer
 	 * @ordered
 	 */
 	
-	public void Draw(Drawable El, Canvas Where) ;
+	public void Draw(Canvas Canvas) ;
 	
 	
 }
