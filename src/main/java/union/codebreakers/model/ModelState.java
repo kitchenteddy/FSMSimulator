@@ -58,11 +58,11 @@ public class ModelState implements State, Movable, Collidable
 		super();
 	}
         
-        public StateType GetType(){
+        public StateType getType(){
             return this.type;
         }
 
-        public void SetType(StateType NewType){
+        public void setType(StateType NewType){
             this.type = NewType;
         }
 
@@ -73,7 +73,7 @@ public class ModelState implements State, Movable, Collidable
 	 * @ordered
 	 */
 	
-	public boolean IsCollision(Point Pnt) {
+	public boolean isCollision(Point Pnt) {
 		// TODO : to implement
 		return false;	
 	}

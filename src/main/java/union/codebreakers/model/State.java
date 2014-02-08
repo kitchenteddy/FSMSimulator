@@ -11,6 +11,6 @@ import union.codebreakers.helper.StateType;
  */
 public  interface State 
 {
-    public StateType GetType();
+    public StateType getType();
 }
 

@@ -30,11 +30,11 @@ public class DrawablePath implements Drawable
             this.actPath = null;
 	}
         
-        public Path GetPath() {
+        public Path getPath() {
             return this.actPath;
         }
         
-        public void SetPath(Path NewPath ) {
+        public void setPath(Path NewPath ) {
             this.actPath = NewPath;
         }
 
@@ -45,7 +45,7 @@ public class DrawablePath implements Drawable
 	 * @ordered
 	 */
 	
-	public void Draw(Canvas Canvas) {
+	public void draw(Canvas Canvas) {
 		// TODO : to implement	
 	}
 	

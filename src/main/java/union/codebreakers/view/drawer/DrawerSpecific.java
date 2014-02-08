@@ -21,5 +21,5 @@ public interface DrawerSpecific {
 	 * @generated
 	 * @ordered
 	 */	
-	public void Draw(Drawable obj, Canvas Where);
+	public void draw(Drawable obj, Canvas Where);
 }

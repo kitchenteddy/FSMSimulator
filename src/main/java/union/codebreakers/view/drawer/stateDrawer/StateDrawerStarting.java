@@ -32,7 +32,7 @@ public class StateDrawerStarting  implements DrawerSpecific
 	 */
 	
         @Override
-	public void Draw(Drawable State, Canvas Canvas) {
+	public void draw(Drawable State, Canvas Canvas) {
 		// TODO : to implement	
 	}
 	

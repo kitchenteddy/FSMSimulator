@@ -30,7 +30,7 @@ public class StateDrawerEnd  implements DrawerSpecific
      * @ordered
      */
 
-    public void Draw(Drawable State, Canvas Where) {
+    public void draw(Drawable State, Canvas Where) {
             // TODO : to implement	
     }
 }

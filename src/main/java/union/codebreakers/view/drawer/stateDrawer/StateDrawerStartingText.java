@@ -17,7 +17,7 @@ import union.codebreakers.view.drawable.DrawableState;
 public class StateDrawerStartingText extends StateDrawerStarting{
 
         @Override
-        public void Draw(Drawable State, Canvas Canvas) {
+        public void draw(Drawable State, Canvas Canvas) {
         System.out.println("StateDrawerStartingText");
     }
 }

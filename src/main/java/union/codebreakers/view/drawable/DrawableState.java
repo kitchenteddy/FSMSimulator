@@ -24,11 +24,11 @@ public class DrawableState implements Drawable
 	}
 
         
-        public State GetState() {
+        public State getState() {
             return this.actState;
         }
         
-        public void SetState(State NewState ) {
+        public void setState(State NewState ) {
             this.actState = NewState;
         }
 
@@ -39,7 +39,7 @@ public class DrawableState implements Drawable
 	 * @ordered
 	 */
 	
-	public void Draw(Canvas Canvas) {
+	public void draw(Canvas Canvas) {
 		// TODO : to implement	
 	}
 	

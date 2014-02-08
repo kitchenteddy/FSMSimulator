@@ -19,7 +19,7 @@ public  interface CollisionHandlerGeneric
 	 * @ordered
 	 */
 	
-	public Collidable CheckCollision(Point Ptn) ;
+	public Collidable checkCollision(Point Ptn) ;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -28,7 +28,7 @@ public  interface CollisionHandlerGeneric
 	 * @ordered
 	 */
 	
-	public boolean CheckCollisionStates(ModelState El, Point Pnt) ;
+	public boolean checkCollisionStates(ModelState El, Point Pnt) ;
 	
 	
 }

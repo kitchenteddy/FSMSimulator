@@ -29,7 +29,7 @@ public class PathDrawerNormal  implements DrawerSpecific
 	 * @ordered
 	 */
 	
-	public void Draw(Drawable El, Canvas Where) {
+	public void draw(Drawable El, Canvas Where) {
 		// TODO : to implement	
 	}
 	

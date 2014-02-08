@@ -16,9 +16,9 @@ import union.codebreakers.view.drawer.Drawer;
 
 public class PathDrawer implements Drawer
 {
-        static private PathDrawerNormal pdn = null;
+        static protected PathDrawerNormal pdn = null;
         
-        protected void SetPathDrawerNormal() {
+        protected void setPathDrawerNormal() {
             PathDrawer.pdn = new PathDrawerNormalText();
         }
 
@@ -29,16 +29,16 @@ public class PathDrawer implements Drawer
 	 * @ordered
 	 */
 	
-	public void Draw(Drawable El, Canvas Where) {
+	public void draw(Drawable El, Canvas Where) {
             if(El == null ) {
                 throw new ExceptionUnexpectedInput( "Unsupported input" );
             }
             
             if( El instanceof DrawablePath ) {
                 if( PathDrawer.pdn == null ) {
-                    this.SetPathDrawerNormal();
+                    this.setPathDrawerNormal();
                 }
-                PathDrawer.pdn.Draw(El, Where);
+                PathDrawer.pdn.draw(El, Where);
             } else {
                 throw new ExceptionUnexpectedInput( "Unsupported input" );                
             }

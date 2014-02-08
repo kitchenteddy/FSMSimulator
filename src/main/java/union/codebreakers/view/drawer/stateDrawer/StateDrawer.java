@@ -19,15 +19,15 @@ public class StateDrawer implements Drawer
         static private StateDrawerNormal sdn = null;
         static private StateDrawerStarting sds = null;
         
-        protected void SetStateDrawerEnd() {
+        protected void setStateDrawerEnd() {
             StateDrawer.sde = new StateDrawerEndText();
         }
 
-        protected void SetStateDrawerNormal() {
+        protected void setStateDrawerNormal() {
             StateDrawer.sdn = new StateDrawerNormalText();
         }
 
-        protected void SetStateDrawerStarting() {
+        protected void setStateDrawerStarting() {
             StateDrawer.sds = new StateDrawerStartingText();
         }
 	/**
@@ -37,31 +37,31 @@ public class StateDrawer implements Drawer
 	 * @ordered
 	 */
 	
-	public void Draw(Drawable El, Canvas Where) {
+	public void draw(Drawable El, Canvas Where) {
             if(El == null ) {
                 throw new ExceptionUnexpectedInput( "Unsupported input" );
             }
             
             if( El instanceof DrawableState ) {
                 DrawableState element = (DrawableState)El;
-                switch( element.GetState().GetType() ) {
+                switch( element.getState().getType() ) {
                     case eStart :
                         if( StateDrawer.sds == null ) {
-                            this.SetStateDrawerStarting();
+                            this.setStateDrawerStarting();
                         }
-                        StateDrawer.sds.Draw(El, Where);
+                        StateDrawer.sds.draw(El, Where);
                         break;
                     case eEnd:
                         if( StateDrawer.sde == null ) {
-                            this.SetStateDrawerEnd();
+                            this.setStateDrawerEnd();
                         }
-                        StateDrawer.sde.Draw(El, Where);
+                        StateDrawer.sde.draw(El, Where);
                         break;
                     case eNormal:
                         if( StateDrawer.sdn == null ) {
-                            this.SetStateDrawerNormal();
+                            this.setStateDrawerNormal();
                         }
-                        StateDrawer.sdn.Draw(El, Where);
+                        StateDrawer.sdn.draw(El, Where);
                         break;
                 }
             } else {

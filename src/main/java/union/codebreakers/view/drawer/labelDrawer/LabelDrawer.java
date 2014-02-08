@@ -14,14 +14,14 @@ import union.codebreakers.view.drawer.Drawer;
 
 public class LabelDrawer implements Drawer
 {
-        static private LabelDrawerPath ldp = null;
-        static private LabelDrawerState lds = null;
+        static protected LabelDrawerPath ldp = null;
+        static protected LabelDrawerState lds = null;
         
-        protected void SetLabelDrawerPath() {
+        protected void setLabelDrawerPath() {
             LabelDrawer.ldp = new LabelDrawerPathText();
         }
         
-        protected void SetLabelDrawerState() {
+        protected void setLabelDrawerState() {
             LabelDrawer.lds = new LabelDrawerState();
         }
         
@@ -32,7 +32,7 @@ public class LabelDrawer implements Drawer
 	 * @ordered
 	 */
 	
-	public void Draw(Drawable El, Canvas Where) {
+	public void draw(Drawable El, Canvas Where) {
             
             if(El == null ) {
                 throw new ExceptionUnexpectedInput( "Unsupported input" );
@@ -40,18 +40,18 @@ public class LabelDrawer implements Drawer
             
             if( El instanceof DrawableLabel ) {
                 DrawableLabel element = (DrawableLabel)El;
-                switch( element.GetLabel().GetType() ) {
+                switch( element.getLabel().getType() ) {
                     case ePath :
                         if( LabelDrawer.ldp == null ) {
-                            this.SetLabelDrawerPath();
+                            this.setLabelDrawerPath();
                         }
-                        LabelDrawer.ldp.Draw(El, Where);
+                        LabelDrawer.ldp.draw(El, Where);
                         break;
                     case eState:
                         if( LabelDrawer.lds == null ) {
-                            this.SetLabelDrawerState();
+                            this.setLabelDrawerState();
                         }
-                        LabelDrawer.lds.Draw(El, Where);
+                        LabelDrawer.lds.draw(El, Where);
                         break;
                 }
             } else {

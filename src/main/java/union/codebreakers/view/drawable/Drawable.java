@@ -17,7 +17,7 @@ public  interface Drawable
 	 * @ordered
 	 */
 	
-	public void Draw(Canvas Canvas) ;
+	public void draw(Canvas Canvas) ;
 	
 	
 }

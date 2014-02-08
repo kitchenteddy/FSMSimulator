@@ -22,7 +22,7 @@ public class PathDrawerNormalText extends PathDrawerNormal{
      * @ordered
      */
 
-    public void Draw(Drawable El, Canvas Where) {
+    public void draw(Drawable El, Canvas Where) {
             System.out.println("PathDrawerNormalText");
     }
 }

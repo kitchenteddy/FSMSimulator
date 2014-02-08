@@ -37,7 +37,7 @@ public class ViewImage implements View
 	 * @ordered
 	 */
 	
-	public Canvas GetOutput() {
+	public Canvas getOutput() {
 		// TODO : to implement
 		return new Canvas();	
 	}

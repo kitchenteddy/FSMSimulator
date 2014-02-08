@@ -23,7 +23,7 @@ public class LabelDrawerPathText extends LabelDrawerPath{
 	 * @ordered
 	 */
         @Override
-	public void Draw(Drawable obj, Canvas Where) {
+	public void draw(Drawable obj, Canvas Where) {
 		System.out.println("LabelDrawerPath");
 	}
 }

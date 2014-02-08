@@ -30,11 +30,11 @@ public class DrawableLabel implements Drawable
             this.actLabel = null;
 	}
         
-        public Label GetLabel() {
+        public Label getLabel() {
             return this.actLabel;
         }
         
-        public void SetLabel(Label NewLabel) {
+        public void setLabel(Label NewLabel) {
             this.actLabel = NewLabel;
         }
 
@@ -45,7 +45,7 @@ public class DrawableLabel implements Drawable
 	 * @ordered
 	 */
 	
-	public void Draw(Canvas Canvas) {
+	public void draw(Canvas Canvas) {
 		// TODO : to implement	
 	}
 	

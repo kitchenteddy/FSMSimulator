@@ -15,6 +15,6 @@ public interface Label
 	 * @generated
 	 * @ordered
 	 */
-	public LabelType GetType();
+	public LabelType getType();
 }
 

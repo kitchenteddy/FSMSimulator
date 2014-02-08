@@ -58,12 +58,12 @@ public class MainController {
 
                 DrawableState state = new DrawableState();
                 ModelState model = new ModelState();
-                state.SetState( model );
-                model.SetType(StateType.eStart);
-                drawer.Draw(state, null);
-                model.SetType(StateType.eEnd);
-                drawer.Draw(state, null);
-                model.SetType(StateType.eNormal);
-                drawer.Draw(state, null);
+                state.setState( model );
+                model.setType(StateType.eStart);
+                drawer.draw(state, null);
+                model.setType(StateType.eEnd);
+                drawer.draw(state, null);
+                model.setType(StateType.eNormal);
+                drawer.draw(state, null);
 	}
 }

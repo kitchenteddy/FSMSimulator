@@ -40,16 +40,16 @@ public class ModelLabel implements Movable, Label, Collidable
         
         
         @Override
-        public LabelType GetType(){
+        public LabelType getType(){
             return this.type;
         }
 	
-        public void SetType(LabelType NewType){
+        public void setType(LabelType NewType){
             this.type = NewType;
         }
 
         @Override
-	public boolean IsCollision(Point Pnt) {
+	public boolean isCollision(Point Pnt) {
 		// TODO : to implement
 		return false;	
 	}

@@ -18,6 +18,6 @@ public interface Drawer
 	 * @generated
 	 * @ordered
 	 */
-	public void Draw(Drawable El, Canvas Where);
+	public void draw(Drawable El, Canvas Where);
 }
 
