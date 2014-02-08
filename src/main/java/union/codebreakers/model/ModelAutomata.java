@@ -16,7 +16,7 @@ public class ModelAutomata implements Automata
 	 * @ordered
 	 */
 	
-	public Iterable collectionStates;
+	public Iterable<State> collectionStates;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,6 +35,18 @@ public class ModelAutomata implements Automata
 	public ModelAutomata(){
 		super();
 	}
+        
+        
+        
+        
+     /**
+     * gets an iterable collection of the states in the automata
+     * @return Iterable collection of states in the Automata
+     */
+    public Iterable getCollectionStates()
+    {
+        return this.collectionStates;
+    }
 
 }
 
