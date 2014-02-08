@@ -1,5 +1,7 @@
 package union.codebreakers.model;
 
+import union.codebreakers.helper.StateType;
+
 
 
 /**
@@ -9,6 +11,6 @@ package union.codebreakers.model;
  */
 public  interface State 
 {
-	
+    public StateType GetType();
 }
 

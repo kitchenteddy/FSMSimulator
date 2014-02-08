@@ -57,8 +57,16 @@ public class ModelState implements State, Movable, Collidable
 	public ModelState(){
 		super();
 	}
+        
+        public StateType GetType(){
+            return this.type;
+        }
 
-	/**
+        public void SetType(StateType NewType){
+            this.type = NewType;
+        }
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated

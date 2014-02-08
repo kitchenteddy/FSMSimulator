@@ -2,6 +2,7 @@ package union.codebreakers.view.drawer.pathDrawer;
 
 import union.codebreakers.helper.Canvas;
 import union.codebreakers.view.drawable.Drawable;
+import union.codebreakers.view.drawer.DrawerSpecific;
 
 
 /**
@@ -10,7 +11,7 @@ import union.codebreakers.view.drawable.Drawable;
  * @generated
  */
 
-public class PathDrawerNormal extends PathDrawer
+public class PathDrawerNormal  implements DrawerSpecific
 {
 	/**
 	 * <!-- begin-user-doc -->
