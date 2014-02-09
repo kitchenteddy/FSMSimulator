@@ -1,7 +1,9 @@
 package union.codebreakers.view.drawer.stateDrawer;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import union.codebreakers.helper.Canvas;
-import union.codebreakers.model.ModelPath;
+import union.codebreakers.view.drawable.DrawableState;
 
 
 /**
@@ -18,7 +20,7 @@ public class StateDrawerEnd extends StateDrawer
 	 * @generated
 	 */
 	public StateDrawerEnd(){
-		super();
+            
 	}
 
 	/**
@@ -28,8 +30,8 @@ public class StateDrawerEnd extends StateDrawer
 	 * @ordered
 	 */
 	
-	public void Draw(ModelPath State, Canvas Canvas) {
-		// TODO : to implement	
+	public void Draw(DrawableState l, Graphics g) {
+            
 	}
 	
 }
