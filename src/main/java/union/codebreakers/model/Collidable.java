@@ -1,6 +1,6 @@
 package union.codebreakers.model;
 
-import union.codebreakers.helper.Point;
+import java.awt.Point;
 
 
 
@@ -9,7 +9,7 @@ import union.codebreakers.helper.Point;
  * <!--  end-user-doc  -->
  * @generated
  */
-public  interface Collidable 
+public interface Collidable 
 {
 	/**
 	 * <!-- begin-user-doc -->
@@ -18,7 +18,7 @@ public  interface Collidable
 	 * @ordered
 	 */
 	
-	public boolean isCollision(Point Pnt) ;
+	public boolean isCollision(Point pnt);
 	
 	
 }

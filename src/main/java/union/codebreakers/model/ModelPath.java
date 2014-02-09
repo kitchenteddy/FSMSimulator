@@ -1,6 +1,6 @@
 package union.codebreakers.model;
 
-import union.codebreakers.helper.Point;
+import java.awt.Point;
 
 
 /**
@@ -12,41 +12,16 @@ import union.codebreakers.helper.Point;
 public class ModelPath implements Movable, Path, Collidable
 {
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
-	public State startPoint;
+	private int angle;
+	private State startPoint;
+	private State endPoint;
+        private Point position;
+	private Label label;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
-	public Point position;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
-	public ModelLabel label;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public State endPoint;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -57,6 +32,88 @@ public class ModelPath implements Movable, Path, Collidable
 		super();
 	}
 
+        
+        
+        
+        
+    /**
+     * 
+     * @return state that is start point for this path
+     */
+    public State getStartPoint()
+    {
+        return this.startPoint;
+    }
+    
+    
+   
+    
+    
+    
+    /**
+     * 
+     * @return state that is end point for this path
+     */
+    public State getEndPoint()
+    {
+        return this.endPoint;
+    }
+    
+    
+    
+    
+    
+    /**
+     * 
+     * @return the angle of this path
+     */
+    public int getAngle()
+    {
+        return this.angle;
+    }
+    
+    
+    
+    /**
+     *  sets the startPoint of this path
+     * @param newStartPoint 
+     */
+    public void setAngle(int newAngle)
+    {
+        this.angle = newAngle;
+    }
+    
+    
+    /**
+     * 
+     * @return string that is the name of this path
+     */
+    public String getName()
+    {
+        return this.label.toString();
+    }
+    
+    
+    
+    /**
+     *  sets the name of this path
+     * @param String newName 
+     */
+    public void setName(String newName)
+    {
+        
+    }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
@@ -68,6 +125,8 @@ public class ModelPath implements Movable, Path, Collidable
 		// TODO : to implement
 		return false;	
 	}
+
+
 	
 }
 

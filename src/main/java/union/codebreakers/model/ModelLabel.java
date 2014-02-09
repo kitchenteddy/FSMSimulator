@@ -1,7 +1,7 @@
 package union.codebreakers.model;
 
 import union.codebreakers.helper.LabelType;
-import union.codebreakers.helper.Point;
+import java.awt.Point;
 
 
 /**
@@ -12,16 +12,15 @@ import union.codebreakers.helper.Point;
 
 public class ModelLabel implements Movable, Label, Collidable
 {
-        private LabelType type;
     
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+    
+        private String name;
+        private LabelType type;
 	public Point position;
 	
+        
+        
+        
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
@@ -31,12 +30,18 @@ public class ModelLabel implements Movable, Label, Collidable
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+	
+        
+        
+        
+        
+        
+        @Override
+        public void setName(String newName)
+        {
+            this.name = newName;
+        }
+        
         
         
         @Override

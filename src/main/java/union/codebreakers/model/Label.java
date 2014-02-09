@@ -9,12 +9,11 @@ import union.codebreakers.helper.LabelType;
  */
 public interface Label 
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	public LabelType getType();
+    @Override
+    public String toString();
+        
+    public void setName(String newName);
+       
+    public LabelType getType();
 }
 

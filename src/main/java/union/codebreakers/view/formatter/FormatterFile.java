@@ -6,8 +6,8 @@
 
 package union.codebreakers.view.formatter;
 
-import union.codebreakers.model.Automata;
-import union.codebreakers.model.State;
+import union.codebreakers.model.*;
+import java.awt.Point;
 
 /**
  *
@@ -29,15 +29,32 @@ public class FormatterFile implements Formatter{
  * @return 
  */
     @Override
-    public String format(Automata currentAutomata) {
+    public String format(Automata myAutomata) {
         
         int linesNum = 0;
         String toReturn = "";
         
         
-        for (State currentState : currentAutomata.getCollectionStates())
+        for (State currentState : myAutomata.getCollectionStates())
         {
-            toReturn += "";
+            //number of lines
+            toReturn += "\n";
+            toReturn += currentState.getName();
+            toReturn += "\n";
+            toReturn += currentState.getPos().toString();
+            toReturn += "\n";
+            Integer myInteger = (Integer) currentState.getType().ordinal();
+            toReturn += myInteger.toString();
+            toReturn += "\n";
+            toReturn += "OUTGOING PATHS:";
+            //iterate through the paths
+            for (Path currentPath: currentState.getPaths())
+            {
+                
+            }
+            
+            
+            
         }
         
         

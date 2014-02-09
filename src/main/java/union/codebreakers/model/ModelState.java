@@ -1,6 +1,6 @@
 package union.codebreakers.model;
-
-import union.codebreakers.helper.Point;
+import java.util.ArrayList;
+import java.awt.Point;
 import union.codebreakers.helper.StateType;
 
 
@@ -13,41 +13,21 @@ import union.codebreakers.helper.StateType;
 public class ModelState implements State, Movable, Collidable
 {
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+
 	
 	public StateType type;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+	
 	
 	public Point position;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
-	public Iterable outgoingPaths;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+	public Iterable<Path> outgoingPaths;
 	
-	public String name;
+	
+	
+	public Label stateLabel;
         
         
         
@@ -193,12 +173,18 @@ public class ModelState implements State, Movable, Collidable
     }
     
     
+    public Iterable getPaths()
+    {
+        //implement
+        return new ArrayList();
+    }
+    
     
     
     
     
 	
-	public boolean isCollision(Point Pnt) {
+	public boolean isCollision(Point pnt) {
 		// TODO : to implement
 		return false;	
 	}

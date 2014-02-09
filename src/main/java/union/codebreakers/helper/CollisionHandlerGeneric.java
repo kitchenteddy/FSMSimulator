@@ -1,5 +1,5 @@
 package union.codebreakers.helper;
-
+import java.awt.Point;
 import union.codebreakers.model.Collidable;
 import union.codebreakers.model.ModelState;
 

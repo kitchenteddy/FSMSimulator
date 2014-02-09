@@ -1,7 +1,7 @@
 package union.codebreakers.model;
 
 import union.codebreakers.helper.StateType;
-import union.codebreakers.helper.Point;
+import java.awt.Point;
 
 
 
@@ -85,6 +85,13 @@ public  interface State
     
     
     
+    /*
+    *
+    * gets an iterable of the outgoing paths
+    *
+    * @return outgoing paths iterable
+    */
+    public Iterable<Path> getPaths();
     
     
     
