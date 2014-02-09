@@ -6,18 +6,16 @@
 
 package union.codebreakers.controller;
 
+import java.util.LinkedList;
 import union.codebreakers.gui.MainFrame;
 import union.codebreakers.helper.LabelType;
 import union.codebreakers.helper.StateType;
 import union.codebreakers.model.ModelLabel;
-import union.codebreakers.model.ModelPath;
 import union.codebreakers.model.ModelState;
+import union.codebreakers.view.drawable.Drawable;
 import union.codebreakers.view.drawable.DrawableLabel;
-import union.codebreakers.view.drawable.DrawablePath;
 import union.codebreakers.view.drawable.DrawableState;
-import union.codebreakers.view.drawer.labelDrawer.LabelDrawer;
-import union.codebreakers.view.drawer.pathDrawer.PathDrawer;
-import union.codebreakers.view.drawer.stateDrawer.StateDrawer;
+import union.codebreakers.view.drawer.DrawerStock;
 
 /**
  *
@@ -30,40 +28,29 @@ public class MainController {
 //            MainFrame myFrame = new MainFrame();
 //            myFrame.show();
             
-            /*  Lukas testing drawers
-                ******************************** LABEL test
-                LabelDrawer drawer = new LabelDrawer();
-
-                DrawableLabel label = new DrawableLabel();
-                ModelLabel model = new ModelLabel();
-                model.SetType( LabelType.ePath );
-
-                label.SetLabel( model );
-                drawer.Draw(label, null);
-
-                model.SetType( LabelType.eState );
-                drawer.Draw(label, null);
+            LinkedList<Drawable> list = new LinkedList<Drawable>();
+            DrawableState s;
+            ModelState ms;
+            for( int i = 0; i < 3; i++ ) {
+                s = new DrawableState();
+                ms = new ModelState();
+                s.setState( ms );
+                ms.setType(StateType.eStart);
+                list.add(s);
+            }
+            DrawableLabel l;
+            ModelLabel ml;
+            for( int i = 0; i < 3; i++ ) {
+                l = new DrawableLabel();
+                ml = new ModelLabel();
+                l.setLabel( ml );
+                ml.setType(LabelType.ePath);
+                list.add(l);
+            }
             
-            
-                ******************************** PATH test
-                PathDrawer drawer = new PathDrawer();
-
-                DrawablePath path = new DrawablePath();
-                ModelPath model = new ModelPath();
-
-                path.SetPath( model );
-                drawer.Draw(path, null);
-            */
-                StateDrawer drawer = new StateDrawer();
-
-                DrawableState state = new DrawableState();
-                ModelState model = new ModelState();
-                state.setState( model );
-                model.setType(StateType.eStart);
-                drawer.draw(state, null);
-                model.setType(StateType.eEnd);
-                drawer.draw(state, null);
-                model.setType(StateType.eNormal);
-                drawer.draw(state, null);
+            DrawerStock drawerStock = new DrawerStock();
+            for(Drawable d : list ) {
+                d.setupDrawing(drawerStock, null);
+            }
 	}
 }

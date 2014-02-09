@@ -28,8 +28,6 @@ public  interface CollisionHandlerGeneric
 	 * @ordered
 	 */
 	
-	public boolean checkCollisionStates(ModelState El, Point Pnt) ;
-	
-	
+	public boolean checkCollisionStates(ModelState El, Point Pnt) ;	
 }
 

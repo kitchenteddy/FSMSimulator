@@ -2,7 +2,7 @@ package union.codebreakers.helper;
 
 /**
  * Tools factory handles managing only one instance of every auxiliary tool at the time
- * @author 3lf
+ * @author polakl
  */
 public class ToolsFactory {
     

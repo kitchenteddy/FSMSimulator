@@ -5,7 +5,7 @@ import union.codebreakers.helper.Canvas;
 import union.codebreakers.model.ModelState;
 import union.codebreakers.view.drawable.Drawable;
 import union.codebreakers.view.drawable.DrawablePath;
-import union.codebreakers.view.drawer.Drawer;
+import union.codebreakers.view.drawer.DrawerGeneric;
 
 
 /**
@@ -14,7 +14,7 @@ import union.codebreakers.view.drawer.Drawer;
  * @generated
  */
 
-public class PathDrawer implements Drawer
+public class PathDrawer implements DrawerGeneric
 {
         static protected PathDrawerNormal pdn = null;
         
@@ -29,7 +29,7 @@ public class PathDrawer implements Drawer
 	 * @ordered
 	 */
 	
-	public void draw(Drawable El, Canvas Where) {
+	public void getTool(Drawable El, Canvas Where) {
             if(El == null ) {
                 throw new ExceptionUnexpectedInput( "Unsupported input" );
             }

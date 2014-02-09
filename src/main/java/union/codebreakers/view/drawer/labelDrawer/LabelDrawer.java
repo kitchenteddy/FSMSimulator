@@ -4,7 +4,7 @@ import union.codebreakers.exception.ExceptionUnexpectedInput;
 import union.codebreakers.helper.Canvas;
 import union.codebreakers.view.drawable.Drawable;
 import union.codebreakers.view.drawable.DrawableLabel;
-import union.codebreakers.view.drawer.Drawer;
+import union.codebreakers.view.drawer.DrawerGeneric;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +12,7 @@ import union.codebreakers.view.drawer.Drawer;
  * @generated
  */
 
-public class LabelDrawer implements Drawer
+public class LabelDrawer implements DrawerGeneric
 {
         static protected LabelDrawerPath ldp = null;
         static protected LabelDrawerState lds = null;
@@ -32,7 +32,7 @@ public class LabelDrawer implements Drawer
 	 * @ordered
 	 */
 	
-	public void draw(Drawable El, Canvas Where) {
+	public void getTool(Drawable El, Canvas Where) {
             
             if(El == null ) {
                 throw new ExceptionUnexpectedInput( "Unsupported input" );

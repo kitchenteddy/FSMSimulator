@@ -2,52 +2,47 @@ package union.codebreakers.view.drawable;
 
 import union.codebreakers.helper.Canvas;
 import union.codebreakers.model.Label;
+import union.codebreakers.view.drawer.DrawerStockGeneric;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * View class which handles drawing one label on canvas
  */
-
 public class DrawableLabel implements Drawable
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private Label actLabel;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public DrawableLabel(){
-            this.actLabel = null;
-	}
-        
-        public Label getLabel() {
-            return this.actLabel;
-        }
-        
-        public void setLabel(Label NewLabel) {
-            this.actLabel = NewLabel;
-        }
+    private Label actLabel;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void draw(Canvas Canvas) {
-		// TODO : to implement	
-	}
-	
+    /**
+     * Constructor
+     */
+    public DrawableLabel(){
+        this.actLabel = null;
+    }
+
+    /**
+     * This method should access saved label model
+     * @return  model class of label for this drawable instance
+     */
+    public Label getLabel() {
+        return this.actLabel;
+    }
+
+    /**
+     * This method should save model for label which is being drawn
+     * @param NewLabel Model of label to be drawn
+     */
+    public void setLabel(Label NewLabel) {
+        this.actLabel = NewLabel;
+    }
+
+    /**
+     * This method should redirect drawing process to the correct set of drawing tools
+     * @param ActStock List of currently available drawer tools
+     * @param Where Where the drawing will occur
+     */
+    @Override
+    public void setupDrawing(DrawerStockGeneric ActStock, Canvas Where) {
+        ActStock.setDrawer(this, Where);
+    }
 }
 
