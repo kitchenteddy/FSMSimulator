@@ -13,5 +13,6 @@ public interface DrawerSpecific {
      * @param El Element that should be drawn
      * @param Where Canvas when the element should be drawn
      */
+
     public void draw(Drawable El, Graphics Where);
 }

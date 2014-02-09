@@ -15,7 +15,6 @@ import union.codebreakers.view.drawable.Drawable;
  */
 public class StateDrawerEndText extends StateDrawerEnd{
 
-    @Override
     public void draw(Drawable State, Graphics Canvas) {
         System.out.println("StateDrawerEndText");
     }

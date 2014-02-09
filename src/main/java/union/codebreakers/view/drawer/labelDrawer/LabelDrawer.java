@@ -33,6 +33,7 @@ public class LabelDrawer implements DrawerGeneric
 	 */
 	
 	public void getTool(Drawable El, Graphics Where) {
+
             
             if(El == null ) {
                 throw new ExceptionUnexpectedInput( "Unsupported input" );

@@ -21,7 +21,7 @@ public class LabelDrawerState implements DrawerSpecific
 	 * @ordered
 	 */
 	public void draw(Drawable obj, Graphics Where) {
-		System.out.print("LabelDrawerState");
+            System.out.print("LabelDrawerState");
 	}
 }
 

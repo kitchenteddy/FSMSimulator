@@ -14,5 +14,6 @@ public interface DrawerGeneric {
      * @param El    Drawable element which should be drawn
      * @param Where Canvas on which the element should've been drawn
      */
+
     public void getTool(Drawable El, Graphics Where);    
 }

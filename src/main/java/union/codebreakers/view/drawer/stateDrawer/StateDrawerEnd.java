@@ -13,17 +13,25 @@ import union.codebreakers.view.drawer.DrawerSpecific;
 
 public class StateDrawerEnd  implements DrawerSpecific
 {
+    
+    /**
+     * <!-- begin-user-doc -->
+     * <!--  end-user-doc  -->
+     * @generated
+     */
+    public StateDrawerEnd(){
+            super();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void draw(Drawable El, Graphics Where) {
-            
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!--  end-user-doc  -->
+     * @generated
+     * @ordered
+     */
 
+    public void draw(Drawable State, Graphics Where) {
+            // TODO : to implement	
+    }
 }
 

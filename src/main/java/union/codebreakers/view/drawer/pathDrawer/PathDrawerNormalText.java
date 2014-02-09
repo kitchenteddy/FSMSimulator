@@ -23,6 +23,6 @@ public class PathDrawerNormalText extends PathDrawerNormal{
      */
 
     public void draw(Drawable El, Graphics Where) {
-            System.out.println("PathDrawerNormalText");
+        System.out.println("PathDrawerNormalText");
     }
 }

@@ -24,6 +24,6 @@ public class LabelDrawerPathText extends LabelDrawerPath{
 	 */
         @Override
 	public void draw(Drawable obj, Graphics Where) {
-		System.out.println("LabelDrawerPath");
+            System.out.println("LabelDrawerPath");
 	}
 }

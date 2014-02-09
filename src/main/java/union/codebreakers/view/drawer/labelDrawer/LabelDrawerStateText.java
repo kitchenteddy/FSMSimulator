@@ -24,6 +24,6 @@ public class LabelDrawerStateText extends LabelDrawerState{
 	 */
         @Override
 	public void draw(Drawable obj, Graphics Where) {
-		System.out.print("LabelDrawerState");
+            System.out.print("LabelDrawerState");
 	}
 }

@@ -7,7 +7,6 @@
 package union.codebreakers.controller;
 
 import java.util.LinkedList;
-import union.codebreakers.gui.MainFrame;
 import union.codebreakers.helper.LabelType;
 import union.codebreakers.helper.StateType;
 import union.codebreakers.model.ModelLabel;

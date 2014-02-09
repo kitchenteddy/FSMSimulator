@@ -42,7 +42,6 @@ public class DrawablePath implements Drawable
      */
     @Override
     public void setupDrawing(DrawerStockGeneric ActStock, Graphics Where) {
-        ActStock.setDrawer(this, Where);
     }
 }
 
