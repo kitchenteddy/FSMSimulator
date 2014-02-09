@@ -64,7 +64,7 @@ public class ModelPath implements Movable, Path, Collidable
 	 * @ordered
 	 */
 	
-	public boolean IsCollision(Point Pnt) {
+	public boolean isCollision(Point Pnt) {
 		// TODO : to implement
 		return false;	
 	}

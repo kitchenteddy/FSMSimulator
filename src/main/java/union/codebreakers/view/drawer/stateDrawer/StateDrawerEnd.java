@@ -1,9 +1,8 @@
 package union.codebreakers.view.drawer.stateDrawer;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import union.codebreakers.helper.Canvas;
-import union.codebreakers.view.drawable.DrawableState;
+import union.codebreakers.view.drawable.Drawable;
+import union.codebreakers.view.drawer.DrawerSpecific;
 
 
 /**
@@ -12,16 +11,8 @@ import union.codebreakers.view.drawable.DrawableState;
  * @generated
  */
 
-public class StateDrawerEnd extends StateDrawer
+public class StateDrawerEnd  implements DrawerSpecific
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public StateDrawerEnd(){
-            
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -30,9 +21,9 @@ public class StateDrawerEnd extends StateDrawer
 	 * @ordered
 	 */
 	
-	public void Draw(DrawableState l, Graphics g) {
+	public void draw(Drawable El, Graphics Where) {
             
 	}
-	
+
 }
 

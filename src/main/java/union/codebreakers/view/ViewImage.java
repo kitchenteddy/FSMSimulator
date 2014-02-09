@@ -1,6 +1,6 @@
 package union.codebreakers.view;
 
-import union.codebreakers.helper.Canvas;
+import java.awt.Graphics;
 import union.codebreakers.model.Automata;
 
 
@@ -37,9 +37,9 @@ public class ViewImage implements View
 	 * @ordered
 	 */
 	
-	public Canvas GetOutput() {
+	public Graphics getOutput() {
 		// TODO : to implement
-		return new Canvas();	
+		return null;	
 	}
 	
 }

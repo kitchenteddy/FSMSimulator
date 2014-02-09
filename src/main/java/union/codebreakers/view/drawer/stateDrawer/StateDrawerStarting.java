@@ -1,7 +1,8 @@
 package union.codebreakers.view.drawer.stateDrawer;
 
-import union.codebreakers.helper.Canvas;
-import union.codebreakers.model.ModelState;
+import java.awt.Graphics;
+import union.codebreakers.view.drawable.Drawable;
+import union.codebreakers.view.drawer.DrawerSpecific;
 
 
 /**
@@ -10,7 +11,7 @@ import union.codebreakers.model.ModelState;
  * @generated
  */
 
-public class StateDrawerStarting extends StateDrawer
+public class StateDrawerStarting  implements DrawerSpecific
 {
 	/**
 	 * <!-- begin-user-doc -->
@@ -28,7 +29,8 @@ public class StateDrawerStarting extends StateDrawer
 	 * @ordered
 	 */
 	
-	public void Draw(ModelState State, Canvas Canvas) {
+        @Override
+	public void draw(Drawable State, Graphics Canvas) {
 		// TODO : to implement	
 	}
 	

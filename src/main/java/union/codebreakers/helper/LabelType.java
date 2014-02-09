@@ -7,5 +7,5 @@ package union.codebreakers.helper;
  */
 public enum LabelType
 {
-	ePath, eState;
+	ePath, eState
 }

@@ -16,4 +16,5 @@ test {
 
 apply plugin: 'application'
 
+mainClass="union.codebreakers.controller.MainController"
 mainClassName="union.codebreakers.controller.MainController"

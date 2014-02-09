@@ -1,11 +1,10 @@
 package union.codebreakers.view.drawer.labelDrawer;
 
-import union.codebreakers.helper.Canvas;
-import union.codebreakers.model.ModelState;
+import java.awt.Graphics;
+import union.codebreakers.exception.ExceptionUnexpectedInput;
 import union.codebreakers.view.drawable.Drawable;
 import union.codebreakers.view.drawable.DrawableLabel;
-import union.codebreakers.view.drawer.Drawer;
-
+import union.codebreakers.view.drawer.DrawerGeneric;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,17 +12,19 @@ import union.codebreakers.view.drawer.Drawer;
  * @generated
  */
 
-public class LabelDrawer implements Drawer
+public class LabelDrawer implements DrawerGeneric
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public LabelDrawer(){
-		super();
-	}
-
+        static protected LabelDrawerPath ldp = null;
+        static protected LabelDrawerState lds = null;
+        
+        protected void setLabelDrawerPath() {
+            LabelDrawer.ldp = new LabelDrawerPathText();
+        }
+        
+        protected void setLabelDrawerState() {
+            LabelDrawer.lds = new LabelDrawerState();
+        }
+        
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
@@ -31,7 +32,31 @@ public class LabelDrawer implements Drawer
 	 * @ordered
 	 */
 	
-	public void Draw(Drawable El, Canvas Where) {
+	public void getTool(Drawable El, Graphics Where) {
+            
+            if(El == null ) {
+                throw new ExceptionUnexpectedInput( "Unsupported input" );
+            }
+            
+            if( El instanceof DrawableLabel ) {
+                DrawableLabel element = (DrawableLabel)El;
+                switch( element.getLabel().getType() ) {
+                    case ePath :
+                        if( LabelDrawer.ldp == null ) {
+                            this.setLabelDrawerPath();
+                        }
+                        LabelDrawer.ldp.draw(El, Where);
+                        break;
+                    case eState:
+                        if( LabelDrawer.lds == null ) {
+                            this.setLabelDrawerState();
+                        }
+                        LabelDrawer.lds.draw(El, Where);
+                        break;
+                }
+            } else {
+                throw new ExceptionUnexpectedInput( "Unsupported input" );                
+            }
 	}	
 }
 

@@ -36,7 +36,7 @@ public class ViewText implements View
 	 * @ordered
 	 */
 	
-	public String GetOutput() {
+	public String getOutput() {
 		// TODO : to implement
 		return "";	
 	}

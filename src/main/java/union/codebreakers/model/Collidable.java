@@ -18,7 +18,7 @@ public  interface Collidable
 	 * @ordered
 	 */
 	
-	public boolean IsCollision(Point Pnt) ;
+	public boolean isCollision(Point Pnt) ;
 	
 	
 }

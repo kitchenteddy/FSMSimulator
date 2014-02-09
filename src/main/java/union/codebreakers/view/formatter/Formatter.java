@@ -4,12 +4,17 @@
  * and open the template in the editor.
  */
 
-package union.codebreakers.helper;
+package union.codebreakers.view.formatter;
+
+import union.codebreakers.model.Automata;
 
 /**
  *
- * @author joshualoew
+ * @author teddykitchen
  */
-public class Canvas {
+public interface Formatter {
+    
+    public String format(Automata currentAutomata);
+    
     
 }

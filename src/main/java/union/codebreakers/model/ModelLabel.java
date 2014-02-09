@@ -12,22 +12,14 @@ import union.codebreakers.helper.Point;
 
 public class ModelLabel implements Movable, Label, Collidable
 {
+        private LabelType type;
+    
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 * @ordered
 	 */
-	
-	public LabelType type;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
 	public Point position;
 	
 	/**
@@ -45,8 +37,19 @@ public class ModelLabel implements Movable, Label, Collidable
 	 * @generated
 	 * @ordered
 	 */
+        
+        
+        @Override
+        public LabelType getType(){
+            return this.type;
+        }
 	
-	public boolean IsCollision(Point Pnt) {
+        public void setType(LabelType NewType){
+            this.type = NewType;
+        }
+
+        @Override
+	public boolean isCollision(Point Pnt) {
 		// TODO : to implement
 		return false;	
 	}

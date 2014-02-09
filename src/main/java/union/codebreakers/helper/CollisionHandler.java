@@ -28,7 +28,7 @@ public class CollisionHandler implements CollisionHandlerGeneric
 	 * @ordered
 	 */
 	
-	public Collidable CheckCollision(Point Pnt) {
+	public Collidable checkCollision(Point Pnt) {
 		// TODO : to implement
             return null;
 	}
@@ -40,7 +40,7 @@ public class CollisionHandler implements CollisionHandlerGeneric
 	 * @ordered
 	 */
 	
-	public boolean CheckCollisionStates(ModelState El, Point Pnt) {
+	public boolean checkCollisionStates(ModelState El, Point Pnt) {
 		// TODO : to implement
 		return false;	
 	}

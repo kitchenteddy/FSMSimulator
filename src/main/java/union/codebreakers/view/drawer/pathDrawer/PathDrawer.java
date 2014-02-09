@@ -1,9 +1,10 @@
 package union.codebreakers.view.drawer.pathDrawer;
 
-import union.codebreakers.helper.Canvas;
-import union.codebreakers.model.ModelState;
+import java.awt.Graphics;
+import union.codebreakers.exception.ExceptionUnexpectedInput;
 import union.codebreakers.view.drawable.Drawable;
-import union.codebreakers.view.drawer.Drawer;
+import union.codebreakers.view.drawable.DrawablePath;
+import union.codebreakers.view.drawer.DrawerGeneric;
 
 
 /**
@@ -12,37 +13,34 @@ import union.codebreakers.view.drawer.Drawer;
  * @generated
  */
 
-public class PathDrawer implements Drawer
+public class PathDrawer implements DrawerGeneric
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public PathDrawer(){
-		super();
-	}
+        static protected PathDrawerNormal pdn = null;
+        
+        protected void setPathDrawerNormal() {
+            PathDrawer.pdn = new PathDrawerNormalText();
+        }
 
-	/**
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->
 	 * @generated
 	 * @ordered
 	 */
 	
-	public void Draw(ModelState El, Canvas Where) {
-		// TODO : to implement	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void Draw(Drawable El, Canvas Where) {
-		// TODO : to implement	
+	public void getTool(Drawable El, Graphics Where) {
+            if(El == null ) {
+                throw new ExceptionUnexpectedInput( "Unsupported input" );
+            }
+            
+            if( El instanceof DrawablePath ) {
+                if( PathDrawer.pdn == null ) {
+                    this.setPathDrawerNormal();
+                }
+                PathDrawer.pdn.draw(El, Where);
+            } else {
+                throw new ExceptionUnexpectedInput( "Unsupported input" );                
+            }
 	}
 	
 }

@@ -1,53 +1,48 @@
 package union.codebreakers.view.drawable;
 
-import union.codebreakers.helper.Canvas;
+import java.awt.Graphics;
 import union.codebreakers.model.Path;
+import union.codebreakers.view.drawer.DrawerStockGeneric;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * View class which handles drawing one label on canvas
  */
-
 public class DrawablePath implements Drawable
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	private Path actPath;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public DrawablePath(){
-            this.actPath = null;
-	}
-        
-        public Path GetPath() {
-            return this.actPath;
-        }
-        
-        public void SetPath(Path NewPath ) {
-            this.actPath = NewPath;
-        }
+    private Path actPath;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void Draw(Canvas Canvas) {
-		// TODO : to implement	
-	}
-	
+    /**
+     * Constructor
+     */
+    public DrawablePath(){
+        this.actPath = null;
+    }
+
+    /**
+     * This method should access saved path model
+     * @return  model class of path for this drawable instance
+     */
+    public Path getPath() {
+        return this.actPath;
+    }
+
+    /**
+     * This method should save model for path which is being drawn
+     * @param NewPath Model of label to be drawn
+     */
+    public void setPath(Path NewPath ) {
+        this.actPath = NewPath;
+    }
+
+    /**
+     * This method should redirect drawing process to the correct set of drawing tools
+     * @param ActStock List of currently available drawer tools
+     * @param Where Where the drawing will occur
+     */
+    @Override
+    public void setupDrawing(DrawerStockGeneric ActStock, Graphics Where) {
+        ActStock.setDrawer(this, Where);
+    }
 }
 

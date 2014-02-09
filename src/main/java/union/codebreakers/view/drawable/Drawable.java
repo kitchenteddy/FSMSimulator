@@ -1,6 +1,7 @@
 package union.codebreakers.view.drawable;
 
-import union.codebreakers.helper.Canvas;
+import java.awt.Graphics;
+import union.codebreakers.view.drawer.DrawerStockGeneric;
 
 
 /**
@@ -10,15 +11,11 @@ import union.codebreakers.helper.Canvas;
  */
 public  interface Drawable 
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void Draw(Canvas Canvas) ;
-	
-	
+    /**
+     * This method should redirect drawing process to the correct set of drawing tools
+     * @param ActStock List of currently available drawers
+     * @param Where Where the drawing will occur
+     */
+    public void setupDrawing(DrawerStockGeneric ActStock, Graphics Where);
 }
 
