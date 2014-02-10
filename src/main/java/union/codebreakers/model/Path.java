@@ -51,17 +51,17 @@ public  interface Path
     
     /**
      * 
-     * @return string that is the name of this path
+     * @return Label of this path
      */
-    public String getName();
+    public Label getLabel();
     
     
     
     /**
-     *  sets the name of this path
-     * @param String newName 
+     *  sets the label of this path
+     * @param  newLabel 
      */
-    public void setName(String newName);
+    public void setLabel(Label newLabel);
     
     
     /**

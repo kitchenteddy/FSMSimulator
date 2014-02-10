@@ -56,11 +56,11 @@ public  interface State
     
     /*
     *
-    * gets the name of the state as a string
+    * gets the label of the state
     *
-    * @return string for the name of state
+    * @return  Label
     */
-    public String getName();
+    public Label getLabel();
     
     /*
     *
@@ -68,7 +68,7 @@ public  interface State
     *
     * @param String for desired name
     */
-    public void setName(String newName);
+    public void setLabel(Label newLabel);
     
     /*
     *

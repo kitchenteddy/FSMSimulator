@@ -88,20 +88,21 @@ public class ModelPath implements Path, Collidable
     
     /**
      * 
-     * @return string that is the name of this path
+     * getter method for a path's label
+     * @return Label of this path
      */
-    public String getName()
+    public Label getLabel()
     {
-        return this.label.toString();
+        return this.label;
     }
     
     
     
     /**
-     *  sets the name of this path
-     * @param String newName 
+     *  sets the label of this path
+     * @param newLabel
      */
-    public void setName(String newName)
+    public void setLabel(Label newLabel)
     {
         
     }
