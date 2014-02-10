@@ -10,6 +10,7 @@ import java.awt.Point;
 import java.util.LinkedList;
 import union.codebreakers.gui.MainFrame;
 import union.codebreakers.helper.StateType;
+import union.codebreakers.helper.ToolsFactory;
 import union.codebreakers.model.ModelPath;
 import union.codebreakers.model.ModelState;
 import union.codebreakers.view.drawable.Drawable;
@@ -36,16 +37,14 @@ public class ControllerPersonalLukas extends ControllerPersonal{
     @Override
     public void run() {
 
-        /*
-        DrawablePath p = new DrawablePath();
-        ModelPath mp = new ModelPath();
-        ModelState ms1 = new ModelState();
-        ModelState ms2 = new ModelState();
-        ms1.setPos(new Point( 30, 30) );
-        ms2.setPos(new Point( 130, 40) );
-            
-//        mp.
-            System.out.print("lukas");
-        */
+        DrawableState s = new DrawableState();
+        ModelState ms = new ModelState();
+//        ModelState ms1 = new ModelState();
+//        ModelState ms2 = new ModelState();
+        ms.setPos(new Point( 30, 30) );
+//        ms2.setPos(new Point( 130, 40) );
+        s.setState(ms);
+        ms.setType(StateType.eEnd);
+        s.setupDrawing(ToolsFactory.getDrawerStock(), this.getFrame().getGraphicsPainting());
     }
 }

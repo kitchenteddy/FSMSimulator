@@ -61,12 +61,12 @@ public class MainController {
                 MainController.runAppCode();
             }
             finally{
-                if( runAppCode ){
+                if( runAppCode ) {
                     MainController.runAppCode();
                 }
             }
             if( customCode > 0 ){
-                ((ControllerPersonal)controller).setFrame(MainController.myFrame);
+                controller.setFrame(MainController.myFrame);
                 controller.run();
             }
         }

@@ -30,10 +30,16 @@ public class ControllerPersonal implements ControllerPersonalGeneric{
      * Gives you currently displayed frame
      * @return Instance of the frame
     */
+    @Override
     public MainFrame getFrame(){
         return this.frame;
     }
     
+    /**
+     * Sets currently displayed frame
+     * @param f Instance of the frame
+    */
+    @Override
     public void setFrame(MainFrame f){
         this.frame = f;
     }

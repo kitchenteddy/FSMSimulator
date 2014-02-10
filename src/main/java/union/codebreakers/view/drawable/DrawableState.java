@@ -42,6 +42,7 @@ public class DrawableState implements Drawable
      */
     @Override
     public void setupDrawing(DrawerStockGeneric ActStock, Graphics Where) {
+        ActStock.setDrawer(this, Where);
     }
 }
 
