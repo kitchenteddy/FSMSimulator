@@ -3,3 +3,4 @@ build
 .nb-gradle
 .DS_Store
 config.lssd
+.#config.lssd
