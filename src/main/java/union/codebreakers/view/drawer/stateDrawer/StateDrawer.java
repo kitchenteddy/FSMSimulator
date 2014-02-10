@@ -20,15 +20,15 @@ public class StateDrawer implements DrawerGeneric
         static private StateDrawerStarting sds = null;
         
         protected void setStateDrawerEnd() {
-            StateDrawer.sde = new StateDrawerEndText();
+            StateDrawer.sde = new StateDrawerEnd();
         }
 
         protected void setStateDrawerNormal() {
-            StateDrawer.sdn = new StateDrawerNormalText();
+            StateDrawer.sdn = new StateDrawerNormal();
         }
 
         protected void setStateDrawerStarting() {
-            StateDrawer.sds = new StateDrawerStartingText();
+            StateDrawer.sds = new StateDrawerStarting();
         }
 	/**
 	 * <!-- begin-user-doc -->
