@@ -115,6 +115,111 @@ public  interface Automata
    
     
     
+
+
+
+
+
+//AUTOMATA METHODS INVOLVING PATHS
+    
+    
+    
+    
+    
+    
+    
+    /**
+     * adds a path to the automata
+     * @param newPath 
+     */
+    public void addPath(Path newPath);
+    
+    /**
+     * returns true iff state from has an outgoing path to state to
+     * @param from
+     * @param to
+     */
+    public boolean hasPath(State from, State to);
+    
+    
+    /**
+     * gets a path from State from to State to.
+     * @param from
+     * @param to
+     */
+    public Path getPath(State from, State to);
+    
+    
+    /**
+     * removes a path from the automata
+     * @param Path toRemove
+     */
+    public void removePath(Path toRemove);
+    
+    
+    /**
+     * gets the angle of a path WE NEED TO TALK ABOUT HOW THIS ANGLE IS GOING TO WORK
+     * 
+     * 
+     * 
+     * @return int angle of the path
+     * @param myPath 
+     */
+    public int getPathAngle(Path myPath);
+    
+    
+    
+    
+    /**
+     * sets the angle of a path
+     * 
+     * @param myPath 
+     * @param newAngle
+     * 
+     */
+    public void setPathAngle(Path myPath, int newAngle);
+    
+    
+    
+    /**
+     * retrieves the label of a path
+     * @param myPath 
+     * @return Label of the path
+     */
+    public Label getPathLabel(Path myPath);
+    
+    
+    
+    
+    /**
+     * sets the label of a path
+     * @param myPath 
+     * @param newLabel
+     */
+    public void setPathLabel(Path myPath, Label newLabel);
+    
+    
+    /**
+     * gets the type of a path
+     * @param myPath
+     * @return PathType of the path
+     */
+    public PathType getPathType(Path myPath);
+    
+    
+    
+    
+    /**
+     * sets the type of a path
+     * @param myPath 
+     * @param newType
+     */
+    public void setPathType(Path myPath, PathType newType);
+    
+ 
+    
+    
+    
     
     
     
