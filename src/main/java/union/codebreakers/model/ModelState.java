@@ -12,100 +12,52 @@ import union.codebreakers.helper.StateType;
 
 public class ModelState implements State, Movable, Collidable
 {
-	
+    public StateType type;
 
-	
-	public StateType type;
-	
-	
-	
-	public Point position;
-	
-	
-	
-	public Iterable<Path> outgoingPaths;
-	
-	
-	
-	public Label stateLabel;
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public ModelState(){
-		super();
-	}
-        
-        public StateType getType(){
-            return this.type;
-        }
+    public Point position;
 
-        public void setType(StateType newType){
-            this.type = newType;
-        }
+    public Iterable<Path> outgoingPaths;
 
-        /**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        ///// IMPLEMENT BELOW
-        
-        
-        
-        
-        
-        
-            /*
+    public Label stateLabel;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!--  end-user-doc  -->
+     * @generated
+     */
+    public ModelState(){
+            super();
+    }
+
+    @Override
+    public StateType getType(){
+        return this.type;
+    }
+
+    @Override
+    public void setType(StateType newType){
+        this.type = newType;
+    }
+
+    /*
     * gets the number of outgoing paths that this state has
     * @return number of outgoing paths
     */
+    @Override
     public int getPathNum()
     {
         return 0;  //IMPLEMENT
     }
-    
-    
-    
+        
     /*
     * gets a point representing the position of a state
     * @return point for position of state
     */
+    @Override
     public Point getPos()
     {
         return new Point();
     }
-    
     
     /*
     *
@@ -113,11 +65,11 @@ public class ModelState implements State, Movable, Collidable
     *
     * @param desired position point
     */
+    @Override
     public void setPos(Point position)
     {
         //IMPLEMENT
     }
-    
     
     /*
     *
@@ -126,12 +78,11 @@ public class ModelState implements State, Movable, Collidable
     * @param desired x postion
     * @param desired y position
     */
+    @Override
     public void setPos(int x, int y)
     {
         //IMPLEMENT
     }
-    
-    
     
     /*
     *
@@ -139,11 +90,11 @@ public class ModelState implements State, Movable, Collidable
     *
     * @return string for the name of state
     */
+    @Override
     public String getName()
     {
         return "";//IMPLEMENT
     }
-    
     
     /*
     *
@@ -151,17 +102,11 @@ public class ModelState implements State, Movable, Collidable
     *
     * @param String for desired name
     */
+    @Override
     public void setName(String newName)
     {
         
     }
-    
-    
-    
-    
-
-    
-    
     
     /*
     * sets the state's type
@@ -172,24 +117,27 @@ public class ModelState implements State, Movable, Collidable
         
     }
     
-    
+    @Override
     public Iterable getPaths()
     {
         //implement
         return new ArrayList();
     }
-    
-    
-    
-    
-    
 	
-	public boolean isCollision(Point pnt) {
-		// TODO : to implement
-		return false;	
-	}
-        
-        
-	
+    @Override
+    public boolean isCollision(Point pnt) {
+        // TODO : to implement
+        return false;	
+    }
+
+    /**
+     * Returns radius of state
+     * @return radius of state
+     */
+    @Override
+    public int getRadius(){
+        return 10;
+    }
+
 }
 
