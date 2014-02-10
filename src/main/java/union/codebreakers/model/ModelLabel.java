@@ -4,11 +4,6 @@ import union.codebreakers.helper.LabelType;
 import java.awt.Point;
 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
 
 public class ModelLabel implements Movable, Label, Collidable
 {
@@ -22,13 +17,15 @@ public class ModelLabel implements Movable, Label, Collidable
         
         
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
+	 * constructor for ModelLabel
+	 * 
 	 */
-	public ModelLabel(){
-		super();
+	public ModelLabel() 
+        {
+            this.name = "";
 	}
+        
+        
 
 	
         
@@ -36,7 +33,12 @@ public class ModelLabel implements Movable, Label, Collidable
         
         
         
-        @Override
+        /**
+	 * 
+	 * sets the name of this label
+         * 
+         * @param newName
+	 */
         public void setName(String newName)
         {
             this.name = newName;
@@ -44,16 +46,32 @@ public class ModelLabel implements Movable, Label, Collidable
         
         
         
-        @Override
+        /**
+	 * 
+	 * gets the type of this Label
+         * 
+	 */
         public LabelType getType(){
             return this.type;
         }
 	
+        
+        
+        /**
+	 * 
+	 * 
+	 */
         public void setType(LabelType NewType){
             this.type = NewType;
         }
 
-        @Override
+        
+        
+        
+        /**
+	 * 
+	 * 
+	 */
 	public boolean isCollision(Point Pnt) {
 		// TODO : to implement
 		return false;	

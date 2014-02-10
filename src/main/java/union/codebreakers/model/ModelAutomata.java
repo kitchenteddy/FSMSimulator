@@ -16,16 +16,23 @@ public class ModelAutomata implements Automata
 {
 	
 	
-	public ArrayList<State> collectionStates;
-	public ArrayList<Collidable> collectionCollidable;
+    public ArrayList<State> collectionStates;
+    public ArrayList<Collidable> collectionCollidable;
 
         
         
+   /**      
+    *
+    * constructor method for ModelAutomata
+    * 
+    * @return the new ModelAutamata instance
+    */    
+    public ModelAutomata(){
         
-	public ModelAutomata(){
-		this.collectionStates = new ArrayList<State>();
-                this.collectionCollidable = new ArrayList<Collidable>();
-	}
+	this.collectionStates = new ArrayList<State>();
+        this.collectionCollidable = new ArrayList<Collidable>();
+        
+     }
         
         
         

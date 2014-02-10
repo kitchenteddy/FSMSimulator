@@ -1,12 +1,10 @@
 package union.codebreakers.model;
 
+
+import java.awt.Point;
 import union.codebreakers.helper.LabelType;
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
+
 public interface Label 
 {
     @Override

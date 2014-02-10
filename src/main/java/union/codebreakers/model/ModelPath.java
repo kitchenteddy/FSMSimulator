@@ -4,11 +4,6 @@ import java.awt.Point;
 import union.codebreakers.helper.PathType;
 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
 
 public class ModelPath implements Path, Collidable
 {
@@ -104,12 +99,12 @@ public class ModelPath implements Path, Collidable
      */
     public void setLabel(Label newLabel)
     {
-        
+        this.label = newLabel;
     }
     
     
     
-        /**
+    /**
      * 
      * gets the path type of the path
      * @return the type of path

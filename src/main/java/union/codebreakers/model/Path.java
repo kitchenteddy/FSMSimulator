@@ -3,11 +3,7 @@ import union.codebreakers.helper.PathType;
 
 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
+
 public  interface Path 
 {
     

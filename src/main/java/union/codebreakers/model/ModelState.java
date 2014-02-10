@@ -5,137 +5,154 @@ import union.codebreakers.helper.StateType;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * 
+ * ModelState class
+ * 
+ * 
  */
 
 public class ModelState implements State, Movable, Collidable
 {
+    
+    
     public StateType type;
 
     public Point position;
 
-    public Iterable<Path> outgoingPaths;
+    public ArrayList<Path> outgoingPaths;
 
     public Label stateLabel;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!--  end-user-doc  -->
-     * @generated
+     * 
+     * 
+     * Constructor method for ModelState
+     * 
      */
     public ModelState(){
-            super();
+            
     }
 
-    @Override
+    
+    
+   /**
+    * returns the state's type
+    * @return StateType of the state
+    */
     public StateType getType(){
         return this.type;
     }
 
-    @Override
+    
+    
+    
+   /**
+    *
+    * sets the state's type
+    * @param StateType of the state
+    */
     public void setType(StateType newType){
         this.type = newType;
     }
 
-    /*
+    /**
     * gets the number of outgoing paths that this state has
     * @return number of outgoing paths
     */
-    @Override
     public int getPathNum()
     {
-        return 0;  //IMPLEMENT
+        return this.outgoingPaths.size();
+        
     }
         
-    /*
+    /**
     * gets a point representing the position of a state
     * @return point for position of state
     */
-    @Override
     public Point getPos()
     {
-        return new Point();
+        return this.position;
     }
     
-    /*
+   /**
     *
     * sets the position of the state
     *
     * @param desired position point
     */
-    @Override
     public void setPos(Point position)
     {
-        //IMPLEMENT
+        this.position = position;
     }
     
-    /*
+    
+   /**
     *
     * sets the position of the state
     *
     * @param desired x postion
     * @param desired y position
     */
-    @Override
     public void setPos(int x, int y)
     {
-        //IMPLEMENT
+        this.position = new Point(x, y);
     }
     
-    /*
+   /**
     *
     * gets the label of the state
     *
     * @return Label for the state
     */
-
     public Label getLabel()
 
     {
-        return null; //IMPLEMENT
+        return this.stateLabel;
     }
     
-    /*
+    /**
     *
     * sets the label of the state
     *
     * @param newLabel
     */
-
     public void setLabel(Label newLabel)
     {
-        
+        this.stateLabel = newLabel;
     }
 
-    /*
-    * sets the state's type
-    @param StateType of the state
-    */
-    public void setType()
-    {
-        
-    }
+
     
-    @Override
-    public Iterable getPaths()
+    
+    
+   /**
+    *
+    * gets an iterable of the outgoing paths
+    *
+    * @return outgoing paths iterable
+    */
+    public Iterable<Path> getPaths()
     {
         //implement
         return new ArrayList();
     }
 	
-    @Override
+   
+    
+    /////IMPLEMENT THISVVVVVVVVVVV
+    
     public boolean isCollision(Point pnt) {
         // TODO : to implement
         return false;	
     }
+    
+    
+    
 
     /**
      * Returns radius of state
      * @return radius of state
      */
-    @Override
     public int getRadius(){
         return 10;
     }

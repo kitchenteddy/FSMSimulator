@@ -13,31 +13,32 @@ import java.awt.Point;
 public  interface State 
 {
     
-    /*
-    returns the state's type
-    @return StateType of the state
+   /**
+    * returns the state's type
+    * @return StateType of the state
     */
     public StateType getType();
     
-    /*
+   /**
+    *
     * sets the state's type
-    @param StateType of the state
+    * @param StateType of the state
     */
     public void setType(StateType newType);
     
-    /*
+    /**
     * gets the number of outgoing paths that this state has
     * @return number of outgoing paths
     */
     public int getPathNum();
         
-    /*
+    /**
     * gets a point representing the position of a state
     * @return point for position of state
     */
     public Point getPos();
     
-    /*
+    /**
     *
     * sets the position of the state
     *
@@ -45,7 +46,7 @@ public  interface State
     */
     public void setPos(Point position);
     
-    /*
+    /**
     *
     * sets the position of the state
     *
@@ -54,7 +55,7 @@ public  interface State
     */
     public void setPos(int x, int y);
     
-    /*
+    /**
     *
     * gets the label of the state
     *
@@ -62,7 +63,7 @@ public  interface State
     */
     public Label getLabel();
     
-    /*
+    /**
     *
     * sets the name of the state
     *
@@ -70,7 +71,7 @@ public  interface State
     */
     public void setLabel(Label newLabel);
     
-    /*
+    /**
     *
     * gets an iterable of the outgoing paths
     *
