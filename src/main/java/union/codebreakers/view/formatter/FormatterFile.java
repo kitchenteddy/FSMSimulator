@@ -1,30 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package union.codebreakers.view.formatter;
 
 import union.codebreakers.model.*;
 import java.awt.Point;
 
 /**
- *
- * @author teddykitchen
+ *  Formats Automata to be ready to safe to a file
  */
 public class FormatterFile implements Formatter{
     
-    
-       
-   
-    
-    
-/**
- * Formats the automata into a readable string
- * @param currentAutomata
- * @return 
- */
+    /**
+     * Renders content of instance of an Automata class in a specific format
+     * @param myAutomata   Instance of Automata
+     * @return String representation of automata in the format
+     */
     @Override
     public String format(Automata myAutomata) {
         
@@ -84,16 +72,6 @@ public class FormatterFile implements Formatter{
             }
         }
         
-        
-        
-        
-        
         return toReturn;
-    
     }
-    
-    
-    
-    
-    
 }

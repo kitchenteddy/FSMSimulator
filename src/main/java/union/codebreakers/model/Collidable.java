@@ -2,24 +2,17 @@ package union.codebreakers.model;
 
 import java.awt.Point;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Interface for collidable elements
  */
 public interface Collidable 
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public boolean isCollision(Point pnt);
-	
-	
+    /**
+     * Checks, if this element collides with the point
+     * @param pnt POint to check collision with
+     * 
+     * @return Whether the collision occurred
+     */
+    public boolean isCollision(Point pnt);
 }
 

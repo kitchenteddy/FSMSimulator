@@ -16,6 +16,7 @@ public class StateDrawerNormal  implements DrawerSpecific
      * @param state State to draw
      * @param g Canvas to be drawn on
      */
+    @Override
     public void draw(Drawable state, Graphics g) {
 
         g.setColor(Color.RED);

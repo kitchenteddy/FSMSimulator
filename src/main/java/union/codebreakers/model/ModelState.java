@@ -5,42 +5,60 @@ import union.codebreakers.helper.StateType;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Model for state
  */
-
 public class ModelState implements State, Movable, Collidable
 {
-    public StateType type;
-
-    public Point position;
-
-    public Iterable<Path> outgoingPaths;
-
-    public Label stateLabel;
+    /**
+     * Type of this state
+     */
+    private StateType type;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!--  end-user-doc  -->
-     * @generated
+     * Position of this state
+     */
+    private Point position;
+
+    /**
+     * Iterable set of outgoing paths
+     */
+    private Iterable<Path> outgoingPaths;
+
+    /**
+     * Label of this tate
+     */
+    private Label stateLabel;
+
+    /**
+     * Constructor
      */
     public ModelState(){
             super();
     }
 
+    /**
+     * Returns the state's type
+     * 
+     * @return StateType of the state
+    */
     @Override
     public StateType getType(){
         return this.type;
     }
 
+    /**
+     * Sets the state's type
+     * 
+     * @param newType New type of the state
+    */
     @Override
     public void setType(StateType newType){
         this.type = newType;
     }
 
-    /*
-    * gets the number of outgoing paths that this state has
+    /**
+    * Gets the number of outgoing paths that this state has
+    * 
     * @return number of outgoing paths
     */
     @Override
@@ -49,8 +67,9 @@ public class ModelState implements State, Movable, Collidable
         return 0;  //IMPLEMENT
     }
         
-    /*
-    * gets a point representing the position of a state
+    /**
+    * Gets a point representing the position of a state
+    * 
     * @return point for position of state
     */
     @Override
@@ -59,11 +78,10 @@ public class ModelState implements State, Movable, Collidable
         return new Point();
     }
     
-    /*
+    /**
+    * Sets the position of the state
     *
-    * sets the position of the state
-    *
-    * @param desired position point
+    * @param position desired position point
     */
     @Override
     public void setPos(Point position)
@@ -71,12 +89,11 @@ public class ModelState implements State, Movable, Collidable
         //IMPLEMENT
     }
     
-    /*
+    /**
+    * Sets the position of the state
     *
-    * sets the position of the state
-    *
-    * @param desired x postion
-    * @param desired y position
+    * @param x desired x postion
+    * @param y desired y position
     */
     @Override
     public void setPos(int x, int y)
@@ -84,47 +101,47 @@ public class ModelState implements State, Movable, Collidable
         //IMPLEMENT
     }
     
-    /*
-    *
-    * gets the label of the state
+    /**
+    * Gets the label of the state
     *
     * @return Label for the state
     */
-
+    @Override
     public Label getLabel()
 
     {
         return null; //IMPLEMENT
     }
     
-    /*
+    /**
+    * Sets the name of the state
     *
-    * sets the label of the state
-    *
-    * @param newLabel
+    * @param newLabel New label for this state
     */
-
+    @Override
     public void setLabel(Label newLabel)
     {
         
     }
-
-    /*
-    * sets the state's type
-    @param StateType of the state
-    */
-    public void setType()
-    {
-        
-    }
     
+    /**
+     * Gets all outgoing paths from this state
+     * 
+     * @return Iterable set of all outgoing paths from this state
+     */
     @Override
-    public Iterable getPaths()
+    public Iterable<Path> getPaths()
     {
         //implement
         return new ArrayList();
     }
 	
+    /**
+     * Checks, if this element collides with the point
+     * @param pnt POint to check collision with
+     * 
+     * @return Whether the collision occurred
+     */
     @Override
     public boolean isCollision(Point pnt) {
         // TODO : to implement
@@ -133,12 +150,12 @@ public class ModelState implements State, Movable, Collidable
 
     /**
      * Returns radius of state
+     * 
      * @return radius of state
      */
     @Override
     public int getRadius(){
         return 10;
     }
-
 }
 

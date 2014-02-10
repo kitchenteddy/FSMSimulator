@@ -15,11 +15,11 @@ public class StateDrawerEnd  implements DrawerSpecific
 
     /**
      * Draws two concentric circles representing end state
-     * @param state State to draw
+     * @param el State to draw
      * @param g Canvas to be drawn on
      */
     @Override
-    public void draw(Drawable state, Graphics g) {
+    public void draw(Drawable el, Graphics g) {
         
 //        DrawableState d = (DrawableState)state;
 //        d.getState().getPos();

@@ -4,34 +4,19 @@ import java.awt.Graphics;
 import union.codebreakers.view.drawable.Drawable;
 import union.codebreakers.view.drawer.DrawerSpecific;
 
-
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Tool to draw representation of normal path
  */
-
 public class PathDrawerNormal  implements DrawerSpecific
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public PathDrawerNormal(){
-		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void draw(Drawable El, Graphics Where) {
-		// TODO : to implement	
-	}
-	
+    /**
+     * Draws line with arrow between two states
+     * @param el State to draw
+     * @param g Canvas to be drawn on
+     */
+    @Override
+    public void draw(Drawable el, Graphics g) {
+            // TODO : to implement	
+    }
 }
 

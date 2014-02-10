@@ -1,26 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package union.codebreakers.view.formatter;
 
 import union.codebreakers.helper.FormatterType;
 
 /**
- *
- * @author teddykitchen
+ * Factory to get an instance of wanted formatter
  */
 public class FormatterFactory {
     
+    /**
+     * FormatterFile Instance for lazy loading
+     */
     protected static FormatterFile ff = null;
     
+    /**
+     * Setter for FormatterFile Instance
+     */
     protected void initFormatterFile()
     {
         FormatterFactory.ff = new FormatterFile();
     }
     
+    /**
+     * FormatterFile Instance for lazy loading
+     * @param type Type of formatter
+     * @return Instance of wanted formatter
+     */
     public Formatter makeFormatter(FormatterType type )
     {
         if (FormatterFactory.ff == null)

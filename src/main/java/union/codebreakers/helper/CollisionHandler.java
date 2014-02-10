@@ -4,47 +4,35 @@ import union.codebreakers.model.Collidable;
 import union.codebreakers.model.ModelState;
 import java.awt.Point;
 
-
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Collision handler
  */
-
 public class CollisionHandler implements CollisionHandlerGeneric
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public CollisionHandler(){
-		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+    /**
+     * Checks collision with the provided point across all collidable elements 
+     * 
+     * @param pnt Point to check for collision
+     * @return Element with which the collision has occurred
+     */
+    @Override
+    public Collidable checkCollision(Point pnt) {
+        // TODO : to implement
+        return null;
+    }
 	
-	public Collidable checkCollision(Point Pnt) {
-		// TODO : to implement
-            return null;
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public boolean checkCollisionStates(ModelState El, Point Pnt) {
-		// TODO : to implement
-		return false;	
-	}
-	
+    /**
+     * Checks, if the selected states collides with another collidable states
+     * 
+     * @param el Instance of selected state
+     * @param pnt Point where the state should be
+     * 
+     * @return Whether the collision occurred
+     */
+        @Override
+    public boolean checkCollisionStates(ModelState el, Point pnt) {
+        // TODO : to implement
+        return false;	
+    }	
 }
 
