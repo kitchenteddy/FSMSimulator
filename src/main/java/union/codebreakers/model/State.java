@@ -19,31 +19,23 @@ public  interface State
     */
     public StateType getType();
     
-    
-    
     /*
     * sets the state's type
     @param StateType of the state
     */
     public void setType(StateType newType);
     
-    
-    
-    
-    
     /*
     * gets the number of outgoing paths that this state has
     * @return number of outgoing paths
     */
     public int getPathNum();
-    
-    
+        
     /*
     * gets a point representing the position of a state
     * @return point for position of state
     */
     public Point getPos();
-    
     
     /*
     *
@@ -52,7 +44,6 @@ public  interface State
     * @param desired position point
     */
     public void setPos(Point position);
-    
     
     /*
     *
@@ -63,8 +54,6 @@ public  interface State
     */
     public void setPos(int x, int y);
     
-    
-    
     /*
     *
     * gets the label of the state
@@ -72,7 +61,6 @@ public  interface State
     * @return  Label
     */
     public Label getLabel();
-    
     
     /*
     *
@@ -82,9 +70,6 @@ public  interface State
     */
     public void setLabel(Label newLabel);
     
-    
-    
-    
     /*
     *
     * gets an iterable of the outgoing paths
@@ -93,7 +78,10 @@ public  interface State
     */
     public Iterable<Path> getPaths();
     
-    
-    
+    /**
+     * Returns radius of state
+     * @return radius of state
+     */
+    public int getRadius();
 }
 
