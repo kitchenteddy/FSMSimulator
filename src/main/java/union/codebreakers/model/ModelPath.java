@@ -28,6 +28,18 @@ public class ModelPath implements Path, Collidable
 	public ModelPath(){
 		super();
 	}
+        
+        public ModelPath(State from, State to)
+        {
+            this.angle = 0;
+            this.startPoint = from;
+            this.endPoint = to;
+            this.position = new Point(0,0);
+            this.label = new ModelLabel();
+            this.type = PathType.eNormal;
+            
+                    
+        }
 
         
         

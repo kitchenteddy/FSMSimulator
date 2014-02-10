@@ -35,6 +35,19 @@ public class ModelState implements State, Movable, Collidable
 
     
     
+    
+    
+    public void addPath(State destination)
+    {
+        
+        Path newPath = new ModelPath(this, destination);
+        this.outgoingPaths.add(newPath);
+    }
+    
+    
+    
+    
+    
    /**
     * returns the state's type
     * @return StateType of the state

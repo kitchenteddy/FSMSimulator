@@ -13,6 +13,17 @@ import java.awt.Point;
 public  interface State 
 {
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
    /**
     * returns the state's type
     * @return StateType of the state
