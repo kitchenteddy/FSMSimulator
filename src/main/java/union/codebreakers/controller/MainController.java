@@ -6,51 +6,70 @@
 
 package union.codebreakers.controller;
 
-import java.util.LinkedList;
-import union.codebreakers.helper.LabelType;
-import union.codebreakers.helper.StateType;
-import union.codebreakers.model.ModelLabel;
-import union.codebreakers.model.ModelState;
-import union.codebreakers.view.drawable.Drawable;
-import union.codebreakers.view.drawable.DrawableLabel;
-import union.codebreakers.view.drawable.DrawableState;
-import union.codebreakers.view.drawer.DrawerStock;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import union.codebreakers.gui.MainFrame;
 
 /**
  *
  * @author 3lf
  */
 public class MainController {
+        private static MainFrame myFrame = null;
     
         public static void main(String [] args)
 	{
-//            MainFrame myFrame = new MainFrame();
-//            myFrame.show();
-            
-            LinkedList<Drawable> list = new LinkedList<Drawable>();
-            DrawableState s;
-            ModelState ms;
-            for( int i = 0; i < 3; i++ ) {
-                s = new DrawableState();
-                ms = new ModelState();
-                s.setState( ms );
-                ms.setType(StateType.eStart);
-                list.add(s);
-            }
-            DrawableLabel l;
-            ModelLabel ml;
-            for( int i = 0; i < 3; i++ ) {
-                l = new DrawableLabel();
-                ml = new ModelLabel();
-                l.setLabel( ml );
-                ml.setType(LabelType.ePath);
-                list.add(l);
-            }
-            
-            DrawerStock drawerStock = new DrawerStock();
-            for(Drawable d : list ) {
-                d.setupDrawing(drawerStock, null);
-            }
+            MainController.runController();
 	}
         
+        public static void runController(){
+            boolean runAppCode = true;
+            int customCode = 0;
+            ControllerPersonal controller = null;
+            // get config from file
+            try{
+                File f = new File( "config.lssd" );
+                if( f.exists() ) {
+
+                    FileReader fileReader = new FileReader(f);
+                    BufferedReader bufferedReader = new BufferedReader(fileReader);
+                    String line1 = bufferedReader.readLine();
+                    String line2 = bufferedReader.readLine();
+                    fileReader.close();                
+                    runAppCode = Integer.parseInt(line1) == 1;
+                    customCode = Integer.parseInt(line2) % 3;
+                    
+                    switch( customCode ) {
+                        case 1: // Lukas controller
+                            controller = new ControllerPersonalLukas( MainController.myFrame );
+                            break;
+                        case 2: // Josh controller
+                            controller = new ControllerPersonalJosh( MainController.myFrame );
+                            break;
+                        case 3: // Teddy controller
+                            controller = new ControllerPersonalTeddy( MainController.myFrame );
+                            break;
+                    }
+                }
+            }
+            catch(IOException e){
+                MainController.runAppCode();
+            }
+            finally{
+                if( runAppCode ){
+                    MainController.runAppCode();
+                }
+            }
+            if( customCode > 0 ){
+                controller.run();
+            }
+        }
+        
+        
+        public static void runAppCode(){
+           MainController.myFrame = new MainFrame();
+           System.out.print("nah");
+        }
 }
