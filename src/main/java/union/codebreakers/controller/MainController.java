@@ -42,7 +42,7 @@ public class MainController {
                     String line2 = bufferedReader.readLine();
                     fileReader.close();                
                     runAppCode = Integer.parseInt(line1) == 1;
-                    customCode = Integer.parseInt(line2) % 3;
+                    customCode = Integer.parseInt(line2) % 4;
                     
                     switch( customCode ) {
                         case 1: // Lukas controller
