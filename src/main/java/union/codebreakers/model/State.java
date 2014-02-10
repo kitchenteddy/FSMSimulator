@@ -25,7 +25,7 @@ public  interface State
     * sets the state's type
     @param StateType of the state
     */
-    public void setType();
+    public void setType(StateType newType);
     
     
     

@@ -57,8 +57,8 @@ public class ModelState implements State, Movable, Collidable
             return this.type;
         }
 
-        public void setType(StateType NewType){
-            this.type = NewType;
+        public void setType(StateType newType){
+            this.type = newType;
         }
 
         /**

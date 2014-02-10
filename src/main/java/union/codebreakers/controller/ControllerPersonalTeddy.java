@@ -20,5 +20,9 @@ public class ControllerPersonalTeddy extends ControllerPersonal{
      */
     @Override
     public void run() {
+        
+        System.out.println("TESTING BITCHES");
+        
+        
     }
 }
