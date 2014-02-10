@@ -16,6 +16,15 @@ public  interface Automata
      */
     public Iterable<State> getCollectionStates();
     
+
+    
+    
+    //public void addCollidable(Collidable toAdd);
+    
+    
+    
+    //METHODS INVOLVING STATES
+    
    /**      
     *
     * adds a state to the automata
@@ -23,8 +32,15 @@ public  interface Automata
     */
     public void addState(State toAdd);
     
+//    public Label getStateLabel(State myState);
+//    
+//    public void setStateLabel(State myState, Label toSet);
+//    
+//    public int getStatePathNum(State myState);
+//    
+//    public Iterable<Path>  getStatePaths(State myState);
     
-    //public void addCollidable(Collidable toAdd);
+    
     
 
     

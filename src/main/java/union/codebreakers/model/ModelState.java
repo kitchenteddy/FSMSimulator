@@ -135,23 +135,23 @@ public class ModelState implements State, Movable, Collidable
     
     /*
     *
-    * gets the name of the state as a string
+    * gets the label of the state
     *
-    * @return string for the name of state
+    * @return Label for the state
     */
-    public String getName()
+    public Label getLabel()
     {
-        return "";//IMPLEMENT
+        return null; //IMPLEMENT
     }
     
     
     /*
     *
-    * sets the name of the state
+    * sets the label of the state
     *
-    * @param String for desired name
+    * @param newLabel
     */
-    public void setName(String newName)
+    public void setLabel(Label newLabel)
     {
         
     }

@@ -38,7 +38,7 @@ public class FormatterFile implements Formatter{
             
             
             //get the name of the state
-            toReturn += currentState.getName();
+            toReturn += currentState.getLabel().toString();
             toReturn += "~";
             
             //get the position of the state
@@ -66,7 +66,7 @@ public class FormatterFile implements Formatter{
             for (Path currentPath : currentState.getPaths())
             {
                 //get the destination of the path
-                toReturn += currentPath.getEndPoint().getName();
+                toReturn += currentPath.getEndPoint().getLabel().toString();
                 toReturn += "~";
                 
                 //get the angle of the path
