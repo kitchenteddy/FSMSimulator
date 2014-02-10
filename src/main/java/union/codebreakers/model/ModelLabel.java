@@ -8,15 +8,11 @@ import java.awt.Point;
 
 public class ModelLabel implements Movable, Label, Collidable
 {
-    
-    
+
         private String name;
         private LabelType type;
 	public Point position;
-	
-        
-        
-        
+
 	/**
 	 * constructor for ModelLabel
 	 * 
@@ -25,14 +21,6 @@ public class ModelLabel implements Movable, Label, Collidable
         {
             this.name = "";
 	}
-        
-        
-
-	
-        
-        
-        
-        
         
         /**
 	 * 
@@ -44,9 +32,7 @@ public class ModelLabel implements Movable, Label, Collidable
         {
             this.name = newName;
         }
-        
-        
-        
+
         /**
 	 * 
 	 * gets the type of this Label
@@ -55,9 +41,7 @@ public class ModelLabel implements Movable, Label, Collidable
         public LabelType getType(){
             return this.type;
         }
-	
-        
-        
+ 
         /**
 	 * 
 	 * 

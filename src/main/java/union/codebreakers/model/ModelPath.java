@@ -11,19 +11,12 @@ import union.codebreakers.helper.PathType;
 public class ModelPath implements Path, Collidable
 {
 
-	
-
-	
 	private int angle;
 	private State startPoint;
 	private State endPoint;
         private Point position;
 	private Label label;
         private PathType type;
-	
-	
-	
-	
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -41,12 +34,9 @@ public class ModelPath implements Path, Collidable
             this.endPoint = to;
             this.position = new Point(0,0);
             this.label = new ModelLabel();
-            this.type = PathType.eNormal;
-            
-                    
+            this.type = PathType.eNormal;          
         }
-
-
+        
     /**
      * Gets start point for this path
      * 
@@ -113,7 +103,6 @@ public class ModelPath implements Path, Collidable
         this.label = newLabel;
     }
     
-
     /**
      * Gets the path type of the path
      * 
@@ -125,7 +114,6 @@ public class ModelPath implements Path, Collidable
         return this.type;
     }
         
-
    /**
      *  sets the type of this path
      * @param  newType 
@@ -134,13 +122,7 @@ public class ModelPath implements Path, Collidable
     {
         this.type = newType;
     }
-        
-        
-        
-        
-        
-        
-        
+  
     /**
      * Returns collidable version of path
      * @return Collidable path
@@ -161,8 +143,6 @@ public class ModelPath implements Path, Collidable
 		// TODO : to implement
 		return false;	
 	}
-
-
 	
 }
 

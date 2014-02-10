@@ -98,18 +98,10 @@ public  interface Automata
     * @param myType Type of state
     */
     public void setStateType(State myState, StateType myType);
-
-    
-   
     
     
-
-
-
-
 
 //AUTOMATA METHODS INVOLVING PATHS
-    
     
     
     
@@ -120,15 +112,11 @@ public  interface Automata
      */
     public void addPath(State from, State to);
     
-    
     /**
      * adds a path to the automata
      * @param newPath 
      */
     public void addPath(Path newPath);
-    
-
-    
     
     /**
      * gets a path from State from to State to.
@@ -137,13 +125,11 @@ public  interface Automata
      */
     public Path getPath(State from, State to);
     
-    
     /**
      * removes a path from the automata
      * @param Path toRemove
      */
     public void removePath(Path toRemove);
-    
     
     /**
      * gets the angle of a path WE NEED TO TALK ABOUT HOW THIS ANGLE IS GOING TO WORK
@@ -154,10 +140,7 @@ public  interface Automata
      * @param myPath 
      */
     public int getPathAngle(Path myPath);
-    
-    
-    
-    
+
     /**
      * sets the angle of a path
      * 
@@ -166,19 +149,14 @@ public  interface Automata
      * 
      */
     public void setPathAngle(Path myPath, int newAngle);
-    
-    
-    
+
     /**
      * retrieves the label of a path
      * @param myPath 
      * @return Label of the path
      */
     public Label getPathLabel(Path myPath);
-    
-    
-    
-    
+
     /**
      * sets the label of a path
      * @param myPath 
@@ -186,35 +164,19 @@ public  interface Automata
      */
     public void setPathLabel(Path myPath, Label newLabel);
     
-    
     /**
      * gets the type of a path
      * @param myPath
      * @return PathType of the path
      */
     public PathType getPathType(Path myPath);
-    
-    
-    
-    
+
     /**
      * sets the type of a path
      * @param myPath 
      * @param newType
      */
     public void setPathType(Path myPath, PathType newType);
-    
  
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-
 }
 

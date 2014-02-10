@@ -32,10 +32,6 @@ public interface Label
      */
     public LabelType getType();
     
-    
-    
-    
-    
     /**
      * Returns collidable version of state
      * @return Collidable state

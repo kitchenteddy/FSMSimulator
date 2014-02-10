@@ -9,14 +9,10 @@ import union.codebreakers.helper.StateType;
  */
 public class ModelAutomata implements Automata
 {
-
-	
 	
     public ArrayList<State> collectionStates;
     public ArrayList<Collidable> collectionCollidable;
-
-        
-        
+  
    /**      
     *
     * constructor method for ModelAutomata
@@ -24,15 +20,10 @@ public class ModelAutomata implements Automata
     * @return the new ModelAutamata instance
     */    
     public ModelAutomata(){
-        
 	this.collectionStates = new ArrayList<State>();
         this.collectionCollidable = new ArrayList<Collidable>();
-        
      }
-        
-        
 
-        
     //METHODS INVOLVING STATES IMPLEMENT THEM    
     
    /**      
@@ -44,8 +35,6 @@ public class ModelAutomata implements Automata
     {
         this.collectionStates.add(toAdd);
         this.collectionCollidable.add(toAdd.getCollidable());
-        
-        
     }
     
    /**      
@@ -157,20 +146,9 @@ public class ModelAutomata implements Automata
     {
         myState.setType(myType);
     }
-        
-    
-    
-    
-    
-    
-    
+
     
     //AUTOMATA METHODS INVOLVING PATHS
-    
-    
-    
-    
-    
     
     
     /**
@@ -183,25 +161,18 @@ public class ModelAutomata implements Automata
         newPath.getStartPoint().addPath(newPath.getEndPoint());
         
     }
-    
-    
-    
+
     /**
      * adds a path to the automata
      * @param to
      * @param from
      */
     public void addPath(State from, State to)
-    {
-        
-        
+    {   
         from.addPath(to);
         this.collectionCollidable.add(this.getPath(from, to).getCollidable());
     }
-    
 
-    
-    
     /**
      * gets a path from State from to State to.
      * @param from
@@ -214,7 +185,6 @@ public class ModelAutomata implements Automata
         
     }
     
-    
     /**
      * removes a path from the automata
      * @param Path toRemove
@@ -224,7 +194,6 @@ public class ModelAutomata implements Automata
         this.collectionCollidable.remove(toRemove);
         toRemove.getStartPoint().removePath(toRemove);
     }
-    
     
     /**
      * gets the angle of a path WE NEED TO TALK ABOUT HOW THIS ANGLE IS GOING TO WORK
@@ -238,10 +207,7 @@ public class ModelAutomata implements Automata
     {
         return myPath.getAngle();
     }
-    
-    
-    
-    
+
     /**
      * sets the angle of a path
      * 
@@ -254,8 +220,6 @@ public class ModelAutomata implements Automata
         myPath.setAngle(newAngle);
     }
     
-    
-    
     /**
      * retrieves the label of a path
      * @param myPath 
@@ -265,10 +229,7 @@ public class ModelAutomata implements Automata
     {
         return myPath.getLabel();
     }
-    
-    
-    
-    
+
     /**
      * sets the label of a path
      * @param myPath 
@@ -279,7 +240,6 @@ public class ModelAutomata implements Automata
         myPath.setLabel(newLabel);
     }
     
-    
     /**
      * gets the type of a path
      * @param myPath
@@ -287,16 +247,9 @@ public class ModelAutomata implements Automata
      */
     public PathType getPathType(Path myPath)
     {
-        
-
-        
-        return myPath.getType();
-        
+        return myPath.getType();   
     }
-    
-    
-    
-    
+
     /**
      * sets the type of a path
      * @param myPath 
@@ -306,28 +259,6 @@ public class ModelAutomata implements Automata
     {
         myPath.setType(newType);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        
-        
         
      /**
      * gets an iterable collection of the states in the automata

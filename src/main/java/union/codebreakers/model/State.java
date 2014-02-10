@@ -9,11 +9,6 @@ import java.awt.Point;
 public  interface State 
 {
     
-
-    
-    
-    
-    
    /**
     * 
     * removes an outgoing path from the state
@@ -26,8 +21,6 @@ public  interface State
     * @param the destination of the path;
     */   
     public void addPath(State destination);
-    
-    
     
    /**
     * returns the state's type
@@ -95,27 +88,18 @@ public  interface State
     */
     public Iterable<Path> getPaths();
     
-    
-    
     /**
      * Returns radius of state
      * 
      * @return radius of state
      */
     public int getRadius();
-
-    
     
     /**
      * Returns the path going to the destination State
      * @return Path
      */
     public Path getPathTo(State destination);
-
-
-
-
-
 
     /**
      * Returns collidable version of state

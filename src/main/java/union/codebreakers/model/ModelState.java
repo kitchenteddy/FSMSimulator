@@ -20,15 +20,8 @@ public class ModelState implements State, Movable, Collidable
     
     
     private StateType type;
-
-
-
     private Point position;
-
-
     private ArrayList<Path> outgoingPaths;
-
-
     private Label stateLabel;
 
     /**
@@ -41,21 +34,13 @@ public class ModelState implements State, Movable, Collidable
             
     }
 
-
-    
-    
-    
-    
     public void addPath(State destination)
     {
         
         Path newPath = new ModelPath(this, destination);
         this.outgoingPaths.add(newPath);
     }
-    
-    
-    
-    
+
    /**
     * 
     * removes an outgoing path from the state
@@ -65,9 +50,7 @@ public class ModelState implements State, Movable, Collidable
     {
         this.outgoingPaths.remove(toRemove);
     }
-    
-    
-    
+
    /**
     * returns the state's type
     * @return StateType of the state
@@ -75,11 +58,6 @@ public class ModelState implements State, Movable, Collidable
     public StateType getType(){
         return this.type;
     }
-
-
-    
-    
-    
 
     /**
      * Sets the state's type
@@ -98,8 +76,7 @@ public class ModelState implements State, Movable, Collidable
     */
     public int getPathNum()
     {
-        return this.outgoingPaths.size();
-        
+        return this.outgoingPaths.size();   
     }
         
    /**
@@ -136,7 +113,6 @@ public class ModelState implements State, Movable, Collidable
         this.position = new Point(x, y);
     }
     
-
    /**
     *
     * gets the label of the state
@@ -160,10 +136,6 @@ public class ModelState implements State, Movable, Collidable
         this.stateLabel = newLabel;
     }
 
-
-    
-    
-    
    /**
     *
     * gets an iterable of the outgoing paths
@@ -175,12 +147,7 @@ public class ModelState implements State, Movable, Collidable
         //implement
         return new ArrayList();
     }
-    
-    
-    
-    
-    
-    
+
     /**
      * Returns collidable version of state
      * @return Collidable state
@@ -189,11 +156,6 @@ public class ModelState implements State, Movable, Collidable
     {
         return this;
     }
-    
-    
-    
-    
-    
     
     /**
      * Returns the path going to the destination State
@@ -217,12 +179,12 @@ public class ModelState implements State, Movable, Collidable
 
    
     
-    /////IMPLEMENT THISVVVVVVVVVVV
+    /////IMPLEMENT THIS VVVVVVVVVVV
     
 
     /**
      * Checks, if this element collides with the point
-     * @param pnt POint to check collision with
+     * @param pnt point to check collision with
      * 
      * @return Whether the collision occurred
      */
@@ -231,9 +193,6 @@ public class ModelState implements State, Movable, Collidable
         // TODO : to implement
         return false;	
     }
-    
-    
-    
 
     /**
      * Returns radius of state
