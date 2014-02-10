@@ -72,7 +72,7 @@ public class MainController {
                 
         public static void runAppCode(){
            MainController.myFrame = new MainFrame();
-           System.out.print("nah");
+            MainController.myFrame.setVisible(true);
         }
 
 }

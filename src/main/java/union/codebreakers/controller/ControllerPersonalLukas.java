@@ -10,8 +10,10 @@ import java.awt.Point;
 import java.util.LinkedList;
 import union.codebreakers.gui.MainFrame;
 import union.codebreakers.helper.StateType;
+import union.codebreakers.model.ModelPath;
 import union.codebreakers.model.ModelState;
 import union.codebreakers.view.drawable.Drawable;
+import union.codebreakers.view.drawable.DrawablePath;
 import union.codebreakers.view.drawable.DrawableState;
 import union.codebreakers.view.drawer.DrawerStock;
 
@@ -33,22 +35,17 @@ public class ControllerPersonalLukas extends ControllerPersonal{
      */
     @Override
     public void run() {
-            LinkedList<Drawable> list = new LinkedList<Drawable>();
-            DrawableState s;
-            ModelState ms;
-            for( int i = 0; i < 3; i++ ) {
-                s = new DrawableState();
-                ms = new ModelState();
-                ms.position = new Point( 50, i * 30 + 30);
-                s.setState( ms );
-                ms.setType(StateType.eStart);
-                list.add(s);
-            }
+
+        /*
+        DrawablePath p = new DrawablePath();
+        ModelPath mp = new ModelPath();
+        ModelState ms1 = new ModelState();
+        ModelState ms2 = new ModelState();
+        ms1.setPos(new Point( 30, 30) );
+        ms2.setPos(new Point( 130, 40) );
             
-            DrawerStock drawerStock = new DrawerStock();
-            for(Drawable d : list ) {
-//                d.setupDrawing(drawerStock, );
-            }
+//        mp.
             System.out.print("lukas");
+        */
     }
 }
