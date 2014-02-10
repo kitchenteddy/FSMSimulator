@@ -68,6 +68,22 @@ public class ModelLabel implements Movable, Label, Collidable
         
         
         
+        
+        
+        
+        
+        
+        
+    /**
+     * Returns collidable version of label
+     * @return Collidable label
+     */
+    public Collidable getCollidable()
+    {
+        return this;
+    }
+        
+        
         /**
 	 * 
 	 * 

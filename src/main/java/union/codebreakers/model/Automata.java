@@ -125,7 +125,12 @@ public  interface Automata
     
     
     
-    
+    /**
+     * adds a path to the automata
+     * @param to
+     * @param from
+     */
+    public void addPath(State from, State to);
     
     
     /**
@@ -134,12 +139,7 @@ public  interface Automata
      */
     public void addPath(Path newPath);
     
-    /**
-     * returns true iff state from has an outgoing path to state to
-     * @param from
-     * @param to
-     */
-    public boolean hasPath(State from, State to);
+
     
     
     /**

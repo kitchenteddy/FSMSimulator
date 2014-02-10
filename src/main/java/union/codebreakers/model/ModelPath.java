@@ -126,6 +126,14 @@ public class ModelPath implements Path, Collidable
         return this.type;
     }
         
+   /**
+     *  sets the type of this path
+     * @param  newType 
+     */
+    public void setType(PathType newType)
+    {
+        this.type = newType;
+    }
         
         
         
@@ -133,8 +141,14 @@ public class ModelPath implements Path, Collidable
         
         
         
-        
-        
+    /**
+     * Returns collidable version of path
+     * @return Collidable path
+     */
+    public Collidable getCollidable()
+    {
+        return this;
+    }
         
 	/**
 	 * <!-- begin-user-doc -->

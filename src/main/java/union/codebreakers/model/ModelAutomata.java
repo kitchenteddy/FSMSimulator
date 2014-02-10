@@ -45,6 +45,9 @@ public class ModelAutomata implements Automata
     */
     public void addState(State toAdd)
     {
+        this.collectionStates.add(toAdd);
+        this.collectionCollidable.add(toAdd.getCollidable());
+        
         
     }
     
@@ -54,10 +57,10 @@ public class ModelAutomata implements Automata
     * @return label of the state
     * @param myState
     */
-    
     public Label getStateLabel(State myState)
     {
-        return null;
+        
+        return myState.getLabel();
     }
     
     
@@ -70,6 +73,7 @@ public class ModelAutomata implements Automata
     */
     public void setStateLabel(State myState, Label toSet)
     {
+        myState.setLabel(toSet);
         
     }
     
@@ -81,7 +85,7 @@ public class ModelAutomata implements Automata
     */
     public int getStatePathNum(State myState)
     {
-        return 0;
+        return myState.getPathNum();
     }
     
     
@@ -92,7 +96,7 @@ public class ModelAutomata implements Automata
     */
     public Iterable<Path> getStatePaths(State myState)
     {
-        return null;
+        return myState.getPaths();
     }
     
     
@@ -103,7 +107,7 @@ public class ModelAutomata implements Automata
     */
     public Point getStatePos(State myState)
     {
-        return null;
+        return myState.getPos();
     }
                  
     
@@ -117,7 +121,7 @@ public class ModelAutomata implements Automata
     */
     public void setStatePos(State myState, Point position)
     {
-        
+        myState.setPos(position);
     }
     
     /**      
@@ -130,7 +134,8 @@ public class ModelAutomata implements Automata
     */
     public void setStatePos(State myState, int x, int y)
     {
-        
+        Point myPoint = new Point(x,y);
+        myState.setPos(myPoint);
     }
    
     
@@ -142,7 +147,7 @@ public class ModelAutomata implements Automata
     */
     public StateType getStateType(State myState)
     {
-        return null;
+        return myState.getType();
     }
     
     
@@ -153,7 +158,7 @@ public class ModelAutomata implements Automata
     */
     public void setStateType(State myState, StateType myType)
     {
-        
+        myState.setType(myType);
     }
         
     
@@ -177,18 +182,27 @@ public class ModelAutomata implements Automata
      */
     public void addPath(Path newPath)
     {
+        this.collectionCollidable.add(newPath.getCollidable());
+        newPath.getStartPoint().addPath(newPath.getEndPoint());
         
     }
     
+    
+    
     /**
-     * returns true iff state from has an outgoing path to state to
-     * @param from
+     * adds a path to the automata
      * @param to
+     * @param from
      */
-    public boolean hasPath(State from, State to)
+    public void addPath(State from, State to)
     {
-        return true;
+        
+        
+        from.addPath(to);
+        this.collectionCollidable.add(this.getPath(from, to).getCollidable());
     }
+    
+
     
     
     /**
@@ -198,7 +212,9 @@ public class ModelAutomata implements Automata
      */
     public Path getPath(State from, State to)
     {
-        return null;
+        
+        return from.getPathTo(to);
+        
     }
     
     
@@ -208,7 +224,8 @@ public class ModelAutomata implements Automata
      */
     public void removePath(Path toRemove)
     {
-        
+        this.collectionCollidable.remove(toRemove);
+        toRemove.getStartPoint().removePath(toRemove);
     }
     
     
@@ -222,7 +239,7 @@ public class ModelAutomata implements Automata
      */
     public int getPathAngle(Path myPath)
     {
-        return 0;
+        return myPath.getAngle();
     }
     
     
@@ -237,7 +254,7 @@ public class ModelAutomata implements Automata
      */
     public void setPathAngle(Path myPath, int newAngle)
     {
-        
+        myPath.setAngle(newAngle);
     }
     
     
@@ -249,7 +266,7 @@ public class ModelAutomata implements Automata
      */
     public Label getPathLabel(Path myPath)
     {
-        return null;
+        return myPath.getLabel();
     }
     
     
@@ -262,7 +279,7 @@ public class ModelAutomata implements Automata
      */
     public void setPathLabel(Path myPath, Label newLabel)
     {
-        
+        myPath.setLabel(newLabel);
     }
     
     
@@ -273,7 +290,10 @@ public class ModelAutomata implements Automata
      */
     public PathType getPathType(Path myPath)
     {
-        return null;
+        
+        
+        return myPath.getType();
+        
     }
     
     
@@ -286,7 +306,7 @@ public class ModelAutomata implements Automata
      */
     public void setPathType(Path myPath, PathType newType)
     {
-        
+        myPath.setType(newType);
     }
     
     

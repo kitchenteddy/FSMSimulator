@@ -17,10 +17,18 @@ public  interface State
     
     
     
+   /**
+    * 
+    * removes an outgoing path from the state
+    * @param toRemove
+    */   
+    public void removePath(Path toRemove);
     
-    
-    
-    
+   /**
+    * adds an outgoing path to the state
+    * @param the destination of the path;
+    */   
+    public void addPath(State destination);
     
     
     
@@ -95,5 +103,25 @@ public  interface State
      * @return radius of state
      */
     public int getRadius();
+
+    
+    
+    /**
+     * Returns the path going to the destination State
+     * @return Path
+     */
+    public Path getPathTo(State destination);
+
+
+
+
+
+
+    /**
+     * Returns collidable version of state
+     * @return Collidable state
+     */
+    public Collidable getCollidable();
+
 }
 

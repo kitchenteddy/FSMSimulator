@@ -47,6 +47,17 @@ public class ModelState implements State, Movable, Collidable
     
     
     
+   /**
+    * 
+    * removes an outgoing path from the state
+    * @param toRemove
+    */   
+    public void removePath(Path toRemove)
+    {
+        this.outgoingPaths.remove(toRemove);
+    }
+    
+    
     
    /**
     * returns the state's type
@@ -148,6 +159,44 @@ public class ModelState implements State, Movable, Collidable
     {
         //implement
         return new ArrayList();
+    }
+    
+    
+    
+    
+    
+    
+    /**
+     * Returns collidable version of state
+     * @return Collidable state
+     */
+    public Collidable getCollidable()
+    {
+        return this;
+    }
+    
+    
+    
+    
+    
+    
+    /**
+     * Returns the path going to the destination State
+     * @return Path
+     */
+    public Path getPathTo(State destination)
+    {
+        
+        for (Path currentPath: this.outgoingPaths)
+        {
+            if (currentPath.equals(destination))
+            {
+                return currentPath;
+            }
+        }
+        
+        //not sure if this is a good idea
+        return new ModelPath();
     }
 	
    

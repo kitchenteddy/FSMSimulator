@@ -68,6 +68,21 @@ public  interface Path
     public PathType getType();
     
     
+    
+    /**
+     *  sets the type of this path
+     * @param  newType 
+     */
+    public void setType(PathType newType);
+    
+    
+    /**
+     * Returns collidable version of state
+     * @return Collidable state
+     */
+    public Collidable getCollidable();
+    
+    
 	
 }
 

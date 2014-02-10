@@ -13,5 +13,15 @@ public interface Label
     public void setName(String newName);
        
     public LabelType getType();
+    
+    
+    
+    
+    
+    /**
+     * Returns collidable version of state
+     * @return Collidable state
+     */
+    public Collidable getCollidable();
 }
 
