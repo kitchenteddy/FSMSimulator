@@ -13,14 +13,6 @@ import union.codebreakers.view.drawer.DrawerSpecific;
 
 public class StateDrawerStarting  implements DrawerSpecific
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public StateDrawerStarting(){
-		super();
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -30,7 +22,7 @@ public class StateDrawerStarting  implements DrawerSpecific
 	 */
 	
         @Override
-	public void draw(Drawable State, Graphics Canvas) {
+	public void draw(Drawable state, Graphics g) {
 		// TODO : to implement	
 	}
 	

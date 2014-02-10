@@ -18,7 +18,7 @@ public class Controller
 	 * @ordered
 	 */
 	
-	private Automata automata;
+        private Automata automata;
 	
 	/**
 	 * <!-- begin-user-doc -->

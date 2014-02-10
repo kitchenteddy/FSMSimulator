@@ -9,7 +9,7 @@ import java.awt.Point;
  * @generated
  */
 
-public class ModelPath implements Movable, Path, Collidable
+public class ModelPath implements Path, Collidable
 {
 	
 	

@@ -27,30 +27,14 @@ public class MainController {
 //            MainFrame myFrame = new MainFrame();
 //            myFrame.show();
             
-            LinkedList<Drawable> list = new LinkedList<Drawable>();
             DrawableState s;
             ModelState ms;
-            for( int i = 0; i < 3; i++ ) {
-                s = new DrawableState();
-                ms = new ModelState();
-                s.setState( ms );
-                ms.setType(StateType.eStart);
-                list.add(s);
-            }
-            DrawableLabel l;
-            ModelLabel ml;
-            for( int i = 0; i < 3; i++ ) {
-                l = new DrawableLabel();
-                ml = new ModelLabel();
-                l.setLabel( ml );
-                ml.setType(LabelType.ePath);
-                list.add(l);
-            }
-            
+            s = new DrawableState();
+            ms = new ModelState();
+            s.setState( ms );
+            ms.setType(StateType.eStart);
             DrawerStock drawerStock = new DrawerStock();
-            for(Drawable d : list ) {
-                d.setupDrawing(drawerStock, null);
-            }
+            s.setupDrawing(drawerStock, null);
 	}
         
 }
