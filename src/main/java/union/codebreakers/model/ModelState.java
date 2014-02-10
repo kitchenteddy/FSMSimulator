@@ -5,14 +5,10 @@ import union.codebreakers.helper.StateType;
 
 
 /**
-<<<<<<< HEAD
  * 
  * ModelState class
  * 
  * 
-=======
- * Model for state
->>>>>>> ba9e332bba4405a7fd2c2140fe86f3a90d7b8c02
  */
 public class ModelState implements State, Movable, Collidable
 {
