@@ -29,20 +29,20 @@ public class DrawableLabel implements Drawable
 
     /**
      * This method should save model for label which is being drawn
-     * @param NewLabel Model of label to be drawn
+     * @param newLabel Model of label to be drawn
      */
-    public void setLabel(Label NewLabel) {
-        this.actLabel = NewLabel;
+    public void setLabel(Label newLabel) {
+        this.actLabel = newLabel;
     }
 
     /**
      * This method should redirect drawing process to the correct set of drawing tools
-     * @param ActStock List of currently available drawer tools
-     * @param Where Where the drawing will occur
+     * @param actStock List of currently available drawer tools
+     * @param g Where the drawing will occur
      */
     @Override
-    public void setupDrawing(DrawerStockGeneric ActStock, Graphics Where) {
-        ActStock.setDrawer(this, Where);
+    public void setupDrawing(DrawerStockGeneric actStock, Graphics g) {
+        actStock.setDrawer(this, g);
     }
 }
 

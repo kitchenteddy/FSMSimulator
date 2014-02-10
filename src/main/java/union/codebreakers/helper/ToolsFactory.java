@@ -5,24 +5,11 @@ import union.codebreakers.view.drawer.DrawerStockGeneric;
 
 /**
  * Tools factory handles managing only one instance of every auxiliary tool at the time
- * @author polakl
  */
 public class ToolsFactory {
     
-    static private Intersection IntersectionTool = null;
     static private CollisionHandlerGeneric CollisionHandlerTool = null;
     static private DrawerStockGeneric DrawerStockShared = null;
-    
-    /*
-     * Gets an instance of intersection tools
-     * @return Instance of Intersection tool
-    */
-    public static Intersection getIntersection(){
-        if( ToolsFactory.IntersectionTool == null ) {
-            ToolsFactory.IntersectionTool = new Intersection();
-        }
-        return ToolsFactory.IntersectionTool;
-    }
     
     /*
      * Gets an instance of collision tools

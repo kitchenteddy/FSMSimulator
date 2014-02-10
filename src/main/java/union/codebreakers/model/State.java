@@ -3,16 +3,13 @@ package union.codebreakers.model;
 import union.codebreakers.helper.StateType;
 import java.awt.Point;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Interface for state model
  */
 public  interface State 
 {
     
+
     
     
     
@@ -51,42 +48,42 @@ public  interface State
     */
     public int getPathNum();
         
-    /**
-    * gets a point representing the position of a state
+   /**
+    * 
+    * Gets a point representing the position of a state
+    * 
     * @return point for position of state
     */
     public Point getPos();
     
-    /**
+   /**
+    * Sets the position of the state
     *
-    * sets the position of the state
-    *
-    * @param desired position point
+    * @param position desired position point
     */
     public void setPos(Point position);
     
     /**
+    * Sets the position of the state
     *
-    * sets the position of the state
-    *
-    * @param desired x postion
-    * @param desired y position
+    * @param x desired x postion
+    * @param y desired y position
     */
     public void setPos(int x, int y);
     
     /**
+     * 
+    * Gets the label of the state
     *
-    * gets the label of the state
-    *
-    * @return  Label
+    * @return Label for the state
     */
     public Label getLabel();
     
-    /**
+   /**
+    * 
+    * Sets the Label of the state
     *
-    * sets the name of the state
-    *
-    * @param String for desired name
+    * @param newLabel New label for this state
     */
     public void setLabel(Label newLabel);
     
@@ -98,8 +95,11 @@ public  interface State
     */
     public Iterable<Path> getPaths();
     
+    
+    
     /**
      * Returns radius of state
+     * 
      * @return radius of state
      */
     public int getRadius();

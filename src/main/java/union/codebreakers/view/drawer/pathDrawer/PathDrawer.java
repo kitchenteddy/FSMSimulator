@@ -8,40 +8,42 @@ import union.codebreakers.view.drawer.DrawerGeneric;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * This class determines which tool should be used to draw supplied path
  */
-
 public class PathDrawer implements DrawerGeneric
 {
-        static protected PathDrawerNormal pdn = null;
-        
-        protected void setPathDrawerNormal() {
-            PathDrawer.pdn = new PathDrawerNormalText();
+    /**
+     * Tool to draw a normal path
+     */
+    static protected PathDrawerNormal pdn = null;
+
+    /**
+     * Setter for tool to draw a normal path
+     */
+    protected void setPathDrawerNormal() {
+        PathDrawer.pdn = new PathDrawerNormalText();
+    }
+
+    /**
+     * Calls the proper drawing tool for supplied drawable element and draws it on the canvas
+     * 
+     * @param el    Drawable element which should be drawn
+     * @param g Canvas on which the element should've been drawn
+     */
+    @Override
+    public void getTool(Drawable el, Graphics g) {
+        if(el == null ) {
+            throw new ExceptionUnexpectedInput( "Unsupported input" );
         }
 
-        /**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void getTool(Drawable El, Graphics Where) {
-            if(El == null ) {
-                throw new ExceptionUnexpectedInput( "Unsupported input" );
+        if( el instanceof DrawablePath ) {
+            if( PathDrawer.pdn == null ) {
+                this.setPathDrawerNormal();
             }
-            
-            if( El instanceof DrawablePath ) {
-                if( PathDrawer.pdn == null ) {
-                    this.setPathDrawerNormal();
-                }
-                PathDrawer.pdn.draw(El, Where);
-            } else {
-                throw new ExceptionUnexpectedInput( "Unsupported input" );                
-            }
-	}
-	
+            PathDrawer.pdn.draw(el, g);
+        } else {
+            throw new ExceptionUnexpectedInput( "Unsupported input" );                
+        }
+    }
 }
 

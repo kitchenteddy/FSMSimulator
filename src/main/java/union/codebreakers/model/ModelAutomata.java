@@ -4,16 +4,12 @@ import java.util.ArrayList;
 import union.codebreakers.helper.PathType;
 import union.codebreakers.helper.StateType;
 
-
-
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Automata model
  */
-
 public class ModelAutomata implements Automata
 {
+
 	
 	
     public ArrayList<State> collectionStates;
@@ -35,13 +31,14 @@ public class ModelAutomata implements Automata
      }
         
         
+
         
-    //METHODS INVOLVING STATES IMPLEMENT THEM
+    //METHODS INVOLVING STATES IMPLEMENT THEM    
     
    /**      
-    *
-    * adds a state to the automata
-    * @param the state to add
+    * Adds a state to the automata
+    * 
+    * @param toAdd state to add
     */
     public void addState(State toAdd)
     {
@@ -52,10 +49,10 @@ public class ModelAutomata implements Automata
     }
     
    /**      
-    *   gets the label of a state
+    * Gets the label of a state
     * 
+    * @param myState Instance of State
     * @return label of the state
-    * @param myState
     */
     public Label getStateLabel(State myState)
     {
@@ -63,99 +60,99 @@ public class ModelAutomata implements Automata
         return myState.getLabel();
     }
     
-    
     /**      
-    *
-    * sets the label of a state to the indicated label
+    * Sets the label of a state to the indicated label
     * 
-    * @param myState
-    * @param toSet
+    * @param myState    Instance of State
+    * @param toSet  Instance of Label
     */
+    @Override
     public void setStateLabel(State myState, Label toSet)
     {
         myState.setLabel(toSet);
         
     }
     
-    
     /**      
-    *   gets the number of paths from a state
+    * Gets the number of paths from a state
+    * 
+    * @param myState Instance of State
     * @return the number of paths from a given state
-    * @param myState
     */
+    @Override
     public int getStatePathNum(State myState)
     {
         return myState.getPathNum();
     }
     
-    
     /**      
-    * gets an iterable of paths from a state
+    * Gets an iterable of paths from a state
+    * @param myState Instance of State
     * @return iterable collecton of a state's outgoing paths
-    * @param myState
     */
+   @Override
     public Iterable<Path> getStatePaths(State myState)
     {
         return myState.getPaths();
     }
     
-    
     /**      
-    *   gets the position of a state
+    * Ggets the position of a state
+    * 
+    * @param  myState Instance of state
     * @return Point for the position of the state
-    * @param  myState
     */
+    @Override
     public Point getStatePos(State myState)
     {
         return myState.getPos();
     }
                  
-    
-    
     /**      
-    *
-    * sets the position of a state
+    * Sets the position of a state
     * 
-    * @param myState
-    * @param position
+    * @param myState Instance of State
+    * @param position  Position on canvas
     */
+    @Override
     public void setStatePos(State myState, Point position)
     {
         myState.setPos(position);
     }
     
     /**      
-    *
-    * sets the position of a state
+    * Sets the position of a state
     * 
-    * @param myState
-    * @param x
-    * @param y
+    * @param myState Instance of State
+    * @param x  Position on x-axis
+    * @param y  Position on y-axis
     */
+    @Override
     public void setStatePos(State myState, int x, int y)
     {
         Point myPoint = new Point(x,y);
         myState.setPos(myPoint);
     }
    
-    
-    /**      
-    *
-    * gets the type of a given state
+    /**
+    * Gets the type of a given state
+    * 
+    * @param myState Instance of state
     * @return StateType of this State
-    * @param myState
     */
+    @Override
     public StateType getStateType(State myState)
     {
         return myState.getType();
     }
     
-    
-    /**      
-    *sets the type of a given state
-    * @param myState
-    * @param myType
+    /**
+    * Sets the type of a given state
+    * 
+    * @param myState Instance of State
+    * @param myType Type of state
     */
+    @Override
     public void setStateType(State myState, StateType myType)
     {
         myState.setType(myType);
@@ -291,6 +288,7 @@ public class ModelAutomata implements Automata
     public PathType getPathType(Path myPath)
     {
         
+
         
         return myPath.getType();
         
@@ -335,10 +333,10 @@ public class ModelAutomata implements Automata
      * gets an iterable collection of the states in the automata
      * @return Iterable collection of states in the Automata
      */
+
     public Iterable getCollectionStates()
     {
         return this.collectionStates;
     }
-
 }
 

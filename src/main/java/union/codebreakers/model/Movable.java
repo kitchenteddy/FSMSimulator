@@ -1,11 +1,8 @@
 package union.codebreakers.model;
 import java.awt.Point;
 
-
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Interface for movable elements
  */
 public  interface Movable 
 {

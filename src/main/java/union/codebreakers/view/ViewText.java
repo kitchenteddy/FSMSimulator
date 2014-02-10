@@ -4,42 +4,30 @@ import union.codebreakers.model.Automata;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * String representation of automata
  */
-
 public class ViewText implements View
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
+    /**
+     * Automata for this view
+     */
+    public Automata automata;
 	
-	public Automata automata;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public ViewText(){
-		super();
-	}
+    /**
+     * Constructor
+     */
+    public ViewText(){
+            super();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public String getOutput() {
-		// TODO : to implement
-		return "";	
-	}
-	
+    /**
+     * Transforms automata into string representation
+     * 
+     * @return String representation for automata
+     */
+    public String getOutput() {
+            // TODO : to implement
+            return "";	
+    }
 }
 

@@ -4,24 +4,19 @@ import java.awt.Graphics;
 import union.codebreakers.view.drawable.Drawable;
 import union.codebreakers.view.drawer.DrawerSpecific;
 
-
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Tool to draw representation of label for state
  */
-
 public class LabelDrawerState implements DrawerSpecific
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-     * @param obj
-	 * @generated
-	 * @ordered
-	 */
-	public void draw(Drawable obj, Graphics Where) {
-            System.out.print("LabelDrawerState");
-	}
+    /**
+     * Draws label for state
+     * @param el State to draw
+     * @param g Canvas to be drawn on
+     */
+    @Override
+    public void draw(Drawable el, Graphics g) {
+        System.out.print("LabelDrawerState");
+    }
 }
 

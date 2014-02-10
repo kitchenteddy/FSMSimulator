@@ -5,6 +5,7 @@ import java.awt.Point;
 
 
 
+
 public class ModelLabel implements Movable, Label, Collidable
 {
     
@@ -84,14 +85,20 @@ public class ModelLabel implements Movable, Label, Collidable
     }
         
         
-        /**
-	 * 
-	 * 
-	 */
-	public boolean isCollision(Point Pnt) {
-		// TODO : to implement
-		return false;	
-	}
+        
 	
-}
 
+
+
+    /**
+     * Checks, if this element collides with the point
+     * @param pnt POint to check collision with
+     * 
+     * @return Whether the collision occurred
+     */
+    @Override
+    public boolean isCollision(Point pnt) {
+            // TODO : to implement
+            return false;	
+    }
+}

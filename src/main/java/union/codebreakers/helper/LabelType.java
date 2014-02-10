@@ -1,11 +1,9 @@
 package union.codebreakers.helper;
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Types of label
  */
 public enum LabelType
 {
-	ePath, eState
+    ePath, eState
 }

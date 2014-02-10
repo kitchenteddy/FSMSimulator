@@ -1,11 +1,9 @@
 package union.codebreakers.helper;
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Types of a state
  */
 public enum StateType
 {
-	eStart, eEnd, eNormal;
+    eStart, eEnd, eNormal;
 }

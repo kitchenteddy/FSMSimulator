@@ -14,6 +14,12 @@ public interface ControllerPersonalGeneric {
     public MainFrame getFrame();
 
     /**
+     * Sets currently displayed frame
+     * @param f Instance of the grame
+    */
+    public void setFrame(MainFrame f);
+
+    /**
      * Runs personalised code
      */
     public void run();

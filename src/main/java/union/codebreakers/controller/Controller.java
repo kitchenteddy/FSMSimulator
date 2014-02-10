@@ -1,55 +1,19 @@
 package union.codebreakers.controller;
 
-import union.codebreakers.model.Automata;
-
-
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Interface for the main controller
  */
-
-public class Controller
-{
+public interface Controller
+{	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-        private Automata automata;
+	 * Assigns actions from user to controller's methods 
+	 */	
+	public void InitializeActions();
 	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public Controller(){
-		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void InitializeActions() {
-		// TODO : to implement	
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void saveAsImage() {
-		// TODO : to implement	
-	}
+	 * Handles saveAsImage action from user
+	 */	
+	public void saveAsImage();
 	
 }
 

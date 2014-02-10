@@ -5,23 +5,31 @@ import union.codebreakers.helper.StateType;
 
 
 /**
+<<<<<<< HEAD
  * 
  * ModelState class
  * 
  * 
+=======
+ * Model for state
+>>>>>>> ba9e332bba4405a7fd2c2140fe86f3a90d7b8c02
  */
-
 public class ModelState implements State, Movable, Collidable
 {
+
     
     
-    public StateType type;
+    private StateType type;
 
-    public Point position;
 
-    public ArrayList<Path> outgoingPaths;
 
-    public Label stateLabel;
+    private Point position;
+
+
+    private ArrayList<Path> outgoingPaths;
+
+
+    private Label stateLabel;
 
     /**
      * 
@@ -32,6 +40,7 @@ public class ModelState implements State, Movable, Collidable
     public ModelState(){
             
     }
+
 
     
     
@@ -67,20 +76,24 @@ public class ModelState implements State, Movable, Collidable
         return this.type;
     }
 
+
     
     
     
-   /**
-    *
-    * sets the state's type
-    * @param StateType of the state
+
+    /**
+     * Sets the state's type
+     * 
+     * @param newType New type of the state
     */
+    @Override
     public void setType(StateType newType){
         this.type = newType;
     }
 
     /**
-    * gets the number of outgoing paths that this state has
+    * Gets the number of outgoing paths that this state has
+    * 
     * @return number of outgoing paths
     */
     public int getPathNum()
@@ -89,8 +102,9 @@ public class ModelState implements State, Movable, Collidable
         
     }
         
-    /**
-    * gets a point representing the position of a state
+   /**
+    * Gets a point representing the position of a state
+    * 
     * @return point for position of state
     */
     public Point getPos()
@@ -98,30 +112,31 @@ public class ModelState implements State, Movable, Collidable
         return this.position;
     }
     
-   /**
+
+    /**
+     * 
+    * Sets the position of the state
     *
-    * sets the position of the state
-    *
-    * @param desired position point
+    * @param position desired position point
     */
     public void setPos(Point position)
     {
         this.position = position;
     }
     
-    
-   /**
+
+    /**
+    * Sets the position of the state
     *
-    * sets the position of the state
-    *
-    * @param desired x postion
-    * @param desired y position
+    * @param x desired x postion
+    * @param y desired y position
     */
     public void setPos(int x, int y)
     {
         this.position = new Point(x, y);
     }
     
+
    /**
     *
     * gets the label of the state
@@ -135,10 +150,10 @@ public class ModelState implements State, Movable, Collidable
     }
     
     /**
+    * Sets the name of the state
+
     *
-    * sets the label of the state
-    *
-    * @param newLabel
+    * @param newLabel New label for this state
     */
     public void setLabel(Label newLabel)
     {
@@ -199,10 +214,19 @@ public class ModelState implements State, Movable, Collidable
         return new ModelPath();
     }
 	
+
    
     
     /////IMPLEMENT THISVVVVVVVVVVV
     
+
+    /**
+     * Checks, if this element collides with the point
+     * @param pnt POint to check collision with
+     * 
+     * @return Whether the collision occurred
+     */
+    @Override
     public boolean isCollision(Point pnt) {
         // TODO : to implement
         return false;	
@@ -213,11 +237,11 @@ public class ModelState implements State, Movable, Collidable
 
     /**
      * Returns radius of state
+     * 
      * @return radius of state
      */
     public int getRadius(){
         return 10;
     }
-
 }
 

@@ -1,14 +1,10 @@
 package union.codebreakers.view;
 
 
-
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Common interface for all views
  */
 public  interface View 
-{
-	
+{	
 }
 

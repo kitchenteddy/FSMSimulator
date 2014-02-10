@@ -14,8 +14,19 @@ import union.codebreakers.view.drawer.stateDrawer.StateDrawer;
  */
 public class DrawerStock implements DrawerStockGeneric
 {
+    /**
+     * StateDrawer instance for lazy loading
+     */
     static protected StateDrawer sd = null;
+    
+    /**
+     * LabelDrawer instance for lazy loading
+     */
     static protected LabelDrawer ld = null;
+
+    /**
+     * PathDrawer instance for lazy loading
+     */
     static protected PathDrawer pd = null;
 
     /**
@@ -42,39 +53,42 @@ public class DrawerStock implements DrawerStockGeneric
     /**
      * Calls the proper drawing tool for supplied drawable element and draws it on the canvas
      * 
-     * @param El    Drawable element which should be drawn
-     * @param Where Canvas on which the element should've been drawn
+     * @param el    Drawable element which should be drawn
+     * @param g     Canvas on which the element should've been drawn
      */
-     public void setDrawer(DrawableState El, Graphics Where) {
+    @Override
+     public void setDrawer(DrawableState el, Graphics g) {
         if( DrawerStock.sd == null ) {
             this.setStateDrawer();
         }
-        DrawerStock.sd.getTool(El, Where);
+        DrawerStock.sd.getTool(el, g);
     }   
 
     /**
      * Calls the proper drawing tool for supplied drawable element and draws it on the canvas
      * 
-     * @param El    Drawable element which should be drawn
-     * @param Where Canvas on which the element should've been drawn
+     * @param el   Drawable element which should be drawn
+     * @param g    Canvas on which the element should've been drawn
      */
-     public void setDrawer(DrawableLabel El, Graphics Where) {
+    @Override
+     public void setDrawer(DrawableLabel el, Graphics g) {
         if( DrawerStock.ld == null ) {
             this.setLabelDrawer();
         }
-        DrawerStock.ld.getTool(El, Where);
+        DrawerStock.ld.getTool(el, g);
     }
 
     /**
      * Calls the proper drawing tool for supplied drawable element and draws it on the canvas
      * 
-     * @param El    Drawable element which should be drawn
-     * @param Where Canvas on which the element should've been drawn
+     * @param el    Drawable element which should be drawn
+     * @param g     Canvas on which the element should've been drawn
      */
-     public void setDrawer(DrawablePath El, Graphics Where) {
+    @Override
+     public void setDrawer(DrawablePath el, Graphics g) {
         if( DrawerStock.pd == null ) {
             this.setPathDrawer();
         }
-        DrawerStock.pd.getTool(El, Where);
+        DrawerStock.pd.getTool(el, g);
     }
 }
