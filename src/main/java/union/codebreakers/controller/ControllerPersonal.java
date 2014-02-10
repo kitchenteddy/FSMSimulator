@@ -33,6 +33,10 @@ public class ControllerPersonal implements ControllerPersonalGeneric{
     public MainFrame getFrame(){
         return this.frame;
     }
+    
+    public void setFrame(MainFrame f){
+        this.frame = f;
+    }
 
     /**
      * Runs personalised code

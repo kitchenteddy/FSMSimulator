@@ -66,6 +66,7 @@ public class MainController {
                 }
             }
             if( customCode > 0 ){
+                ((ControllerPersonal)controller).setFrame(MainController.myFrame);
                 controller.run();
             }
         }

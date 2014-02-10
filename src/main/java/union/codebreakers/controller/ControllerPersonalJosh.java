@@ -7,6 +7,11 @@
 package union.codebreakers.controller;
 
 import union.codebreakers.gui.MainFrame;
+import union.codebreakers.helper.StateType;
+import union.codebreakers.helper.ToolsFactory;
+import union.codebreakers.model.ModelState;
+import union.codebreakers.view.drawable.DrawableState;
+import union.codebreakers.view.drawer.stateDrawer.StateDrawerEnd;
 
 /**
  *
@@ -25,5 +30,13 @@ public class ControllerPersonalJosh extends ControllerPersonal{
      */
     @Override
     public void run() {
+        DrawableState ds = new DrawableState();
+        ModelState ms = new ModelState();
+        ms.setType(StateType.eEnd);
+        ds.setState(ms);
+        
+        StateDrawerEnd sd = new StateDrawerEnd();
+        sd.draw(ds, this.getFrame().getGraphicsPainting());
+//        ds.setupDrawing(ToolsFactory.getDrawerStock(), );
     }    
 }
