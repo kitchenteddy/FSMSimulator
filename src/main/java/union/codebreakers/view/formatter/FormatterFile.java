@@ -17,10 +17,7 @@ public class FormatterFile implements Formatter{
     
     
        
-    public FormatterFile(){
-        
-        
-    }
+   
     
     
 /**
@@ -37,25 +34,56 @@ public class FormatterFile implements Formatter{
         
         for (State currentState : myAutomata.getCollectionStates())
         {
-            //number of lines
-            toReturn += "\n";
+            //number of States?
+            
+            
+            //get the name of the state
             toReturn += currentState.getName();
-            toReturn += "\n";
+            toReturn += "~";
+            
+            //get the position of the state
             toReturn += currentState.getPos().toString();
+            toReturn += "~";
+            
+            //get the type of the state
+            Integer typeInteger = (Integer) currentState.getType().ordinal();
+            toReturn += typeInteger.toString();
+            toReturn += "~";
+            
+            //get the number of outgoing paths from the state 
+            Integer pathInteger = (Integer) currentState.getPathNum();
+            toReturn += pathInteger.toString();
             toReturn += "\n";
-            Integer myInteger = (Integer) currentState.getType().ordinal();
-            toReturn += myInteger.toString();
-            toReturn += "\n";
-            toReturn += "OUTGOING PATHS:";
+            
             //iterate through the paths
-            for (Path currentPath: currentState.getPaths())
-            {
-                
-            }
             
             
+          
             
         }
+        for (State currentState : myAutomata.getCollectionStates())
+        {
+            for (Path currentPath : currentState.getPaths())
+            {
+                //get the destination of the path
+                toReturn += currentPath.getEndPoint().getName();
+                toReturn += "~";
+                
+                //get the angle of the path
+                Integer pathAngle = (Integer)currentPath.getAngle();
+                toReturn += pathAngle.toString();
+                toReturn += "~";
+                
+                //get the type of the path
+                Integer pathType = (Integer) currentPath.getType().ordinal();
+              
+                toReturn += "\n";
+                
+                
+                
+            }
+        }
+        
         
         
         

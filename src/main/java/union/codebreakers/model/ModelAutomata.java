@@ -1,4 +1,6 @@
 package union.codebreakers.model;
+import java.util.ArrayList;
+
 
 
 /**
@@ -9,32 +11,30 @@ package union.codebreakers.model;
 
 public class ModelAutomata implements Automata
 {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
 	
-	public Iterable<State> collectionStates;
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public Iterable collectionCollidable;
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
+	public ArrayList<State> collectionStates;
+	public ArrayList<Collidable> collectionCollidable;
+
+        
+        
+        
 	public ModelAutomata(){
-		super();
+		this.collectionStates = new ArrayList<State>();
+                this.collectionCollidable = new ArrayList<Collidable>();
 	}
+        
+        
+        
+        /**
+         * 
+         * adds a state to the automata
+         * @param the state to add
+        */
+        public void addState(State toAdd)
+        {
+            
+        }
         
         
         

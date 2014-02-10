@@ -1,4 +1,5 @@
 package union.codebreakers.model;
+import union.codebreakers.helper.PathType;
 
 
 
@@ -61,6 +62,14 @@ public  interface Path
      * @param String newName 
      */
     public void setName(String newName);
+    
+    
+    /**
+     * 
+     * gets the path type of the path
+     * @return the type of path
+     */
+    public PathType getType();
     
     
 	

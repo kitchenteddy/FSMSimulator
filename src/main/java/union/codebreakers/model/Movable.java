@@ -9,6 +9,6 @@ package union.codebreakers.model;
  */
 public  interface Movable 
 {
-	
+    
 }
 

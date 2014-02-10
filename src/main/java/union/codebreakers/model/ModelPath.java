@@ -1,6 +1,7 @@
 package union.codebreakers.model;
 
 import java.awt.Point;
+import union.codebreakers.helper.PathType;
 
 
 /**
@@ -18,6 +19,7 @@ public class ModelPath implements Movable, Path, Collidable
 	private State endPoint;
         private Point position;
 	private Label label;
+        private PathType type;
 	
 	
 	
@@ -102,6 +104,18 @@ public class ModelPath implements Movable, Path, Collidable
     public void setName(String newName)
     {
         
+    }
+    
+    
+    
+        /**
+     * 
+     * gets the path type of the path
+     * @return the type of path
+     */
+    public PathType getType()
+    {
+        return this.type;
     }
         
         
