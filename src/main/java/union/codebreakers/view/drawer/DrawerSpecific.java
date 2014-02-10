@@ -10,9 +10,9 @@ public interface DrawerSpecific {
 
     /**
      * Draws this element on th selected canvas
-     * @param El Element that should be drawn
-     * @param Where Canvas when the element should be drawn
+     * @param el Element that should be drawn
+     * @param g Canvas when the element should be drawn
      */
 
-    public void draw(Drawable El, Graphics Where);
+    public void draw(Drawable el, Graphics g);
 }

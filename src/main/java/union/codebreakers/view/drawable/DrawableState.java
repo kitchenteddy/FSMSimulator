@@ -29,20 +29,20 @@ public class DrawableState implements Drawable
 
     /**
      * This method should save model for state which is being drawn
-     * @param NewState New model for state
+     * @param newState New model for state
      */
-    public void setState(State NewState ) {
-        this.actState = NewState;
+    public void setState(State newState ) {
+        this.actState = newState;
     }
 
     /**
      * This method should redirect drawing process to the correct set of drawing tools
-     * @param ActStock List of currently available drawer tools
-     * @param Where Where the drawing will occur
+     * @param actStock List of currently available drawer tools
+     * @param g Where the drawing will occur
      */
     @Override
-    public void setupDrawing(DrawerStockGeneric ActStock, Graphics Where) {
-        ActStock.setDrawer(this, Where);
+    public void setupDrawing(DrawerStockGeneric actStock, Graphics g) {
+        actStock.setDrawer(this, g);
     }
 }
 

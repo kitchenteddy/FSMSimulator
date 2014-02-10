@@ -4,27 +4,20 @@ import java.awt.Graphics;
 import union.codebreakers.view.drawable.Drawable;
 import union.codebreakers.view.drawer.DrawerSpecific;
 
-
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Tool to draw representation of starting state
  */
-
 public class StateDrawerStarting  implements DrawerSpecific
 {
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-        @Override
-	public void draw(Drawable state, Graphics g) {
-		// TODO : to implement	
-	}
-	
+    /**
+     * Draws two concentric circles representing starting state
+     * @param state State to draw
+     * @param g Canvas to be drawn on
+     */
+    @Override
+     public void draw(Drawable state, Graphics g) {
+             // TODO : to implement	
+     }
 }
 

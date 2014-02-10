@@ -11,9 +11,8 @@ public interface DrawerGeneric {
     /**
      * Calls the proper drawing tool for supplied drawable element and draws it on the canvas
      * 
-     * @param El    Drawable element which should be drawn
-     * @param Where Canvas on which the element should've been drawn
+     * @param el    Drawable element which should be drawn
+     * @param g Canvas on which the element should've been drawn
      */
-
-    public void getTool(Drawable El, Graphics Where);    
+    public void getTool(Drawable el, Graphics g);    
 }

@@ -29,19 +29,20 @@ public class DrawablePath implements Drawable
 
     /**
      * This method should save model for path which is being drawn
-     * @param NewPath Model of label to be drawn
+     * @param newPath Model of label to be drawn
      */
-    public void setPath(Path NewPath ) {
-        this.actPath = NewPath;
+    public void setPath(Path newPath ) {
+        this.actPath = newPath;
     }
 
     /**
      * This method should redirect drawing process to the correct set of drawing tools
-     * @param ActStock List of currently available drawer tools
-     * @param Where Where the drawing will occur
+     * @param actStock List of currently available drawer tools
+     * @param g Where the drawing will occur
      */
     @Override
-    public void setupDrawing(DrawerStockGeneric ActStock, Graphics Where) {
+    public void setupDrawing(DrawerStockGeneric actStock, Graphics g) {
+        actStock.setDrawer(this, g);        
     }
 }
 

@@ -10,12 +10,17 @@ import java.awt.Graphics;
 import union.codebreakers.view.drawable.Drawable;
 
 /**
- *
- * @author 3lf
+ * Tool to draw representation of end state (text representation)
  */
 public class StateDrawerEndText extends StateDrawerEnd{
 
-    public void draw(Drawable State, Graphics Canvas) {
+    /**
+     * Draws two concentric circles representing end state
+     * @param state State to draw
+     * @param g Canvas to be drawn on
+     */
+    @Override
+    public void draw(Drawable state, Graphics g) {
         System.out.println("StateDrawerEndText");
     }
 }

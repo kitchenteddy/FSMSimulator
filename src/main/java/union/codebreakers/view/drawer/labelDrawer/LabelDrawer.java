@@ -7,57 +7,59 @@ import union.codebreakers.view.drawable.DrawableLabel;
 import union.codebreakers.view.drawer.DrawerGeneric;
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * This class determines which tool should be used to draw supplied label
  */
-
 public class LabelDrawer implements DrawerGeneric
 {
-        static protected LabelDrawerPath ldp = null;
-        static protected LabelDrawerState lds = null;
-        
-        protected void setLabelDrawerPath() {
-            LabelDrawer.ldp = new LabelDrawerPathText();
-        }
-        
-        protected void setLabelDrawerState() {
-            LabelDrawer.lds = new LabelDrawerState();
-        }
-        
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public void getTool(Drawable El, Graphics Where) {
+    
+    static protected LabelDrawerPath ldp = null;
+    static protected LabelDrawerState lds = null;
 
-            
-            if(El == null ) {
-                throw new ExceptionUnexpectedInput( "Unsupported input" );
+    /**
+     * Setter for tool to draw a path label
+     */
+    protected void setLabelDrawerPath() {
+        LabelDrawer.ldp = new LabelDrawerPathText();
+    }
+
+    /**
+     * Setter for tool to draw a state label
+     */
+    protected void setLabelDrawerState() {
+        LabelDrawer.lds = new LabelDrawerState();
+    }
+
+    /**
+     * Calls the proper drawing tool for supplied drawable element and draws it on the canvas
+     * 
+     * @param el    Drawable element which should be drawn
+     * @param g     Canvas on which the element should've been drawn
+     */
+    @Override
+    public void getTool(Drawable el, Graphics g) {
+        if(el == null ) {
+            throw new ExceptionUnexpectedInput( "Unsupported input" );
+        }
+
+        if( el instanceof DrawableLabel ) {
+            DrawableLabel element = (DrawableLabel)el;
+            switch( element.getLabel().getType() ) {
+                case ePath :
+                    if( LabelDrawer.ldp == null ) {
+                        this.setLabelDrawerPath();
+                    }
+                    LabelDrawer.ldp.draw(el, g);
+                    break;
+                case eState:
+                    if( LabelDrawer.lds == null ) {
+                        this.setLabelDrawerState();
+                    }
+                    LabelDrawer.lds.draw(el, g);
+                    break;
             }
-            
-            if( El instanceof DrawableLabel ) {
-                DrawableLabel element = (DrawableLabel)El;
-                switch( element.getLabel().getType() ) {
-                    case ePath :
-                        if( LabelDrawer.ldp == null ) {
-                            this.setLabelDrawerPath();
-                        }
-                        LabelDrawer.ldp.draw(El, Where);
-                        break;
-                    case eState:
-                        if( LabelDrawer.lds == null ) {
-                            this.setLabelDrawerState();
-                        }
-                        LabelDrawer.lds.draw(El, Where);
-                        break;
-                }
-            } else {
-                throw new ExceptionUnexpectedInput( "Unsupported input" );                
-            }
-	}	
+        } else {
+            throw new ExceptionUnexpectedInput( "Unsupported input" );                
+        }
+    }	
 }
 

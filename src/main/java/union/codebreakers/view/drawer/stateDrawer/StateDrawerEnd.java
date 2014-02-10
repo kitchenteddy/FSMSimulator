@@ -8,21 +8,17 @@ import union.codebreakers.view.drawer.DrawerSpecific;
 
 
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * Tool to draw representation of end state
  */
-
 public class StateDrawerEnd  implements DrawerSpecific
 {
 
     /**
-     * <!-- begin-user-doc -->
-     * <!--  end-user-doc  -->
-     * @generated
-     * @ordered
+     * Draws two concentric circles representing end state
+     * @param state State to draw
+     * @param g Canvas to be drawn on
      */
-
+    @Override
     public void draw(Drawable state, Graphics g) {
         
 //        DrawableState d = (DrawableState)state;
