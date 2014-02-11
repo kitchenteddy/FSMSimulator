@@ -4,7 +4,10 @@ import java.awt.Point;
 import union.codebreakers.helper.StateType;
 
 /**
+ * 
  * ModelState class
+ * 
+ * 
  */
 public class ModelState implements State, Movable, Collidable
 {
