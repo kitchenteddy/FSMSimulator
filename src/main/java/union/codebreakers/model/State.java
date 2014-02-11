@@ -9,11 +9,6 @@ import java.awt.Point;
 public  interface State 
 {
     
-
-    
-    
-    
-    
    /**
     * 
     * removes an outgoing path from the state
@@ -23,11 +18,9 @@ public  interface State
     
    /**
     * adds an outgoing path to the state
-    * @param the destination of the path;
+    * @param destination  destination of the path;
     */   
     public void addPath(State destination);
-    
-    
     
    /**
     * returns the state's type
@@ -38,7 +31,7 @@ public  interface State
    /**
     *
     * sets the state's type
-    * @param StateType of the state
+    * @param newType StateType of the state
     */
     public void setType(StateType newType);
     
@@ -66,7 +59,7 @@ public  interface State
     /**
     * Sets the position of the state
     *
-    * @param x desired x postion
+    * @param x desired x position
     * @param y desired y position
     */
     public void setPos(int x, int y);
@@ -95,27 +88,19 @@ public  interface State
     */
     public Iterable<Path> getPaths();
     
-    
-    
     /**
      * Returns radius of state
      * 
      * @return radius of state
      */
     public int getRadius();
-
-    
     
     /**
      * Returns the path going to the destination State
+     * @param destination Gets path between these two states
      * @return Path
      */
     public Path getPathTo(State destination);
-
-
-
-
-
 
     /**
      * Returns collidable version of state

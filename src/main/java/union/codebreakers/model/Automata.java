@@ -15,9 +15,7 @@ public  interface Automata
     public Iterable<State> getCollectionStates();
     
     //public void addCollidable(Collidable toAdd);
-    
-    
-    
+
     //METHODS INVOLVING STATES
    /**      
     * Adds a state to the automata
@@ -57,9 +55,8 @@ public  interface Automata
     */
     public Iterable<Path> getStatePaths(State myState);
     
-    
     /**      
-    * Ggets the position of a state
+    * Gets the position of a state
     * 
     * @param  myState Instance of state
     * @return Point for the position of the state
@@ -98,21 +95,9 @@ public  interface Automata
     * @param myType Type of state
     */
     public void setStateType(State myState, StateType myType);
+    
+    //AUTOMATA METHODS INVOLVING PATHS
 
-    
-   
-    
-    
-
-
-
-
-
-//AUTOMATA METHODS INVOLVING PATHS
-    
-    
-    
-    
     /**
      * adds a path to the automata
      * @param to
@@ -120,30 +105,25 @@ public  interface Automata
      */
     public void addPath(State from, State to);
     
-    
     /**
      * adds a path to the automata
      * @param newPath 
      */
     public void addPath(Path newPath);
     
-
-    
-    
     /**
      * gets a path from State from to State to.
-     * @param from
-     * @param to
+     * @param from Instance of State (beginning of path)
+     * @param to Instance of State (end of path)
+     * @return Instance of Path between these two states
      */
     public Path getPath(State from, State to);
     
-    
     /**
      * removes a path from the automata
-     * @param Path toRemove
+     * @param toRemove
      */
     public void removePath(Path toRemove);
-    
     
     /**
      * gets the angle of a path WE NEED TO TALK ABOUT HOW THIS ANGLE IS GOING TO WORK
@@ -154,10 +134,7 @@ public  interface Automata
      * @param myPath 
      */
     public int getPathAngle(Path myPath);
-    
-    
-    
-    
+
     /**
      * sets the angle of a path
      * 
@@ -166,19 +143,14 @@ public  interface Automata
      * 
      */
     public void setPathAngle(Path myPath, int newAngle);
-    
-    
-    
+
     /**
      * retrieves the label of a path
      * @param myPath 
      * @return Label of the path
      */
     public Label getPathLabel(Path myPath);
-    
-    
-    
-    
+
     /**
      * sets the label of a path
      * @param myPath 
@@ -186,35 +158,19 @@ public  interface Automata
      */
     public void setPathLabel(Path myPath, Label newLabel);
     
-    
     /**
      * gets the type of a path
      * @param myPath
      * @return PathType of the path
      */
     public PathType getPathType(Path myPath);
-    
-    
-    
-    
+
     /**
      * sets the type of a path
      * @param myPath 
      * @param newType
      */
     public void setPathType(Path myPath, PathType newType);
-    
  
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-
 }
 

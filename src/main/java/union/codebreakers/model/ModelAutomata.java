@@ -9,30 +9,17 @@ import union.codebreakers.helper.StateType;
  */
 public class ModelAutomata implements Automata
 {
-
-	
-	
     public ArrayList<State> collectionStates;
     public ArrayList<Collidable> collectionCollidable;
-
-        
-        
+  
    /**      
-    *
-    * constructor method for ModelAutomata
-    * 
-    * @return the new ModelAutamata instance
+    * Constructor method for ModelAutomata
     */    
     public ModelAutomata(){
-        
 	this.collectionStates = new ArrayList<State>();
         this.collectionCollidable = new ArrayList<Collidable>();
-        
      }
-        
-        
 
-        
     //METHODS INVOLVING STATES IMPLEMENT THEM    
     
    /**      
@@ -40,12 +27,11 @@ public class ModelAutomata implements Automata
     * 
     * @param toAdd state to add
     */
+    @Override
     public void addState(State toAdd)
     {
         this.collectionStates.add(toAdd);
         this.collectionCollidable.add(toAdd.getCollidable());
-        
-        
     }
     
    /**      
@@ -54,6 +40,7 @@ public class ModelAutomata implements Automata
     * @param myState Instance of State
     * @return label of the state
     */
+    @Override
     public Label getStateLabel(State myState)
     {
         
@@ -97,7 +84,7 @@ public class ModelAutomata implements Automata
     }
     
     /**      
-    * Ggets the position of a state
+    * Gets the position of a state
     * 
     * @param  myState Instance of state
     * @return Point for the position of the state
@@ -157,183 +144,129 @@ public class ModelAutomata implements Automata
     {
         myState.setType(myType);
     }
-        
-    
-    
-    
-    
-    
-    
-    
+
     //AUTOMATA METHODS INVOLVING PATHS
-    
-    
-    
-    
-    
-    
     
     /**
      * adds a path to the automata
      * @param newPath 
      */
+    @Override
     public void addPath(Path newPath)
     {
         this.collectionCollidable.add(newPath.getCollidable());
         newPath.getStartPoint().addPath(newPath.getEndPoint());
         
     }
-    
-    
-    
+
     /**
-     * adds a path to the automata
-     * @param to
-     * @param from
+     * Adds a path to the automata
+     * @param from Instance of State (beginning of path)
+     * @param to Instance of State (end of path)
      */
+    @Override
     public void addPath(State from, State to)
-    {
-        
-        
+    {   
         from.addPath(to);
         this.collectionCollidable.add(this.getPath(from, to).getCollidable());
     }
-    
 
-    
-    
     /**
      * gets a path from State from to State to.
-     * @param from
-     * @param to
+     * @param from Instance of starting State
+     * @param to Instance of destination State
      */
+    @Override
     public Path getPath(State from, State to)
     {
-        
         return from.getPathTo(to);
-        
     }
     
-    
     /**
-     * removes a path from the automata
-     * @param Path toRemove
+     * Removes a path from the automata
+     * @param toRemove Path to be removed
      */
+    @Override
     public void removePath(Path toRemove)
     {
-        this.collectionCollidable.remove(toRemove);
+        boolean remove = this.collectionCollidable.remove(toRemove);
         toRemove.getStartPoint().removePath(toRemove);
     }
     
-    
     /**
-     * gets the angle of a path WE NEED TO TALK ABOUT HOW THIS ANGLE IS GOING TO WORK
-     * 
-     * 
+     * Gets the angle of a path WE NEED TO TALK ABOUT HOW THIS ANGLE IS GOING TO WORK
      * 
      * @return int angle of the path
      * @param myPath 
      */
+    @Override
     public int getPathAngle(Path myPath)
     {
         return myPath.getAngle();
     }
-    
-    
-    
-    
+
     /**
-     * sets the angle of a path
+     * Sets the angle of a path
      * 
-     * @param myPath 
-     * @param newAngle
+     * @param myPath Instance of Path
+     * @param newAngle New angle
      * 
      */
+    @Override
     public void setPathAngle(Path myPath, int newAngle)
     {
         myPath.setAngle(newAngle);
     }
     
-    
-    
     /**
      * retrieves the label of a path
-     * @param myPath 
+     * @param myPath Gets label of that path
      * @return Label of the path
      */
+    @Override
     public Label getPathLabel(Path myPath)
     {
         return myPath.getLabel();
     }
-    
-    
-    
-    
+
     /**
      * sets the label of a path
      * @param myPath 
      * @param newLabel
      */
+    @Override
     public void setPathLabel(Path myPath, Label newLabel)
     {
         myPath.setLabel(newLabel);
     }
     
-    
     /**
-     * gets the type of a path
-     * @param myPath
+     * Gets the type of a path
+     * @param myPath 
      * @return PathType of the path
      */
+    @Override
     public PathType getPathType(Path myPath)
     {
-        
-
-        
-        return myPath.getType();
-        
+        return myPath.getType();   
     }
-    
-    
-    
-    
+
     /**
      * sets the type of a path
-     * @param myPath 
-     * @param newType
+     * @param myPath Instance of Path
+     * @param newType Type of Path
      */
+    @Override
     public void setPathType(Path myPath, PathType newType)
     {
         myPath.setType(newType);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        
-        
         
      /**
      * gets an iterable collection of the states in the automata
      * @return Iterable collection of states in the Automata
      */
-
+    @Override
     public Iterable getCollectionStates()
     {
         return this.collectionStates;

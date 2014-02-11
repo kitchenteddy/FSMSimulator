@@ -1,11 +1,6 @@
 package union.codebreakers.model;
 
-
-import java.awt.Point;
 import union.codebreakers.helper.LabelType;
-
-
-
 
 /**
  * Label interface for various objects
@@ -31,10 +26,6 @@ public interface Label
      * @return Type of this label
      */
     public LabelType getType();
-    
-    
-    
-    
     
     /**
      * Returns collidable version of state

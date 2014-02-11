@@ -3,50 +3,43 @@ package union.codebreakers.model;
 import java.awt.Point;
 import union.codebreakers.helper.PathType;
 
-
-
-
-
-
 public class ModelPath implements Path, Collidable
 {
+    private int angle;
+    private State startPoint;
+    private State endPoint;
+    private Point position;
+    private Label label;
+    private PathType type;
 
-	
+    /**
+     * Constructor
+     */
+    public ModelPath(){
+        this.angle = 0;
+        this.startPoint = null;
+        this.endPoint = null;
+        this.position = new Point(0,0);
+        this.label = null;
+        this.type = PathType.eNormal;          
+    }
 
-	
-	private int angle;
-	private State startPoint;
-	private State endPoint;
-        private Point position;
-	private Label label;
-        private PathType type;
-	
-	
-	
-	
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
-	public ModelPath(){
-		super();
-	}
+    /**
+     * Constructor
+     * 
+     * @param from Starting path
+     * @param to Destination path
+     */
+    public ModelPath(State from, State to)
+    {
+        this.angle = 0;
+        this.startPoint = from;
+        this.endPoint = to;
+        this.position = new Point(0,0);
+        this.label = new ModelLabel();
+        this.type = PathType.eNormal;          
+    }
         
-        public ModelPath(State from, State to)
-        {
-            this.angle = 0;
-            this.startPoint = from;
-            this.endPoint = to;
-            this.position = new Point(0,0);
-            this.label = new ModelLabel();
-            this.type = PathType.eNormal;
-            
-                    
-        }
-
-
     /**
      * Gets start point for this path
      * 
@@ -113,7 +106,6 @@ public class ModelPath implements Path, Collidable
         this.label = newLabel;
     }
     
-
     /**
      * Gets the path type of the path
      * 
@@ -125,45 +117,39 @@ public class ModelPath implements Path, Collidable
         return this.type;
     }
         
-
    /**
-     *  sets the type of this path
-     * @param  newType 
+     * Sets the type of this path
+     * 
+     * @param  newType New type of path
      */
+        @Override
     public void setType(PathType newType)
     {
         this.type = newType;
     }
-        
-        
-        
-        
-        
-        
-        
+  
     /**
      * Returns collidable version of path
+     * 
      * @return Collidable path
      */
+        @Override
     public Collidable getCollidable()
     {
         return this;
     }
-        
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public boolean isCollision(Point Pnt) {
-		// TODO : to implement
-		return false;	
-	}
 
-
-	
+    /**
+     * Is this path in collision
+     * @param pnt Point to check collision with
+     * 
+     * @return Whether the collision has occurred
+     */
+    @Override
+    public boolean isCollision(Point pnt) {
+            // TODO : to implement
+            return false;	
+    }
 }
 
 
