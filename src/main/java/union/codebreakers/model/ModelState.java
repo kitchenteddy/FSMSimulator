@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.awt.Point;
 import union.codebreakers.helper.StateType;
 
-
 /**
  * 
  * ModelState class
@@ -12,24 +11,23 @@ import union.codebreakers.helper.StateType;
  */
 public class ModelState implements State, Movable, Collidable
 {
-
-    
-    
     private StateType type;
     private Point position;
     private ArrayList<Path> outgoingPaths;
     private Label stateLabel;
 
     /**
-     * 
-     * 
      * Constructor method for ModelState
-     * 
      */
     public ModelState(){
             
     }
 
+    /**
+     * Adds outgoing path from this state
+     * @param destination Destination state
+     */
+    @Override
     public void addPath(State destination)
     {
         
