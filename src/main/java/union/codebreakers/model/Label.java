@@ -1,11 +1,6 @@
 package union.codebreakers.model;
 
-
-import java.awt.Point;
 import union.codebreakers.helper.LabelType;
-
-
-
 
 /**
  * Label interface for various objects
