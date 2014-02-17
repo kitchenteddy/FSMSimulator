@@ -4,7 +4,7 @@ import union.codebreakers.helper.LabelType;
 import java.awt.Point;
 import union.codebreakers.view.formatter.FormatterVisitor;
 
-public class ModelLabel implements Movable, Label, Collidable, FormatterVisitable
+public class ModelLabel implements Movable, Label, Collidable
 {
     private String name;
     private LabelType type;
@@ -86,13 +86,5 @@ public class ModelLabel implements Movable, Label, Collidable, FormatterVisitabl
             return false;	
     }
 
-    /**
-     * accept method to format ModelLabel
-     * @param myVisitor
-     * @return 
-     */
-    @Override
-    public String acceptFormatter(FormatterVisitor myVisitor) {
-        return myVisitor.visitElement(this);
-    }
+
 }

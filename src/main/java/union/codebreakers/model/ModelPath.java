@@ -4,7 +4,7 @@ import java.awt.Point;
 import union.codebreakers.helper.PathType;
 import union.codebreakers.view.formatter.FormatterVisitor;
 
-public class ModelPath implements Path, Collidable, FormatterVisitable
+public class ModelPath implements Path, Collidable
 {
     private int angle;
     private State startPoint;
@@ -152,15 +152,7 @@ public class ModelPath implements Path, Collidable, FormatterVisitable
             return false;	
     }
 
-    /**
-     * accept method to format ModelPath
-     * @param myVisitor
-     * @return 
-     */
-    @Override
-    public String acceptFormatter(FormatterVisitor myVisitor) {
-        return myVisitor.visitElement(this);
-    }
+    
 }
 
 

@@ -10,7 +10,7 @@ import union.codebreakers.view.formatter.FormatterVisitor;
  * 
  * 
  */
-public class ModelState implements State, Movable, Collidable, FormatterVisitable
+public class ModelState implements State, Movable, Collidable
 {
     private StateType type;
     private Point position;
@@ -220,15 +220,7 @@ public class ModelState implements State, Movable, Collidable, FormatterVisitabl
     
     
     
-    /**
-     * accept method to format ModelState
-     * @param myVisitor
-     * @return 
-     */
-    @Override
-    public String acceptFormatter(FormatterVisitor myVisitor) {
-        return myVisitor.visitElement(this);
-    }
+    
     
     
     

@@ -9,7 +9,7 @@ import union.codebreakers.view.formatter.FormatterVisitor;
 /**
  * Automata model
  */
-public class ModelAutomata implements Automata, FormatterVisitable
+public class ModelAutomata implements Automata
 {
     public ArrayList<State> collectionStates;
     public ArrayList<Collidable> collectionCollidable;
@@ -274,14 +274,6 @@ public class ModelAutomata implements Automata, FormatterVisitable
         return this.collectionStates;
     }
 
-    /**
-     * accept method to format ModelState
-     * @param myVisitor
-     * @return 
-     */
-    @Override
-    public String acceptFormatter(FormatterVisitor myVisitor) {
-        return myVisitor.visitElement(this);
-    }
+    
 }
 
