@@ -2,6 +2,7 @@ package union.codebreakers.model;
 
 import union.codebreakers.helper.LabelType;
 import java.awt.Point;
+import union.codebreakers.view.formatter.FormatterVisitor;
 
 public class ModelLabel implements Movable, Label, Collidable
 {
@@ -17,6 +18,21 @@ public class ModelLabel implements Movable, Label, Collidable
         this.name = "";
     }
 
+    
+    
+    
+    
+    
+    /**
+     * Gets text for this label
+     * @return String name of this label
+     */
+    public String getName()
+    {
+        return this.name;
+    }
+    
+    
     /**
      * Sets the name of this label
      * 
@@ -69,4 +85,6 @@ public class ModelLabel implements Movable, Label, Collidable
             // TODO : to implement
             return false;	
     }
+
+
 }

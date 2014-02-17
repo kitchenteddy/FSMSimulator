@@ -2,6 +2,7 @@ package union.codebreakers.model;
 
 import java.awt.Point;
 import union.codebreakers.helper.PathType;
+import union.codebreakers.view.formatter.FormatterVisitor;
 
 public class ModelPath implements Path, Collidable
 {
@@ -150,6 +151,8 @@ public class ModelPath implements Path, Collidable
             // TODO : to implement
             return false;	
     }
+
+    
 }
 
 
