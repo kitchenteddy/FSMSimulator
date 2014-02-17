@@ -15,27 +15,27 @@ public interface FormatterVisitor {
     
     
     /**
-     * visit method for ModelState
+     * visit method for State
      * @param toFormat
      * @return 
      */
-    public String visitElement(ModelState toFormat);
+    public String visitElement(State toFormat);
     
     
     /**
-     * visit method for ModelLabel
+     * visit method for Label
      * @param toFormat
      * @return 
      */
-    public String visitElement(ModelLabel toFormat);
+    public String visitElement(Label toFormat);
     
     
     /**
-     * visit method for ModelPath
+     * visit method for Path
      * @param toFormat
      * @return 
      */
-    public String visitElement(ModelPath toFormat);
+    public String visitElement(Path toFormat);
     
     
     /**
@@ -43,6 +43,6 @@ public interface FormatterVisitor {
      * @param toFormat
      * @return 
      */
-    public String visitElement(ModelAutomata toFormat);
+    public String visitElement(Automata toFormat);
     
 }

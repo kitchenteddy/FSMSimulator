@@ -6,10 +6,8 @@
 
 package union.codebreakers.view.formatter;
 
-import union.codebreakers.model.ModelAutomata;
-import union.codebreakers.model.ModelLabel;
-import union.codebreakers.model.ModelPath;
-import union.codebreakers.model.ModelState;
+import union.codebreakers.model.*;
+
 import java.awt.Point;
 
 /**
@@ -25,7 +23,7 @@ public class ModelFormatterVisitor implements FormatterVisitor {
      * @return 
      */
     @Override
-    public String visitElement(ModelState toFormat) {
+    public String visitElement(State toFormat) {
       String toReturn = "";
       
       toReturn += "State Label: ";
@@ -52,22 +50,22 @@ public class ModelFormatterVisitor implements FormatterVisitor {
 
     
     /**
-     * visit method for ModelLabel
+     * visit method for Label
      * @param toFormat
      * @return 
      */
     @Override
-    public String visitElement(ModelLabel toFormat) {
+    public String visitElement(Label toFormat) {
         return toFormat.getName();
     }
     
     /**
-     * visit method for ModelPath
+     * visit method for Path
      * @param toFormat
      * @return 
      */
     @Override
-    public String visitElement(ModelPath toFormat) {
+    public String visitElement(Path toFormat) {
 
         String toReturn = "Path Label: ";
         
@@ -86,11 +84,11 @@ public class ModelFormatterVisitor implements FormatterVisitor {
     
     
     /**
-     * visit method for ModelAutomata
+     * visit method for Automata
      * @param toFormat
      * @return 
      */
-    public String visitElement(ModelAutomata toFormat)
+    public String visitElement(Automata toFormat)
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
