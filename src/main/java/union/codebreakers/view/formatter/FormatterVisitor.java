@@ -5,6 +5,7 @@
  */
 
 package union.codebreakers.view.formatter;
+import union.codebreakers.helper.FormatterType;
 import union.codebreakers.model.*;
 
 /**
@@ -19,7 +20,7 @@ public interface FormatterVisitor {
      * @param toFormat
      * @return 
      */
-    public String visitElement(State toFormat);
+    public String visitElement(FormattableState toFormat, FormatterType myType);
     
     
     /**
@@ -27,7 +28,7 @@ public interface FormatterVisitor {
      * @param toFormat
      * @return 
      */
-    public String visitElement(Label toFormat);
+    public String visitElement(FormattableLabel toFormat, FormatterType myType);
     
     
     /**
@@ -35,7 +36,7 @@ public interface FormatterVisitor {
      * @param toFormat
      * @return 
      */
-    public String visitElement(Path toFormat);
+    public String visitElement(FormattablePath toFormat, FormatterType myType);
     
     
     /**
@@ -43,6 +44,6 @@ public interface FormatterVisitor {
      * @param toFormat
      * @return 
      */
-    public String visitElement(Automata toFormat);
+    public String visitElement(FormattableAutomata toFormat, FormatterType myType);
     
 }

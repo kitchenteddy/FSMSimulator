@@ -32,8 +32,8 @@ public class ControllerPersonalTeddy extends ControllerPersonal{
         
         fsm.addState(firstState);
         
-        String myPrintOut = formatter.visitElement(firstState);
-        System.out.println(myPrintOut);
+        //String myPrintOut = formatter.visitElement(firstState);
+        //System.out.println(myPrintOut);
         
         
         

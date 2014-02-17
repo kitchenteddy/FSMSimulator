@@ -9,6 +9,7 @@ package union.codebreakers.view.formatter;
 import union.codebreakers.model.*;
 
 import java.awt.Point;
+import union.codebreakers.helper.FormatterType;
 
 /**
  *
@@ -23,28 +24,12 @@ public class ModelFormatterVisitor implements FormatterVisitor {
      * @return 
      */
     @Override
-    public String visitElement(State toFormat) {
-      String toReturn = "";
-      
-      toReturn += "State Label: ";
-      toReturn += toFormat.getLabel().getName();
-      
-      toReturn += "\nState Type: ";
-      toReturn += toFormat.getType().toString();
-      
-      
-      toReturn += "\nState ";
-      toReturn += formatPosition(toFormat.getPos());
-      
-      
-      toReturn += "\nNumber of outgoing paths: ";
-      Integer pathsNum = (Integer)toFormat.getPathNum();
-      toReturn += pathsNum.toString();
-      
-      
-      
-      
-      return toReturn;
+   
+    //Should this take a State or a formattable state?
+    // Initially easier to do it this way but may need
+    // to be changed in all these methods later.
+    public String visitElement(FormattableState toFormat, FormatterType myType) {
+        return toFormat.acceptFormatter(this, myType);
       
     }
 
@@ -55,8 +40,8 @@ public class ModelFormatterVisitor implements FormatterVisitor {
      * @return 
      */
     @Override
-    public String visitElement(Label toFormat) {
-        return toFormat.getName();
+    public String visitElement(FormattableLabel toFormat, FormatterType myType) {
+        return toFormat.acceptFormatter(this, myType);
     }
     
     /**
@@ -65,17 +50,9 @@ public class ModelFormatterVisitor implements FormatterVisitor {
      * @return 
      */
     @Override
-    public String visitElement(Path toFormat) {
+    public String visitElement(FormattablePath toFormat, FormatterType myType) {
 
-        String toReturn = "Path Label: ";
-        
-        toReturn += toFormat.getLabel().getName();
-        
-        toReturn += "\nPath Type: ";
-        
-        toReturn += toFormat.getType().toString();
-       
-        return toReturn;
+        return toFormat.acceptFormatter(this, myType);
         
         
     }
@@ -88,9 +65,9 @@ public class ModelFormatterVisitor implements FormatterVisitor {
      * @param toFormat
      * @return 
      */
-    public String visitElement(Automata toFormat)
+    public String visitElement(FormattableAutomata toFormat, FormatterType myType)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return toFormat.acceptFormatter(this, myType);
     }
     
     
