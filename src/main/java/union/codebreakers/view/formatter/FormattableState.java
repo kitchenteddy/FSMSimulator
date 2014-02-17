@@ -28,7 +28,7 @@ public class FormattableState implements Formattable{
      */
     public String acceptFormatter(FormatterVisitor myVisitor, FormatterType myType)
     {
-        return myVisitor.visitElement(this, myType);
+        return "";
     }
     
 }
