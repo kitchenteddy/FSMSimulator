@@ -1,4 +1,5 @@
 package union.codebreakers.model;
+
 import java.util.ArrayList;
 import java.awt.Point;
 import union.codebreakers.helper.StateType;
@@ -9,9 +10,11 @@ import union.codebreakers.view.formatter.FormatterVisitor;
  * ModelState class
  * 
  * 
+ * Model for state
  */
 public class ModelState implements State, Movable, Collidable
 {
+    
     private StateType type;
     private Point position;
     private ArrayList<Path> outgoingPaths;
@@ -185,7 +188,7 @@ public class ModelState implements State, Movable, Collidable
         }
         
         //not sure if this is a good idea
-        return new ModelPath();
+        return new ModelPath(null, null);
     }
 	
 
@@ -212,7 +215,7 @@ public class ModelState implements State, Movable, Collidable
      * @return radius of state
      */
     public int getRadius(){
-        return 10;
+        return 30;
     }
 
     

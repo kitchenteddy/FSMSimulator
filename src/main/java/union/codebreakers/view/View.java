@@ -6,5 +6,6 @@ package union.codebreakers.view;
  */
 public  interface View 
 {	
+    
 }
 

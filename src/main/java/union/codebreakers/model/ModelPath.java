@@ -15,18 +15,6 @@ public class ModelPath implements Path, Collidable
 
     /**
      * Constructor
-     */
-    public ModelPath(){
-        this.angle = 0;
-        this.startPoint = null;
-        this.endPoint = null;
-        this.position = new Point(0,0);
-        this.label = null;
-        this.type = PathType.eNormal;          
-    }
-
-    /**
-     * Constructor
      * 
      * @param from Starting path
      * @param to Destination path
