@@ -3,12 +3,24 @@ package union.codebreakers.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JMenuItem;
+import union.codebreakers.gui.MainFrame;
 
 /**
  * Controller handling manipulation with menu
  */
 public class MenuController implements ActionListener{
     
+    private MainFrame mainFrame = null;
+
+    /**
+     * Sets pointer to main frame
+     * 
+     * @param frame 
+     */
+    public void setMainFrame(MainFrame frame){
+        this.mainFrame = frame;
+    }
+
     /**
      * Handles events which occur in menu
      * 
@@ -48,6 +60,6 @@ public class MenuController implements ActionListener{
     }
     
     private void doQuit(){
-        
+        System.exit(0);
     }
 }

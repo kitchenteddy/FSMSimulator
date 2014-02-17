@@ -94,10 +94,13 @@ public class MainController implements Controller, ActionListener{
      * Runs main application code
      */	
     public void runAppCode(){
+
         this.menuController = new MenuController();
         this.automatonController = new AutomatonController();
-
         this.myFrame = new MainFrame(this);
+        this.menuController.setMainFrame(this.myFrame);
+        this.automatonController.setMainFrame(this.myFrame);
+        
         this.myFrame.setVisible(true);
     }
     
