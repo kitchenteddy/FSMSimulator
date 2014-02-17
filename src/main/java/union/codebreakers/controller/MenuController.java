@@ -45,7 +45,7 @@ public class MenuController implements ActionListener{
     }
 
     private void doNew(){
-        
+        this.mainFrame.update(this.mainFrame.getGraphicsPainting());
     }
 
     private void doOpen(){

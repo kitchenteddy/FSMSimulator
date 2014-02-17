@@ -34,7 +34,7 @@ public class ModelAutomata implements Automata
     public void addState(State toAdd)
     {
         this.collectionStates.add(toAdd);
-        this.collectionCollidable.add(toAdd.getCollidable());
+        this.collectionCollidable.add((Collidable)toAdd);
     }
     
    /**      
@@ -169,7 +169,7 @@ public class ModelAutomata implements Automata
     public void addPath(State from, State to)
     {   
         from.addPath(to);
-        this.collectionCollidable.add(this.getPath(from, to).getCollidable());
+        this.collectionCollidable.add((Collidable)this.getPath(from, to));
     }
 
     /**
@@ -190,7 +190,7 @@ public class ModelAutomata implements Automata
     @Override
     public void removePath(Path toRemove)
     {
-        boolean remove = this.collectionCollidable.remove(toRemove);
+        boolean remove = this.collectionCollidable.remove((Collidable)toRemove);
         toRemove.getStartPoint().removePath(toRemove);
     }
     

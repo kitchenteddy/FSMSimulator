@@ -9,6 +9,7 @@ import java.io.IOException;
 import union.codebreakers.gui.MainFrame;
 import union.codebreakers.model.Automata;
 import union.codebreakers.model.ModelAutomata;
+import union.codebreakers.view.ViewImage;
 
 /**
  * The main controller
@@ -21,6 +22,7 @@ public class MainController{
     private ControllerPersonal personalController = null;
     
     private Automata fsm = null;
+    private ViewImage view = null;
 
     /**
      * Main function of the application
@@ -79,6 +81,7 @@ public class MainController{
      */	
     public void runAppCode(){
         this.fsm = new ModelAutomata();
+        this.view = new ViewImage();
 
         this.menuController = new MenuController();
         this.automatonController = new AutomatonController();
@@ -127,5 +130,14 @@ public class MainController{
      */
     public ControllerPersonal getPersonalController(){
         return this.personalController;
+    }
+    
+    /**
+     * Gets pointer to instance of connected ViewImage
+     * 
+     * @return Instance of connected ViewImage
+     */
+    public ViewImage getViewImage(){
+        return this.view;
     }
 }

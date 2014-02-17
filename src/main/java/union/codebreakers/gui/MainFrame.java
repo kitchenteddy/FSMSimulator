@@ -3,6 +3,7 @@ package union.codebreakers.gui;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -10,6 +11,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import union.codebreakers.controller.ControllerPersonal;
 import union.codebreakers.controller.MainController;
+import union.codebreakers.view.ViewImage;
 
 /**
  * Main frame of the application
@@ -24,6 +26,7 @@ public class MainFrame extends JFrame{
     private JMenuBar menuBar;
     
     private ControllerPersonal personalController;
+    
     
     /**
      * Constructor
@@ -71,6 +74,9 @@ public class MainFrame extends JFrame{
     private void initElements(){
         this.machinePanel = new JPanel();
         this.machinePanel.addMouseListener(this.mainController.getAutomatonController());
+        BoxLayout layout = new BoxLayout(this.getContentPane(), 1);
+        
+        this.getContentPane().setLayout(layout);
         this.getContentPane().add(this.machinePanel);
     }
     
@@ -114,7 +120,7 @@ public class MainFrame extends JFrame{
      * @return Drawable canvas to draw finite state automaton to
      */
     public Graphics getGraphicsPainting(){
-        return this.machinePanel.getGraphics();
+        return this.getGraphics();
     }
     
     /**
@@ -129,9 +135,12 @@ public class MainFrame extends JFrame{
     /**
      * Redraws automaton on the canvas
      */
-    public void redraw()
+    @Override
+    public void repaint()
     {
+        Graphics g = this.getGraphicsPainting();
         
+        g.fillRect(-1, -1, this.machinePanel.getWidth()+2, this.machinePanel.getHeight()+2);
     }
     
     /**
