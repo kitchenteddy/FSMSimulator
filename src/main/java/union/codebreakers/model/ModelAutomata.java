@@ -4,6 +4,8 @@ import java.awt.Point;
 import java.util.ArrayList;
 import union.codebreakers.helper.PathType;
 import union.codebreakers.helper.StateType;
+import union.codebreakers.view.formatter.FormatterVisitor;
+
 
 /**
  * Automata model
@@ -270,5 +272,7 @@ public class ModelAutomata implements Automata
     {
         return this.collectionStates;
     }
+
+    
 }
 

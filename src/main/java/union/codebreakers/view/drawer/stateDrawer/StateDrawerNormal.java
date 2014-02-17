@@ -3,6 +3,7 @@ package union.codebreakers.view.drawer.stateDrawer;
 import java.awt.Color;
 import java.awt.Graphics;
 import union.codebreakers.view.drawable.Drawable;
+import union.codebreakers.view.drawable.DrawableState;
 import union.codebreakers.view.drawer.DrawerSpecific;
 
 /**
@@ -19,13 +20,12 @@ public class StateDrawerNormal  implements DrawerSpecific
     @Override
     public void draw(Drawable state, Graphics g) {
 
-        g.setColor(Color.BLUE);
-        g.drawOval(200, 200, 60, 60);
-        
+        int x = ((DrawableState)state).getState().getPos().x;
+        int y = ((DrawableState)state).getState().getPos().y;
         int width = 60;
         int height = 60;
-	int x = 200;
-        int y = 200;
+        
+        g.setColor(Color.BLUE);
         
         g.drawOval(x, y, width, height);
 
