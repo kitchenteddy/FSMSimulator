@@ -13,10 +13,10 @@ import union.codebreakers.gui.MainFrame;
  */
 public class MainController implements Controller{
 
-    private static MainFrame myFrame = null;
-    private static MenuController menuController = null;
-    private static AutomatonController automatonController = null;
-    private static ControllerPersonal personalController = null;
+    private MainFrame myFrame = null;
+    private MenuController menuController = null;
+    private AutomatonController automatonController = null;
+    private ControllerPersonal personalController = null;
 
     /**
      * Assigns actions from user to controller's methods 
@@ -40,13 +40,14 @@ public class MainController implements Controller{
      */	
     public static void main(String [] args)
     {
-        MainController.runController();
+        MainController controller = new MainController();
+        controller.runController();
     }
 
     /**
      * Decides what code to run
      */	
-    public static void runController(){
+    public void runController(){
         boolean runAppCode = true;
         int customCode = 0;
         // get config from file
@@ -64,42 +65,69 @@ public class MainController implements Controller{
 
                 switch( customCode ) {
                     case 1: // Lukas controller
-                        MainController.personalController = new ControllerPersonalLukas();
+                        this.personalController = new ControllerPersonalLukas();
                         break;
                     case 2: // Josh controller
-                        MainController.personalController = new ControllerPersonalJosh();
+                        this.personalController = new ControllerPersonalJosh();
                         break;
                     case 3: // Teddy controller
-                        MainController.personalController = new ControllerPersonalTeddy();
+                        this.personalController = new ControllerPersonalTeddy();
                         break;
                 }
             }
         }
         catch(IOException e){
-            MainController.runAppCode();
+            this.runAppCode();
         }
         if( runAppCode ) {
-            MainController.runAppCode();
+            this.runAppCode();
+        } else if( customCode > 0 ) { // only for simple stuff
+            this.personalController.run();
         }
     }
 
     /**
      * Runs main application code
      */	
-    public static void runAppCode(){
+    public void runAppCode(){
 
-        MainController.menuController = new MenuController();
-        MainController.automatonController = new AutomatonController();
-        MainController.myFrame = new MainFrame();
-        MainController.personalController.setFrame(MainController.myFrame);
-        MainController.myFrame.setPersonalController(MainController.personalController);
+        this.menuController = new MenuController();
+        this.automatonController = new AutomatonController();
+        this.myFrame = new MainFrame();
+        this.personalController.setFrame(this.myFrame);
+        this.myFrame.setMainController(this);
         
-        MainController.menuController.setMainFrame(MainController.myFrame);
-        MainController.automatonController.setMainFrame(MainController.myFrame);
-       MainController.myFrame.setAutomatonController(automatonController);
-        MainController.myFrame.setMenuController(menuController);
+        this.menuController.setMainFrame(this.myFrame);
+        this.automatonController.setMainFrame(this.myFrame);
 
-        MainController.myFrame.init();
-        MainController.myFrame.run();
+        this.myFrame.init();
+        this.myFrame.run();
+    }
+    
+    /**
+     * Gets instance of MenuController
+     * 
+     * @return instance of MenuController
+     */
+    public MenuController getMenuController(){
+        return this.menuController;
+    }
+
+    /**
+     * Gets instance of AutomatonController
+     * 
+     * @return instance of AutomatonController
+     */
+    public AutomatonController getAutomatonController(){
+        return this.automatonController;
+    }
+
+     /**
+     * Gets instance of ControllerPersonal
+     * 
+     * @return instance of ControllerPersonal
+     */
+    public ControllerPersonal getPersonalController(){
+        return this.personalController;
     }
 }
