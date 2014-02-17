@@ -6,6 +6,7 @@
 
 package union.codebreakers.view.formatter;
 
+import union.codebreakers.helper.FormatterType;
 import union.codebreakers.model.*;
 
 /**
@@ -17,7 +18,7 @@ public class FormattableState implements Formattable{
     
     
     
-    private ModelState myModel;
+    private State myState;
     
     
     /**
@@ -25,9 +26,32 @@ public class FormattableState implements Formattable{
      * @param myVisitor
      * @return 
      */
-    public String acceptFormatter(FormatterVisitor myVisitor)
+    public String acceptFormatter(FormatterVisitor myVisitor, FormatterType myType)
     {
-        return myVisitor.visitElement(myModel);
+        FormatterTool myFormatter;
+        
+        switch(myType)
+        {
+            case eReadable:
+                myFormatter = new ReadableStateFormatter();
+            case eLoadable:
+                myFormatter = new LoadableStateFormatter();
+            default:
+                myFormatter = new ReadableStateFormatter();
+        }
+        
+        return myFormatter.format(this);
+        
+        
     }
     
+    
+    /**
+     * returns the state in the model representing this Formattable
+     * @return 
+     */
+    public State getState()
+    {
+        return myState;
+    }
 }

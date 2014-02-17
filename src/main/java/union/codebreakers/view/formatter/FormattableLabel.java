@@ -5,6 +5,7 @@
  */
 
 package union.codebreakers.view.formatter;
+import union.codebreakers.helper.FormatterType;
 import union.codebreakers.model.*;
 /**
  *
@@ -13,7 +14,7 @@ import union.codebreakers.model.*;
 public class FormattableLabel implements Formattable
 {
     
-    private ModelLabel myModel;
+    private Label myLabel;
     
     
     /**
@@ -21,8 +22,31 @@ public class FormattableLabel implements Formattable
      * @param myVisitor
      * @return 
      */
-    public String acceptFormatter(FormatterVisitor myVisitor)
+    public String acceptFormatter(FormatterVisitor myVisitor, FormatterType myType)
     {
-        return myVisitor.visitElement(myModel);
+        FormatterTool myFormatter;
+        
+        switch(myType)
+        {
+            case eReadable:
+                myFormatter = new ReadableLabelFormatter();
+            case eLoadable:
+                myFormatter = new LoadableLabelFormatter();
+            default:
+                myFormatter = new ReadableLabelFormatter();
+        }
+        
+        return myFormatter.format(this);
+    }
+    
+    
+    
+    /**
+     * returns the Label in the model representing this Formattable
+     * @return 
+     */
+    public Label getLabel()
+    {
+        return myLabel;
     }
 }

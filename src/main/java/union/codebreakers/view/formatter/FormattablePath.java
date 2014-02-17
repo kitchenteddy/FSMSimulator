@@ -5,6 +5,7 @@
  */
 
 package union.codebreakers.view.formatter;
+import union.codebreakers.helper.FormatterType;
 import union.codebreakers.model.*;
 /**
  *
@@ -17,7 +18,7 @@ public class FormattablePath implements Formattable{
     
     
     
-    private ModelPath myModel;
+    private Path myPath;
     
     
     /**
@@ -25,10 +26,35 @@ public class FormattablePath implements Formattable{
      * @param myVisitor
      * @return 
      */
-    public String acceptFormatter(FormatterVisitor myVisitor)
+    public String acceptFormatter(FormatterVisitor myVisitor, FormatterType myType)
     {
         
-        return myVisitor.visitElement(myModel);
+        FormatterTool myFormatter;
+        
+        switch(myType)
+        {
+            case eReadable:
+                myFormatter = new ReadablePathFormatter();
+            case eLoadable:
+                myFormatter = new LoadablePathFormatter();
+            default:
+                myFormatter = new ReadablePathFormatter();
+        }
+        
+        return myFormatter.format(this);
+    }
+    
+    
+    
+    
+    
+    /**
+     * returns the path in the model representing this Formattable
+     * @return 
+     */
+    public Path getPath()
+    {
+        return myPath;
     }
     
 }
