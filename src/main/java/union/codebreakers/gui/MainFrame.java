@@ -3,15 +3,15 @@ package union.codebreakers.gui;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import union.codebreakers.controller.AutomatonController;
 import union.codebreakers.controller.ControllerPersonal;
 import union.codebreakers.controller.MainController;
-import union.codebreakers.controller.MenuController;
+import union.codebreakers.view.ViewImage;
 
 /**
  * Main frame of the application
@@ -27,19 +27,39 @@ public class MainFrame extends JFrame{
     
     private ControllerPersonal personalController;
     
+    
+    /**
+     * Constructor
+     */
     public MainFrame(){
         super("Finite State Machine Designer");
     }
     
+    /**
+     * Sets pointer to MainController
+     * @param controller Instance of MainController
+     */
     public void setMainController(MainController controller){
         this.mainController = controller;
     }
     
+    /**
+     * Gets pointer to MainController
+     * 
+     * @return Instance of MainController
+     */
+    public MainController getMainController(){
+        return this.mainController;
+    }
+    
+    /**
+     * Inits frame
+     */
     public void init(){
         this.initFrame();
- //       this.initMenu();
+        this.initMenu();
         this.initElements();        
-    }
+   }
     
     private void initFrame(){
         // set dimensions and position to center of screen
@@ -54,6 +74,9 @@ public class MainFrame extends JFrame{
     private void initElements(){
         this.machinePanel = new JPanel();
         this.machinePanel.addMouseListener(this.mainController.getAutomatonController());
+        BoxLayout layout = new BoxLayout(this.getContentPane(), 1);
+        
+        this.getContentPane().setLayout(layout);
         this.getContentPane().add(this.machinePanel);
     }
     
@@ -91,16 +114,38 @@ public class MainFrame extends JFrame{
         menu.add(item);
     }
     
+    /**
+     * Gets drawable canvas to draw finite state automaton to
+     * 
+     * @return Drawable canvas to draw finite state automaton to
+     */
     public Graphics getGraphicsPainting(){
-        return this.machinePanel.getGraphics();
+        return this.getGraphics();
     }
     
+    /**
+     * Runs personal controller, if it can to
+     */
     public void runPersonal(){
         if( this.mainController.getPersonalController() != null ){
             this.mainController.getPersonalController().run();
         }
     }
     
+    /**
+     * Redraws automaton on the canvas
+     */
+    @Override
+    public void repaint()
+    {
+        Graphics g = this.getGraphicsPainting();
+        
+        g.fillRect(-1, -1, this.machinePanel.getWidth()+2, this.machinePanel.getHeight()+2);
+    }
+    
+    /**
+     * Runs main code for this frame
+     */
     public void run(){
         this.setVisible(true);        
     }

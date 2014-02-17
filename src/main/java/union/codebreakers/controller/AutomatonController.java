@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import union.codebreakers.gui.MainFrame;
+import union.codebreakers.helper.StateType;
+import union.codebreakers.model.ModelState;
 
 /**
  * Controller handling manipulation with automaton
@@ -32,28 +34,65 @@ public class AutomatonController  implements ActionListener, MouseListener{
         
     }
 
+    /**
+     * Handles mouse clicks on automaton
+     * 
+     * @param me Event that occurred
+     */
     @Override
     public void mouseClicked(MouseEvent me) {
-        this.mainFrame.runPersonal();
+        int i = me.getButton();
+        switch( me.getButton() ){
+            case 1: // left-click
+            {
+                ModelState ms = new ModelState();
+                ms.setType(StateType.eStart);
+                ms.setPos(me.getPoint());
+                
+                this.mainFrame.getMainController().getAutomaton().addState(ms);
+                break;
+            }
+            case 3: // right-click
+            {
+                this.mainFrame.runPersonal();
+                break;
+            }
+        }
     }
 
+    /**
+     * Handles mouse press on automaton
+     * 
+     * @param me Event that occurred
+     */
     @Override
     public void mousePressed(MouseEvent me) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * Handles mouse release on automaton
+     * 
+     * @param me Event that occurred
+     */
     @Override
     public void mouseReleased(MouseEvent me) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * Handles mouse enters on automaton
+     * 
+     * @param me Event that occurred
+     */
     @Override
     public void mouseEntered(MouseEvent me) {
- //       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * Handles mouse leaves on automaton
+     * 
+     * @param me Event that occurred
+     */
     @Override
     public void mouseExited(MouseEvent me) {
- //       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

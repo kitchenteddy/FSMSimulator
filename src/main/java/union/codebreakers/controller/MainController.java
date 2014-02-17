@@ -7,32 +7,22 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import union.codebreakers.gui.MainFrame;
+import union.codebreakers.model.Automata;
+import union.codebreakers.model.ModelAutomata;
+import union.codebreakers.view.ViewImage;
 
 /**
  * The main controller
  */
-public class MainController implements Controller{
+public class MainController{
 
     private MainFrame myFrame = null;
     private MenuController menuController = null;
     private AutomatonController automatonController = null;
     private ControllerPersonal personalController = null;
-
-    /**
-     * Assigns actions from user to controller's methods 
-     */	
-    @Override
-    public void InitializeActions(){
-
-    }
-
-    /**
-     * Handles saveAsImage action from user
-     */	
-    @Override
-    public void saveAsImage(){
-
-    }
+    
+    private Automata fsm = null;
+    private ViewImage view = null;
 
     /**
      * Main function of the application
@@ -90,6 +80,8 @@ public class MainController implements Controller{
      * Runs main application code
      */	
     public void runAppCode(){
+        this.fsm = new ModelAutomata();
+        this.view = new ViewImage();
 
         this.menuController = new MenuController();
         this.automatonController = new AutomatonController();
@@ -102,6 +94,15 @@ public class MainController implements Controller{
 
         this.myFrame.init();
         this.myFrame.run();
+    }
+    
+    /**
+     * Gets currently handled automaton
+     * 
+     * @return Instance of automaton
+     */
+    public Automata getAutomaton(){
+        return this.fsm;
     }
     
     /**
@@ -129,5 +130,14 @@ public class MainController implements Controller{
      */
     public ControllerPersonal getPersonalController(){
         return this.personalController;
+    }
+    
+    /**
+     * Gets pointer to instance of connected ViewImage
+     * 
+     * @return Instance of connected ViewImage
+     */
+    public ViewImage getViewImage(){
+        return this.view;
     }
 }
