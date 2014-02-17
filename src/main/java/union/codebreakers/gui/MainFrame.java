@@ -8,7 +8,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import union.codebreakers.controller.AutomatonController;
+import union.codebreakers.controller.ControllerPersonal;
 import union.codebreakers.controller.MainController;
+import union.codebreakers.controller.MenuController;
 
 /**
  * Main frame of the application
@@ -18,16 +21,33 @@ public class MainFrame extends JFrame{
     static private int windowsW = 512;
     static private int windowsH = 512;
        
-    private MainController controller;
+    private MenuController menuController;
+    private AutomatonController automatonController;
     private JPanel machinePanel;
     private JMenuBar menuBar;
     
-    public MainFrame(MainController appController){
+    private ControllerPersonal personalController;
+    
+    public MainFrame(){
         super("Finite State Machine Designer");
-        this.controller = appController;
+    }
+    
+    public void setMenuController(MenuController controller){
+        this.menuController = controller;
+    }
+    
+    public void setAutomatonController(AutomatonController controller){
+        this.automatonController = controller;
+    }
+    
+    public void init(){
         this.initFrame();
-        this.initMenu();
-        this.initElements();
+ //       this.initMenu();
+        this.initElements();        
+    }
+    
+    public void setPersonalController(ControllerPersonal personal){
+        this.personalController = personal;
     }
     
     private void initFrame(){
@@ -42,6 +62,7 @@ public class MainFrame extends JFrame{
     
     private void initElements(){
         this.machinePanel = new JPanel();
+        this.machinePanel.addMouseListener(this.automatonController);
         this.getContentPane().add(this.machinePanel);
     }
     
@@ -54,32 +75,40 @@ public class MainFrame extends JFrame{
         
         JMenuItem item = new JMenuItem("New");
         item.setName("menuitemNew");
-        item.addActionListener(this.controller.getMenuController());
+        item.addActionListener(this.menuController);
         menu.add(item);
         
         item = new JMenuItem("Open");
         item.setName("menuitemOpen");
-        item.addActionListener(this.controller.getMenuController());
+        item.addActionListener(this.menuController);
         menu.add(item);
 
         item = new JMenuItem("Save");
         item.setName("menuitemSave");
-        item.addActionListener(this.controller.getMenuController());
+        item.addActionListener(this.menuController);
         menu.add(item);
 
         item = new JMenuItem("Save As ...");
         item.setName("menuitemSaveAs");
-        item.addActionListener(this.controller.getMenuController());
+        item.addActionListener(this.menuController);
         menu.add(item);
         
         menu.addSeparator();
         item = new JMenuItem("Quit");
         item.setName("menuitemQuit");
-        item.addActionListener(this.controller.getMenuController());
+        item.addActionListener(this.menuController);
         menu.add(item);
     }
     
     public Graphics getGraphicsPainting(){
         return this.machinePanel.getGraphics();
+    }
+    
+    public void runPersonal(){
+        this.personalController.run();        
+    }
+    
+    public void run(){
+        this.setVisible(true);        
     }
 }

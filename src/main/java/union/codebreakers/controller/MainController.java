@@ -11,11 +11,12 @@ import union.codebreakers.gui.MainFrame;
 /**
  * The main controller
  */
-public class MainController implements Controller, ActionListener{
+public class MainController implements Controller{
 
-    private MainFrame myFrame = null;
-    private MenuController menuController = null;
-    private AutomatonController automatonController = null;
+    private static MainFrame myFrame = null;
+    private static MenuController menuController = null;
+    private static AutomatonController automatonController = null;
+    private static ControllerPersonal personalController = null;
 
     /**
      * Assigns actions from user to controller's methods 
@@ -39,17 +40,15 @@ public class MainController implements Controller, ActionListener{
      */	
     public static void main(String [] args)
     {
-        MainController controller = new MainController();
-        controller.runController();
+        MainController.runController();
     }
 
     /**
      * Decides what code to run
      */	
-    public void runController(){
+    public static void runController(){
         boolean runAppCode = true;
         int customCode = 0;
-        ControllerPersonal controller = null;
         // get config from file
         try{
             File f = new File( "config.lssd" );
@@ -63,73 +62,44 @@ public class MainController implements Controller, ActionListener{
                 runAppCode = Integer.parseInt(line1) == 1;
                 customCode = Integer.parseInt(line2) % 4;
 
-                if( runAppCode ) {
-                    this.runAppCode();
-                }
                 switch( customCode ) {
                     case 1: // Lukas controller
-                        controller = new ControllerPersonalLukas();
+                        MainController.personalController = new ControllerPersonalLukas();
                         break;
                     case 2: // Josh controller
-                        controller = new ControllerPersonalJosh();
+                        MainController.personalController = new ControllerPersonalJosh();
                         break;
                     case 3: // Teddy controller
-                        controller = new ControllerPersonalTeddy();
+                        MainController.personalController = new ControllerPersonalTeddy();
                         break;
                 }
             }
         }
         catch(IOException e){
-            this.runAppCode();
+            MainController.runAppCode();
         }
-
-        if( customCode > 0 ){
-            if( controller != null ) {
-                controller.setFrame(this.myFrame);
-                controller.run();                
-            }
+        if( runAppCode ) {
+            MainController.runAppCode();
         }
     }
 
     /**
      * Runs main application code
      */	
-    public void runAppCode(){
+    public static void runAppCode(){
 
-        this.menuController = new MenuController();
-        this.automatonController = new AutomatonController();
-        this.myFrame = new MainFrame(this);
-        this.menuController.setMainFrame(this.myFrame);
-        this.automatonController.setMainFrame(this.myFrame);
+        MainController.menuController = new MenuController();
+        MainController.automatonController = new AutomatonController();
+        MainController.myFrame = new MainFrame();
+        MainController.personalController.setFrame(MainController.myFrame);
+        MainController.myFrame.setPersonalController(MainController.personalController);
         
-        this.myFrame.setVisible(true);
-    }
-    
-    /**
-     * Handles events which occur on the frame
-     * 
-     * @param e Event that occurred
-     */
-    @Override
-    public void actionPerformed(ActionEvent e){
-        
-    }
-    
-    /**
-     * Gets MenuController to work with
-     * 
-     * @return Instance of MenuController to work with
-     */
-    public MenuController getMenuController() {
-        return this.menuController;
-    }
+        MainController.menuController.setMainFrame(MainController.myFrame);
+        MainController.automatonController.setMainFrame(MainController.myFrame);
+       MainController.myFrame.setAutomatonController(automatonController);
+        MainController.myFrame.setMenuController(menuController);
 
-    /**
-     * Gets AutomatonController to work with
-     * 
-     * @return Instance of MenuController to work with
-     */
-    public AutomatonController getAutomatonController() {
-        return this.automatonController;
+        MainController.myFrame.init();
+        MainController.myFrame.run();
     }
 }
