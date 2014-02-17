@@ -68,13 +68,13 @@ public class MainController implements Controller, ActionListener{
                 }
                 switch( customCode ) {
                     case 1: // Lukas controller
-                        controller = new ControllerPersonalLukas( this.myFrame );
+                        controller = new ControllerPersonalLukas();
                         break;
                     case 2: // Josh controller
-                        controller = new ControllerPersonalJosh( this.myFrame );
+                        controller = new ControllerPersonalJosh();
                         break;
                     case 3: // Teddy controller
-                        controller = new ControllerPersonalTeddy( this.myFrame );
+                        controller = new ControllerPersonalTeddy();
                         break;
                 }
             }
@@ -85,6 +85,7 @@ public class MainController implements Controller, ActionListener{
 
         if( customCode > 0 ){
             if( controller != null ) {
+                controller.setFrame(this.myFrame);
                 controller.run();                
             }
         }

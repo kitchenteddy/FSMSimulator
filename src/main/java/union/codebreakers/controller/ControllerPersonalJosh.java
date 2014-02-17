@@ -17,14 +17,6 @@ import union.codebreakers.view.drawer.stateDrawer.StateDrawerEnd;
  *
  */
 public class ControllerPersonalJosh extends ControllerPersonal{
-
-    /**
-     * Constructor
-     * @param f Actual frame
-     */
-    public ControllerPersonalJosh(MainFrame f) {
-        super(f);
-    }
     /**
      * Runs personalised code
      */
