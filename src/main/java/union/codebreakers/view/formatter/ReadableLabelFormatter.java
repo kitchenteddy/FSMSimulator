@@ -6,6 +6,8 @@
 
 package union.codebreakers.view.formatter;
 
+import union.codebreakers.model.Label;
+
 /**
  *
  * @author teddykitchen
@@ -14,7 +16,14 @@ public class ReadableLabelFormatter implements FormatterTool{
 
     @Override
     public String format(Formattable toFormat) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        String toReturn = "";
+        FormattableLabel myFormattableLabel = (FormattableLabel)toFormat;
+        Label myLabel = myFormattableLabel.getLabel();
+        toReturn += myLabel.getName();
+        
+        
+        return toReturn;
     }
     
 }

@@ -6,6 +6,9 @@
 
 package union.codebreakers.view.formatter;
 
+import union.codebreakers.model.Automata;
+import union.codebreakers.model.Label;
+
 /**
  *
  * @author teddykitchen
@@ -14,7 +17,14 @@ public class ReadableAutomataFormatter implements FormatterTool{
 
     @Override
     public String format(Formattable toFormat) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String toReturn = "";
+        FormattableAutomata myFormattableAutomata = (FormattableAutomata)toFormat;
+        Automata myAutomata = myFormattableAutomata.getAutomata();
+        
+        
+        
+        
+        return toReturn;
     }
     
 }

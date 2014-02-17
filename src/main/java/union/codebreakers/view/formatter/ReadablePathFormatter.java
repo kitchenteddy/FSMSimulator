@@ -6,6 +6,9 @@
 
 package union.codebreakers.view.formatter;
 
+import union.codebreakers.model.Label;
+import union.codebreakers.model.Path;
+
 /**
  *
  * @author teddykitchen
@@ -14,7 +17,27 @@ public class ReadablePathFormatter implements FormatterTool{
 
     @Override
     public String format(Formattable toFormat) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String toReturn = "Path Label: ";
+        
+        FormattablePath myFormattablePath = (FormattablePath)toFormat;
+        Path myPath = myFormattablePath.getPath();
+        
+        
+        
+        toReturn += myPath.getLabel().getName();
+        
+        toReturn += "\nPath Type: ";
+        toReturn += myPath.getType().toString();
+        
+        toReturn += "\nEndPoint: ";
+        toReturn += myPath.getEndPoint().getLabel().getName();
+        
+        toReturn += "\n";
+        
+        
+        return toReturn;
+        
+        
     }
     
 }

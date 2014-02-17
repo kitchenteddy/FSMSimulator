@@ -14,7 +14,7 @@ import union.codebreakers.model.*;
 public class FormattableLabel implements Formattable
 {
     
-    private Label myModel;
+    private Label myLabel;
     
     
     /**
@@ -24,6 +24,29 @@ public class FormattableLabel implements Formattable
      */
     public String acceptFormatter(FormatterVisitor myVisitor, FormatterType myType)
     {
-        return myVisitor.visitElement(this, myType);
+        FormatterTool myFormatter;
+        
+        switch(myType)
+        {
+            case eReadable:
+                myFormatter = new ReadableLabelFormatter();
+            case eLoadable:
+                myFormatter = new LoadableLabelFormatter();
+            default:
+                myFormatter = new ReadableLabelFormatter();
+        }
+        
+        return myFormatter.format(this);
+    }
+    
+    
+    
+    /**
+     * returns the Label in the model representing this Formattable
+     * @return 
+     */
+    public Label getLabel()
+    {
+        return myLabel;
     }
 }

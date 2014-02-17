@@ -73,21 +73,5 @@ public class ModelFormatterVisitor implements FormatterVisitor {
     
     
     
-    /**
-     * static private helper method for formatting position points correctly
-     * @param myPoint
-     * @return String representation of a point
-     */
-    private static String formatPosition(Point myPoint)
-    {
-        String toReturn = "Position: (";
-        Double xVal = (Double)myPoint.getX();
-        Double yVal = (Double)myPoint.getY();
-        toReturn += xVal.toString();
-        toReturn += ", ";
-        toReturn += yVal.toString();
-        toReturn += ")";
-        return toReturn;
-        
-    }
+    
 }

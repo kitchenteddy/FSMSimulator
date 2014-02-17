@@ -18,7 +18,7 @@ public class FormattableState implements Formattable{
     
     
     
-    private State myModel;
+    private State myState;
     
     
     /**
@@ -28,7 +28,30 @@ public class FormattableState implements Formattable{
      */
     public String acceptFormatter(FormatterVisitor myVisitor, FormatterType myType)
     {
-        return "";
+        FormatterTool myFormatter;
+        
+        switch(myType)
+        {
+            case eReadable:
+                myFormatter = new ReadableStateFormatter();
+            case eLoadable:
+                myFormatter = new LoadableStateFormatter();
+            default:
+                myFormatter = new ReadableStateFormatter();
+        }
+        
+        return myFormatter.format(this);
+        
+        
     }
     
+    
+    /**
+     * returns the state in the model representing this Formattable
+     * @return 
+     */
+    public State getState()
+    {
+        return myState;
+    }
 }

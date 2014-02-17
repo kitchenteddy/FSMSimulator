@@ -18,7 +18,7 @@ public class FormattablePath implements Formattable{
     
     
     
-    private Path myModel;
+    private Path myPath;
     
     
     /**
@@ -29,7 +29,32 @@ public class FormattablePath implements Formattable{
     public String acceptFormatter(FormatterVisitor myVisitor, FormatterType myType)
     {
         
-        return myVisitor.visitElement(this, myType);
+        FormatterTool myFormatter;
+        
+        switch(myType)
+        {
+            case eReadable:
+                myFormatter = new ReadablePathFormatter();
+            case eLoadable:
+                myFormatter = new LoadablePathFormatter();
+            default:
+                myFormatter = new ReadablePathFormatter();
+        }
+        
+        return myFormatter.format(this);
+    }
+    
+    
+    
+    
+    
+    /**
+     * returns the path in the model representing this Formattable
+     * @return 
+     */
+    public Path getPath()
+    {
+        return myPath;
     }
     
 }

@@ -13,7 +13,7 @@ import union.codebreakers.model.*;
  */
 public class FormattableAutomata implements Formattable{
     
-    private Automata myModel;
+    private Automata myAutomata;
     
     
     
@@ -25,8 +25,30 @@ public class FormattableAutomata implements Formattable{
     public String acceptFormatter(FormatterVisitor myVisitor, FormatterType myType)
     {
         
-        return myVisitor.visitElement(this, myType);
+        FormatterTool myFormatter;
         
+        switch(myType)
+        {
+            case eReadable:
+                myFormatter = new ReadableAutomataFormatter();
+            case eLoadable:
+                myFormatter = new LoadableAutomataFormatter();
+            default:
+                myFormatter = new ReadableAutomataFormatter();
+        }
+        
+        return myFormatter.format(this);
+        
+    }
+    
+    
+    /**
+     * returns the state in the model representing this Formattable
+     * @return 
+     */
+    public Automata getAutomata()
+    {
+        return myAutomata;
     }
     
     
