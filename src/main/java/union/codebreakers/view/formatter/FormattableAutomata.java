@@ -17,6 +17,14 @@ public class FormattableAutomata implements Formattable{
     
     
     
+    
+    
+    
+    public FormattableAutomata(Automata myModel)
+    {
+        this.myAutomata = myModel;
+    }
+    
     /**
      * accept method for things that are visitable by the formatter
      * @param myVisitor

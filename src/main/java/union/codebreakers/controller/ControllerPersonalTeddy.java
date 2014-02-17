@@ -16,16 +16,17 @@ public class ControllerPersonalTeddy extends ControllerPersonal{
     public void run() {
         
         
-        ModelAutomata fsm = new ModelAutomata();
+        Automata fsm = new ModelAutomata();
         
         ModelFormatterVisitor formatter = new ModelFormatterVisitor();
         
         ModelState firstState = new ModelState(StateType.eStart, new Point(0,0), new ModelLabel());
         
         fsm.addState(firstState);
+        FormattableAutomata myFormattable = new FormattableAutomata(fsm);
         
-        //String myPrintOut = formatter.visitElement(firstState);
-        //System.out.println(myPrintOut);
+        String myPrintOut = formatter.visitElement(myFormattable, FormatterType.eReadable);
+        System.out.println(myPrintOut);
         
         
         
