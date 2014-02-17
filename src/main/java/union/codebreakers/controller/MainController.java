@@ -1,5 +1,7 @@
 package union.codebreakers.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -9,9 +11,11 @@ import union.codebreakers.gui.MainFrame;
 /**
  * The main controller
  */
-public class MainController implements Controller{
+public class MainController implements Controller, ActionListener{
 
-    private static MainFrame myFrame = null;
+    private MainFrame myFrame = null;
+    private MenuController menuController = null;
+    private AutomatonController automatonController = null;
 
     /**
      * Assigns actions from user to controller's methods 
@@ -35,13 +39,14 @@ public class MainController implements Controller{
      */	
     public static void main(String [] args)
     {
-        MainController.runController();
+        MainController controller = new MainController();
+        controller.runController();
     }
 
     /**
      * Decides what code to run
      */	
-    public static void runController(){
+    public void runController(){
         boolean runAppCode = true;
         int customCode = 0;
         ControllerPersonal controller = null;
@@ -58,39 +63,69 @@ public class MainController implements Controller{
                 runAppCode = Integer.parseInt(line1) == 1;
                 customCode = Integer.parseInt(line2) % 4;
 
+                if( runAppCode ) {
+                    this.runAppCode();
+                }
                 switch( customCode ) {
                     case 1: // Lukas controller
-                        controller = new ControllerPersonalLukas( MainController.myFrame );
+                        controller = new ControllerPersonalLukas( this.myFrame );
                         break;
                     case 2: // Josh controller
-                        controller = new ControllerPersonalJosh( MainController.myFrame );
+                        controller = new ControllerPersonalJosh( this.myFrame );
                         break;
                     case 3: // Teddy controller
-                        controller = new ControllerPersonalTeddy( MainController.myFrame );
+                        controller = new ControllerPersonalTeddy( this.myFrame );
                         break;
                 }
             }
         }
         catch(IOException e){
-            MainController.runAppCode();
+            this.runAppCode();
         }
-        finally{
-            if( runAppCode ) {
-                MainController.runAppCode();
-            }
-        }
+
         if( customCode > 0 ){
-            controller.setFrame(MainController.myFrame);
-            controller.run();
+            if( controller != null ) {
+                controller.run();                
+            }
         }
     }
 
     /**
      * Runs main application code
      */	
-    public static void runAppCode(){
-       MainController.myFrame = new MainFrame();
-        MainController.myFrame.setVisible(true);
+    public void runAppCode(){
+        this.menuController = new MenuController();
+        this.automatonController = new AutomatonController();
+
+        this.myFrame = new MainFrame(this);
+        this.myFrame.setVisible(true);
+    }
+    
+    /**
+     * Handles events which occur on the frame
+     * 
+     * @param e Event that occurred
+     */
+    @Override
+    public void actionPerformed(ActionEvent e){
+        
+    }
+    
+    /**
+     * Gets MenuController to work with
+     * 
+     * @return Instance of MenuController to work with
+     */
+    public MenuController getMenuController() {
+        return this.menuController;
     }
 
+    /**
+     * Gets AutomatonController to work with
+     * 
+     * @return Instance of MenuController to work with
+     */
+    public AutomatonController getAutomatonController() {
+        return this.automatonController;
+    }
 }

@@ -1,0 +1,53 @@
+package union.codebreakers.controller;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JMenuItem;
+
+/**
+ * Controller handling manipulation with menu
+ */
+public class MenuController implements ActionListener{
+    
+    /**
+     * Handles events which occur in menu
+     * 
+     * @param e Event that occurred
+     */
+    @Override
+    public void actionPerformed(ActionEvent e){
+        if( e.getSource() instanceof JMenuItem ) {
+            JMenuItem item = (JMenuItem)e.getSource();
+            if( item.getName().equals("menuitemNew") ){
+                this.doNew();
+            } else if(item.getName().equals("menuitemOpen") ){
+                this.doOpen();
+            } else if(item.getName().equals("menuitemSave")){
+                this.doSave();
+            } else if(item.getName().equals("menuitemSaveAs")){
+                this.doSaveAs();
+            } else if(item.getName().equals("menuitemQuit")){
+                this.doQuit();
+            }
+        }
+    }
+
+    private void doNew(){
+        
+    }
+
+    private void doOpen(){
+        
+    }
+    private void doSave(){
+        
+    }
+
+    private void doSaveAs(){
+        
+    }
+    
+    private void doQuit(){
+        
+    }
+}
