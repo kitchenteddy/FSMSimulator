@@ -19,8 +19,15 @@ public class StateDrawerNormal  implements DrawerSpecific
     @Override
     public void draw(Drawable state, Graphics g) {
 
-        g.setColor(Color.RED);
+        g.setColor(Color.BLUE);
         g.drawOval(200, 200, 60, 60);
+        
+        int width = 60;
+        int height = 60;
+	int x = 200;
+        int y = 200;
+        
+        g.drawOval(x, y, width, height);
 
     }
 }

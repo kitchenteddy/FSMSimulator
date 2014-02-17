@@ -3,7 +3,6 @@ package union.codebreakers.view.drawer.stateDrawer;
 import java.awt.Color;
 import java.awt.Graphics;
 import union.codebreakers.view.drawable.Drawable;
-import union.codebreakers.view.drawable.DrawableState;
 import union.codebreakers.view.drawer.DrawerSpecific;
 
 

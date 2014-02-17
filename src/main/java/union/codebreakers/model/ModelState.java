@@ -9,7 +9,6 @@ import union.codebreakers.helper.StateType;
  * ModelState class
  * 
  * 
-<<<<<<< HEAD
  * Model for state
  */
 public class ModelState implements State, Movable, Collidable
