@@ -1,4 +1,5 @@
 package union.codebreakers.model;
+
 import java.awt.Point;
 import java.util.ArrayList;
 import union.codebreakers.helper.PathType;
@@ -45,7 +46,6 @@ public class ModelAutomata implements Automata
     @Override
     public Label getStateLabel(State myState)
     {
-        
         return myState.getLabel();
     }
     
@@ -59,7 +59,6 @@ public class ModelAutomata implements Automata
     public void setStateLabel(State myState, Label toSet)
     {
         myState.setLabel(toSet);
-        
     }
     
     /**      

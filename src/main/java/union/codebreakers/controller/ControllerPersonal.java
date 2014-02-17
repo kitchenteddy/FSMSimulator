@@ -17,14 +17,6 @@ public class ControllerPersonal implements ControllerPersonalGeneric{
      * Pointer to the actual frame
      */
     protected MainFrame frame;
-
-    /**
-     * Constructor
-     * @param f Actual frame
-     */
-    ControllerPersonal(MainFrame f){
-        this.frame = f;
-    }
     
     /**
      * Gives you currently displayed frame

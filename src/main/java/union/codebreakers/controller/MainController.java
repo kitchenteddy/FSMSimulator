@@ -1,5 +1,7 @@
 package union.codebreakers.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -12,6 +14,9 @@ import union.codebreakers.gui.MainFrame;
 public class MainController implements Controller{
 
     private static MainFrame myFrame = null;
+    private static MenuController menuController = null;
+    private static AutomatonController automatonController = null;
+    private static ControllerPersonal personalController = null;
 
     /**
      * Assigns actions from user to controller's methods 
@@ -44,7 +49,6 @@ public class MainController implements Controller{
     public static void runController(){
         boolean runAppCode = true;
         int customCode = 0;
-        ControllerPersonal controller = null;
         // get config from file
         try{
             File f = new File( "config.lssd" );
@@ -60,13 +64,13 @@ public class MainController implements Controller{
 
                 switch( customCode ) {
                     case 1: // Lukas controller
-                        controller = new ControllerPersonalLukas( MainController.myFrame );
+                        MainController.personalController = new ControllerPersonalLukas();
                         break;
                     case 2: // Josh controller
-                        controller = new ControllerPersonalJosh( MainController.myFrame );
+                        MainController.personalController = new ControllerPersonalJosh();
                         break;
                     case 3: // Teddy controller
-                        controller = new ControllerPersonalTeddy( MainController.myFrame );
+                        MainController.personalController = new ControllerPersonalTeddy();
                         break;
                 }
             }
@@ -74,14 +78,8 @@ public class MainController implements Controller{
         catch(IOException e){
             MainController.runAppCode();
         }
-        finally{
-            if( runAppCode ) {
-                MainController.runAppCode();
-            }
-        }
-        if( customCode > 0 ){
-            controller.setFrame(MainController.myFrame);
-            controller.run();
+        if( runAppCode ) {
+            MainController.runAppCode();
         }
     }
 
@@ -89,8 +87,19 @@ public class MainController implements Controller{
      * Runs main application code
      */	
     public static void runAppCode(){
-       MainController.myFrame = new MainFrame();
-        MainController.myFrame.setVisible(true);
-    }
 
+        MainController.menuController = new MenuController();
+        MainController.automatonController = new AutomatonController();
+        MainController.myFrame = new MainFrame();
+        MainController.personalController.setFrame(MainController.myFrame);
+        MainController.myFrame.setPersonalController(MainController.personalController);
+        
+        MainController.menuController.setMainFrame(MainController.myFrame);
+        MainController.automatonController.setMainFrame(MainController.myFrame);
+       MainController.myFrame.setAutomatonController(automatonController);
+        MainController.myFrame.setMenuController(menuController);
+
+        MainController.myFrame.init();
+        MainController.myFrame.run();
+    }
 }

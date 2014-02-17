@@ -24,14 +24,6 @@ import union.codebreakers.view.drawer.DrawerStock;
 public class ControllerPersonalLukas extends ControllerPersonal{
 
     /**
-     * Constructor
-     * @param f Actual frame
-     */
-    public ControllerPersonalLukas(MainFrame f) {
-        super(f);
-    }
-
-    /**
      * Runs personalised code
      */
     @Override

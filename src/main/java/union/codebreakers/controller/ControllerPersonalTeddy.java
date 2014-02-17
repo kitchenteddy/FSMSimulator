@@ -8,14 +8,6 @@ import java.awt.Point;
  *
  */
 public class ControllerPersonalTeddy extends ControllerPersonal{
-
-    /**
-     * Constructor
-     * @param f Actual frame
-     */
-    public ControllerPersonalTeddy(MainFrame f) {
-        super(f);
-    }
     
     /**
      * Runs personalised code
