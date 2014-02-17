@@ -29,7 +29,6 @@ public class MenuController implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         if( e.getSource() instanceof JMenuItem ) {
-//            if(e.get)
             JMenuItem item = (JMenuItem)e.getSource();
             if( item.getName().equals("menuitemNew") ){
                 this.doNew();
