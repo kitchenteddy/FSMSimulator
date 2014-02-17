@@ -20,6 +20,12 @@ public interface Label
      * @param newName New text for this label
      */
     public void setName(String newName);
+    
+    /**
+     * Gets text for this label
+     * @return String name of this label
+     */
+    public String getName();
        
     /**
      * Gets type of this label

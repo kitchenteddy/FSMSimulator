@@ -15,7 +15,7 @@ public class FormatterFactory {
     /**
      * Setter for FormatterFile Instance
      */
-    protected void initFormatterFile()
+    protected static void initFormatterFile()
     {
         FormatterFactory.ff = new FormatterFile();
     }
@@ -25,7 +25,7 @@ public class FormatterFactory {
      * @param type Type of formatter
      * @return Instance of wanted formatter
      */
-    public Formatter makeFormatter(FormatterType type )
+    public static Formatter makeFormatter(FormatterType type )
     {
         if (FormatterFactory.ff == null)
         {

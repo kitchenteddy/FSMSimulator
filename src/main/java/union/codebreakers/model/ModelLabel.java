@@ -2,8 +2,9 @@ package union.codebreakers.model;
 
 import union.codebreakers.helper.LabelType;
 import java.awt.Point;
+import union.codebreakers.view.formatter.FormatterVisitor;
 
-public class ModelLabel implements Movable, Label, Collidable
+public class ModelLabel implements Movable, Label, Collidable, FormatterVisitable
 {
     private String name;
     private LabelType type;
@@ -17,6 +18,21 @@ public class ModelLabel implements Movable, Label, Collidable
         this.name = "";
     }
 
+    
+    
+    
+    
+    
+    /**
+     * Gets text for this label
+     * @return String name of this label
+     */
+    public String getName()
+    {
+        return this.name;
+    }
+    
+    
     /**
      * Sets the name of this label
      * 
@@ -68,5 +84,15 @@ public class ModelLabel implements Movable, Label, Collidable
     public boolean isCollision(Point pnt) {
             // TODO : to implement
             return false;	
+    }
+
+    /**
+     * accept method to format ModelLabel
+     * @param myVisitor
+     * @return 
+     */
+    @Override
+    public String acceptFormatter(FormatterVisitor myVisitor) {
+        return myVisitor.visitElement(this);
     }
 }

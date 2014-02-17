@@ -2,6 +2,7 @@ package union.codebreakers.model;
 import java.util.ArrayList;
 import java.awt.Point;
 import union.codebreakers.helper.StateType;
+import union.codebreakers.view.formatter.FormatterVisitor;
 
 /**
  * 
@@ -9,7 +10,7 @@ import union.codebreakers.helper.StateType;
  * 
  * 
  */
-public class ModelState implements State, Movable, Collidable
+public class ModelState implements State, Movable, Collidable, FormatterVisitable
 {
     private StateType type;
     private Point position;
@@ -22,7 +23,24 @@ public class ModelState implements State, Movable, Collidable
     public ModelState(){
             
     }
-
+    
+    
+    /**
+     * non default constructor for StateLabel
+     * @param type
+     * @param pos
+     * @param stateLabel 
+     */
+    public ModelState(StateType myType, Point myPos, Label myLabel)
+    {
+        this.type = myType;
+        this.position = myPos;
+        this.stateLabel = myLabel;
+        this.outgoingPaths = new ArrayList<Path>();
+        
+        
+    }
+    
     /**
      * Adds outgoing path from this state
      * @param destination Destination state
@@ -138,8 +156,8 @@ public class ModelState implements State, Movable, Collidable
     */
     public Iterable<Path> getPaths()
     {
-        //implement
-        return new ArrayList();
+        
+        return this.outgoingPaths;
     }
 
     /**
@@ -196,5 +214,24 @@ public class ModelState implements State, Movable, Collidable
     public int getRadius(){
         return 10;
     }
+
+    
+    
+    
+    
+    
+    /**
+     * accept method to format ModelState
+     * @param myVisitor
+     * @return 
+     */
+    @Override
+    public String acceptFormatter(FormatterVisitor myVisitor) {
+        return myVisitor.visitElement(this);
+    }
+    
+    
+    
+    
 }
 

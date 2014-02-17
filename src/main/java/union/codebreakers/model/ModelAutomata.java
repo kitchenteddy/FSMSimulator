@@ -3,11 +3,13 @@ import java.awt.Point;
 import java.util.ArrayList;
 import union.codebreakers.helper.PathType;
 import union.codebreakers.helper.StateType;
+import union.codebreakers.view.formatter.FormatterVisitor;
+
 
 /**
  * Automata model
  */
-public class ModelAutomata implements Automata
+public class ModelAutomata implements Automata, FormatterVisitable
 {
     public ArrayList<State> collectionStates;
     public ArrayList<Collidable> collectionCollidable;
@@ -270,6 +272,16 @@ public class ModelAutomata implements Automata
     public Iterable getCollectionStates()
     {
         return this.collectionStates;
+    }
+
+    /**
+     * accept method to format ModelState
+     * @param myVisitor
+     * @return 
+     */
+    @Override
+    public String acceptFormatter(FormatterVisitor myVisitor) {
+        return myVisitor.visitElement(this);
     }
 }
 
