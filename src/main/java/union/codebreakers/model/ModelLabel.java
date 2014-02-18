@@ -2,9 +2,10 @@ package union.codebreakers.model;
 
 import union.codebreakers.helper.LabelType;
 import java.awt.Point;
+import java.io.Serializable;
 import union.codebreakers.view.formatter.FormatterVisitor;
 
-public class ModelLabel implements Movable, Label, Collidable
+public class ModelLabel implements Movable, Label, Collidable, Serializable
 {
     private String name;
     private LabelType type;

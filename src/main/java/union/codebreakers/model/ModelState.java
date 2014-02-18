@@ -2,6 +2,7 @@ package union.codebreakers.model;
 
 import java.util.ArrayList;
 import java.awt.Point;
+import java.io.Serializable;
 import union.codebreakers.helper.StateType;
 import union.codebreakers.view.formatter.FormatterVisitor;
 
@@ -12,7 +13,7 @@ import union.codebreakers.view.formatter.FormatterVisitor;
  * 
  * Model for state
  */
-public class ModelState implements State, Movable, Collidable
+public class ModelState implements State, Movable, Collidable, Serializable
 {
     
     private StateType type;
