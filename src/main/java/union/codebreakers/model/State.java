@@ -1,6 +1,6 @@
 package union.codebreakers.model;
 
-import union.codebreakers.helper.StateType;
+import union.codebreakers.helper.enums.StateType;
 import java.awt.Point;
 
 /**

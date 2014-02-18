@@ -3,7 +3,7 @@ package union.codebreakers.model;
 import java.util.ArrayList;
 import java.awt.Point;
 import java.io.Serializable;
-import union.codebreakers.helper.StateType;
+import union.codebreakers.helper.enums.StateType;
 import union.codebreakers.view.formatter.FormatterVisitor;
 
 /**

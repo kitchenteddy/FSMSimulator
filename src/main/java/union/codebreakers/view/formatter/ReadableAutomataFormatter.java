@@ -7,7 +7,7 @@
 package union.codebreakers.view.formatter;
 
 import java.awt.Point;
-import union.codebreakers.model.Automata;
+import union.codebreakers.model.Automaton;
 import union.codebreakers.model.Label;
 import union.codebreakers.model.Path;
 import union.codebreakers.model.State;
@@ -25,7 +25,7 @@ public class ReadableAutomataFormatter implements FormatterTool{
         
         String toReturn = "";
         FormattableAutomata myFormattableAutomata = (FormattableAutomata)toFormat;
-        Automata myAutomata = myFormattableAutomata.getAutomata();
+        Automaton myAutomata = myFormattableAutomata.getAutomata();
         
         for (State myState: myAutomata.getCollectionStates())
         {

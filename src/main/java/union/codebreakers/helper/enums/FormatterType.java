@@ -1,4 +1,4 @@
-package union.codebreakers.helper;
+package union.codebreakers.helper.enums;
 
 /**
  * Types of formatter

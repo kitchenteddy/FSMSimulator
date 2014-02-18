@@ -6,7 +6,7 @@
 
 package union.codebreakers.view.formatter;
 
-import union.codebreakers.helper.FormatterType;
+import union.codebreakers.helper.enums.FormatterType;
 import union.codebreakers.view.formatter.FormatterVisitor;
 
 /**

@@ -1,6 +1,6 @@
 package union.codebreakers.model;
 
-import union.codebreakers.helper.LabelType;
+import union.codebreakers.helper.enums.LabelType;
 import java.awt.Point;
 import java.io.Serializable;
 import union.codebreakers.view.formatter.FormatterVisitor;

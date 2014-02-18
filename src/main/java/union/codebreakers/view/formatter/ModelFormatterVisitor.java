@@ -9,7 +9,7 @@ package union.codebreakers.view.formatter;
 import union.codebreakers.model.*;
 
 import java.awt.Point;
-import union.codebreakers.helper.FormatterType;
+import union.codebreakers.helper.enums.FormatterType;
 
 /**
  *

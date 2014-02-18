@@ -1,6 +1,6 @@
 package union.codebreakers.model;
 
-import union.codebreakers.helper.LabelType;
+import union.codebreakers.helper.enums.LabelType;
 
 /**
  * Label interface for various objects

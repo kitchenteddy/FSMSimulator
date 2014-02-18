@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import union.codebreakers.gui.MainFrame;
-import union.codebreakers.helper.StateType;
+import union.codebreakers.helper.enums.StateType;
 import union.codebreakers.model.ModelState;
 
 /**

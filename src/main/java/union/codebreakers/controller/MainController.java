@@ -7,8 +7,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import union.codebreakers.gui.MainFrame;
-import union.codebreakers.model.Automata;
-import union.codebreakers.model.ModelAutomata;
+import union.codebreakers.model.Automaton;
+import union.codebreakers.model.ModelAutomaton;
 import union.codebreakers.view.ViewImage;
 
 /**
@@ -21,7 +21,7 @@ public class MainController{
     private AutomatonController automatonController = null;
     private ControllerPersonal personalController = null;
     
-    private Automata fsm = null;
+    private Automaton fsm = null;
     private ViewImage view = null;
 
     /**
@@ -80,7 +80,7 @@ public class MainController{
      * Runs main application code
      */	
     public void runAppCode(){
-        this.fsm = new ModelAutomata();
+        this.fsm = new ModelAutomaton();
         this.view = new ViewImage();
 
         this.menuController = new MenuController();
@@ -101,7 +101,7 @@ public class MainController{
      * 
      * @return Instance of automaton
      */
-    public Automata getAutomaton(){
+    public Automaton getAutomaton(){
         return this.fsm;
     }
     

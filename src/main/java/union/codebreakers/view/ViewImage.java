@@ -1,7 +1,7 @@
 package union.codebreakers.view;
 
 import java.awt.Graphics;
-import union.codebreakers.model.Automata;
+import union.codebreakers.model.Automaton;
 
 /**
  * Graphical representation of automata
@@ -11,7 +11,7 @@ public class ViewImage implements View
     /**
      * Automata for this view
      */
-    public Automata automata;
+    public Automaton automata;
 
     /**
      * Constructor

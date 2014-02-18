@@ -5,7 +5,7 @@
  */
 
 package union.codebreakers.view.formatter;
-import union.codebreakers.helper.FormatterType;
+import union.codebreakers.helper.enums.FormatterType;
 import union.codebreakers.model.*;
 /**
  *
@@ -13,14 +13,14 @@ import union.codebreakers.model.*;
  */
 public class FormattableAutomata implements Formattable{
     
-    private Automata myAutomata;
+    private Automaton myAutomata;
     
     
     
     
     
     
-    public FormattableAutomata(Automata myModel)
+    public FormattableAutomata(Automaton myModel)
     {
         this.myAutomata = myModel;
     }
@@ -54,7 +54,7 @@ public class FormattableAutomata implements Formattable{
      * returns the state in the model representing this Formattable
      * @return 
      */
-    public Automata getAutomata()
+    public Automaton getAutomata()
     {
         return myAutomata;
     }

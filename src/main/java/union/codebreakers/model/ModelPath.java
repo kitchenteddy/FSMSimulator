@@ -2,7 +2,7 @@ package union.codebreakers.model;
 
 import java.awt.Point;
 import java.io.Serializable;
-import union.codebreakers.helper.PathType;
+import union.codebreakers.helper.enums.PathType;
 import union.codebreakers.view.formatter.FormatterVisitor;
 
 public class ModelPath implements Path, Collidable, Serializable

@@ -1,6 +1,6 @@
 package union.codebreakers.view;
 
-import union.codebreakers.model.Automata;
+import union.codebreakers.model.Automaton;
 
 
 /**
@@ -11,7 +11,7 @@ public class ViewText implements View
     /**
      * Automata for this view
      */
-    public Automata automata;
+    public Automaton automata;
 	
     /**
      * Constructor

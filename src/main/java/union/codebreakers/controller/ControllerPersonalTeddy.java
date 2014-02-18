@@ -1,4 +1,6 @@
 package union.codebreakers.controller;
+import union.codebreakers.helper.enums.FormatterType;
+import union.codebreakers.helper.enums.StateType;
 import union.codebreakers.model.*;
 import union.codebreakers.gui.MainFrame;
 import union.codebreakers.view.formatter.*;
@@ -16,7 +18,7 @@ public class ControllerPersonalTeddy extends ControllerPersonal{
     public void run() {
         
         
-        Automata fsm = new ModelAutomata();
+        Automaton fsm = new ModelAutomaton();
         
         ModelFormatterVisitor formatter = new ModelFormatterVisitor();
         

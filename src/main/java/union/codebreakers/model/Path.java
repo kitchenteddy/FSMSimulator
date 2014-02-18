@@ -1,5 +1,5 @@
 package union.codebreakers.model;
-import union.codebreakers.helper.PathType;
+import union.codebreakers.helper.enums.PathType;
 
 
 

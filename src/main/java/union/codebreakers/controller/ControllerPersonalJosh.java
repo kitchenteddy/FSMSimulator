@@ -7,7 +7,7 @@
 package union.codebreakers.controller;
 
 import union.codebreakers.gui.MainFrame;
-import union.codebreakers.helper.StateType;
+import union.codebreakers.helper.enums.StateType;
 import union.codebreakers.model.ModelState;
 import union.codebreakers.view.drawable.DrawableState;
 import union.codebreakers.view.drawer.stateDrawer.StateDrawerStarting;

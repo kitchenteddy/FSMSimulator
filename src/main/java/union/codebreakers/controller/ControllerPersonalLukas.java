@@ -9,7 +9,7 @@ package union.codebreakers.controller;
 import java.awt.Point;
 import java.util.LinkedList;
 import union.codebreakers.gui.MainFrame;
-import union.codebreakers.helper.StateType;
+import union.codebreakers.helper.enums.StateType;
 import union.codebreakers.helper.ToolsFactory;
 import union.codebreakers.model.ModelPath;
 import union.codebreakers.model.ModelState;
