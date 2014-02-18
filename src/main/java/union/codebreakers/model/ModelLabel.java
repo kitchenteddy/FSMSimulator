@@ -3,7 +3,6 @@ package union.codebreakers.model;
 import union.codebreakers.helper.enums.LabelType;
 import java.awt.Point;
 import java.io.Serializable;
-import union.codebreakers.view.formatter.FormatterVisitor;
 
 public class ModelLabel implements Movable, Label, Collidable, Serializable
 {
@@ -18,22 +17,17 @@ public class ModelLabel implements Movable, Label, Collidable, Serializable
     {
         this.name = "";
     }
-
-    
-    
-    
-    
     
     /**
      * Gets text for this label
      * @return String name of this label
      */
+    @Override
     public String getName()
     {
         return this.name;
     }
-    
-    
+        
     /**
      * Sets the name of this label
      * 
@@ -66,16 +60,6 @@ public class ModelLabel implements Movable, Label, Collidable, Serializable
     }
 
     /**
-     * Returns collidable version of label
-     * @return Collidable label
-     */
-        @Override
-    public Collidable getCollidable()
-    {
-        return this;
-    }
-
-    /**
      * Checks, if this element collides with the point
      * @param pnt POint to check collision with
      * 
@@ -86,6 +70,4 @@ public class ModelLabel implements Movable, Label, Collidable, Serializable
             // TODO : to implement
             return false;	
     }
-
-
 }

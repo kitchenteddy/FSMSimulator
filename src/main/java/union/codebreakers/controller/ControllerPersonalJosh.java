@@ -21,6 +21,7 @@ public class ControllerPersonalJosh extends ControllerPersonal{
      */
     @Override
     public void run() {
+        /*
         DrawableState ds = new DrawableState();
         ModelState ms = new ModelState();
         ms.setType(StateType.eEnd);
@@ -29,5 +30,6 @@ public class ControllerPersonalJosh extends ControllerPersonal{
         
         StateDrawerStarting sd = new StateDrawerStarting();
         sd.draw(ds, this.getFrame().getGraphicsPainting());
+        */
     }    
 }

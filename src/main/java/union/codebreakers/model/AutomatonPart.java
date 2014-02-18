@@ -1,14 +1,14 @@
 package union.codebreakers.model;
 
 /**
- * Interface for every path of an automata (states, paths, labels and etc.)
+ * Interface for every path of an automaton (states, paths, labels and etc.)
  */
 public interface AutomatonPart {
     
     /**
-     * Gets instance of automata of which its part of
+     * Gets instance of automaton of which its part of
      * 
-     * @return Instance of parent automata
+     * @return Instance of parent automaton
      */
-    public Automaton getAutomata();
+    public Automaton getAutomaton();
 }

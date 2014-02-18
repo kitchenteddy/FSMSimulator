@@ -28,9 +28,9 @@ public class ControllerPersonalLukas extends ControllerPersonal{
      */
     @Override
     public void run() {
-
+/*
         DrawableState s = new DrawableState();
-        ModelState ms = new ModelState();
+//        ModelState ms = new ModelState();
 //        ModelState ms1 = new ModelState();
 //        ModelState ms2 = new ModelState();
         ms.setPos(new Point( 30, 30) );
@@ -38,5 +38,6 @@ public class ControllerPersonalLukas extends ControllerPersonal{
         s.setState(ms);
         ms.setType(StateType.eEnd);
         s.setupDrawing(ToolsFactory.getDrawerStock(), this.getFrame().getGraphicsPainting());
+*/
     }
 }

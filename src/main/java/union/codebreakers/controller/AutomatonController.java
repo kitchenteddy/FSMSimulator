@@ -45,11 +45,13 @@ public class AutomatonController  implements ActionListener, MouseListener{
         switch( me.getButton() ){
             case 1: // left-click
             {
+                /*
                 ModelState ms = new ModelState();
                 ms.setType(StateType.eStart);
                 ms.setPos(me.getPoint());
                 
                 this.mainFrame.getMainController().getAutomaton().addState(ms);
+                */
                 break;
             }
             case 3: // right-click

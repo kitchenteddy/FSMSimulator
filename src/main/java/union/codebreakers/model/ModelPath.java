@@ -3,8 +3,10 @@ package union.codebreakers.model;
 import java.awt.Point;
 import java.io.Serializable;
 import union.codebreakers.helper.enums.PathType;
-import union.codebreakers.view.formatter.FormatterVisitor;
 
+/**
+ * Concrete implementation of Path model
+ */
 public class ModelPath implements Path, Collidable, Serializable
 {
     private int angle;
@@ -53,28 +55,6 @@ public class ModelPath implements Path, Collidable, Serializable
     }
     
     /**
-     * Gets angle of this path
-     * 
-     * @return the angle of this path
-     */
-    @Override
-    public int getAngle()
-    {
-        return this.angle;
-    }
-    
-    /**
-     * Sets the startPoint of this path
-     * 
-     * @param newAngle New angle of this path
-     */
-    @Override
-    public void setAngle(int newAngle)
-    {
-        this.angle = newAngle;
-    }    
-    
-    /**
      * Gets label of this path
      * 
      * @return Label of this path
@@ -116,17 +96,6 @@ public class ModelPath implements Path, Collidable, Serializable
     public void setType(PathType newType)
     {
         this.type = newType;
-    }
-  
-    /**
-     * Returns collidable version of path
-     * 
-     * @return Collidable path
-     */
-        @Override
-    public Collidable getCollidable()
-    {
-        return this;
     }
 
     /**
