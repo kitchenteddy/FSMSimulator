@@ -18,12 +18,14 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     
     /**
      * non default constructor for StateLabel
-     * @param msType     Type of state
-     * @param msPos      Position of state
-     * @param msLabel    Label of the state
+     * @param msType    Type of state
+     * @param msPos     Position of state
+     * @param msLabel   Label of the state
+     * @param fsm       FSM the state is part of
      */
-    public ModelState(StateType msType, Point msPos, Label msLabel)
+    public ModelState(StateType msType, Point msPos, Label msLabel, Automaton fsm)
     {
+        this.fsm = fsm;
         this.type = msType;
         this.position = msPos;
         this.stateLabel = msLabel;
@@ -43,7 +45,7 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     @Override
     public void addPath(State destination)
     { 
-        Path newPath = new ModelPath(this, destination);
+        Path newPath = new ModelPath(this, destination, this.fsm);
         this.outgoingPaths.add(newPath);
         if( destination instanceof Collidable ) {
             this.getAutomaton().addCollidable((Collidable)destination);
@@ -168,12 +170,6 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         
         return null;
     }
-	
-
-   
-    
-    /////IMPLEMENT THIS VVVVVVVVVVV
-    
 
     /**
      * Checks, if this element collides with the point

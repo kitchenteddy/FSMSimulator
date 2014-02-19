@@ -7,29 +7,30 @@ import union.codebreakers.helper.enums.PathType;
 /**
  * Concrete implementation of Path model
  */
-public class ModelPath implements Path, Collidable, Serializable
+public class ModelPath implements Path, Collidable, Serializable, AutomatonPart
 {
-    private int angle;
     private State startPoint;
     private State endPoint;
     private Point position;
     private Label label;
     private PathType type;
+    private Automaton fsm;
 
     /**
      * Constructor
      * 
-     * @param from Starting path
-     * @param to Destination path
+     * @param from  Starting path
+     * @param to    Destination path
+     * @param fsm   FSM which is path part of
      */
-    public ModelPath(State from, State to)
+    public ModelPath(State from, State to, Automaton fsm)
     {
-        this.angle = 0;
         this.startPoint = from;
         this.endPoint = to;
         this.position = new Point(0,0);
         this.label = new ModelLabel();
-        this.type = PathType.eNormal;          
+        this.type = PathType.eNormal;
+        this.fsm = fsm;
     }
         
     /**
@@ -110,7 +111,24 @@ public class ModelPath implements Path, Collidable, Serializable
             return false;	
     }
 
-    
+    /**
+     * Sets instance of automaton of which its part of
+     * 
+     * @param a Instance of automaton
+     */
+    public void SetAutomaton(Automaton a){
+       this.fsm = a;
+    }    
+
+    /**
+     * Gets instance of automaton of which its part of
+     * 
+     * @return Instance of parent automaton
+     */
+    @Override
+    public Automaton getAutomaton() {
+        return this.fsm;
+    }
 }
 
 
