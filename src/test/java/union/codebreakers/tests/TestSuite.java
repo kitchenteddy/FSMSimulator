@@ -1,8 +1,4 @@
 package union.codebreakers.tests;
-
-
-
-
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -10,8 +6,10 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses
 ({
     
-	FSATest.class,
-	FSATest2.class
+	AutomatonTests.class,
+	LabelTests.class,
+	LabelTests.class,
+	StateTests.class
 
 })
 public class TestSuite
