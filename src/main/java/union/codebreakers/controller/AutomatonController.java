@@ -5,7 +5,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import union.codebreakers.gui.MainFrame;
+import union.codebreakers.helper.enums.LabelType;
 import union.codebreakers.helper.enums.StateType;
+import union.codebreakers.model.ModelLabel;
 import union.codebreakers.model.ModelState;
 
 /**
@@ -45,13 +47,14 @@ public class AutomatonController  implements ActionListener, MouseListener{
         switch( me.getButton() ){
             case 1: // left-click
             {
-                /*
-                ModelState ms = new ModelState();
-                ms.setType(StateType.eStart);
-                ms.setPos(me.getPoint());
-                
+                int size = this.mainFrame.getMainController().getAutomaton().getCollectionStates().size();
+                ModelLabel ml = new ModelLabel();
+                ml.setName("test");
+                ml.setType(LabelType.eState);
+                ModelState ms = new ModelState(StateType.eNormal, me.getPoint(), ml, this.mainFrame.getMainController().getAutomaton());
+               
                 this.mainFrame.getMainController().getAutomaton().addState(ms);
-                */
+                this.mainFrame.getDrawingPlace().repaint();
                 break;
             }
             case 3: // right-click

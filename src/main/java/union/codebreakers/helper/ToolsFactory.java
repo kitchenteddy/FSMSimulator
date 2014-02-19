@@ -8,14 +8,14 @@ import union.codebreakers.view.drawer.DrawerStockGeneric;
  */
 public class ToolsFactory {
     
-    static private CollisionHandlerGeneric CollisionHandlerTool = null;
+    static private CollisionHandler CollisionHandlerTool = null;
     static private DrawerStockGeneric DrawerStockShared = null;
     
     /*
      * Gets an instance of collision tools
      * @return Instance of CollisionHandlerGeneric tool
     */
-    public static CollisionHandlerGeneric getCollisionHandler(){
+    public static CollisionHandler getCollisionHandler(){
         if( ToolsFactory.CollisionHandlerTool == null ) {
             ToolsFactory.CollisionHandlerTool = new CollisionHandler();
         }

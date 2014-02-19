@@ -6,7 +6,6 @@ import union.codebreakers.view.drawable.Drawable;
 import union.codebreakers.view.drawable.DrawableState;
 import union.codebreakers.view.drawer.DrawerGeneric;
 
-
 /**
  * This class determines which tool should be used to draw supplied state
  */

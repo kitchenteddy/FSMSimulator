@@ -1,7 +1,5 @@
 package union.codebreakers.controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -81,7 +79,7 @@ public class MainController{
      */	
     public void runAppCode(){
         this.fsm = new ModelAutomaton();
-        this.view = new ViewImage();
+        this.view = new ViewImage(this.fsm);
 
         this.menuController = new MenuController();
         this.automatonController = new AutomatonController();

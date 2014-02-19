@@ -1,5 +1,7 @@
 package union.codebreakers.model;
 
+import java.util.List;
+
 /**
  * Interface for Automata model
  */
@@ -10,7 +12,7 @@ public  interface Automaton
      * Gets an iterable collection of the states in the automata
      * @return Iterable collection of states in the Automata
      */
-    public Iterable<State> getCollectionStates();
+    public List<State> getCollectionStates();
 
     /**      
     * Adds a state to the automata

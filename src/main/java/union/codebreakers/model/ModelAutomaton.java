@@ -2,7 +2,7 @@ package union.codebreakers.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import union.codebreakers.model.Collidable;
+import java.util.List;
 
 /**
  * Automaton model
@@ -27,7 +27,7 @@ public class ModelAutomaton implements Automaton, Serializable
     */
     @Override
     public void addState(State toAdd)
-    {
+    { 
         this.collectionStates.add(toAdd);
         this.addCollidable((Collidable)toAdd);
     }
@@ -49,9 +49,9 @@ public class ModelAutomaton implements Automaton, Serializable
      * @return Iterable collection of states in the Automata
      */
     @Override
-    public Iterable getCollectionStates()
+    public List<State> getCollectionStates()
     {
-        return this.collectionStates;
+        return (List<State>)this.collectionStates;
     }
     
     /**

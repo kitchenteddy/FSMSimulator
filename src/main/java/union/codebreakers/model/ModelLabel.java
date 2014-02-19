@@ -16,6 +16,7 @@ public class ModelLabel implements Movable, Label, Collidable, Serializable
     public ModelLabel() 
     {
         this.name = "";
+        this.type = LabelType.ePath;
     }
     
     /**

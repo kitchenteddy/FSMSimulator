@@ -14,20 +14,20 @@ public class StateDrawerNormal  implements DrawerSpecific
 
     /**
      * Draws two concentric circles representing normal state
+     * 
      * @param state State to draw
      * @param g Canvas to be drawn on
      */
     @Override
     public void draw(Drawable state, Graphics g) {
 
-        int x = ((DrawableState)state).getState().getPos().x;
-        int y = ((DrawableState)state).getState().getPos().y;
-        int width = 60;
-        int height = 60;
-        
+        DrawableState ds = ((DrawableState)state);
+        int x = ds.getState().getPos().x;
+        int y = ds.getState().getPos().y;
+        int r = ds.getState().getRadius();
         g.setColor(Color.BLUE);
         
-        g.drawOval(x, y, width, height);
+        g.drawOval(x - r, y - r, 2*r, 2*r);
 
     }
 }

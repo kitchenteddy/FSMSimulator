@@ -7,7 +7,7 @@ import java.awt.Point;
 /**
  * Collision handler
  */
-public class CollisionHandler implements CollisionHandlerGeneric
+public class CollisionHandler
 {
     /**
      * Checks collision with the provided point across all collidable elements 
@@ -15,7 +15,6 @@ public class CollisionHandler implements CollisionHandlerGeneric
      * @param pnt Point to check for collision
      * @return Element with which the collision has occurred
      */
-    @Override
     public Collidable checkCollision(Point pnt) {
         // TODO : to implement
         return null;
@@ -29,7 +28,6 @@ public class CollisionHandler implements CollisionHandlerGeneric
      * 
      * @return Whether the collision occurred
      */
-        @Override
     public boolean checkCollisionStates(ModelState el, Point pnt) {
         // TODO : to implement
         return false;	

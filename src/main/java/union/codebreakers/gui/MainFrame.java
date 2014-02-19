@@ -8,10 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 import union.codebreakers.controller.ControllerPersonal;
 import union.codebreakers.controller.MainController;
-import union.codebreakers.view.ViewImage;
 
 /**
  * Main frame of the application
@@ -22,11 +20,10 @@ public class MainFrame extends JFrame{
     static private int windowsH = 512;
        
     private MainController mainController;
-    private JPanel machinePanel;
+    private FsmPanel machinePanel;
     private JMenuBar menuBar;
     
     private ControllerPersonal personalController;
-    
     
     /**
      * Constructor
@@ -72,7 +69,8 @@ public class MainFrame extends JFrame{
     }
     
     private void initElements(){
-        this.machinePanel = new JPanel();
+        this.machinePanel = new FsmPanel();
+        this.machinePanel.setVew(this.getMainController().getViewImage());
         this.machinePanel.addMouseListener(this.mainController.getAutomatonController());
         BoxLayout layout = new BoxLayout(this.getContentPane(), 1);
         
@@ -120,7 +118,7 @@ public class MainFrame extends JFrame{
      * @return Drawable canvas to draw finite state automaton to
      */
     public Graphics getGraphicsPainting(){
-        return this.getGraphics();
+        return this.getDrawingPlace().getGraphics();
     }
     
     /**
@@ -148,5 +146,14 @@ public class MainFrame extends JFrame{
      */
     public void run(){
         this.setVisible(true);        
+    }
+    
+    /**
+     * Gets place to draw FSM
+     * 
+     * @return Place where to draw FSM
+     */
+    public FsmPanel getDrawingPlace(){
+        return this.machinePanel;
     }
 }

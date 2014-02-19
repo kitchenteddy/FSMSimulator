@@ -16,7 +16,7 @@ public class ControllerPersonalTeddy extends ControllerPersonal{
      */
     @Override
     public void run() {
-        
+        /*
         
         Automaton fsm = new ModelAutomaton();
         
@@ -35,6 +35,6 @@ public class ControllerPersonalTeddy extends ControllerPersonal{
         
         System.out.println("TESTING BITCHES");
         
-        
+        */
     }
 }
