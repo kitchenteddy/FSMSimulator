@@ -15,7 +15,7 @@ import union.codebreakers.view.ViewImage;
 public class MainController{
 
     private MainFrame myFrame = null;
-    private MenuController menuController = null;
+    private ToolbarController toolbarController = null;
     private AutomatonController automatonController = null;
     private ControllerPersonal personalController = null;
     
@@ -81,13 +81,13 @@ public class MainController{
         this.fsm = new ModelAutomaton();
         this.view = new ViewImage(this.fsm);
 
-        this.menuController = new MenuController();
+        this.toolbarController = new ToolbarController();
         this.automatonController = new AutomatonController();
         this.myFrame = new MainFrame();
         this.personalController.setFrame(this.myFrame);
         this.myFrame.setMainController(this);
         
-        this.menuController.setMainFrame(this.myFrame);
+        this.toolbarController.setMainFrame(this.myFrame);
         this.automatonController.setMainFrame(this.myFrame);
 
         this.myFrame.init();
@@ -104,12 +104,12 @@ public class MainController{
     }
     
     /**
-     * Gets instance of MenuController
+     * Gets instance of ToolbarController
      * 
-     * @return instance of MenuController
+     * @return instance of ToolbarController
      */
-    public MenuController getMenuController(){
-        return this.menuController;
+    public ToolbarController getToolbarController(){
+        return this.toolbarController;
     }
 
     /**

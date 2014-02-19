@@ -4,10 +4,14 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JToolBar;
 import union.codebreakers.controller.ControllerPersonal;
 import union.codebreakers.controller.MainController;
 
@@ -22,6 +26,7 @@ public class MainFrame extends JFrame{
     private MainController mainController;
     private FsmPanel machinePanel;
     private JMenuBar menuBar;
+    private BoxLayout layout = null;
     
     private ControllerPersonal personalController;
     
@@ -54,11 +59,11 @@ public class MainFrame extends JFrame{
      */
     public void init(){
         this.initFrame();
-        this.initMenu();
+        this.initToolbar();
         this.initElements();        
    }
-    
-    private void initFrame(){
+
+ private void initFrame(){
         // set dimensions and position to center of screen
         this.setSize(MainFrame.windowsW, MainFrame.windowsH);
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
@@ -72,44 +77,54 @@ public class MainFrame extends JFrame{
         this.machinePanel = new FsmPanel();
         this.machinePanel.setVew(this.getMainController().getViewImage());
         this.machinePanel.addMouseListener(this.mainController.getAutomatonController());
-        BoxLayout layout = new BoxLayout(this.getContentPane(), 1);
+        this.layout = new BoxLayout(this.getContentPane(), BoxLayout.PAGE_AXIS);
         
         this.getContentPane().setLayout(layout);
         this.getContentPane().add(this.machinePanel);
     }
     
-    private void initMenu() {
-        this.menuBar = new JMenuBar();
-        this.setJMenuBar(this.menuBar);
-        
-        JMenu menu = new JMenu("File"); 
-        this.menuBar.add(menu);
-        
-        JMenuItem item = new JMenuItem("New");
-        item.setName("menuitemNew");
-        item.addActionListener(this.mainController.getMenuController());
-        menu.add(item);
-        
-        item = new JMenuItem("Open");
-        item.setName("menuitemOpen");
-        item.addActionListener(this.mainController.getMenuController());
-        menu.add(item);
+    private void initToolbar(){
+        JToolBar toolbar = new JToolBar();
+        toolbar.setFloatable(false);
 
-        item = new JMenuItem("Save");
-        item.setName("menuitemSave");
-        item.addActionListener(this.mainController.getMenuController());
-        menu.add(item);
+        ImageIcon newi = new ImageIcon("resources/Clipboard.png");
+        ImageIcon open = new ImageIcon("resources/Box.png");
+        ImageIcon save = new ImageIcon("resources/Pencil.png");
+        ImageIcon save_as = new ImageIcon("resources/Pencil.png");
+        ImageIcon quit = new ImageIcon("resources/Delete.png");
 
-        item = new JMenuItem("Save As ...");
-        item.setName("menuitemSaveAs");
-        item.addActionListener(this.mainController.getMenuController());
-        menu.add(item);
+        JButton newb = new JButton(newi);
+        newb.setText("New");
+        newb.setName("buttonNew");
+        newb.addActionListener(this.getMainController().getToolbarController());
         
-        menu.addSeparator();
-        item = new JMenuItem("Quit");
-        item.setName("menuitemQuit");
-        item.addActionListener(this.mainController.getMenuController());
-        menu.add(item);
+        JButton openb = new JButton(open);
+        openb.setText("Open");
+        openb.setName("buttonOpen");
+        openb.addActionListener(this.getMainController().getToolbarController());
+
+        JButton saveb = new JButton(save);
+        saveb.setText("Save");
+        saveb.setName("buttonSave");
+        saveb.addActionListener(this.getMainController().getToolbarController());
+
+        JButton save_asb = new JButton(save_as);
+        save_asb.setText("Save As ...");
+        save_asb.setName("buttonSaveAs");
+        save_asb.addActionListener(this.getMainController().getToolbarController());
+
+        JButton quitb = new JButton(quit);
+        quitb.setText("Quit");
+        quitb.setName("buttonQuit");
+        quitb.addActionListener(this.getMainController().getToolbarController());
+
+        toolbar.add(newb);
+        toolbar.add(openb);
+        toolbar.add(saveb);
+        toolbar.add(save_asb);
+        toolbar.add(quitb);
+        toolbar.setAlignmentY(0);
+        this.getContentPane().add(toolbar);
     }
     
     /**

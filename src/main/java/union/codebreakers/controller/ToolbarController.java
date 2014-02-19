@@ -2,13 +2,13 @@ package union.codebreakers.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JMenuItem;
+import javax.swing.JButton;
 import union.codebreakers.gui.MainFrame;
 
 /**
  * Controller handling manipulation with menu
  */
-public class MenuController implements ActionListener{
+public class ToolbarController implements ActionListener{
     
     private MainFrame mainFrame = null;
 
@@ -28,20 +28,21 @@ public class MenuController implements ActionListener{
      */
     @Override
     public void actionPerformed(ActionEvent e){
-        if( e.getSource() instanceof JMenuItem ) {
-            JMenuItem item = (JMenuItem)e.getSource();
-            if( item.getName().equals("menuitemNew") ){
+        if( e.getSource() instanceof JButton ) {
+            JButton item = (JButton)e.getSource();
+            if( item.getName().equals("buttonNew") ){
                 this.doNew();
-            } else if(item.getName().equals("menuitemOpen") ){
+            } else if(item.getName().equals("buttonOpen") ){
                 this.doOpen();
-            } else if(item.getName().equals("menuitemSave")){
+            } else if(item.getName().equals("buttonSave")){
                 this.doSave();
-            } else if(item.getName().equals("menuitemSaveAs")){
+            } else if(item.getName().equals("buttonSaveAs")){
                 this.doSaveAs();
-            } else if(item.getName().equals("menuitemQuit")){
+            } else if(item.getName().equals("buttonQuit")){
                 this.doQuit();
             }
         }
+        this.mainFrame.getDrawingPlace().repaint();
     }
 
     private void doNew(){
