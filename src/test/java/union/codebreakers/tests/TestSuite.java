@@ -10,7 +10,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses
 ({
     
-	FSATest.class
+	FSATest.class,
+	FSATest2.class
 
 })
 public class TestSuite
