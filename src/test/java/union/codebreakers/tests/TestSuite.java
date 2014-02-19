@@ -8,7 +8,7 @@ import org.junit.runners.Suite;
     
 	AutomatonTests.class,
 	LabelTests.class,
-	LabelTests.class,
+	PathTests.class,
 	StateTests.class
 
 })
