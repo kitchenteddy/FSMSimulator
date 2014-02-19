@@ -77,6 +77,8 @@ public class MainFrame extends JFrame{
         this.machinePanel = new FsmPanel();
         this.machinePanel.setVew(this.getMainController().getViewImage());
         this.machinePanel.addMouseListener(this.mainController.getAutomatonController());
+        this.addKeyListener(this.mainController.getAutomatonController());
+
         this.layout = new BoxLayout(this.getContentPane(), BoxLayout.PAGE_AXIS);
         
         this.getContentPane().setLayout(layout);
