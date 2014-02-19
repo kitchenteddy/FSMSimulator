@@ -1,5 +1,6 @@
 package union.codebreakers.controller;
 
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -9,6 +10,7 @@ import union.codebreakers.helper.enums.LabelType;
 import union.codebreakers.helper.enums.StateType;
 import union.codebreakers.model.ModelLabel;
 import union.codebreakers.model.ModelState;
+import union.codebreakers.view.drawer.stateDrawer.StateDrawer;
 
 /**
  * Controller handling manipulation with automaton
@@ -51,12 +53,15 @@ public class AutomatonController  implements ActionListener, MouseListener{
             {
                 int size = this.mainFrame.getMainController().getAutomaton().getCollectionStates().size();
                 ModelLabel ml = new ModelLabel();
-                ml.setName("test");
+                ml.setName(Integer.toString(size+1));
                 ml.setType(LabelType.eState);
-                ModelState ms = new ModelState(StateType.eEnd, me.getPoint(), ml, this.mainFrame.getMainController().getAutomaton());
-               
-                this.mainFrame.getMainController().getAutomaton().addState(ms);
-                this.mainFrame.getDrawingPlace().repaint();
+                StateType type = size == 0 ? StateType.eStart : StateType.eNormal;                
+                
+                if( this.checkWithinBoundaries(me.getPoint(), type)){
+                    ModelState ms = new ModelState(type, me.getPoint(), ml, this.mainFrame.getMainController().getAutomaton());
+                    this.mainFrame.getMainController().getAutomaton().addState(ms);
+                    this.mainFrame.getDrawingPlace().repaint();
+                }
                 break;
             }
             case 3: // right-click
@@ -65,6 +70,28 @@ public class AutomatonController  implements ActionListener, MouseListener{
                 break;
             }
         }
+    }
+    
+    /**
+     * Checks, if the state can be drawn at that position
+     * 
+     * @param where
+     * @param type
+     * @return 
+     */
+    private boolean checkWithinBoundaries(Point where, StateType type){
+        boolean result = true;
+        Point dim = StateDrawer.getDimensions(type);
+        
+        if( 
+            ( where.x - dim.x/2 < 0 ) ||
+            ( where.x + dim.x/2 > this.mainFrame.getDrawingPlace().getWidth() ) ||
+            ( where.y - dim.y/2 < 0 ) ||
+            ( where.y - dim.y/2 > this.mainFrame.getDrawingPlace().getHeight() )
+          ){
+            result = false;
+        }
+        return result;
     }
 
     /**
