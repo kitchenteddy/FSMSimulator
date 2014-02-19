@@ -19,6 +19,7 @@ public class FSATest
 {
     
     
+    
     @Before
     public void setUp()
     {
@@ -35,7 +36,7 @@ public class FSATest
     public void construct()
     {
 	   
-       assertEquals(true,true);
+       
 
     }
 

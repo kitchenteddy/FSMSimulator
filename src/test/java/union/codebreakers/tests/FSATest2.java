@@ -35,7 +35,7 @@ public class FSATest2
     public void construct()
     {
 	   
-       assertEquals(true,true);
+       
 
     }
     
