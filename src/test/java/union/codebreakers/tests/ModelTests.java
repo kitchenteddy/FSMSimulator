@@ -15,9 +15,8 @@ import org.junit.runners.JUnit4;
 
 
 @RunWith(JUnit4.class)
-public class FSATest
+public class ModelTests
 {
-    
     
     
     @Before
@@ -36,7 +35,7 @@ public class FSATest
     public void construct()
     {
 	   
-       
+       assertEquals(true,true);
 
     }
 
