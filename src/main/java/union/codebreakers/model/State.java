@@ -73,13 +73,6 @@ public  interface State
     public Iterable<Path> getPaths();
     
     /**
-     * Returns radius of state
-     * 
-     * @return radius of state
-     */
-    public int getRadius();
-    
-    /**
      * Returns the path going to the destination State
      * 
      * @param destination Gets path between these two states

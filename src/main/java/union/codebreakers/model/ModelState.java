@@ -184,16 +184,6 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     }
 
     /**
-     * Returns radius of state
-     * 
-     * @return radius of state
-     */
-    @Override
-    public int getRadius(){
-        return 30;
-    }
-
-    /**
      * Gets instance of automaton of which its part of
      * 
      * @return Instance of parent automaton

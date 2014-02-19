@@ -2,6 +2,7 @@ package union.codebreakers.view.drawer.stateDrawer;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import union.codebreakers.view.drawable.Drawable;
 import union.codebreakers.view.drawable.DrawableState;
 import union.codebreakers.view.drawer.DrawerSpecific;
@@ -19,24 +20,22 @@ public class StateDrawerStarting  implements DrawerSpecific
      */
     @Override
      public void draw(Drawable state, Graphics g) {
-         
-        int x = ((DrawableState)state).getState().getPos().x;
-        int y = ((DrawableState)state).getState().getPos().y;
-        int radius = ((DrawableState)state).getState().getRadius();
-        
-        // add another variable to get the radius of the model state
-        
-        int width = 60;
-        int height = 60;
-         
+
+        DrawableState ds = ((DrawableState)state);
+        int x = ds.getState().getPos().x;
+        int y = ds.getState().getPos().y;
+        Point dim = StateDrawer.getDimensions(ds.getState().getType());
         g.setColor(Color.GREEN.darker()); 
         
-        g.drawLine(y-50, x+radius, x, y+radius); // stem
-        g.drawLine(x, y+radius, y-10, x+20); // left v /
-        g.drawLine(x, y+radius, y-10, x+40); // right v \
+        int x_end = x - dim.y/2 - 5;
+        int arrow_point_x = dim.x / 5;
+        int arrow_point_y = dim.x / 6;
         
-        g.drawOval(x, y, width, height);
-         
+        g.drawLine( x - dim.x, y, x_end, y); // stem
+        g.drawLine( x_end, y, x_end - arrow_point_x, y + arrow_point_y); // bottom /
+        g.drawLine( x_end, y, x_end - arrow_point_x, y - arrow_point_y); // top \
+        
+        g.drawOval(x - dim.y/2, y - dim.y/2, dim.y, dim.y);
      }
 }
 

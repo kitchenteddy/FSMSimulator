@@ -1,7 +1,9 @@
 package union.codebreakers.view.drawer.stateDrawer;
 
 import java.awt.Graphics;
+import java.awt.Point;
 import union.codebreakers.exception.ExceptionUnexpectedInput;
+import union.codebreakers.helper.enums.StateType;
 import union.codebreakers.view.drawable.Drawable;
 import union.codebreakers.view.drawable.DrawableState;
 import union.codebreakers.view.drawer.DrawerGeneric;
@@ -84,6 +86,34 @@ public class StateDrawer implements DrawerGeneric
         } else {
             throw new ExceptionUnexpectedInput( "Unsupported input" );                
         }
+    }
+    
+    /**
+     * Gets drawing dimensions for state
+     * 
+     * @param type Type of state
+     * 
+     * @return Dimenisions of state
+     */
+    public static Point getDimensions(StateType type){
+       Point dim = new Point(0,0);
+       
+       switch(type){
+           case eEnd:
+               dim.x = 40;
+               dim.y = 40;
+               break;
+           case eNormal:
+               dim.x = 40;
+               dim.y = 40;
+               break;
+           case eStart:
+               dim.x = 80;
+               dim.y = 40;
+               break;
+     }
+
+     return dim;
     }
 }
 

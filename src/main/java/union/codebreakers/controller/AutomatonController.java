@@ -16,7 +16,9 @@ import union.codebreakers.model.ModelState;
 public class AutomatonController  implements ActionListener, MouseListener{
     
     private MainFrame mainFrame = null;
-
+    private static int offset = 5;
+    
+    
     /**
      * Sets pointer to main frame
      * 
@@ -51,7 +53,7 @@ public class AutomatonController  implements ActionListener, MouseListener{
                 ModelLabel ml = new ModelLabel();
                 ml.setName("test");
                 ml.setType(LabelType.eState);
-                ModelState ms = new ModelState(StateType.eNormal, me.getPoint(), ml, this.mainFrame.getMainController().getAutomaton());
+                ModelState ms = new ModelState(StateType.eEnd, me.getPoint(), ml, this.mainFrame.getMainController().getAutomaton());
                
                 this.mainFrame.getMainController().getAutomaton().addState(ms);
                 this.mainFrame.getDrawingPlace().repaint();

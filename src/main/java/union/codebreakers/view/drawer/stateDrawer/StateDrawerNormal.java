@@ -2,6 +2,7 @@ package union.codebreakers.view.drawer.stateDrawer;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import union.codebreakers.view.drawable.Drawable;
 import union.codebreakers.view.drawable.DrawableState;
 import union.codebreakers.view.drawer.DrawerSpecific;
@@ -24,10 +25,10 @@ public class StateDrawerNormal  implements DrawerSpecific
         DrawableState ds = ((DrawableState)state);
         int x = ds.getState().getPos().x;
         int y = ds.getState().getPos().y;
-        int r = ds.getState().getRadius();
+        Point dim = StateDrawer.getDimensions(ds.getState().getType());
         g.setColor(Color.BLUE);
         
-        g.drawOval(x - r, y - r, 2*r, 2*r);
+        g.drawOval(x - dim.x/2, y - dim.y/2, dim.x, dim.y);
 
     }
 }
