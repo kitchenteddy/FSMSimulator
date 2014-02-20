@@ -9,7 +9,8 @@ import org.junit.runners.Suite;
 	AutomatonTests.class,
 	LabelTests.class,
 	PathTests.class,
-	StateTests.class
+	StateTests.class,
+        DummyStateTests.class
 
 })
 public class TestSuite

@@ -1,28 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package union.codebreakers.view.formatter;
 import union.codebreakers.helper.enums.FormatterType;
 import union.codebreakers.model.*;
 /**
  *
- * @author teddykitchen
  */
-public class FormattableAutomata implements Formattable{
+public class FormattableAutomaton implements Formattable{
     
-    private Automaton myAutomata;
+    private Automaton fsm;
     
-    
-    
-    
-    
-    
-    public FormattableAutomata(Automaton myModel)
+    public FormattableAutomaton(Automaton myModel)
     {
-        this.myAutomata = myModel;
+        this.fsm = myModel;
     }
     
     /**
@@ -38,11 +26,14 @@ public class FormattableAutomata implements Formattable{
         switch(myType)
         {
             case eReadable:
-                myFormatter = new ReadableAutomataFormatter();
+                myFormatter = new ReadableAutomatonFormatter();
+                break;
             case eLoadable:
-                myFormatter = new LoadableAutomataFormatter();
+                myFormatter = new LoadableAutomatonFormatter();
+                break;
             default:
-                myFormatter = new ReadableAutomataFormatter();
+                myFormatter = new ReadableAutomatonFormatter();
+                break;
         }
         
         return myFormatter.format(this);
@@ -54,9 +45,9 @@ public class FormattableAutomata implements Formattable{
      * returns the state in the model representing this Formattable
      * @return 
      */
-    public Automaton getAutomata()
+    public Automaton getAutomaton()
     {
-        return myAutomata;
+        return fsm;
     }
     
     

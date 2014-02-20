@@ -26,7 +26,7 @@ public class StateDrawerNormal  implements DrawerSpecific
         int x = ds.getState().getPos().x;
         int y = ds.getState().getPos().y;
         Point dim = StateDrawer.getDimensions(ds.getState().getType());
-        g.setColor(Color.BLUE);
+        g.setColor(Color.YELLOW);
         
         g.drawOval(x - dim.x/2, y - dim.y/2, dim.x, dim.y);
 

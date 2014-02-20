@@ -9,10 +9,17 @@ public  interface Automaton
 {
     
     /**
-     * Gets an iterable collection of the states in the automata
-     * @return Iterable collection of states in the Automata
+     * Gets a list collection of the states in the automata
+     * @return List collection of states in the Automata
      */
     public List<State> getCollectionStates();
+
+    /**
+     * Gets a list of collidables
+     * 
+     * @return list of collidables
+     */
+    public List<Collidable> getCollectionCollidables();
 
     /**      
     * Adds a state to the automata

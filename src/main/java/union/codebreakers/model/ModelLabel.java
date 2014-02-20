@@ -2,6 +2,7 @@ package union.codebreakers.model;
 
 import union.codebreakers.helper.enums.LabelType;
 import java.awt.Point;
+import java.awt.Shape;
 import java.io.Serializable;
 
 public class ModelLabel implements Movable, Label, Collidable, Serializable
@@ -56,19 +57,18 @@ public class ModelLabel implements Movable, Label, Collidable, Serializable
      * @param newType Type of label
      * 
      */
+    @Override
     public void setType(LabelType newType){
         this.type = newType;
     }
 
     /**
-     * Checks, if this element collides with the point
-     * @param pnt POint to check collision with
+     * Gets shape of this element
      * 
-     * @return Whether the collision occurred
+     * @return Shape of the element
      */
     @Override
-    public boolean isCollision(Point pnt) {
-            // TODO : to implement
-            return false;	
+    public Shape getShape(){
+        return null;
     }
 }

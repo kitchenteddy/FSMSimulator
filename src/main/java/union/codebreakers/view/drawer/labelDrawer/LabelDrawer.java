@@ -18,15 +18,8 @@ public class LabelDrawer implements DrawerGeneric
     /**
      * Setter for tool to draw a path label
      */
-    protected void setLabelDrawerPath() {
-        LabelDrawer.ldp = new LabelDrawerPathText();
-    }
-
-    /**
-     * Setter for tool to draw a state label
-     */
-    protected void setLabelDrawerState() {
-        LabelDrawer.lds = new LabelDrawerState();
+    protected void setLabelDrawerPathNormal() {
+        LabelDrawer.ldp = new LabelDrawerPath();
     }
 
     /**
@@ -44,17 +37,12 @@ public class LabelDrawer implements DrawerGeneric
         if( el instanceof DrawableLabel ) {
             DrawableLabel element = (DrawableLabel)el;
             switch( element.getLabel().getType() ) {
+                case eState:
                 case ePath :
                     if( LabelDrawer.ldp == null ) {
-                        this.setLabelDrawerPath();
+                        this.setLabelDrawerPathNormal();
                     }
                     LabelDrawer.ldp.draw(el, g);
-                    break;
-                case eState:
-                    if( LabelDrawer.lds == null ) {
-                        this.setLabelDrawerState();
-                    }
-                    LabelDrawer.lds.draw(el, g);
                     break;
             }
         } else {

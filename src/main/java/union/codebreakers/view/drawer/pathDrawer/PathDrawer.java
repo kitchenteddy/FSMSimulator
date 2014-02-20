@@ -21,7 +21,7 @@ public class PathDrawer implements DrawerGeneric
      * Setter for tool to draw a normal path
      */
     protected void setPathDrawerNormal() {
-        PathDrawer.pdn = new PathDrawerNormalText();
+        PathDrawer.pdn = new PathDrawerNormal();
     }
 
     /**

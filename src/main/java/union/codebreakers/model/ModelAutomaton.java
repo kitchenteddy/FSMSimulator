@@ -84,6 +84,17 @@ public class ModelAutomaton implements Automaton, Serializable
         
         return result;
     }
+    
+    /**
+     * Gets a list of collidables
+     * 
+     * @return list of collidables
+     */
+    @Override
+    public List<Collidable> getCollectionCollidables(){
+        return this.collectionCollidable;
+    }
+    
 
     /**
      * Removes a collidable element from collection
