@@ -1,22 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package union.codebreakers.view.formatter;
 
 import java.awt.Point;
 import union.codebreakers.model.Automaton;
-import union.codebreakers.model.Label;
 import union.codebreakers.model.Path;
 import union.codebreakers.model.State;
 
 /**
  *
- * @author teddykitchen
  */
-public class ReadableAutomataFormatter implements FormatterTool{
+public class ReadableAutomatonFormatter implements FormatterTool{
 
     @Override
     public String format(Formattable toFormat) {
@@ -25,7 +17,7 @@ public class ReadableAutomataFormatter implements FormatterTool{
         
         String toReturn = "";
         FormattableAutomaton myFormattableAutomata = (FormattableAutomaton)toFormat;
-        Automaton myAutomata = myFormattableAutomata.getAutomata();
+        Automaton myAutomata = myFormattableAutomata.getAutomaton();
         
         for (State myState: myAutomata.getCollectionStates())
         {

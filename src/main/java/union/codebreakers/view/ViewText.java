@@ -1,9 +1,10 @@
 package union.codebreakers.view;
 
+import union.codebreakers.helper.enums.FormatterType;
 import union.codebreakers.model.Automaton;
-import union.codebreakers.view.formatter.FormattableLabel;
-import union.codebreakers.view.formatter.FormattablePath;
-import union.codebreakers.view.formatter.FormattableState;
+import union.codebreakers.view.formatter.FormattableAutomaton;
+import union.codebreakers.view.formatter.FormatterVisitor;
+import union.codebreakers.view.formatter.ModelFormatterVisitor;
 
 
 /**
@@ -12,6 +13,7 @@ import union.codebreakers.view.formatter.FormattableState;
 public class ViewText implements View
 {
     private Automaton fsm;
+    private FormatterType ft;
 
     /**
      * Constructor
@@ -21,6 +23,10 @@ public class ViewText implements View
     public ViewText(Automaton a){
         this.fsm = a;
     }
+    
+    public void setTypeOutput(FormatterType ft){
+        this.ft = ft;
+    }
 
     /**
      * Transforms automata into string representation
@@ -29,9 +35,10 @@ public class ViewText implements View
      */
     public String getOutput() {
         String output = "";
+        FormatterVisitor fv = new ModelFormatterVisitor();
         if( this.fsm != null ){
-            FormattableAutomaton fa = new FormattableAutomaton();
-
+            FormattableAutomaton fa = new FormattableAutomaton(fsm);
+            output = fa.acceptFormatter(null, this.ft);
         }
         return output;
     }

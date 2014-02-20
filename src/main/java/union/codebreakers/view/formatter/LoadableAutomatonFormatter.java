@@ -3,7 +3,7 @@ package union.codebreakers.view.formatter;
 /**
  *
  */
-public class LoadablePathFormatter implements FormatterTool{
+public class LoadableAutomatonFormatter implements FormatterTool{
 
     @Override
     public String format(Formattable toFormat) {
