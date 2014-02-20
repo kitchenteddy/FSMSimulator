@@ -24,7 +24,6 @@ public class DummyState implements State, Movable, Collidable, Serializable, Aut
         this.position = dummyPoint;
         this.stateLabel = msLabel;
         this.outgoingPaths = new ArrayList<Path>();
-        this.getAutomaton().addCollidable(this);
     }
 
     @Override
