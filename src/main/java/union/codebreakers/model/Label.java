@@ -39,7 +39,7 @@ public interface Label
     
     /**
      * Sets type of this label
-     * @param Type of this label
+     * @param newType
      */
     public void setType(LabelType newType);
     
