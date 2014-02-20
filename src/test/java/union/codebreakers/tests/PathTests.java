@@ -22,7 +22,7 @@ public class PathTests
     @Before
     public void setUp()
     {
-        
+
     }
 
     @After
@@ -34,9 +34,7 @@ public class PathTests
     @Test
     public void construct()
     {
-	   
-       assertEquals(true,true);
-
+        
     }
 
 

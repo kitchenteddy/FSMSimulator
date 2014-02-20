@@ -35,8 +35,6 @@ public class StateTests
     public void construct()
     {
 	   
-       assertEquals(true,true);
-
     }
 
 

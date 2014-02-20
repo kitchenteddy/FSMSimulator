@@ -16,9 +16,9 @@ public class ModelAutomaton implements Automaton, Serializable
     * Constructor method for ModelAutomaton
     */    
     public ModelAutomaton(){
-	this.collectionStates = new ArrayList<State>();
+        this.collectionStates = new ArrayList<State>();
         this.collectionCollidable = new ArrayList<Collidable>();
-     }
+    }
     
    /**      
     * Adds a state to the automaton
