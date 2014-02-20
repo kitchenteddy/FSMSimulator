@@ -13,12 +13,15 @@ import org.junit.Before;
 import org.junit.After;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import union.codebreakers.helper.enums.PathType;
 import union.codebreakers.helper.enums.StateType;
 import union.codebreakers.model.Automaton;
 import union.codebreakers.model.Label;
 import union.codebreakers.model.ModelAutomaton;
 import union.codebreakers.model.ModelLabel;
+import union.codebreakers.model.ModelPath;
 import union.codebreakers.model.ModelState;
+import union.codebreakers.model.Path;
 import union.codebreakers.model.State;
 
 
@@ -36,6 +39,8 @@ public class PathTests
     
     private Point s2Pos;  
     private Label s2L;
+    
+    private Path p1;
     
     ArrayList myList;
     
@@ -56,6 +61,11 @@ public class PathTests
         s1 = new ModelState(StateType.eNormal, s1Pos, s1L, myAutomaton);
         s2 = new ModelState(StateType.eNormal, s2Pos, s2L, myAutomaton);
         
+        s1.addPath(s2);
+        
+        p1 = s1.getPathTo(s2);
+        
+        
         myList = new ArrayList<State>();
 
     }
@@ -74,20 +84,41 @@ public class PathTests
         s1 = null;
         s2 = null;
         
+        p1 = null;
         myList = null;
     }
     
-    @Test
-    public void construct()
-    {
-        
-    }
+    
     
     @Test
     public void getPoints()
     {
+        assertEquals(s1, p1.getStartPoint());
+        assertEquals(s2, p1.getEndPoint());
         
     }
+    
+    @Test
+    public void setLabel()
+    {
+        Label myLabel = new ModelLabel();
+        myLabel.setName("myName");
+        
+        p1.setLabel(myLabel);
+        
+        assertEquals(myLabel, p1.getLabel());
+        
+    }
+    
+    @Test
+    public void setType()
+    {
+        p1.setType(PathType.eNormal);
+        assertEquals(PathType.eNormal, p1.getType());
+    }
+    
+
+    
 
 
             
