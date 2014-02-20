@@ -64,7 +64,7 @@ public class MainController{
                 }
             }
         }
-        catch(IOException e){
+        catch(Exception e){
             this.runAppCode();
         }
         if( runAppCode ) {
@@ -84,7 +84,9 @@ public class MainController{
         this.toolbarController = new ToolbarController();
         this.automatonController = new AutomatonController();
         this.myFrame = new MainFrame();
-        this.personalController.setFrame(this.myFrame);
+        if( this.personalController != null ) {
+            this.personalController.setFrame(this.myFrame);            
+        }
         this.myFrame.setMainController(this);
         
         this.toolbarController.setMainFrame(this.myFrame);
