@@ -1,7 +1,9 @@
 package union.codebreakers.model;
 
 import java.awt.Point;
+import java.awt.Shape;
 import java.io.Serializable;
+import union.codebreakers.helper.ShapeFactory;
 import union.codebreakers.helper.enums.PathType;
 
 /**
@@ -100,15 +102,13 @@ public class ModelPath implements Path, Collidable, Serializable, AutomatonPart
     }
 
     /**
-     * Is this path in collision
-     * @param pnt Point to check collision with
+     * Gets shape of this element
      * 
-     * @return Whether the collision has occurred
+     * @return Shape of the element
      */
     @Override
-    public boolean isCollision(Point pnt) {
-            // TODO : to implement
-            return false;	
+    public Shape getShape(){
+        return ShapeFactory.getLine(this.startPoint.getPos(), this.endPoint.getPos());
     }
 
     /**

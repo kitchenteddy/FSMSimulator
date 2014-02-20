@@ -26,8 +26,16 @@ public class FsmPanel extends JPanel{
     @Override
     public void repaint(){
         if( this.view != null ){
+            this.deleteCanvas();
             this.view.setOutput(this.getGraphics());
             this.view.drawOutput();
         }
+    }
+    
+    /**
+     * Prepares canvas for drawing
+     */
+    private void deleteCanvas(){
+        this.getGraphics().fillRect(-1, -1, this.getWidth() + 2, this.getHeight() + 2);
     }
 }

@@ -1,6 +1,6 @@
 package union.codebreakers.model;
 
-import java.awt.Point;
+import java.awt.Shape;
 
 /**
  * Interface for collidable elements
@@ -8,11 +8,10 @@ import java.awt.Point;
 public interface Collidable 
 {
     /**
-     * Checks, if this element collides with the point
-     * @param pnt POint to check collision with
+     * Gets shape of this element
      * 
-     * @return Whether the collision occurred
+     * @return Shape of the element
      */
-    public boolean isCollision(Point pnt);
+    public Shape getShape();
 }
 

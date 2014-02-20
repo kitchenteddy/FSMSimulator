@@ -2,8 +2,11 @@ package union.codebreakers.model;
 
 import java.util.ArrayList;
 import java.awt.Point;
+import java.awt.Shape;
 import java.io.Serializable;
+import union.codebreakers.helper.ShapeFactory;
 import union.codebreakers.helper.enums.StateType;
+import union.codebreakers.view.drawer.stateDrawer.StateDrawer;
 
 /**
  * ModelState class
@@ -175,15 +178,30 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     }
 
     /**
-     * Checks, if this element collides with the point
-     * @param pnt point to check collision with
+     * Gets shape of this element
      * 
-     * @return Whether the collision occurred
+     * @return Shape of the element
      */
     @Override
-    public boolean isCollision(Point pnt) {
-        // TODO : to implement
-        return false;	
+    public Shape getShape(){
+        Point dim = StateDrawer.getDimensions( this.getType() );
+        Point pos = new Point( this.getPos() );
+        switch( this.getType() ){
+            case eStart:
+                pos.x -= dim.y/2;
+                pos.y -= dim.y/2;
+                return ShapeFactory.getEllipse( pos, dim.y, dim.y);
+            case eEnd:
+                pos.x -= dim.x/2;
+                pos.y -= dim.y/2;
+                return ShapeFactory.getEllipse( pos, dim.x, dim.y);
+            case eNormal:
+                pos.x -= dim.x/2;
+                pos.y -= dim.y/2;
+                return ShapeFactory.getEllipse( pos, dim.x, dim.y);
+            default:
+                return null;
+        }
     }
 
     /**
