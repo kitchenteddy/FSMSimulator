@@ -75,14 +75,6 @@ public class DummyStateTests
         assertEquals("Testing setter/getter for type", myDummyState.getType(), StateType.eNormal);
         
     }
-    
-    @Test
-    public void point() {
-        
-        Point newDummyPoint = new Point(1, 1);
-        assertEquals("Testing setter type", myDummyState.getPos(), newDummyPoint);
-        
-    }
             
     
 }
