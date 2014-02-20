@@ -250,6 +250,13 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
             case VK_SHIFT:
                 this.operation = OperationType.eNone;
                 break;
+            case VK_DELETE:
+                // delete selected element
+                if( this.selected != null ){
+                    this.mainFrame.getMainController().getAutomaton().removeState(selected);
+                    this.mainFrame.getDrawingPlace().repaint();
+                }
+                break;
         }
     }
 
