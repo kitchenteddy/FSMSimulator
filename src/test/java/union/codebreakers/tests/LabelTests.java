@@ -1,12 +1,8 @@
 package union.codebreakers.tests;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
-import org.junit.Ignore;
 import org.junit.Before;
 import org.junit.After;
 import org.junit.runner.RunWith;
@@ -22,6 +18,7 @@ public class LabelTests
 {
     
     Label myLabel;
+    
     
     @Before
     public void setUp()
@@ -41,7 +38,7 @@ public class LabelTests
 	assertEquals("Testing default constructor name", myLabel.getName(), ""); 
         assertEquals("Testing default constructor type", myLabel.getType(), LabelType.ePath);
     }
-
+	   
     @Test
     public void testName()
     {
@@ -49,12 +46,11 @@ public class LabelTests
         assertEquals("Testing setName/getName", myLabel.getName(), myLabel.getName());
     }  
     
-    @Test()
+    @Test
     public void testType()
     {
-        //myLabel.setType(LabelType.eState);
-        
-        //assertEquals("Testing setType/getType", myLabel.getType(), LabelType.eState);
+        myLabel.setType(LabelType.eState);
+        assertEquals("Testing setType/getType", myLabel.getType(), LabelType.eState);
     }
     
     @Test

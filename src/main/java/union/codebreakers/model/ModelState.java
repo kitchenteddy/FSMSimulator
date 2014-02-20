@@ -162,7 +162,10 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         
         for (Path currentPath: this.outgoingPaths)
         {
-            if (currentPath.equals(destination))
+            
+            
+            ////Changed this to work.  found bug in tests @author TBK
+            if (currentPath.getEndPoint().equals(destination))
             {
                 return currentPath;
             }
