@@ -26,7 +26,6 @@ public class ViewText implements View
      * @return String representation for automata
      */
     public String getOutput() {
-            // TODO : to implement
             return "";	
     }
 }

@@ -42,6 +42,7 @@ public class PathTests
     @Before
     public void setUp()
     {
+
         myAutomaton = new ModelAutomaton();
         
         s1Pos = new Point(0,0);
@@ -56,6 +57,7 @@ public class PathTests
         s2 = new ModelState(StateType.eNormal, s2Pos, s2L, myAutomaton);
         
         myList = new ArrayList<State>();
+
     }
 
     @After
@@ -78,9 +80,7 @@ public class PathTests
     @Test
     public void construct()
     {
-	   
-       assertEquals(true,true);
-
+        
     }
     
     @Test
