@@ -4,3 +4,5 @@ build
 .DS_Store
 config.lssd
 #config.lssd#
+automaton.png
+automaton.read
