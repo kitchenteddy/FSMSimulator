@@ -32,5 +32,17 @@ public interface Label
      * @return Type of this label
      */
     public LabelType getType();
+    
+    
+    
+    
+    
+    /**
+     * Sets type of this label
+     * @param Type of this label
+     */
+    public void setType(LabelType newType);
+    
+    
 }
 
