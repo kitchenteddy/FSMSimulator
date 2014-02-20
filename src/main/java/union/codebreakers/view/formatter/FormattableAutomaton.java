@@ -11,18 +11,13 @@ import union.codebreakers.model.*;
  *
  * @author teddykitchen
  */
-public class FormattableAutomata implements Formattable{
+public class FormattableAutomaton implements Formattable{
     
-    private Automaton myAutomata;
+    private Automaton fsm;
     
-    
-    
-    
-    
-    
-    public FormattableAutomata(Automaton myModel)
+    public FormattableAutomaton(Automaton myModel)
     {
-        this.myAutomata = myModel;
+        this.fsm = myModel;
     }
     
     /**
@@ -39,10 +34,13 @@ public class FormattableAutomata implements Formattable{
         {
             case eReadable:
                 myFormatter = new ReadableAutomataFormatter();
+                break;
             case eLoadable:
                 myFormatter = new LoadableAutomataFormatter();
+                break;
             default:
                 myFormatter = new ReadableAutomataFormatter();
+                break;
         }
         
         return myFormatter.format(this);
@@ -54,9 +52,9 @@ public class FormattableAutomata implements Formattable{
      * returns the state in the model representing this Formattable
      * @return 
      */
-    public Automaton getAutomata()
+    public Automaton getAutomaton()
     {
-        return myAutomata;
+        return fsm;
     }
     
     

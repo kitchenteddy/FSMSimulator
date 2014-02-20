@@ -34,10 +34,13 @@ public class FormattableState implements Formattable{
         {
             case eReadable:
                 myFormatter = new ReadableStateFormatter();
+                break;
             case eLoadable:
                 myFormatter = new LoadableStateFormatter();
+                break;
             default:
                 myFormatter = new ReadableStateFormatter();
+                break;
         }
         
         return myFormatter.format(this);

@@ -24,7 +24,7 @@ public class ReadableAutomataFormatter implements FormatterTool{
         
         
         String toReturn = "";
-        FormattableAutomata myFormattableAutomata = (FormattableAutomata)toFormat;
+        FormattableAutomaton myFormattableAutomata = (FormattableAutomaton)toFormat;
         Automaton myAutomata = myFormattableAutomata.getAutomata();
         
         for (State myState: myAutomata.getCollectionStates())

@@ -35,10 +35,13 @@ public class FormattablePath implements Formattable{
         {
             case eReadable:
                 myFormatter = new ReadablePathFormatter();
+                break;
             case eLoadable:
                 myFormatter = new LoadablePathFormatter();
+                break;
             default:
                 myFormatter = new ReadablePathFormatter();
+                break;
         }
         
         return myFormatter.format(this);

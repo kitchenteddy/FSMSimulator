@@ -44,6 +44,6 @@ public interface FormatterVisitor {
      * @param toFormat
      * @return 
      */
-    public String visitElement(FormattableAutomata toFormat, FormatterType myType);
+    public String visitElement(FormattableAutomaton toFormat, FormatterType myType);
     
 }

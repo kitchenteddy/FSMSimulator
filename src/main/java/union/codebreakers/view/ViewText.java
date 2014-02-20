@@ -1,6 +1,9 @@
 package union.codebreakers.view;
 
 import union.codebreakers.model.Automaton;
+import union.codebreakers.view.formatter.FormattableLabel;
+import union.codebreakers.view.formatter.FormattablePath;
+import union.codebreakers.view.formatter.FormattableState;
 
 
 /**
@@ -8,16 +11,15 @@ import union.codebreakers.model.Automaton;
  */
 public class ViewText implements View
 {
-    /**
-     * Automata for this view
-     */
-    public Automaton automata;
-	
+    private Automaton fsm;
+
     /**
      * Constructor
+     * 
+     * @param a Instance of automaton connected to this view
      */
-    public ViewText(){
-            super();
+    public ViewText(Automaton a){
+        this.fsm = a;
     }
 
     /**
@@ -26,7 +28,12 @@ public class ViewText implements View
      * @return String representation for automata
      */
     public String getOutput() {
-            return "";	
+        String output = "";
+        if( this.fsm != null ){
+            FormattableAutomaton fa = new FormattableAutomaton();
+
+        }
+        return output;
     }
 }
 
