@@ -104,6 +104,16 @@ public class MainController{
     }
     
     /**
+     * Sets currently handled automaton
+     * 
+     * @param newFsm Instance of automaton
+     */
+    public void setAutomaton(Automaton newFsm){
+        this.fsm = newFsm;
+        this.view.setAutomaton(newFsm);
+    }
+    
+    /**
      * Gets instance of ToolbarController
      * 
      * @return instance of ToolbarController

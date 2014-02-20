@@ -5,13 +5,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import union.codebreakers.gui.MainFrame;
 import union.codebreakers.helper.enums.FormatterType;
+import union.codebreakers.model.ModelAutomaton;
 import union.codebreakers.view.ViewText;
 
 /**
@@ -55,7 +55,10 @@ public class ToolbarController implements ActionListener{
     }
 
     private void doNew(){
-        this.mainFrame.update(this.mainFrame.getGraphicsPainting());
+//        this.mainFrame.update(this.mainFrame.getGraphicsPainting());
+        ModelAutomaton newFsm = new ModelAutomaton();
+        this.mainFrame.getMainController().setAutomaton(newFsm);
+        this.mainFrame.getDrawingPlace().repaint();        
     }
 
     private void doOpen(){

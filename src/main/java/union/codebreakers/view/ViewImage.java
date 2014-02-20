@@ -36,6 +36,15 @@ public class ViewImage implements View
     public void setOutput(Graphics g){
        this.canvas = g; 
     }
+    
+    /**
+     * Sets currently handled automaton
+     * 
+     * @param newFsm Instance of automaton
+     */
+    public void setAutomaton(Automaton newFsm){
+        this.fsm = newFsm;
+    }
 
     /**
      * Draws whole automata
