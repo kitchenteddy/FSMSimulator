@@ -2,7 +2,6 @@ package union.codebreakers.controller;
 
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import static java.awt.event.KeyEvent.*;
 import java.awt.event.KeyListener;
@@ -27,7 +26,6 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
     
     private MainFrame mainFrame = null;
     private static int offset = 5;
-    
     private State selected = null;
     private Collidable hit = null;
     private OperationType operation = OperationType.eNone;

@@ -17,7 +17,7 @@ import union.codebreakers.model.ModelLabel;
 public class LabelTests
 {
     
-    Label myLabel;
+    private Label myLabel;
     
     
     @Before
