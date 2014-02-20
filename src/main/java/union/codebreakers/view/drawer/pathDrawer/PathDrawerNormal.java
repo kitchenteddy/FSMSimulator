@@ -1,7 +1,9 @@
 package union.codebreakers.view.drawer.pathDrawer;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import union.codebreakers.view.drawable.Drawable;
+import union.codebreakers.view.drawable.DrawablePath;
 import union.codebreakers.view.drawer.DrawerSpecific;
 
 /**
@@ -16,7 +18,15 @@ public class PathDrawerNormal  implements DrawerSpecific
      */
     @Override
     public void draw(Drawable el, Graphics g) {
-            // TODO : to implement	
+            // TODO : to implement
+        if( el == null ) {
+            return;
+        }
+        if( el instanceof DrawablePath ){
+            DrawablePath dp = (DrawablePath)el;
+            g.setColor(Color.orange);
+            g.drawLine(dp.getPath().getStartPoint().getPos().x, dp.getPath().getStartPoint().getPos().y, dp.getPath().getEndPoint().getPos().x, dp.getPath().getEndPoint().getPos().y);
+        }
     }
 }
 

@@ -73,6 +73,7 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
                         if( interaction instanceof State ) {
                             if( this.operation == OperationType.eSelecting ) {
                               this.selected.addPath((State)interaction);
+                              this.mainFrame.getDrawingPlace().repaint();
                             } else {
                                 this.operation = OperationType.eNone;
                                 this.selected = (State)interaction;

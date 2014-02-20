@@ -2,6 +2,7 @@ package union.codebreakers.model;
 
 import union.codebreakers.helper.enums.StateType;
 import java.awt.Point;
+import java.util.List;
 
 /**
  * Interface for state model
@@ -66,11 +67,11 @@ public  interface State
     public void setLabel(Label newLabel);
     
     /**
-    * Gets an iterable of the outgoing paths
+    * Gets an list collection of the outgoing paths
     *
-    * @return outgoing paths iterable
+    * @return outgoing paths in list collection
     */
-    public Iterable<Path> getPaths();
+    public List<Path> getPaths();
     
     /**
      * Returns the path going to the destination State

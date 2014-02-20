@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.awt.Point;
 import java.awt.Shape;
 import java.io.Serializable;
+import java.util.List;
 import union.codebreakers.helper.ShapeFactory;
 import union.codebreakers.helper.enums.StateType;
 import union.codebreakers.view.drawer.stateDrawer.StateDrawer;
@@ -141,13 +142,13 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         }
     }
 
-   /**
-    * Gets an iterable of the outgoing paths
+    /**
+    * Gets an list collection of the outgoing paths
     *
-    * @return outgoing paths iterable
+    * @return outgoing paths in list collection
     */
     @Override
-    public Iterable<Path> getPaths()
+    public List<Path> getPaths()
     {
         return this.outgoingPaths;
     }
