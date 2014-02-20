@@ -8,7 +8,8 @@ import java.util.List;
 import union.codebreakers.helper.enums.StateType;
 
 /**
- *
+ * A dummy implementation of the state class for testing purposes
+ * 
  * @author joshualoew
  */
 public class DummyState implements State, Movable, Collidable, Serializable, AutomatonPart {
@@ -83,11 +84,6 @@ public class DummyState implements State, Movable, Collidable, Serializable, Aut
         return myPath;
     }
 
-    /**
-     * Gets shape of this element
-     * 
-     * @return Shape of the element
-     */
     @Override
     public Shape getShape(){
         return null;
