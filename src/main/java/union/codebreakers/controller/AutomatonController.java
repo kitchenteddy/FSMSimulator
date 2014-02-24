@@ -106,7 +106,7 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
                 
                 //this.mainFrame.runPersonal();
                 
-                System.out.println("FUCK YEAH BITCHES");
+                System.out.println("right click");
                 break;
             }
         }

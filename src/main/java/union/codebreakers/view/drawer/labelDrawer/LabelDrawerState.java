@@ -2,6 +2,7 @@ package union.codebreakers.view.drawer.labelDrawer;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import javax.swing.JLabel;
 import union.codebreakers.view.drawable.Drawable;
 import union.codebreakers.view.drawable.DrawableLabel;
@@ -22,8 +23,17 @@ public class LabelDrawerState implements DrawerSpecific
     public void draw(Drawable el, Graphics g) {
         
         DrawableLabel dl = (DrawableLabel)el;
+        
         //g.setColor(Color.orange);
-        JLabel myLabel = new JLabel();
+        
+        JLabel myLabel = new JLabel(dl.getLabel().getName());
+        Image toDraw = (Image)myLabel.getIcon();
+        //CHANGE THIS
+        System.out.println("running code for label state drawing");
+        g.drawImage(toDraw, 100, 100, Color.yellow, myLabel);
+        
+        
+        
        
     }
 }
