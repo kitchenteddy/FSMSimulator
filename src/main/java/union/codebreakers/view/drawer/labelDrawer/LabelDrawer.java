@@ -33,7 +33,7 @@ public class LabelDrawer implements DrawerGeneric
         if(el == null ) {
             throw new ExceptionUnexpectedInput( "Unsupported input" );
         }
-
+        System.out.println("running LabelDrawer.getTool");
         if( el instanceof DrawableLabel ) {
             DrawableLabel element = (DrawableLabel)el;
             switch( element.getLabel().getType() ) {

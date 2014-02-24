@@ -139,6 +139,7 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
     
     /**
      * 
+     * incomplete needs to be modified.  we need to figure out a way of handling free Labels
      */
     private void createLabel(Point me, String myText)
     {
