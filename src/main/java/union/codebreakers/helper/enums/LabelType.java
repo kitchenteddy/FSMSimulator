@@ -5,5 +5,5 @@ package union.codebreakers.helper.enums;
  */
 public enum LabelType
 {
-    ePath, eState
+    ePath, eState, eFree
 }

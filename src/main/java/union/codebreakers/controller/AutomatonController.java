@@ -14,6 +14,7 @@ import union.codebreakers.helper.enums.LabelType;
 import union.codebreakers.helper.enums.OperationType;
 import union.codebreakers.helper.enums.StateType;
 import union.codebreakers.model.Collidable;
+import union.codebreakers.model.Label;
 import union.codebreakers.model.ModelLabel;
 import union.codebreakers.model.ModelState;
 import union.codebreakers.model.State;
@@ -52,6 +53,9 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
         switch( me.getButton() ){
             case 1: // left-click
             {
+                
+                
+                System.out.println("left click");
                 if( this.selected == null ) { // no state selected so you can add one
                     
                     Collidable interaction = this.checkCollisionCollidables(me.getPoint());
@@ -86,7 +90,23 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
             }
             case 3: // right-click
             {
-                this.mainFrame.runPersonal();
+                
+                
+                
+                
+                Collidable interaction = this.checkCollisionCollidables(me.getPoint());
+                if( interaction == null )
+                {
+                    //Create a label add it to model
+                    this.createLabel(me.getPoint(), "whats goood foooools");
+                    
+                }
+                
+                
+                
+                //this.mainFrame.runPersonal();
+                
+                System.out.println("FUCK YEAH BITCHES");
                 break;
             }
         }
@@ -110,6 +130,23 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
             }
         }
         return null;
+    }
+    
+    
+    
+    
+    
+    
+    /**
+     * 
+     */
+    private void createLabel(Point me, String myText)
+    {
+        
+        ModelLabel freeLabel = new ModelLabel();
+        freeLabel.setName(myText);
+        freeLabel.setType(LabelType.eFree);
+        this.mainFrame.getMainController().getAutomaton().addCollidable(freeLabel);
     }
     
     /**

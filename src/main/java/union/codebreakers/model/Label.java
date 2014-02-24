@@ -1,5 +1,6 @@
 package union.codebreakers.model;
 
+import java.awt.Point;
 import union.codebreakers.helper.enums.LabelType;
 
 /**
@@ -43,6 +44,20 @@ public interface Label
      */
     public void setType(LabelType newType);
     
+    
+    /**
+     * gets the position of this label
+     * @return Point
+     */
+    public Point getPos();
+    
+    
+    
+    /**
+     * sets the position of this label
+     * @param newPos
+     */
+    public void setPos(Point newPos);
     
 }
 

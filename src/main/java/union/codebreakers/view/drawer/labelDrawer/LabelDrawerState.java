@@ -1,7 +1,11 @@
 package union.codebreakers.view.drawer.labelDrawer;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import javax.swing.JLabel;
 import union.codebreakers.view.drawable.Drawable;
+import union.codebreakers.view.drawable.DrawableLabel;
+import union.codebreakers.view.drawable.DrawablePath;
 import union.codebreakers.view.drawer.DrawerSpecific;
 
 /**
@@ -16,7 +20,11 @@ public class LabelDrawerState implements DrawerSpecific
      */
     @Override
     public void draw(Drawable el, Graphics g) {
-        System.out.print("LabelDrawerState");
+        
+        DrawableLabel dl = (DrawableLabel)el;
+        //g.setColor(Color.orange);
+        JLabel myLabel = new JLabel();
+       
     }
 }
 

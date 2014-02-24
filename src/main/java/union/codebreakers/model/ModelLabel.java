@@ -61,6 +61,37 @@ public class ModelLabel implements Movable, Label, Collidable, Serializable
     public void setType(LabelType newType){
         this.type = newType;
     }
+    
+    
+    
+    
+    
+    
+    
+     /**
+     * gets the position of this label
+     * @return Point
+     */
+    public Point getPos()
+    {
+        return this.position;
+    }
+    
+    
+    
+    /**
+     * sets the position of this label
+     * @param newPos
+     */
+    public void setPos(Point newPos)
+    {
+        this.position = newPos;
+    }
+    
+    
+    
+    
+    
 
     /**
      * Gets shape of this element
