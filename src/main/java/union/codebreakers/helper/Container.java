@@ -9,7 +9,6 @@ import union.codebreakers.controller.behavior.MouseBehaviorManager;
 import union.codebreakers.gui.FsmPanel;
 import union.codebreakers.model.Collidable;
 import union.codebreakers.model.State;
-import union.codebreakers.view.ViewImage;
 
 /**
  * Container is a class containing useful classes for the window. It enables us to decouple all these classes from every class in which we want to use them.
@@ -25,9 +24,8 @@ public class Container{
     private MouseBehavior mouseBehavior;
     private KeyboardBehaviorManager kbm = null;
     private MouseBehaviorManager mbm = null;
-    private State selected = null; // state we're currently editing
-    private Collidable hit = null; // we intercepted collision with this element
     private FsmPanel drawingArea = null; // actual area for drawing FSM
+    private CollisionHandler collisionHandler = null; // collision handler for this FSM
     
     /**
      * Gets pointer to the current main controller
@@ -118,42 +116,6 @@ public class Container{
     public void setKeyboardBehaviorManager(KeyboardBehaviorManager newKbm){
         this.kbm = newKbm;
     }    
-    
-    /**
-     * Sets intercepted collision
-     * 
-     * @param newHit Collision element
-     */
-    public void setHitElement(Collidable newHit){
-        this.hit = newHit;
-    }
-    
-    /**
-     * Gets intercepted collision
-     * 
-     * @return  Collision element
-     */
-    public Collidable getHitElement(){
-        return this.hit;
-    }
-
-    /**
-     * Sets selected state
-     * 
-     * @param newSelect Selected state
-     */
-    public void setSelectedState(State newSelect){
-        this.selected = newSelect;
-    }
-
-    /**
-     * Gets selected state
-     * 
-     * @return Selected state
-     */
-    public State getSelectedState(){
-        return this.selected;
-    }
 
     /**
      * Sets current drawing area
@@ -171,5 +133,23 @@ public class Container{
      */
     public FsmPanel getDrawingArea(){
         return this.drawingArea;
+    }
+
+    /**
+     * Sets collision handler for this container
+     * 
+     * @param newHandler Collision handler for this container
+     */
+    public void setCollisionHandler(CollisionHandler newHandler){
+        this.collisionHandler = newHandler;
+    }
+
+    /**
+     * Gets collision handler for this container
+     * 
+     * @return collision handler for this container
+     */
+    public CollisionHandler getCollisionHandler(){
+        return this.collisionHandler;
     }
 }

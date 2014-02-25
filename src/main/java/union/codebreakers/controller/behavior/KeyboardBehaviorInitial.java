@@ -39,19 +39,19 @@ public class KeyboardBehaviorInitial extends KeyboardBehavior{
         switch(ke.getKeyCode()){
             case VK_1 :
                 if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
-                    this.kbm.getContainer().getSelectedState().setType(StateType.eStart);
+                    this.kbm.getContainer().getCollisionHandler().getSelectedState().setType(StateType.eStart);
                     this.kbm.getContainer().getDrawingArea().repaint();
                 }
                 break;
             case VK_2 :
                 if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
-                    this.kbm.getContainer().getSelectedState().setType(StateType.eNormal);
+                    this.kbm.getContainer().getCollisionHandler().getSelectedState().setType(StateType.eNormal);
                     this.kbm.getContainer().getDrawingArea().repaint();
                 }
                 break;
             case VK_3 :
                 if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
-                    this.kbm.getContainer().getSelectedState().setType(StateType.eEnd);
+                    this.kbm.getContainer().getCollisionHandler().getSelectedState().setType(StateType.eEnd);
                     this.kbm.getContainer().getDrawingArea().repaint();
                 }
                 break;
@@ -63,7 +63,7 @@ public class KeyboardBehaviorInitial extends KeyboardBehavior{
             case VK_DELETE:
                 // delete selected element
                 if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
-                    this.kbm.getContainer().getMainController().getAutomaton().removeState(this.kbm.getContainer().getSelectedState());
+                    this.kbm.getContainer().getMainController().getAutomaton().removeState(this.kbm.getContainer().getCollisionHandler().getSelectedState());
                     this.kbm.getContainer().getDrawingArea().repaint();
                 }
                 break;
