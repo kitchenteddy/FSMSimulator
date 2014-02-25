@@ -1,10 +1,15 @@
 package union.codebreakers.helper;
 
 import union.codebreakers.controller.AutomatonController;
+import union.codebreakers.controller.MainController;
 import union.codebreakers.controller.ToolbarController;
 import union.codebreakers.controller.behavior.KeyboardBehaviorManager;
 import union.codebreakers.controller.behavior.MouseBehavior;
 import union.codebreakers.controller.behavior.MouseBehaviorManager;
+import union.codebreakers.gui.FsmPanel;
+import union.codebreakers.model.Collidable;
+import union.codebreakers.model.State;
+import union.codebreakers.view.ViewImage;
 
 /**
  * Container is a class containing useful classes for the window. It enables us to decouple all these classes from every class in which we want to use them.
@@ -16,10 +21,31 @@ public class Container{
     
     private ToolbarController toolbarController = null;
     private AutomatonController automatonController = null;
+    private MainController mainController = null;
     private MouseBehavior mouseBehavior;
     private KeyboardBehaviorManager kbm = null;
     private MouseBehaviorManager mbm = null;
+    private State selected = null; // state we're currently editing
+    private Collidable hit = null; // we intercepted collision with this element
+    private FsmPanel drawingArea = null; // actual area for drawing FSM
     
+    /**
+     * Gets pointer to the current main controller
+     * 
+     * @return instance of main controller
+     */
+    public MainController getMainController(){
+        return this.mainController;
+    }
+    
+    /**
+     * Sets pointer to the current main controller
+     * 
+     * @param mc Instance of main controller
+     */
+    public void setMainController(MainController mc){
+        this.mainController = mc;
+    }
     
     /**
      * Gets pointer to the current toolbar controller
@@ -91,5 +117,59 @@ public class Container{
      */
     public void setKeyboardBehaviorManager(KeyboardBehaviorManager newKbm){
         this.kbm = newKbm;
+    }    
+    
+    /**
+     * Sets intercepted collision
+     * 
+     * @param newHit Collision element
+     */
+    public void setHitElement(Collidable newHit){
+        this.hit = newHit;
+    }
+    
+    /**
+     * Gets intercepted collision
+     * 
+     * @return  Collision element
+     */
+    public Collidable getHitElement(){
+        return this.hit;
+    }
+
+    /**
+     * Sets selected state
+     * 
+     * @param newSelect Selected state
+     */
+    public void setSelectedState(State newSelect){
+        this.selected = newSelect;
+    }
+
+    /**
+     * Gets selected state
+     * 
+     * @return Selected state
+     */
+    public State getSelectedState(){
+        return this.selected;
+    }
+
+    /**
+     * Sets current drawing area
+     * 
+     * @param newFsmPanel New view
+     */
+    public void setDrawingArea(FsmPanel newFsmPanel){
+        this.drawingArea = newFsmPanel;
+    }
+
+    /**
+     * Gets current drawing area
+     * 
+     * @return Drawing area
+     */
+    public FsmPanel getDrawingArea(){
+        return this.drawingArea;
     }
 }

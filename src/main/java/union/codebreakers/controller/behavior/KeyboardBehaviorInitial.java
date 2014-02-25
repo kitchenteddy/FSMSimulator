@@ -2,7 +2,7 @@ package union.codebreakers.controller.behavior;
 
 import java.awt.event.KeyEvent;
 import static java.awt.event.KeyEvent.*;
-import union.codebreakers.helper.enums.OperationType;
+import union.codebreakers.helper.enums.MouseBehaviorType;
 import union.codebreakers.helper.enums.StateType;
 
 /**
@@ -27,11 +27,9 @@ public class KeyboardBehaviorInitial extends KeyboardBehavior{
     public void keyPressed(KeyEvent ke) {
         switch(ke.getKeyCode()){
             case VK_SHIFT:
-/*                
-                if( this.selected != null ) {
-                    this.operation = OperationType.eSelecting;
+                if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eInitial ) {
+                    this.kbm.getContainer().getMouseBehaviorManager().setMouseBehavior(MouseBehaviorType.eSelected, false);
                 }
-*/                
                 break;
         }
     }
@@ -40,42 +38,34 @@ public class KeyboardBehaviorInitial extends KeyboardBehavior{
     public void keyReleased(KeyEvent ke) {
         switch(ke.getKeyCode()){
             case VK_1 :
-/*
-                if( this.selected != null ) {
-                    this.selected.setType(StateType.eStart);
-                    this.mainFrame.getDrawingPlace().repaint();
+                if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
+                    this.kbm.getContainer().getSelectedState().setType(StateType.eStart);
+                    this.kbm.getContainer().getDrawingArea().repaint();
                 }
-*/        
                 break;
             case VK_2 :
-/*
-                if( this.selected != null ) {
-                    this.selected.setType(StateType.eNormal);
-                    this.mainFrame.getDrawingPlace().repaint();
+                if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
+                    this.kbm.getContainer().getSelectedState().setType(StateType.eNormal);
+                    this.kbm.getContainer().getDrawingArea().repaint();
                 }
-*/        
                 break;
             case VK_3 :
-/*
-                if( this.selected != null ) {
-                    this.selected.setType(StateType.eEnd);
-                    this.mainFrame.getDrawingPlace().repaint();
+                if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
+                    this.kbm.getContainer().getSelectedState().setType(StateType.eEnd);
+                    this.kbm.getContainer().getDrawingArea().repaint();
                 }
-*/        
                 break;
             case VK_SHIFT:
-/*
-                this.operation = OperationType.eNone;
-*/        
+                if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
+                    this.kbm.getContainer().getMouseBehaviorManager().setMouseBehavior(MouseBehaviorType.eInitial, false);
+                }
                 break;
             case VK_DELETE:
-/*
                 // delete selected element
-                if( this.selected != null ){
-                    this.mainFrame.getMainController().getAutomaton().removeState(selected);
-                    this.mainFrame.getDrawingPlace().repaint();
+                if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
+                    this.kbm.getContainer().getMainController().getAutomaton().removeState(this.kbm.getContainer().getSelectedState());
+                    this.kbm.getContainer().getDrawingArea().repaint();
                 }
-*/        
                 break;
         }
     }

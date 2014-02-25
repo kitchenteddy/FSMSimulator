@@ -77,7 +77,10 @@ public class MainFrame extends JFrame{
         this.container.getKeyboardBehaviorManager().setKeyboardBehavior(KeyboardBehaviorType.eInitial, true);
         this.container.setMouseBehaviorManager( new MouseBehaviorManager(this.container ) );
         this.container.getMouseBehaviorManager().setMouseBehavior(MouseBehaviorType.eInitial, true);
-        
+        this.container.setHitElement(null);
+        this.container.setSelectedState(null);
+        this.container.setMainController(this.mainController);
+
         this.container.getToolbarController().setMainFrame(this);
         this.container.getToolbarController().setContainer(this.container);
         this.container.getAutomatonController().setMainFrame(this);
@@ -105,6 +108,7 @@ public class MainFrame extends JFrame{
         
         this.getContentPane().setLayout(layout);
         this.getContentPane().add(this.machinePanel);
+        this.container.setDrawingArea(this.machinePanel);
     }
     
     private void initToolbar(){
