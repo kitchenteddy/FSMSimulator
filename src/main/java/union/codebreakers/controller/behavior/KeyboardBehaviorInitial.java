@@ -1,6 +1,9 @@
 package union.codebreakers.controller.behavior;
 
 import java.awt.event.KeyEvent;
+import static java.awt.event.KeyEvent.*;
+import union.codebreakers.helper.enums.OperationType;
+import union.codebreakers.helper.enums.StateType;
 
 /**
  *  Initial keyboard behavior is selected when we are not in simulation mode
@@ -18,17 +21,63 @@ public class KeyboardBehaviorInitial extends KeyboardBehavior{
 
     @Override
     public void keyTyped(KeyEvent ke) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void keyPressed(KeyEvent ke) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch(ke.getKeyCode()){
+            case VK_SHIFT:
+/*                
+                if( this.selected != null ) {
+                    this.operation = OperationType.eSelecting;
+                }
+*/                
+                break;
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent ke) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch(ke.getKeyCode()){
+            case VK_1 :
+/*
+                if( this.selected != null ) {
+                    this.selected.setType(StateType.eStart);
+                    this.mainFrame.getDrawingPlace().repaint();
+                }
+*/        
+                break;
+            case VK_2 :
+/*
+                if( this.selected != null ) {
+                    this.selected.setType(StateType.eNormal);
+                    this.mainFrame.getDrawingPlace().repaint();
+                }
+*/        
+                break;
+            case VK_3 :
+/*
+                if( this.selected != null ) {
+                    this.selected.setType(StateType.eEnd);
+                    this.mainFrame.getDrawingPlace().repaint();
+                }
+*/        
+                break;
+            case VK_SHIFT:
+/*
+                this.operation = OperationType.eNone;
+*/        
+                break;
+            case VK_DELETE:
+/*
+                // delete selected element
+                if( this.selected != null ){
+                    this.mainFrame.getMainController().getAutomaton().removeState(selected);
+                    this.mainFrame.getDrawingPlace().repaint();
+                }
+*/        
+                break;
+        }
     }
     
 }

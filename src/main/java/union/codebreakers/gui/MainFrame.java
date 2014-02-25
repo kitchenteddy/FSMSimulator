@@ -14,7 +14,11 @@ import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import union.codebreakers.controller.ControllerPersonal;
 import union.codebreakers.controller.MainController;
+import union.codebreakers.controller.behavior.KeyboardBehaviorManager;
+import union.codebreakers.controller.behavior.MouseBehaviorManager;
 import union.codebreakers.helper.Container;
+import union.codebreakers.helper.enums.KeyboardBehaviorType;
+import union.codebreakers.helper.enums.MouseBehaviorType;
 
 /**
  * Main frame of the application
@@ -68,6 +72,11 @@ public class MainFrame extends JFrame{
     
     private void initContainer(){
         this.container = new Container();
+        
+        this.container.setKeyboardBehaviorManager( new KeyboardBehaviorManager(this.container ) );
+        this.container.getKeyboardBehaviorManager().setKeyboardBehavior(KeyboardBehaviorType.eInitial, true);
+        this.container.setMouseBehaviorManager( new MouseBehaviorManager(this.container ) );
+        this.container.getMouseBehaviorManager().setMouseBehavior(MouseBehaviorType.eInitial, true);
         
         this.container.getToolbarController().setMainFrame(this);
         this.container.getToolbarController().setContainer(this.container);

@@ -31,7 +31,10 @@ public class KeyboardBehaviorManager extends BehaviorManager{
     public void setKeyboardBehavior(KeyboardBehaviorType newType, boolean refresh){
         
         switch(newType){
-            case eInitial:
+           case eUnspecified:
+               // ignore this one
+                break;
+           case eInitial:
                 if( KeyboardBehaviorManager.kbi == null || refresh){
                     this.initKeyboardBehaviorInitial();
                 }
@@ -52,6 +55,15 @@ public class KeyboardBehaviorManager extends BehaviorManager{
      */
     public KeyboardBehavior getCurrentBehavior(){
         return this.current;
+    }
+    
+    /**
+     * Gets type the current keyboard behavior
+     * 
+     * @return Type of the current keyboard behavior
+     */
+    public KeyboardBehaviorType getCurrentType(){
+        return this.type;
     }
     
     private void initKeyboardBehaviorInitial(){

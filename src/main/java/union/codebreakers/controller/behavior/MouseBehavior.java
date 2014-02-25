@@ -38,11 +38,18 @@ public abstract class MouseBehavior {
     public abstract void mouseReleased(MouseEvent me);
 
     /**
-     * Handles mouse leaves on automaton
+     * Handles mouse leaves automaton
      * 
      * @param me Event that occurred
      */
     public abstract void mouseExited(MouseEvent me);
+
+    /**
+     * Handles mouse enters automaton
+     * 
+     * @param me Event that occurred
+     */
+    public abstract void mouseEntered(MouseEvent me);
 
     /**
      * Event triggered when mouse is being dragged

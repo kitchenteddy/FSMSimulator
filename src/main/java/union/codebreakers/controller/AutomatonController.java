@@ -11,7 +11,9 @@ import java.awt.event.MouseMotionListener;
 import java.util.List;
 import union.codebreakers.gui.MainFrame;
 import union.codebreakers.helper.Container;
+import union.codebreakers.helper.enums.KeyboardBehaviorType;
 import union.codebreakers.helper.enums.LabelType;
+import union.codebreakers.helper.enums.MouseBehaviorType;
 import union.codebreakers.helper.enums.OperationType;
 import union.codebreakers.helper.enums.StateType;
 import union.codebreakers.model.Collidable;
@@ -58,6 +60,10 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
      */
     @Override
     public void mouseClicked(MouseEvent me) {
+        if( this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
+            this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentBehavior().mouseClicked(me);
+        }
+        /*
         int i = me.getButton();
         this.hit = null;
         this.mainFrame.requestFocusInWindow(); 
@@ -121,6 +127,7 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
                 break;
             }
         }
+        */
     }
     
     private Collidable checkCollisionCollidables(Point me){
@@ -143,18 +150,12 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
         return null;
     }
     
-    
-    
-    
-    
-    
     /**
      * 
      * incomplete needs to be modified.  we need to figure out a way of handling free Labels
      */
     private void createLabel(Point me, String myText)
     {
-        
         ModelLabel freeLabel = new ModelLabel();
         freeLabel.setName(myText);
         freeLabel.setType(LabelType.eFree);
@@ -214,6 +215,9 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
      */
     @Override
     public void mousePressed(MouseEvent me) {
+        if( this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
+            this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentBehavior().mousePressed(me);
+        }
     }
 
     /**
@@ -223,6 +227,9 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
      */
     @Override
     public void mouseReleased(MouseEvent me) {
+        if( this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
+            this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentBehavior().mouseReleased(me);
+        }
     }
 
     /**
@@ -232,6 +239,9 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
      */
     @Override
     public void mouseEntered(MouseEvent me) {
+        if( this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
+            this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentBehavior().mouseEntered(me);
+        }
     }
 
     /**
@@ -241,6 +251,9 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
      */
     @Override
     public void mouseExited(MouseEvent me) {
+        if( this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
+            this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentBehavior().mouseExited(me);
+        }
     }
 
     /**
@@ -250,6 +263,9 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
      */
     @Override
     public void keyTyped(KeyEvent ke) {
+        if( this.mainFrame.getContainer().getKeyboardBehaviorManager().getCurrentType() != KeyboardBehaviorType.eUnspecified ){
+            this.mainFrame.getContainer().getKeyboardBehaviorManager().getCurrentBehavior().keyTyped(ke);
+        }
     }
 
     /**
@@ -259,12 +275,8 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
      */
     @Override
     public void keyPressed(KeyEvent ke) {
-        switch(ke.getKeyCode()){
-            case VK_SHIFT:
-                if( this.selected != null ) {
-                    this.operation = OperationType.eSelecting;
-                }
-                break;
+        if( this.mainFrame.getContainer().getKeyboardBehaviorManager().getCurrentType() != KeyboardBehaviorType.eUnspecified ){
+            this.mainFrame.getContainer().getKeyboardBehaviorManager().getCurrentBehavior().keyPressed(ke);
         }
     }
 
@@ -275,35 +287,8 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
      */
     @Override
     public void keyReleased(KeyEvent ke) {
-        switch(ke.getKeyCode()){
-            case VK_1 :
-                if( this.selected != null ) {
-                    this.selected.setType(StateType.eStart);
-                    this.mainFrame.getDrawingPlace().repaint();
-                }
-                break;
-            case VK_2 :
-                if( this.selected != null ) {
-                    this.selected.setType(StateType.eNormal);
-                    this.mainFrame.getDrawingPlace().repaint();
-                }
-                break;
-            case VK_3 :
-                if( this.selected != null ) {
-                    this.selected.setType(StateType.eEnd);
-                    this.mainFrame.getDrawingPlace().repaint();
-                }
-                break;
-            case VK_SHIFT:
-                this.operation = OperationType.eNone;
-                break;
-            case VK_DELETE:
-                // delete selected element
-                if( this.selected != null ){
-                    this.mainFrame.getMainController().getAutomaton().removeState(selected);
-                    this.mainFrame.getDrawingPlace().repaint();
-                }
-                break;
+        if( this.mainFrame.getContainer().getKeyboardBehaviorManager().getCurrentType() != KeyboardBehaviorType.eUnspecified ){
+            this.mainFrame.getContainer().getKeyboardBehaviorManager().getCurrentBehavior().keyReleased(ke);
         }
     }
 
@@ -314,10 +299,15 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
      */
     @Override
     public void mouseDragged(MouseEvent me) {
+        if( this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
+            this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentBehavior().mouseDragged(me);
+        }
+/*        
         if(this.selected != null) {
             this.selected.setPos(me.getPoint());
             this.mainFrame.getDrawingPlace().repaint();
         }
+*/        
     }
 
     /**
@@ -327,5 +317,8 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
      */
     @Override
     public void mouseMoved(MouseEvent me) {
+        if( this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
+            this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentBehavior().mouseMoved(me);
+        }
     }
 }

@@ -35,12 +35,21 @@ public class MouseBehaviorInitial extends MouseBehavior {
     }
 
     /**
-     * Handles mouse leaves on automaton
+     * Handles mouse leaves automaton
      * 
      * @param me Event that occurred
      */
     @Override
     public void mouseExited(MouseEvent me){
+    }
+
+    /**
+     * Handles mouse enters automaton
+     * 
+     * @param me Event that occurred
+     */
+    @Override
+    public void mouseEntered(MouseEvent me){
     }
 
     /**
