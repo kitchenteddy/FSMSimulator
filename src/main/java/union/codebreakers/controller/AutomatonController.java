@@ -1,27 +1,14 @@
 package union.codebreakers.controller;
 
-import java.awt.Point;
-import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
-import static java.awt.event.KeyEvent.*;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.List;
 import union.codebreakers.gui.MainFrame;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.KeyboardBehaviorType;
-import union.codebreakers.helper.enums.LabelType;
 import union.codebreakers.helper.enums.MouseBehaviorType;
-import union.codebreakers.helper.enums.OperationType;
-import union.codebreakers.helper.enums.StateType;
-import union.codebreakers.model.Collidable;
-import union.codebreakers.model.Label;
-import union.codebreakers.model.ModelLabel;
-import union.codebreakers.model.ModelState;
-import union.codebreakers.model.State;
-import union.codebreakers.view.drawer.stateDrawer.StateDrawer;
 
 /**
  * Controller handling manipulation with automaton
@@ -29,10 +16,6 @@ import union.codebreakers.view.drawer.stateDrawer.StateDrawer;
 public class AutomatonController  implements KeyListener, MouseListener, MouseMotionListener{
     
     private MainFrame mainFrame = null;
-    private static int offset = 5;
-    private State selected = null;
-    private Collidable hit = null;
-    private OperationType operation = OperationType.eNone;
     private Container container;
     
     /**

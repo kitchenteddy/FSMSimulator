@@ -9,6 +9,8 @@ import union.codebreakers.helper.enums.MouseBehaviorType;
 public class MouseBehaviorManager extends BehaviorManager{
 
     static private MouseBehaviorInitial mbi = null;
+    static private MouseBehaviorSelected mbs = null;
+    static private MouseBehaviorDragging mbd = null;
     
     private MouseBehaviorType type;
     private MouseBehavior current = null;
@@ -43,7 +45,18 @@ public class MouseBehaviorManager extends BehaviorManager{
                 break;
             default:
             case eSelected:
-                // TODO: later
+                if( MouseBehaviorManager.mbs == null || refresh){
+                    this.initMouseBehaviorSelected();
+                }
+                this.type = newType;
+                this.current = MouseBehaviorManager.mbs;
+                break;
+            case eDragging:
+                if( MouseBehaviorManager.mbd == null || refresh){
+                    this.initMouseBehaviorDragging();
+                }
+                this.type = newType;
+                this.current = MouseBehaviorManager.mbd;
                 break;
         }
     }
@@ -69,5 +82,12 @@ public class MouseBehaviorManager extends BehaviorManager{
     private void initMouseBehaviorInitial(){
         MouseBehaviorManager.mbi = new MouseBehaviorInitial(this);
     }
-
+    
+    private void initMouseBehaviorSelected(){
+        MouseBehaviorManager.mbs = new MouseBehaviorSelected(this);
+    }
+    
+    private void initMouseBehaviorDragging(){
+        MouseBehaviorManager.mbd = new MouseBehaviorDragging(this);
+    }
 }

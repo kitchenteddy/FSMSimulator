@@ -16,6 +16,8 @@ import union.codebreakers.view.drawer.stateDrawer.StateDrawer;
  */
 public class MouseBehaviorInitial extends MouseBehavior {
 
+    private static int offset = 5;
+
     /**
      * Constructor
      * 
@@ -227,5 +229,4 @@ public class MouseBehaviorInitial extends MouseBehavior {
         }
         return res;
     }
-
 }
