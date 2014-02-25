@@ -10,6 +10,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.List;
 import union.codebreakers.gui.MainFrame;
+import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.LabelType;
 import union.codebreakers.helper.enums.OperationType;
 import union.codebreakers.helper.enums.StateType;
@@ -30,6 +31,7 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
     private State selected = null;
     private Collidable hit = null;
     private OperationType operation = OperationType.eNone;
+    private Container container;
     
     /**
      * Sets pointer to main frame
@@ -38,6 +40,15 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
      */
     public void setMainFrame(MainFrame frame){
         this.mainFrame = frame;
+    }
+    
+    /**
+     * Sets container for this controller
+     * 
+     * @param c Instance of container
+     */
+    public void setContainer(Container c){
+        this.container = c;
     }
 
     /**

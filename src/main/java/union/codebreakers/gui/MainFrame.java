@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import union.codebreakers.controller.ControllerPersonal;
 import union.codebreakers.controller.MainController;
+import union.codebreakers.helper.Container;
 
 /**
  * Main frame of the application
@@ -24,6 +25,7 @@ public class MainFrame extends JFrame{
     static private int windowsH = 512;
        
     private MainController mainController;
+    private Container container;
     private FsmPanel machinePanel;
     private JMenuBar menuBar;
     private BoxLayout layout = null;
@@ -59,9 +61,19 @@ public class MainFrame extends JFrame{
      */
     public void init(){
         this.initFrame();
+        this.initContainer();
         this.initToolbar();
-        this.initElements();        
+        this.initElements();  
    }
+    
+    private void initContainer(){
+        this.container = new Container();
+        
+        this.container.getToolbarController().setMainFrame(this);
+        this.container.getToolbarController().setContainer(this.container);
+        this.container.getAutomatonController().setMainFrame(this);
+        this.container.getAutomatonController().setContainer(this.container);
+    }
 
  private void initFrame(){
         // set dimensions and position to center of screen
@@ -76,9 +88,9 @@ public class MainFrame extends JFrame{
     private void initElements(){
         this.machinePanel = new FsmPanel();
         this.machinePanel.setVew(this.getMainController().getViewImage());
-        this.machinePanel.addMouseListener(this.mainController.getAutomatonController());
-        this.addKeyListener(this.mainController.getAutomatonController());
-        this.machinePanel.addMouseMotionListener(this.mainController.getAutomatonController());
+        this.machinePanel.addMouseListener(this.getContainer().getAutomatonController());
+        this.addKeyListener(this.getContainer().getAutomatonController());
+        this.machinePanel.addMouseMotionListener(this.getContainer().getAutomatonController());
 
         this.layout = new BoxLayout(this.getContentPane(), BoxLayout.PAGE_AXIS);
         
@@ -99,27 +111,27 @@ public class MainFrame extends JFrame{
         JButton newb = new JButton(newi);
         newb.setText("New");
         newb.setName("buttonNew");
-        newb.addActionListener(this.getMainController().getToolbarController());
+        newb.addActionListener(this.getContainer().getToolbarController());
         
         JButton openb = new JButton(open);
         openb.setText("Open");
         openb.setName("buttonOpen");
-        openb.addActionListener(this.getMainController().getToolbarController());
+        openb.addActionListener(this.getContainer().getToolbarController());
 
         JButton saveb = new JButton(save);
         saveb.setText("Save");
         saveb.setName("buttonSave");
-        saveb.addActionListener(this.getMainController().getToolbarController());
+        saveb.addActionListener(this.getContainer().getToolbarController());
 
         JButton save_asb = new JButton(save_as);
         save_asb.setText("Save As ...");
         save_asb.setName("buttonSaveAs");
-        save_asb.addActionListener(this.getMainController().getToolbarController());
+        save_asb.addActionListener(this.getContainer().getToolbarController());
 
         JButton quitb = new JButton(quit);
         quitb.setText("Quit");
         quitb.setName("buttonQuit");
-        quitb.addActionListener(this.getMainController().getToolbarController());
+        quitb.addActionListener(this.getContainer().getToolbarController());
 
         toolbar.add(newb);
         toolbar.add(openb);
@@ -173,5 +185,14 @@ public class MainFrame extends JFrame{
      */
     public FsmPanel getDrawingPlace(){
         return this.machinePanel;
+    }
+    
+    /**
+     * Gets container for this main controller
+     * 
+     * @return Instance of container for this main controller
+     */
+    public Container getContainer(){
+        return this.container;
     }
 }

@@ -18,15 +18,6 @@ public class ViewImage implements View
     private Automaton fsm;
     
     private Graphics canvas = null;
-
-    /**
-     * Constructor
-     * 
-     * @param a Instance of automaton connected to this view
-     */
-    public ViewImage(Automaton a){
-        this.fsm = a;
-    }
     
     /**
      * Sets output graphic canvas for this view
