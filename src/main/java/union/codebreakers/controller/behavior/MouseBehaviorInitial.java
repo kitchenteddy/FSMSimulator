@@ -115,7 +115,6 @@ public class MouseBehaviorInitial extends MouseBehavior {
                 }
                 break;
        }
- 
         /*
         switch( me.getButton() ){
             case 1: // left-click

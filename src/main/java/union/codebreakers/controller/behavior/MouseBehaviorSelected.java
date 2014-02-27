@@ -30,6 +30,20 @@ public class MouseBehaviorSelected extends MouseBehavior{
      */
     @Override
     public void mousePressed(MouseEvent me){
+        Collidable interaction = this.checkCollisionCollidables(me.getPoint());
+        if( interaction != null ){
+            if( interaction instanceof State ) {
+                if( this.operation == OperationType.eSelecting ) {
+                  this.selected.addPath((State)interaction);
+                  this.mainFrame.getDrawingPlace().repaint();
+                } else {
+                    this.operation = OperationType.eNone;
+                    this.selected = (State)interaction;
+                }
+            }
+        } else {
+            this.createState(me.getPoint());
+        }
     }
     
     /**

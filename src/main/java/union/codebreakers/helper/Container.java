@@ -7,8 +7,6 @@ import union.codebreakers.controller.behavior.KeyboardBehaviorManager;
 import union.codebreakers.controller.behavior.MouseBehavior;
 import union.codebreakers.controller.behavior.MouseBehaviorManager;
 import union.codebreakers.gui.FsmPanel;
-import union.codebreakers.model.Collidable;
-import union.codebreakers.model.State;
 
 /**
  * Container is a class containing useful classes for the window. It enables us to decouple all these classes from every class in which we want to use them.
@@ -21,7 +19,6 @@ public class Container{
     private ToolbarController toolbarController = null;
     private AutomatonController automatonController = null;
     private MainController mainController = null;
-    private MouseBehavior mouseBehavior;
     private KeyboardBehaviorManager kbm = null;
     private MouseBehaviorManager mbm = null;
     private FsmPanel drawingArea = null; // actual area for drawing FSM
