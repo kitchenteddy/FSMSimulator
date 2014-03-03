@@ -27,17 +27,21 @@ public class LabelDrawerState implements DrawerSpecific
         
         //g.setColor(Color.orange);
         
-        JLabel myLabel = new JLabel(dl.getLabel().getName());
-        BufferedImage toDraw = (BufferedImage)myLabel.getIcon();
+        //JLabel myLabel = new JLabel(dl.getLabel().getName());
+        //BufferedImage toDraw = (BufferedImage)myLabel.getIcon();
         //CHANGE THIS
-        System.out.println("running code for label state drawing");
-        g.drawImage(toDraw, dl.getLabel().getPos().x, dl.getLabel().getPos().y, Color.yellow, myLabel);
+        //System.out.println("running code for label state drawing");
+        //g.drawImage(toDraw, dl.getLabel().getPos().x, dl.getLabel().getPos().y, Color.yellow, myLabel);
+        g.drawString( dl.getLabel().getName(), dl.getLabel().getPos().x, dl.getLabel().getPos().y);
         
-        Integer myInteger =  (Integer)dl.getLabel().getPos().x;
-        String myString = myInteger.toString();
-        System.out.println("BELOW HERE");
-        System.out.println(myString);
-        System.out.println("above HERE");
+                
+        
+        
+        //Integer myInteger =  (Integer)dl.getLabel().getPos().x;
+        //String myString = myInteger.toString();
+        //System.out.println("BELOW HERE");
+        //System.out.println(myString);
+        //System.out.println("above HERE");
         
        
     }

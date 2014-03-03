@@ -19,6 +19,8 @@ import union.codebreakers.model.ModelLabel;
 import union.codebreakers.model.ModelState;
 import union.codebreakers.model.State;
 import union.codebreakers.view.drawer.stateDrawer.StateDrawer;
+import javax.swing.JOptionPane;
+import union.codebreakers.model.Path;
 
 /**
  * Controller handling manipulation with automaton
@@ -75,6 +77,14 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
                         if( interaction instanceof State ) {
                             if( this.operation == OperationType.eSelecting ) {
                               this.selected.addPath((State)interaction);
+                              
+                              //TBK
+                              String myLabelName = (String)JOptionPane.showInputDialog("enter the label for this path");
+                              ModelLabel ml = new ModelLabel();
+                              ml.setName(myLabelName);
+                              selected.getPathTo((State)interaction).setLabel(ml);
+                              
+                              
                               this.mainFrame.getDrawingPlace().repaint();
                             } else {
                                 this.operation = OperationType.eNone;
@@ -160,7 +170,12 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
         boolean res = false;
         int size = this.mainFrame.getMainController().getAutomaton().getCollectionStates().size();
         ModelLabel ml = new ModelLabel();
-        ml.setName(Integer.toString(size+1));
+        //we want to get user input here
+        String myLabel = (String)JOptionPane.showInputDialog("enter the label for this state");
+        
+        
+        
+        ml.setName(myLabel);
         ml.setType(LabelType.eState);
         StateType type = size == 0 ? StateType.eStart : StateType.eNormal;                
 
