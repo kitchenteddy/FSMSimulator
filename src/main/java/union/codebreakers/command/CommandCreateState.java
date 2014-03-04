@@ -9,7 +9,7 @@ import union.codebreakers.model.Automaton;
 import union.codebreakers.model.ModelLabel;
 import union.codebreakers.model.ModelState;
 import union.codebreakers.view.drawer.stateDrawer.StateDrawer;
-
+import javax.swing.JOptionPane;
 /**
  * This command takes care of adding a new state to a FSM
  */
@@ -53,7 +53,8 @@ public class CommandCreateState implements Command{
         boolean res = false;
         int size = this.fsm.getCollectionStates().size();
         ModelLabel ml = new ModelLabel();
-        ml.setName(Integer.toString(size+1));
+        String myName = JOptionPane.showInputDialog("input state name");
+        ml.setName(myName);
         ml.setType(LabelType.eState);
         StateType type = size == 0 ? StateType.eStart : StateType.eNormal;                
 
