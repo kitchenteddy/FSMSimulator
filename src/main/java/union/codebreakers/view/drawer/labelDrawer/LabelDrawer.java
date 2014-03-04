@@ -11,15 +11,13 @@ import union.codebreakers.view.drawer.DrawerGeneric;
  */
 public class LabelDrawer implements DrawerGeneric
 {
-    
-    static protected LabelDrawerPath ldp = null;
-    static protected LabelDrawerState lds = null;
+    static protected LabelDrawerNormal ldn = null;
 
     /**
-     * Setter for tool to draw a path label
+     * Setter for tool to draw a normal label
      */
-    protected void setLabelDrawerPathNormal() {
-        LabelDrawer.ldp = new LabelDrawerPath();
+    protected void setLabelDrawerNormal() {
+        LabelDrawer.ldn = new LabelDrawerNormal();
     }
 
     /**
@@ -39,10 +37,10 @@ public class LabelDrawer implements DrawerGeneric
             switch( element.getLabel().getType() ) {
                 case eState:
                 case ePath :
-                    if( LabelDrawer.ldp == null ) {
-                        this.setLabelDrawerPathNormal();
+                    if( LabelDrawer.ldn == null ) {
+                        this.setLabelDrawerNormal();
                     }
-                    LabelDrawer.ldp.draw(el, g);
+                    LabelDrawer.ldn.draw(el, g);
                     break;
             }
         } else {

@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import union.codebreakers.gui.MainFrame;
+import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.FormatterType;
 import union.codebreakers.model.ModelAutomaton;
 import union.codebreakers.view.ViewText;
@@ -20,6 +21,16 @@ import union.codebreakers.view.ViewText;
 public class ToolbarController implements ActionListener{
     
     private MainFrame mainFrame = null;
+    private Container container;
+    
+    /**
+     * Sets container for this controller
+     * 
+     * @param c Instance of container
+     */
+    public void setContainer(Container c){
+        this.container = c;
+    }
 
     /**
      * Sets pointer to main frame

@@ -2,13 +2,13 @@ package union.codebreakers.view;
 
 import java.awt.Graphics;
 import java.util.List;
-import union.codebreakers.helper.ToolsFactory;
 import union.codebreakers.model.Automaton;
 import union.codebreakers.model.Path;
 import union.codebreakers.model.State;
 import union.codebreakers.view.drawable.DrawableLabel;
 import union.codebreakers.view.drawable.DrawablePath;
 import union.codebreakers.view.drawable.DrawableState;
+import union.codebreakers.view.drawer.DrawerStockGeneric;
 
 /**
  * Graphical representation of automata
@@ -16,17 +16,8 @@ import union.codebreakers.view.drawable.DrawableState;
 public class ViewImage implements View
 {
     private Automaton fsm;
-    
     private Graphics canvas = null;
-
-    /**
-     * Constructor
-     * 
-     * @param a Instance of automaton connected to this view
-     */
-    public ViewImage(Automaton a){
-        this.fsm = a;
-    }
+    private DrawerStockGeneric drawingTools = null;
     
     /**
      * Sets output graphic canvas for this view
@@ -45,6 +36,24 @@ public class ViewImage implements View
     public void setAutomaton(Automaton newFsm){
         this.fsm = newFsm;
     }
+    
+    /**
+     * Gets drawing tools object
+     * 
+     * @return Instance of drawing tools
+     */
+    public DrawerStockGeneric getDrawerStocck(){
+        return this.drawingTools;
+    }
+    
+    /**
+     * Sets drawing tools object
+     * 
+     * @param newDrawer Instance of drawing tools
+     */
+    public void setDrawerStocck(DrawerStockGeneric newDrawer){
+        this.drawingTools = newDrawer;
+    }
 
     /**
      * Draws whole automata
@@ -59,19 +68,19 @@ public class ViewImage implements View
             for(State s : this.fsm.getCollectionStates()){
                 // draw state
                 ds.setState(s);
-                ds.setupDrawing(ToolsFactory.getDrawerStock(), this.canvas);
+                ds.setupDrawing(this.drawingTools, this.canvas);
 
                 // draw label
                 dl.setLabel(s.getLabel());
-                dl.setupDrawing(ToolsFactory.getDrawerStock(), this.canvas);                
+                dl.setupDrawing(this.drawingTools, this.canvas);                
                 
                 paths = s.getPaths();
                 for(Path p : paths ) {
                     dp.setPath(p);
-                    dp.setupDrawing(ToolsFactory.getDrawerStock(), this.canvas);                    
+                    dp.setupDrawing(this.drawingTools, this.canvas);                    
                     // draw label
                     dl.setLabel(p.getLabel());
-                    dl.setupDrawing(ToolsFactory.getDrawerStock(), this.canvas);                
+                    dl.setupDrawing(this.drawingTools, this.canvas);                
                 }
             }
         }
