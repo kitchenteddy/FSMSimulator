@@ -13,25 +13,23 @@ public class ReadableAutomatonFormatter implements FormatterTool{
     @Override
     public String format(Formattable toFormat) {
         
-        
+        final String FILE_HEADER = "LABEL,POSITION,TYPE,OUTGOING_PATHS" + "\n";
         
         String toReturn = "";
         FormattableAutomaton myFormattableAutomata = (FormattableAutomaton)toFormat;
         Automaton myAutomata = myFormattableAutomata.getAutomaton();
         
+        toReturn += FILE_HEADER;
+        
         for (State myState: myAutomata.getCollectionStates())
         {
             
-            toReturn += "State Label: ";
-            toReturn += myState.getLabel().getName();
+            toReturn += (myState.getLabel().getName() + ",");
         
-            toReturn += "\nState Position: ";
-            toReturn += formatPosition(myState.getPos());
+            toReturn += (formatPosition(myState.getPos()) + ",");
         
-            toReturn += "\nState Type: ";
-            toReturn += myState.getType().toString();
+            toReturn += (myState.getType().toString() + ",");
             
-            toReturn += "\nOutgoing Paths:";
             for (Path myPath: myState.getPaths())
             {
                 toReturn += "\nPath Label: ";      
@@ -42,20 +40,12 @@ public class ReadableAutomatonFormatter implements FormatterTool{
                 toReturn += myPath.getType().toString();
         
                 toReturn += "\nEndPoint: ";
-                toReturn += myPath.getEndPoint().getLabel().getName();
-        
-                
+                toReturn += myPath.getEndPoint().getLabel().getName();  
             }
-            
-            
-            
-            
         }
         
-        
-        
-        
         return toReturn;
+        
     }
     
     

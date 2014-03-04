@@ -15,7 +15,7 @@ public class ModelFormatterVisitor implements FormatterVisitor {
      */
     @Override
    
-    //Should this take a State or a formattable state?
+    // Should this take a State or a formattable state?
     // Initially easier to do it this way but may need
     // to be changed in all these methods later.
     public String visitElement(FormattableState toFormat, FormatterType myType) {

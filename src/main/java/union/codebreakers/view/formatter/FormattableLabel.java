@@ -1,4 +1,5 @@
 package union.codebreakers.view.formatter;
+
 import union.codebreakers.helper.enums.FormatterType;
 import union.codebreakers.model.*;
 
