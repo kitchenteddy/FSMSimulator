@@ -5,6 +5,7 @@ import java.awt.Shape;
 import java.io.Serializable;
 import union.codebreakers.helper.ShapeFactory;
 import union.codebreakers.helper.enums.PathType;
+import java.lang.Math;
 
 /**
  * Concrete implementation of Path model
@@ -33,6 +34,10 @@ public class ModelPath implements Path, Collidable, Serializable, AutomatonPart
         this.label = new ModelLabel();
         this.type = PathType.eNormal;
         this.fsm = fsm;
+        
+        
+        //TBK
+        this.updateLabelPos();
     }
         
     /**
@@ -77,6 +82,9 @@ public class ModelPath implements Path, Collidable, Serializable, AutomatonPart
     public void setLabel(Label newLabel)
     {
         this.label = newLabel;
+        
+        //TBK
+        this.updateLabelPos();
     }
     
     /**
@@ -128,6 +136,24 @@ public class ModelPath implements Path, Collidable, Serializable, AutomatonPart
     @Override
     public Automaton getAutomaton() {
         return this.fsm;
+    }
+    
+    
+    /**
+     * TBK
+     * updates the position of the label for the path
+     */
+    
+    private void updateLabelPos()
+    {
+        Point p1 = this.getStartPoint().getPos();
+        Point p2 = this.getEndPoint().getPos();
+        
+        int labelX = Math.abs(p1.x - p2.x);
+        int labelY = Math.abs(p1.y - p2.y);
+        Point newLabelPos = new Point(labelX, labelY);
+        this.getLabel().setPos(newLabelPos);
+        
     }
 }
 

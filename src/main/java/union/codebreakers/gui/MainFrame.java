@@ -12,8 +12,10 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
+import union.codebreakers.controller.AutomatonController;
 import union.codebreakers.controller.ControllerPersonal;
 import union.codebreakers.controller.MainController;
+import union.codebreakers.controller.ToolbarController;
 import union.codebreakers.controller.behavior.KeyboardBehaviorManager;
 import union.codebreakers.controller.behavior.MouseBehaviorManager;
 import union.codebreakers.helper.CollisionHandler;
@@ -82,6 +84,8 @@ public class MainFrame extends JFrame{
         this.container.getCollisionHandler().setHitElement(null);
         this.container.getCollisionHandler().setSelectedState(null);
         this.container.setMainController(this.mainController);
+        this.container.setToolbarController(new ToolbarController());
+        this.container.setAutomatonController(new AutomatonController());
 
         this.container.getToolbarController().setMainFrame(this);
         this.container.getToolbarController().setContainer(this.container);

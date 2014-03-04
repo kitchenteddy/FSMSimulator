@@ -39,6 +39,10 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         if( msLabel instanceof Collidable ) {
             this.getAutomaton().addCollidable((Collidable)msLabel);            
         }
+        
+        
+        //TBK
+        this.updateLabelPos();
     }
     
     /**
@@ -110,6 +114,9 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     public void setPos(Point position)
     {
         this.position = position;
+        
+        //TBK
+        this.updateLabelPos();
     }
     
    /**
@@ -140,6 +147,11 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         if( this.stateLabel instanceof Collidable ) {
             this.getAutomaton().addCollidable((Collidable)this.stateLabel);
         }
+        
+        
+        //TBK
+        this.updateLabelPos();
+        
     }
 
     /**
@@ -214,5 +226,20 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     public Automaton getAutomaton(){
         return this.fsm;
     }
+    
+    
+    
+    
+    /**
+     * TBK
+     * updates the position of the label based on state's position
+     * 
+     */
+    private void updateLabelPos()
+    {
+        this.stateLabel.setPos(this.position);
+    }
+    
+    
 }
 
