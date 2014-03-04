@@ -1,6 +1,7 @@
 package union.codebreakers.controller.behavior;
 
 import java.awt.event.MouseEvent;
+import union.codebreakers.helper.enums.MouseBehaviorType;
 
 /**
  * Mouse behavior for dragging states aroudn
@@ -32,6 +33,11 @@ public class MouseBehaviorDragging extends MouseBehavior{
      */
     @Override
     public void mouseReleased(MouseEvent me){
+        switch( me.getButton() ){
+            case 1: // left button
+                 this.mbm.setMouseBehavior(MouseBehaviorType.eSelected, false);
+                 break;
+        }        
     }
 
     /**
@@ -59,6 +65,13 @@ public class MouseBehaviorDragging extends MouseBehavior{
      */
     @Override
     public void mouseDragged(MouseEvent me){
+        switch( me.getButton() ){
+            case 0: // left button
+                if(this.mbm.getContainer().getCollisionHandler().getSelectedState() != null) {
+                    this.mbm.getContainer().getCollisionHandler().getSelectedState().setPos(me.getPoint());
+                    this.mbm.getContainer().getDrawingArea().repaint();
+                }
+        }
     }
 
     /**
