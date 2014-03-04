@@ -117,6 +117,10 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         
         //TBK
         this.updateLabelPos();
+        for (Path currentPath : this.outgoingPaths)
+        {
+            currentPath.updateLabelPos();
+        }
     }
     
    /**

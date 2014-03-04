@@ -46,6 +46,18 @@ public  interface Path
      * @param  newType 
      */
     public void setType(PathType newType);
+    
+    
+    
+    
+    
+    
+    /**
+     * TBK
+     * updates the position of the label for the path
+     */
+    
+    public void updateLabelPos();
 }
 
 

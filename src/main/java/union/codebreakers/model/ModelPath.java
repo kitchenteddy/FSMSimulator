@@ -144,7 +144,7 @@ public class ModelPath implements Path, Collidable, Serializable, AutomatonPart
      * updates the position of the label for the path
      */
     
-    private void updateLabelPos()
+    public void updateLabelPos()
     {
         Point p1 = this.getStartPoint().getPos();
         Point p2 = this.getEndPoint().getPos();
