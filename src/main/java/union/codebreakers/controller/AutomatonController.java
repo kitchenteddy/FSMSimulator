@@ -46,6 +46,10 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
         if( this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
             this.mainFrame.getContainer().getMouseBehaviorManager().getCurrentBehavior().mouseClicked(me);
         }
+        
+        if( me.getButton() == 3 ){
+            this.mainFrame.runPersonal();
+        }
     }
 
     /**
