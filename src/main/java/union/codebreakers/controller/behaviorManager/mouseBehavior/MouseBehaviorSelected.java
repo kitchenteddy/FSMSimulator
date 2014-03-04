@@ -6,18 +6,16 @@
 
 package union.codebreakers.controller.behaviorManager.mouseBehavior;
 
-import union.codebreakers.controller.behaviorManager.mouseBehavior.MouseBehaviorManager;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import union.codebreakers.command.CommandCreateState;
-import union.codebreakers.controller.behaviorManager.MouseBehavior;
 import union.codebreakers.helper.enums.MouseBehaviorType;
 import union.codebreakers.model.State;
 
 /**
  * Mouse behavior for working with selected states
  */
-public class MouseBehaviorSelected extends MouseBehavior{
+public class MouseBehaviorSelected extends MouseBehaviorDummy{
 
     /**
      * Constructor
@@ -33,9 +31,11 @@ public class MouseBehaviorSelected extends MouseBehavior{
      * Handles mouse press on automaton
      * 
      * @param me Event that occurred
+     * 
+     * @return Whether the drawing area should be repainted
      */
     @Override
-    public void mousePressed(MouseEvent me){
+    public boolean mousePressed(MouseEvent me){
         this.mbm.getContainer().getCollisionHandler().setHitElement(null);
         Rectangle mouse_rect = new Rectangle(me.getX() - 2, me.getY() - 2, 4, 4);
         boolean repaint = false;
@@ -47,7 +47,7 @@ public class MouseBehaviorSelected extends MouseBehavior{
                    if( this.mbm.getContainer().getCollisionHandler().getHitElement() instanceof State ){
                        this.mbm.getContainer().getCollisionHandler().setSelectedState((State)this.mbm.getContainer().getCollisionHandler().getHitElement());
                        this.mbm.setMouseBehavior(MouseBehaviorType.eDragging, false);
-                       repaint = true; // repaint canvas in case we highlight selected state somehow
+                       return true; // repaint canvas in case we highlight selected state somehow
                    }
                 } else {
                     // user clicked on nothing so try to create a new state
@@ -58,70 +58,12 @@ public class MouseBehaviorSelected extends MouseBehavior{
                     if( this.mbm.getContainer().getCommandCenter().execute(createState) ){
                         // we created the state so change mouse behavior and repaint
                         this.mbm.setMouseBehavior(MouseBehaviorType.eSelected, false);
-                        repaint = true;
+                        return true;
                     }
                 }
-                
-                if( repaint ){
-                    this.mbm.getContainer().getDrawingArea().repaint();                    
-                }
-                
                 break;
            
         }
-    }
-    
-    /**
-     * Handles mouse release on automaton
-     * 
-     * @param me Event that occurred
-     */
-    @Override
-    public void mouseReleased(MouseEvent me){
-    }
-
-    /**
-     * Handles mouse leaves automaton
-     * 
-     * @param me Event that occurred
-     */
-    @Override
-    public void mouseExited(MouseEvent me){
-    }
-
-    /**
-     * Handles mouse enters automaton
-     * 
-     * @param me Event that occurred
-     */
-    @Override
-    public void mouseEntered(MouseEvent me){
-    }
-
-    /**
-     * Event triggered when mouse is being dragged
-     * 
-     * @param me Data about event
-     */
-    @Override
-    public void mouseDragged(MouseEvent me){
-    }
-
-    /**
-     * Event triggered when mouse is being moved
-     * 
-     * @param me Data about event
-     */
-    @Override
-    public void mouseMoved(MouseEvent me){
-    }
-
-    /**
-     * Handles mouse clicks on automaton
-     * 
-     * @param me Event that occurred
-     */
-    @Override
-    public void mouseClicked(MouseEvent me){
+        return false;
     }
 }

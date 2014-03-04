@@ -1,13 +1,12 @@
 package union.codebreakers.controller.behaviorManager.mouseBehavior;
 
 import java.awt.event.MouseEvent;
-import union.codebreakers.controller.behaviorManager.MouseBehavior;
 import union.codebreakers.helper.enums.MouseBehaviorType;
 
 /**
- * Mouse behavior for dragging states aroudn
+ * Mouse behavior for dragging states around
  */
-public class MouseBehaviorDragging extends MouseBehavior{
+public class MouseBehaviorDragging extends MouseBehaviorDummy{
 
     /**
      * Constructor
@@ -17,46 +16,19 @@ public class MouseBehaviorDragging extends MouseBehavior{
     public MouseBehaviorDragging(MouseBehaviorManager newMbm) {
         super(newMbm);
     }
-
-    /**
-     * Handles mouse press on automaton
-     * 
-     * @param me Event that occurred
-     */
-    @Override
-    public void mousePressed(MouseEvent me){
-    }
-    
     /**
      * Handles mouse release on automaton
      * 
      * @param me Event that occurred
      */
     @Override
-    public void mouseReleased(MouseEvent me){
+    public boolean mouseReleased(MouseEvent me){
         switch( me.getButton() ){
             case 1: // left button
                  this.mbm.setMouseBehavior(MouseBehaviorType.eSelected, false);
                  break;
         }        
-    }
-
-    /**
-     * Handles mouse leaves automaton
-     * 
-     * @param me Event that occurred
-     */
-    @Override
-    public void mouseExited(MouseEvent me){
-    }
-
-    /**
-     * Handles mouse enters automaton
-     * 
-     * @param me Event that occurred
-     */
-    @Override
-    public void mouseEntered(MouseEvent me){
+        return false;
     }
 
     /**
@@ -65,31 +37,14 @@ public class MouseBehaviorDragging extends MouseBehavior{
      * @param me Data about event
      */
     @Override
-    public void mouseDragged(MouseEvent me){
+    public boolean mouseDragged(MouseEvent me){
         switch( me.getButton() ){
             case 0: // left button
                 if(this.mbm.getContainer().getCollisionHandler().getSelectedState() != null) {
                     this.mbm.getContainer().getCollisionHandler().getSelectedState().setPos(me.getPoint());
-                    this.mbm.getContainer().getDrawingArea().repaint();
+                    return true;
                 }
         }
-    }
-
-    /**
-     * Event triggered when mouse is being moved
-     * 
-     * @param me Data about event
-     */
-    @Override
-    public void mouseMoved(MouseEvent me){
-    }
-
-    /**
-     * Handles mouse clicks on automaton
-     * 
-     * @param me Event that occurred
-     */
-    @Override
-    public void mouseClicked(MouseEvent me){
+        return false;
     }
 }
