@@ -1,6 +1,7 @@
-package union.codebreakers.controller.behavior;
+package union.codebreakers.controller.behaviorManager.mouseBehavior;
 
 import java.awt.event.MouseEvent;
+import union.codebreakers.controller.behaviorManager.MouseBehavior;
 import union.codebreakers.helper.enums.MouseBehaviorType;
 
 /**

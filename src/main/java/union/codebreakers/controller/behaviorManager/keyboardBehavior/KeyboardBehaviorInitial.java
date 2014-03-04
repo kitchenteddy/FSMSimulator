@@ -1,6 +1,8 @@
-package union.codebreakers.controller.behavior;
+package union.codebreakers.controller.behaviorManager.keyboardBehavior;
 
+import union.codebreakers.controller.behaviorManager.keyboardBehavior.KeyboardBehaviorDummy;
 import java.awt.event.KeyEvent;
+import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
 import static java.awt.event.KeyEvent.*;
 import union.codebreakers.helper.enums.MouseBehaviorType;
 import union.codebreakers.helper.enums.StateType;
@@ -8,7 +10,7 @@ import union.codebreakers.helper.enums.StateType;
 /**
  *  Initial keyboard behavior is selected when we are not in simulation mode
  */
-public class KeyboardBehaviorInitial extends KeyboardBehavior{
+public class KeyboardBehaviorInitial extends KeyboardBehaviorDummy{
 
     /**
      * Constructor
@@ -19,12 +21,15 @@ public class KeyboardBehaviorInitial extends KeyboardBehavior{
         super(newKbm);
     }
 
+    /**
+     * Key was pressed
+     * 
+     * @param ke Information about event
+     * 
+     * @return Whether the drawing area should be repainted
+     */
     @Override
-    public void keyTyped(KeyEvent ke) {
-    }
-
-    @Override
-    public void keyPressed(KeyEvent ke) {
+    public boolean keyPressed(KeyEvent ke) {
         switch(ke.getKeyCode()){
             case VK_SHIFT:
                 if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eInitial ) {
@@ -32,42 +37,52 @@ public class KeyboardBehaviorInitial extends KeyboardBehavior{
                 }
                 break;
         }
+        return false;
     }
 
+    /**
+     * Key was released
+     * 
+     * @param ke Information about event
+     * 
+     * @return Whether the drawing area should be repainted
+     */
     @Override
-    public void keyReleased(KeyEvent ke) {
+    public boolean keyReleased(KeyEvent ke) {
         switch(ke.getKeyCode()){
             case VK_1 :
                 if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
                     this.kbm.getContainer().getCollisionHandler().getSelectedState().setType(StateType.eStart);
-                    this.kbm.getContainer().getDrawingArea().repaint();
+                    return true;
                 }
                 break;
             case VK_2 :
                 if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
                     this.kbm.getContainer().getCollisionHandler().getSelectedState().setType(StateType.eNormal);
-                    this.kbm.getContainer().getDrawingArea().repaint();
+                    return true;
                 }
                 break;
             case VK_3 :
                 if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
                     this.kbm.getContainer().getCollisionHandler().getSelectedState().setType(StateType.eEnd);
-                    this.kbm.getContainer().getDrawingArea().repaint();
+                    return true;
                 }
                 break;
             case VK_SHIFT:
                 if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
                     this.kbm.getContainer().getMouseBehaviorManager().setMouseBehavior(MouseBehaviorType.eInitial, false);
+                    return true;
                 }
                 break;
             case VK_DELETE:
                 // delete selected element
                 if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
                     this.kbm.getContainer().getMainController().getAutomaton().removeState(this.kbm.getContainer().getCollisionHandler().getSelectedState());
-                    this.kbm.getContainer().getDrawingArea().repaint();
+                    return true;
                 }
                 break;
         }
+        return false;
     }
     
 }

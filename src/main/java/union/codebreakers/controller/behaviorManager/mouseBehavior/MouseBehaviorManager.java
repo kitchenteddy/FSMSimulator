@@ -1,5 +1,9 @@
-package union.codebreakers.controller.behavior;
+package union.codebreakers.controller.behaviorManager.mouseBehavior;
 
+import union.codebreakers.controller.behaviorManager.BehaviorManager;
+import union.codebreakers.controller.behaviorManager.MouseBehavior;
+import union.codebreakers.controller.behaviorManager.mouseBehavior.MouseBehaviorInitial;
+import union.codebreakers.controller.behaviorManager.mouseBehavior.MouseBehaviorDragging;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.MouseBehaviorType;
 

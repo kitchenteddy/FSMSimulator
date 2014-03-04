@@ -1,4 +1,4 @@
-package union.codebreakers.controller.behavior;
+package union.codebreakers.controller.behaviorManager;
 
 import union.codebreakers.helper.Container;
 

@@ -1,9 +1,10 @@
-package union.codebreakers.controller.behavior;
+package union.codebreakers.controller.behaviorManager.mouseBehavior;
 
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import union.codebreakers.command.CommandCreateState;
+import union.codebreakers.controller.behaviorManager.MouseBehavior;
 import union.codebreakers.helper.enums.LabelType;
 import union.codebreakers.helper.enums.MouseBehaviorType;
 import union.codebreakers.model.ModelLabel;

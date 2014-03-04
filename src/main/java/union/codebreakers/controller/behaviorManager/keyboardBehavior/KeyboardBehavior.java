@@ -1,6 +1,7 @@
-package union.codebreakers.controller.behavior;
+package union.codebreakers.controller.behaviorManager.keyboardBehavior;
 
 import java.awt.event.KeyEvent;
+import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
 
 /**
  * The simplest keyboard behavior which accepts KeyboardBehaviorManager in its constructor.
@@ -26,20 +27,26 @@ public abstract class KeyboardBehavior {
      * Key was typed
      * 
      * @param ke Information about event
+     * 
+     * @return Whether the drawing area should be repainted
      */
-    public abstract void keyTyped(KeyEvent ke);
+    public abstract boolean keyTyped(KeyEvent ke);
 
     /**
      * Key was pressed
      * 
      * @param ke Information about event
+     * 
+     * @return Whether the drawing area should be repainted
      */
-    public abstract void keyPressed(KeyEvent ke);
+    public abstract boolean keyPressed(KeyEvent ke);
 
     /**
      * Key was released
      * 
      * @param ke Information about event
+     * 
+     * @return Whether the drawing area should be repainted
      */
-    public abstract void keyReleased(KeyEvent ke);
+    public abstract boolean keyReleased(KeyEvent ke);
 }

@@ -4,11 +4,13 @@
  * and open the template in the editor.
  */
 
-package union.codebreakers.controller.behavior;
+package union.codebreakers.controller.behaviorManager.mouseBehavior;
 
+import union.codebreakers.controller.behaviorManager.mouseBehavior.MouseBehaviorManager;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import union.codebreakers.command.CommandCreateState;
+import union.codebreakers.controller.behaviorManager.MouseBehavior;
 import union.codebreakers.helper.enums.MouseBehaviorType;
 import union.codebreakers.model.State;
 

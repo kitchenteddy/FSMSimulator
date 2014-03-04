@@ -1,5 +1,6 @@
-package union.codebreakers.controller.behavior;
+package union.codebreakers.controller.behaviorManager;
 
+import union.codebreakers.controller.behaviorManager.mouseBehavior.MouseBehaviorManager;
 import java.awt.event.MouseEvent;
 
 
@@ -27,48 +28,60 @@ public abstract class MouseBehavior {
      * Handles mouse press on automaton
      * 
      * @param me Event that occurred
+     * 
+     * @return Whether the drawing area should be repainted
      */
-    public abstract void mousePressed(MouseEvent me);
+    public abstract boolean mousePressed(MouseEvent me);
     
     /**
      * Handles mouse release on automaton
      * 
      * @param me Event that occurred
+     * @return Whether the drawing area should be repainted
      */
-    public abstract void mouseReleased(MouseEvent me);
+    public abstract boolean mouseReleased(MouseEvent me);
 
     /**
      * Handles mouse leaves automaton
      * 
      * @param me Event that occurred
+     * @return Whether the drawing area should be repainted
      */
-    public abstract void mouseExited(MouseEvent me);
+    public abstract boolean mouseExited(MouseEvent me);
 
     /**
      * Handles mouse enters automaton
      * 
      * @param me Event that occurred
+     * 
+     * @return Whether the drawing area should be repainted
      */
-    public abstract void mouseEntered(MouseEvent me);
+    public abstract boolean mouseEntered(MouseEvent me);
 
     /**
      * Event triggered when mouse is being dragged
      * 
      * @param me Data about event
+     * 
+     * @return Whether the drawing area should be repainted
      */
-    public abstract void mouseDragged(MouseEvent me);
+    public abstract boolean mouseDragged(MouseEvent me);
 
     /**
      * Event triggered when mouse is being moved
      * 
      * @param me Data about event
+     * 
+     * @return Whether the drawing area should be repainted
      */
-    public abstract void mouseMoved(MouseEvent me);
+    public abstract boolean mouseMoved(MouseEvent me);
 
     /**
      * Handles mouse clicks on automaton
      * 
      * @param me Event that occurred
+     * 
+     * @return Whether the drawing area should be repainted
      */
-    public abstract void mouseClicked(MouseEvent me);
+    public abstract boolean mouseClicked(MouseEvent me);
 }

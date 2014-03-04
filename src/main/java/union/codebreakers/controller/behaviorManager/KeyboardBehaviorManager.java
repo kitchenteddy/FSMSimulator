@@ -1,5 +1,7 @@
-package union.codebreakers.controller.behavior;
+package union.codebreakers.controller.behaviorManager;
 
+import union.codebreakers.controller.behaviorManager.keyboardBehavior.KeyboardBehaviorInitial;
+import union.codebreakers.controller.behaviorManager.keyboardBehavior.KeyboardBehavior;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.KeyboardBehaviorType;
 
