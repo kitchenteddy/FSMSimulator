@@ -1,10 +1,10 @@
 package union.codebreakers.helper;
 
+import union.codebreakers.command.CommandCenter;
 import union.codebreakers.controller.AutomatonController;
 import union.codebreakers.controller.MainController;
 import union.codebreakers.controller.ToolbarController;
 import union.codebreakers.controller.behavior.KeyboardBehaviorManager;
-import union.codebreakers.controller.behavior.MouseBehavior;
 import union.codebreakers.controller.behavior.MouseBehaviorManager;
 import union.codebreakers.gui.FsmPanel;
 
@@ -23,6 +23,7 @@ public class Container{
     private MouseBehaviorManager mbm = null;
     private FsmPanel drawingArea = null; // actual area for drawing FSM
     private CollisionHandler collisionHandler = null; // collision handler for this FSM
+    private CommandCenter commandCenter = null;
     
     /**
      * Gets pointer to the current main controller
@@ -148,5 +149,23 @@ public class Container{
      */
     public CollisionHandler getCollisionHandler(){
         return this.collisionHandler;
+    }
+
+    /**
+     * Sets command center for this container
+     * 
+     * @param newCenter Command center for this container
+     */
+    public void setCommandCenter(CommandCenter newCenter){
+        this.commandCenter = newCenter;
+    }
+
+    /**
+     * Gets command center for this container
+     * 
+     * @return command center for this container
+     */
+    public CommandCenter getCommandCenter(){
+        return this.commandCenter;
     }
 }

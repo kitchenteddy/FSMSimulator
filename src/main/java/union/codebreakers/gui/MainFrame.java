@@ -12,6 +12,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
+import union.codebreakers.command.CommandCenter;
 import union.codebreakers.controller.AutomatonController;
 import union.codebreakers.controller.ControllerPersonal;
 import union.codebreakers.controller.MainController;
@@ -77,16 +78,17 @@ public class MainFrame extends JFrame{
         this.container = new Container();
         
         this.container.setKeyboardBehaviorManager( new KeyboardBehaviorManager(this.container ) );
-        this.container.getKeyboardBehaviorManager().setKeyboardBehavior(KeyboardBehaviorType.eInitial, true);
         this.container.setMouseBehaviorManager( new MouseBehaviorManager(this.container ) );
-        this.container.getMouseBehaviorManager().setMouseBehavior(MouseBehaviorType.eInitial, true);
         this.container.setCollisionHandler(new CollisionHandler(this.container) );
-        this.container.getCollisionHandler().setHitElement(null);
-        this.container.getCollisionHandler().setSelectedState(null);
         this.container.setMainController(this.mainController);
         this.container.setToolbarController(new ToolbarController());
         this.container.setAutomatonController(new AutomatonController());
+        this.container.setCommandCenter( new CommandCenter() );
 
+        this.container.getCollisionHandler().setHitElement(null);
+        this.container.getCollisionHandler().setSelectedState(null);
+        this.container.getKeyboardBehaviorManager().setKeyboardBehavior(KeyboardBehaviorType.eInitial, true);
+        this.container.getMouseBehaviorManager().setMouseBehavior(MouseBehaviorType.eInitial, true);
         this.container.getToolbarController().setMainFrame(this);
         this.container.getToolbarController().setContainer(this.container);
         this.container.getAutomatonController().setMainFrame(this);
