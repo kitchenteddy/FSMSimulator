@@ -8,6 +8,7 @@ package union.codebreakers.controller.behavior;
 
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
+import union.codebreakers.command.CommandCreateState;
 import union.codebreakers.helper.enums.MouseBehaviorType;
 import union.codebreakers.model.State;
 
@@ -33,7 +34,6 @@ public class MouseBehaviorSelected extends MouseBehavior{
      */
     @Override
     public void mousePressed(MouseEvent me){
-/*
         this.mbm.getContainer().getCollisionHandler().setHitElement(null);
         Rectangle mouse_rect = new Rectangle(me.getX() - 2, me.getY() - 2, 4, 4);
         boolean repaint = false;
@@ -44,36 +44,29 @@ public class MouseBehaviorSelected extends MouseBehavior{
                     // user clicked on something
                    if( this.mbm.getContainer().getCollisionHandler().getHitElement() instanceof State ){
                        this.mbm.getContainer().getCollisionHandler().setSelectedState((State)this.mbm.getContainer().getCollisionHandler().getHitElement());
-                       this.mbm.setMouseBehavior(MouseBehaviorType.eSelected, false);
+                       this.mbm.setMouseBehavior(MouseBehaviorType.eDragging, false);
                        repaint = true; // repaint canvas in case we highlight selected state somehow
                    }
                 } else {
                     // user clicked on nothing so try to create a new state
-                    if( this.createState(me.getPoint()) ){
+                    CommandCreateState createState = new CommandCreateState(
+                                                                this.mbm.getContainer().getMainController().getAutomaton(), 
+                                                                me.getPoint(),
+                                                                this.mbm.getContainer().getDrawingArea());
+                    if( this.mbm.getContainer().getCommandCenter().execute(createState) ){
                         // we created the state so change mouse behavior and repaint
                         this.mbm.setMouseBehavior(MouseBehaviorType.eSelected, false);
                         repaint = true;
                     }
                 }
                 
+                if( repaint ){
+                    this.mbm.getContainer().getDrawingArea().repaint();                    
+                }
+                
                 break;
            
         }
-        Collidable interaction = this.checkCollisionCollidables(me.getPoint());
-        if( interaction != null ){
-            if( interaction instanceof State ) {
-                if( this.operation == OperationType.eSelecting ) {
-                  this.selected.addPath((State)interaction);
-                  this.mainFrame.getDrawingPlace().repaint();
-                } else {
-                    this.operation = OperationType.eNone;
-                    this.selected = (State)interaction;
-                }
-            }
-        } else {
-            this.createState(me.getPoint());
-        }
- */
     }
     
     /**
