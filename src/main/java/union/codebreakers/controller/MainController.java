@@ -1,25 +1,24 @@
 package union.codebreakers.controller;
 
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import union.codebreakers.gui.MainFrame;
 import union.codebreakers.model.Automaton;
 import union.codebreakers.model.ModelAutomaton;
 import union.codebreakers.view.ViewImage;
+import union.codebreakers.view.drawer.DrawerStock;
 
 /**
  * The main controller
  */
 public class MainController{
 
+    private Automaton fsm = null;
     private MainFrame myFrame = null;
-    private ToolbarController toolbarController = null;
-    private AutomatonController automatonController = null;
     private ControllerPersonal personalController = null;
     
-    private Automaton fsm = null;
     private ViewImage view = null;
 
     /**
@@ -78,62 +77,21 @@ public class MainController{
      * Runs main application code
      */	
     public void runAppCode(){
-        this.fsm = new ModelAutomaton();
-        this.view = new ViewImage(this.fsm);
-
-        this.toolbarController = new ToolbarController();
-        this.automatonController = new AutomatonController();
+        ModelAutomaton newFsm = new ModelAutomaton();
+        this.view = new ViewImage();
+        this.view.setDrawerStocck(new DrawerStock());
+        this.setAutomaton(newFsm);
         this.myFrame = new MainFrame();
         if( this.personalController != null ) {
             this.personalController.setFrame(this.myFrame);            
         }
         this.myFrame.setMainController(this);
-        
-        this.toolbarController.setMainFrame(this.myFrame);
-        this.automatonController.setMainFrame(this.myFrame);
 
         this.myFrame.init();
         this.myFrame.run();
     }
-    
-    /**
-     * Gets currently handled automaton
-     * 
-     * @return Instance of automaton
-     */
-    public Automaton getAutomaton(){
-        return this.fsm;
-    }
-    
-    /**
-     * Sets currently handled automaton
-     * 
-     * @param newFsm Instance of automaton
-     */
-    public void setAutomaton(Automaton newFsm){
-        this.fsm = newFsm;
-        this.view.setAutomaton(newFsm);
-    }
-    
-    /**
-     * Gets instance of ToolbarController
-     * 
-     * @return instance of ToolbarController
-     */
-    public ToolbarController getToolbarController(){
-        return this.toolbarController;
-    }
 
     /**
-     * Gets instance of AutomatonController
-     * 
-     * @return instance of AutomatonController
-     */
-    public AutomatonController getAutomatonController(){
-        return this.automatonController;
-    }
-
-     /**
      * Gets instance of ControllerPersonal
      * 
      * @return instance of ControllerPersonal
@@ -149,5 +107,24 @@ public class MainController{
      */
     public ViewImage getViewImage(){
         return this.view;
+    }
+    
+    /**
+     * Gets pointer to the current Automaton
+     * 
+     * @return instance of Automaton
+     */
+    public Automaton getAutomaton(){
+        return this.fsm;
+    }
+    
+    /**
+     * Sets currently handled automaton
+     * 
+     * @param newFsm Instance of automaton
+     */
+    public void setAutomaton(Automaton newFsm){
+        this.fsm = newFsm;
+        this.view.setAutomaton(newFsm);
     }
 }
