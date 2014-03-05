@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import union.codebreakers.gui.MainFrame;
 import union.codebreakers.helper.enums.FormatterType;
 import union.codebreakers.model.ModelAutomaton;
@@ -62,6 +63,13 @@ public class ToolbarController implements ActionListener{
     }
 
     private void doOpen(){
+        
+        JFileChooser browser = new JFileChooser();
+        File myFile = new File("/Users/joshualoew/NetBeansProjects/FiniteStateMachine/saves");
+        
+        browser.setCurrentDirectory(myFile);
+        browser.showOpenDialog(null);
+        
     }
 
     private void doSave(){
@@ -78,6 +86,7 @@ public class ToolbarController implements ActionListener{
     }
 
     private void doSaveAs(){
+        
 //        this.mainFrame.getGraphicsPainting()
         BufferedImage bImg = new BufferedImage(this.mainFrame.getDrawingPlace().getWidth(), this.mainFrame.getDrawingPlace().getHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D cg = bImg.createGraphics();

@@ -45,12 +45,20 @@ public class ControllerPersonalJosh extends ControllerPersonal{
         
         ModelState firstState = new ModelState(StateType.eStart, new Point(0,0), new ModelLabel(), fsm);
         
+        firstState.getLabel().setName("firstLabel");
+        
+        ModelState secondState = new ModelState(StateType.eEnd, new Point(0,1), new ModelLabel(), fsm);
+        
+        secondState.getLabel().setName("secondLabel");
+        
         fsm.addState(firstState);
+        fsm.addState(secondState);
+        
+        firstState.addPath(secondState);
         
         FormattableAutomaton myFormattable = new FormattableAutomaton(fsm);
         
-        String myPrintOut = formatter.visitElement(myFormattable, FormatterType.eReadable);
-        System.out.println(myPrintOut);
+        formatter.visitElement(myFormattable, FormatterType.eReadable);
                
     }    
 }

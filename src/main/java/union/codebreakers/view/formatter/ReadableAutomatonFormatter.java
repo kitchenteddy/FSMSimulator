@@ -1,75 +1,97 @@
 package union.codebreakers.view.formatter;
 
-import java.awt.Point;
 import union.codebreakers.model.Automaton;
 import union.codebreakers.model.Path;
 import union.codebreakers.model.State;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  */
 public class ReadableAutomatonFormatter implements FormatterTool{
+    
+    final String FILE_NAME = "/Users/joshualoew/NetBeansProjects/saveState.csv";
+    final String FILE_HEADER = "LABEL,POSITION_X,POSITION_Y,TYPE,OUTGOING_PATHS" + "\n";
+    StringBuilder toReturn = new StringBuilder();
+    
+    FileWriter writer;
 
     @Override
     public String format(Formattable toFormat) {
         
-        final String FILE_HEADER = "LABEL,POSITION,TYPE,OUTGOING_PATHS" + "\n";
-        
-        String toReturn = "";
+        try {
+            writer = buildFile(FILE_NAME);
+        } catch (IOException ex) {
+            Logger.getLogger(ReadableAutomatonFormatter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
         FormattableAutomaton myFormattableAutomata = (FormattableAutomaton)toFormat;
         Automaton myAutomata = myFormattableAutomata.getAutomaton();
         
-        toReturn += FILE_HEADER;
+        toReturn.append(FILE_HEADER);
         
         for (State myState: myAutomata.getCollectionStates())
         {
             
-            toReturn += (myState.getLabel().getName() + ",");
+            toReturn.append((myState.getLabel().getName() + ","));
         
-            toReturn += (formatPosition(myState.getPos()) + ",");
+            toReturn.append(((myState.getPos().x) + ","));
+            toReturn.append(((myState.getPos().y) + ","));
         
-            toReturn += (myState.getType().toString() + ",");
+            toReturn.append((myState.getType().toString() + ","));
             
-            for (Path myPath: myState.getPaths())
-            {
-                toReturn += "\nPath Label: ";      
-                toReturn += myPath.getLabel().getName();
-                
-        
-                toReturn += "\nPath Type: ";
-                toReturn += myPath.getType().toString();
-        
-                toReturn += "\nEndPoint: ";
-                toReturn += myPath.getEndPoint().getLabel().getName();  
-            }
+            pathToString(myState);
+            
+            toReturn.append("\n");
+
         }
         
-        return toReturn;
+        writeToCsv(toReturn);
+        closeFile();
+        
+        return toReturn.toString();
         
     }
     
-    
-    
-    
-    
-    
-    
-    
-    /**
-     * static private helper method for formatting position points correctly
-     * @param myPoint
-     * @return String representation of a point
-     */
-    private static String formatPosition(Point myPoint)
-    {
-        String toReturn = "Position: (";
-        Double xVal = (Double)myPoint.getX();
-        Double yVal = (Double)myPoint.getY();
-        toReturn += xVal.toString();
-        toReturn += ", ";
-        toReturn += yVal.toString();
-        toReturn += ")";
-        return toReturn;
+    private void pathToString(State myState) {
+        
+        String delim = "";
+                
+        for (Path myPath: myState.getPaths())
+            {
+                toReturn.append(myPath.getLabel().getName()).append(delim); 
+                delim = ",";
+            }
         
     }
+    
+    private FileWriter buildFile(String FILE_NAME) throws IOException {
+        
+        return new FileWriter(FILE_NAME);
+        
+    }
+    
+    private void writeToCsv(StringBuilder toReturn) {
+        
+        try {
+            writer.append(toReturn);
+        } catch (IOException ex) {
+            Logger.getLogger(ReadableAutomatonFormatter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    private void closeFile() {
+        
+        try {
+            writer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ReadableAutomatonFormatter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
 }
