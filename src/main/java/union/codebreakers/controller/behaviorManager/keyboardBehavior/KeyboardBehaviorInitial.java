@@ -1,6 +1,5 @@
 package union.codebreakers.controller.behaviorManager.keyboardBehavior;
 
-import union.codebreakers.controller.behaviorManager.keyboardBehavior.KeyboardBehaviorDummy;
 import java.awt.event.KeyEvent;
 import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
 import static java.awt.event.KeyEvent.*;
@@ -32,8 +31,8 @@ public class KeyboardBehaviorInitial extends KeyboardBehaviorDummy{
     public boolean keyPressed(KeyEvent ke) {
         switch(ke.getKeyCode()){
             case VK_SHIFT:
-                if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eInitial ) {
-                    this.kbm.getContainer().getMouseBehaviorManager().setMouseBehavior(MouseBehaviorType.eSelected, false);
+                if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
+                    this.setMode("adding_path", true);
                 }
                 break;
         }
@@ -70,8 +69,7 @@ public class KeyboardBehaviorInitial extends KeyboardBehaviorDummy{
                 break;
             case VK_SHIFT:
                 if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
-                    this.kbm.getContainer().getMouseBehaviorManager().setMouseBehavior(MouseBehaviorType.eInitial, false);
-                    return true;
+                    this.setMode("adding_path", false);
                 }
                 break;
             case VK_DELETE:

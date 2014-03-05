@@ -1,5 +1,6 @@
 package union.codebreakers.controller.behaviorManager.mouseBehavior;
 
+import union.codebreakers.controller.behaviorManager.MouseBehaviorManager;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
@@ -51,6 +52,7 @@ public class MouseBehaviorInitial extends MouseBehaviorDummy {
                                                                 this.mbm.getContainer().getMainController().getAutomaton(), 
                                                                 me.getPoint(),
                                                                 this.mbm.getContainer().getDrawingArea());
+                    createState.setUpdateSelected(this.mbm.getContainer().getCollisionHandler());
                     if( this.mbm.getContainer().getCommandCenter().execute(createState) ){
                         // we created the state so change mouse behavior and repaint
                         this.mbm.setMouseBehavior(MouseBehaviorType.eSelected, false);

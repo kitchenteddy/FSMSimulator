@@ -48,6 +48,7 @@ public class KeyboardBehaviorManager extends BehaviorManager{
                 // TODO: later
                 break;
         }
+        this.current.switchToThisBehavior();
     }
     
     /**
