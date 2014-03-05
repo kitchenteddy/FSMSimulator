@@ -6,7 +6,6 @@
 
 package union.codebreakers.controller.behaviorManager.keyboardBehavior;
 
-import union.codebreakers.controller.behaviorManager.keyboardBehavior.KeyboardBehavior;
 import java.awt.event.KeyEvent;
 import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
 
@@ -59,14 +58,11 @@ public class KeyboardBehaviorDummy extends KeyboardBehavior{
     public boolean keyReleased(KeyEvent ke) {
         return false;
     }
-
     
     /**
      * This method is triggered when keyboard manager switches to this behavior
      */
     @Override
     public void switchToThisBehavior(){
-        this.resetMode();
     }
-
 }

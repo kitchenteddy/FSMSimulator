@@ -3,6 +3,7 @@ package union.codebreakers.controller.behaviorManager.keyboardBehavior;
 import java.awt.event.KeyEvent;
 import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
 import static java.awt.event.KeyEvent.*;
+import union.codebreakers.helper.enums.KeyboardBehaviorType;
 import union.codebreakers.helper.enums.MouseBehaviorType;
 import union.codebreakers.helper.enums.StateType;
 
@@ -18,25 +19,6 @@ public class KeyboardBehaviorInitial extends KeyboardBehaviorDummy{
      */
     public KeyboardBehaviorInitial(KeyboardBehaviorManager newKbm) {
         super(newKbm);
-    }
-
-    /**
-     * Key was pressed
-     * 
-     * @param ke Information about event
-     * 
-     * @return Whether the drawing area should be repainted
-     */
-    @Override
-    public boolean keyPressed(KeyEvent ke) {
-        switch(ke.getKeyCode()){
-            case VK_SHIFT:
-                if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
-                    this.setMode("adding_path", true);
-                }
-                break;
-        }
-        return false;
     }
 
     /**
@@ -67,11 +49,6 @@ public class KeyboardBehaviorInitial extends KeyboardBehaviorDummy{
                     return true;
                 }
                 break;
-            case VK_SHIFT:
-                if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
-                    this.setMode("adding_path", false);
-                }
-                break;
             case VK_DELETE:
                 // delete selected element
                 if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
@@ -82,5 +59,24 @@ public class KeyboardBehaviorInitial extends KeyboardBehaviorDummy{
         }
         return false;
     }
-    
+
+    /**
+     * Key was pressed
+     * 
+     * @param ke Information about event
+     * 
+     * @return Whether the drawing area should be repainted
+     */
+    @Override
+    public boolean keyPressed(KeyEvent ke) {
+        switch(ke.getKeyCode()){
+            case VK_SHIFT:
+                if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
+                    this.kbm.setKeyboardBehavior(KeyboardBehaviorType.eAddPath, false);
+                }
+                break;
+        }
+        return false;
+    }
+
 }

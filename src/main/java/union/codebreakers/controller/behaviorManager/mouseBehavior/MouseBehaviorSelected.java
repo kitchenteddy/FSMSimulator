@@ -11,6 +11,7 @@ import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import union.codebreakers.command.CommandCreatePath;
 import union.codebreakers.command.CommandCreateState;
+import union.codebreakers.helper.enums.KeyboardBehaviorType;
 import union.codebreakers.helper.enums.MouseBehaviorType;
 import union.codebreakers.model.State;
 
@@ -48,7 +49,7 @@ public class MouseBehaviorSelected extends MouseBehaviorDummy{
                     // user clicked on something
                    if( this.mbm.getContainer().getCollisionHandler().getHitElement() instanceof State ){
                        
-                       if( this.mbm.getContainer().getKeyboardBehaviorManager().getCurrentBehavior().getMode("adding_path")){
+                       if( this.mbm.getContainer().getKeyboardBehaviorManager().getCurrentType() == KeyboardBehaviorType.eAddPath ){
                             // user clicked on nothing so try to create a new state
                             CommandCreatePath createPath = new CommandCreatePath(
                                         this.mbm.getContainer().getCollisionHandler().getSelectedState(),
@@ -71,6 +72,7 @@ public class MouseBehaviorSelected extends MouseBehaviorDummy{
                                                                 this.mbm.getContainer().getMainController().getAutomaton(), 
                                                                 me.getPoint(),
                                                                 this.mbm.getContainer().getDrawingArea());
+                    createState.setUpdateSelected(this.mbm.getContainer().getCollisionHandler());                    
                     if( this.mbm.getContainer().getCommandCenter().execute(createState) ){
                         // we created the state so change mouse behavior and repaint
                         this.mbm.setMouseBehavior(MouseBehaviorType.eSelected, false);

@@ -109,6 +109,8 @@ public class MainFrame extends JFrame{
         this.machinePanel = new FsmPanel();
         this.machinePanel.setVew(this.getMainController().getViewImage());
         this.machinePanel.addMouseListener(this.getContainer().getAutomatonController());
+        this.setFocusable(true);
+        this.requestFocus();
         this.addKeyListener(this.getContainer().getAutomatonController());
         this.machinePanel.addMouseMotionListener(this.getContainer().getAutomatonController());
 

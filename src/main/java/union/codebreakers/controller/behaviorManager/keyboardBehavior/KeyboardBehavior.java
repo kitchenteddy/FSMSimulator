@@ -9,8 +9,6 @@ import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
  * Every keyboard behavior have to extend this class
  */
 public abstract class KeyboardBehavior {
-
-    private HashMap<String, Boolean> mode;
     
     /**
      * Instance of KeyboardBehaviorManager
@@ -24,7 +22,6 @@ public abstract class KeyboardBehavior {
      */
     public KeyboardBehavior(KeyboardBehaviorManager newKbm) {
         this.kbm = newKbm;
-        this.mode = new HashMap<String, Boolean>();
     }
     
     /**
@@ -55,40 +52,9 @@ public abstract class KeyboardBehavior {
     public abstract boolean keyReleased(KeyEvent ke);
     
     /**
-     * Sets mode for this keyboard behavior
-     * 
-     * @param key       Name of mode
-     * @param state     State of mode
-     */
-    protected void setMode( String key,  Boolean state){
-       this.mode.put(key, state);            
-    }
-    
-    /**
-     * Gets status of a mode
-     * 
-     * @param key       Name of mode
-     * 
-     * @return Status of the mode (if the mode wasnt set, returns false)
-     */
-    public boolean getMode( String key){
-        if( this.mode.containsKey(key)){
-            return (boolean)this.mode.get(key);
-        } else {
-            return false;
-        }
-    }
-    
-    /**
      * This method is triggered when keyboard manager switches to this behavior
+     * NOTE: This is not used right now => maybe useful in future
      * 
      */
     public abstract void switchToThisBehavior();
-    
-    /**
-     * Resets central container for keeping track of modes for this keyboard behavior
-     */
-    public void resetMode(){
-        this.mode.clear();
-    }
 }

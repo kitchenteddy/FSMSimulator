@@ -114,9 +114,8 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
             }
         }
     }
-
     /**
-     * Key was typed
+     * Key was pressed
      * 
      * @param ke Information about event
      */
