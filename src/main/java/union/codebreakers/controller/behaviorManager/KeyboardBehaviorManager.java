@@ -2,6 +2,7 @@ package union.codebreakers.controller.behaviorManager;
 
 import union.codebreakers.controller.behaviorManager.keyboardBehavior.KeyboardBehaviorInitial;
 import union.codebreakers.controller.behaviorManager.keyboardBehavior.KeyboardBehavior;
+import union.codebreakers.controller.behaviorManager.keyboardBehavior.KeyboardBehaviorAddPath;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.KeyboardBehaviorType;
 
@@ -11,6 +12,7 @@ import union.codebreakers.helper.enums.KeyboardBehaviorType;
 public class KeyboardBehaviorManager extends BehaviorManager{
     
     static private KeyboardBehaviorInitial kbi = null;
+    static private KeyboardBehaviorAddPath kbap = null;
     
     private KeyboardBehaviorType type;
     private KeyboardBehavior current = null;
@@ -34,20 +36,27 @@ public class KeyboardBehaviorManager extends BehaviorManager{
         
         switch(newType){
            case eUnspecified:
-               // ignore this one
-                break;
+                // ignore this one
+                return;
            case eInitial:
                 if( KeyboardBehaviorManager.kbi == null || refresh){
                     this.initKeyboardBehaviorInitial();
                 }
-                this.type = newType;
                 this.current = KeyboardBehaviorManager.kbi;
+                break;
+           case eAddPath:
+                if( KeyboardBehaviorManager.kbap == null || refresh){
+                    this.initKeyboardBehaviorAddPath();
+                }
+                this.current = KeyboardBehaviorManager.kbap;
                 break;
             default:
             case eSimulation:
                 // TODO: later
                 break;
         }
+        this.type = newType;
+        this.current.switchToThisBehavior();
     }
     
     /**
@@ -70,5 +79,9 @@ public class KeyboardBehaviorManager extends BehaviorManager{
     
     private void initKeyboardBehaviorInitial(){
         KeyboardBehaviorManager.kbi = new KeyboardBehaviorInitial(this);
+    }
+    
+    private void initKeyboardBehaviorAddPath(){
+        KeyboardBehaviorManager.kbap = new KeyboardBehaviorAddPath(this);
     }
 }

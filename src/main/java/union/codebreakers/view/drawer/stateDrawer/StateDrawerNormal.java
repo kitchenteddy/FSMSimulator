@@ -28,7 +28,7 @@ public class StateDrawerNormal  implements DrawerSpecific
         Point dim = StateDrawer.getDimensions(ds.getState().getType());
         
         
-        System.out.println("calling stateDrawerNormal draw method");
+//        System.out.println("calling stateDrawerNormal draw method");
         
         g.setColor(Color.YELLOW);
         

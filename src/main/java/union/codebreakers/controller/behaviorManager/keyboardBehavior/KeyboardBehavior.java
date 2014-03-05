@@ -1,6 +1,7 @@
 package union.codebreakers.controller.behaviorManager.keyboardBehavior;
 
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
 
 /**
@@ -8,7 +9,7 @@ import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
  * Every keyboard behavior have to extend this class
  */
 public abstract class KeyboardBehavior {
-
+    
     /**
      * Instance of KeyboardBehaviorManager
      */
@@ -31,7 +32,7 @@ public abstract class KeyboardBehavior {
      * @return Whether the drawing area should be repainted
      */
     public abstract boolean keyTyped(KeyEvent ke);
-
+    
     /**
      * Key was pressed
      * 
@@ -49,4 +50,11 @@ public abstract class KeyboardBehavior {
      * @return Whether the drawing area should be repainted
      */
     public abstract boolean keyReleased(KeyEvent ke);
+    
+    /**
+     * This method is triggered when keyboard manager switches to this behavior
+     * NOTE: This is not used right now => maybe useful in future
+     * 
+     */
+    public abstract void switchToThisBehavior();
 }

@@ -18,7 +18,7 @@ import union.codebreakers.controller.ControllerPersonal;
 import union.codebreakers.controller.MainController;
 import union.codebreakers.controller.ToolbarController;
 import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
-import union.codebreakers.controller.behaviorManager.mouseBehavior.MouseBehaviorManager;
+import union.codebreakers.controller.behaviorManager.MouseBehaviorManager;
 import union.codebreakers.helper.CollisionHandler;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.KeyboardBehaviorType;
@@ -109,6 +109,8 @@ public class MainFrame extends JFrame{
         this.machinePanel = new FsmPanel();
         this.machinePanel.setVew(this.getMainController().getViewImage());
         this.machinePanel.addMouseListener(this.getContainer().getAutomatonController());
+        this.setFocusable(true);
+        this.requestFocus();
         this.addKeyListener(this.getContainer().getAutomatonController());
         this.machinePanel.addMouseMotionListener(this.getContainer().getAutomatonController());
 

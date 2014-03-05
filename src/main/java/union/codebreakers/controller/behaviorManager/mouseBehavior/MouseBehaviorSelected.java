@@ -6,9 +6,12 @@
 
 package union.codebreakers.controller.behaviorManager.mouseBehavior;
 
+import union.codebreakers.controller.behaviorManager.MouseBehaviorManager;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
+import union.codebreakers.command.CommandCreatePath;
 import union.codebreakers.command.CommandCreateState;
+import union.codebreakers.helper.enums.KeyboardBehaviorType;
 import union.codebreakers.helper.enums.MouseBehaviorType;
 import union.codebreakers.model.State;
 
@@ -45,8 +48,22 @@ public class MouseBehaviorSelected extends MouseBehaviorDummy{
                 if( this.mbm.getContainer().getCollisionHandler().checkCollisionCollidables(mouse_rect) ){
                     // user clicked on something
                    if( this.mbm.getContainer().getCollisionHandler().getHitElement() instanceof State ){
-                       this.mbm.getContainer().getCollisionHandler().setSelectedState((State)this.mbm.getContainer().getCollisionHandler().getHitElement());
-                       this.mbm.setMouseBehavior(MouseBehaviorType.eDragging, false);
+                       
+                       if( this.mbm.getContainer().getKeyboardBehaviorManager().getCurrentType() == KeyboardBehaviorType.eAddPath ){
+                            // user clicked on nothing so try to create a new state
+                            CommandCreatePath createPath = new CommandCreatePath(
+                                        this.mbm.getContainer().getCollisionHandler().getSelectedState(),
+                                        (State)this.mbm.getContainer().getCollisionHandler().getHitElement()
+                                                                        );
+
+                            if( this.mbm.getContainer().getCommandCenter().execute(createPath) ){
+                                return true;
+                            }
+                       } else {
+                            // initialize dragging
+                            this.mbm.getContainer().getCollisionHandler().setSelectedState((State)this.mbm.getContainer().getCollisionHandler().getHitElement());
+                            this.mbm.setMouseBehavior(MouseBehaviorType.eDragging, false);                           
+                       }
                        return true; // repaint canvas in case we highlight selected state somehow
                    }
                 } else {
@@ -55,6 +72,7 @@ public class MouseBehaviorSelected extends MouseBehaviorDummy{
                                                                 this.mbm.getContainer().getMainController().getAutomaton(), 
                                                                 me.getPoint(),
                                                                 this.mbm.getContainer().getDrawingArea());
+                    createState.setUpdateSelected(this.mbm.getContainer().getCollisionHandler());                    
                     if( this.mbm.getContainer().getCommandCenter().execute(createState) ){
                         // we created the state so change mouse behavior and repaint
                         this.mbm.setMouseBehavior(MouseBehaviorType.eSelected, false);

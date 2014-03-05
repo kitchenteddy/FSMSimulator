@@ -1,7 +1,7 @@
 package union.codebreakers.controller.behaviorManager.mouseBehavior;
 
+import union.codebreakers.controller.behaviorManager.MouseBehaviorManager;
 import java.awt.event.MouseEvent;
-import union.codebreakers.controller.behaviorManager.MouseBehavior;
 /**
  *  Initial mouse behavior is selected when nothing is selected
  */
