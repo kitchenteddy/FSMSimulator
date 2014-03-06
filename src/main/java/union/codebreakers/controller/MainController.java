@@ -8,7 +8,6 @@ import union.codebreakers.gui.MainFrame;
 import union.codebreakers.model.Automaton;
 import union.codebreakers.model.ModelAutomaton;
 import union.codebreakers.view.ViewImage;
-import union.codebreakers.view.drawer.DrawerStock;
 
 /**
  * The main controller
@@ -79,7 +78,6 @@ public class MainController{
     public void runAppCode(){
         ModelAutomaton newFsm = new ModelAutomaton();
         this.view = new ViewImage();
-        this.view.setDrawerStocck(new DrawerStock());
         this.setAutomaton(newFsm);
         this.myFrame = new MainFrame();
         if( this.personalController != null ) {

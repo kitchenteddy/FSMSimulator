@@ -1,8 +1,6 @@
 package union.codebreakers.helper;
 
 import union.codebreakers.model.Collidable;
-import union.codebreakers.model.ModelState;
-import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.List;
 import union.codebreakers.model.State;

@@ -7,10 +7,6 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import union.codebreakers.command.CommandCenter;
 import union.codebreakers.controller.AutomatonController;
@@ -23,6 +19,7 @@ import union.codebreakers.helper.CollisionHandler;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.KeyboardBehaviorType;
 import union.codebreakers.helper.enums.MouseBehaviorType;
+import union.codebreakers.view.drawer.DrawerStock;
 
 /**
  * Main frame of the application
@@ -35,7 +32,6 @@ public class MainFrame extends JFrame{
     private MainController mainController;
     private Container container;
     private FsmPanel machinePanel;
-    private JMenuBar menuBar;
     private BoxLayout layout = null;
     
     private ControllerPersonal personalController;
@@ -89,9 +85,7 @@ public class MainFrame extends JFrame{
         this.container.getCollisionHandler().setSelectedState(null);
         this.container.getKeyboardBehaviorManager().setKeyboardBehavior(KeyboardBehaviorType.eInitial, true);
         this.container.getMouseBehaviorManager().setMouseBehavior(MouseBehaviorType.eInitial, true);
-        this.container.getToolbarController().setMainFrame(this);
         this.container.getToolbarController().setContainer(this.container);
-        this.container.getAutomatonController().setMainFrame(this);
         this.container.getAutomatonController().setContainer(this.container);
     }
 
@@ -119,6 +113,7 @@ public class MainFrame extends JFrame{
         this.getContentPane().setLayout(layout);
         this.getContentPane().add(this.machinePanel);
         this.container.setDrawingArea(this.machinePanel);
+        this.container.getMainController().getViewImage().setDrawerStock(new DrawerStock());
     }
     
     private void initToolbar(){
@@ -166,15 +161,6 @@ public class MainFrame extends JFrame{
     }
     
     /**
-     * Gets drawable canvas to draw finite state automaton to
-     * 
-     * @return Drawable canvas to draw finite state automaton to
-     */
-    public Graphics getGraphicsPainting(){
-        return this.getDrawingPlace().getGraphics();
-    }
-    
-    /**
      * Runs personal controller, if it can to
      */
     public void runPersonal(){
@@ -184,30 +170,10 @@ public class MainFrame extends JFrame{
     }
     
     /**
-     * Redraws automaton on the canvas
-     */
-    @Override
-    public void repaint()
-    {
-        Graphics g = this.getGraphicsPainting();
-        
-        g.fillRect(-1, -1, this.machinePanel.getWidth()+2, this.machinePanel.getHeight()+2);
-    }
-    
-    /**
      * Runs main code for this frame
      */
     public void run(){
         this.setVisible(true);        
-    }
-    
-    /**
-     * Gets place to draw FSM
-     * 
-     * @return Place where to draw FSM
-     */
-    public FsmPanel getDrawingPlace(){
-        return this.machinePanel;
     }
     
     /**

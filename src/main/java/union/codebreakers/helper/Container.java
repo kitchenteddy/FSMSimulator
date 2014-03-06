@@ -60,7 +60,7 @@ public class Container{
     public void setToolbarController(ToolbarController tc){
         this.toolbarController = tc;
     }
-    
+
     /**
      * Gets pointer to the current automaton controller
      * 
