@@ -76,7 +76,7 @@ public class ToolbarController implements ActionListener{
     private void doOpen(){
         
         JFileChooser browser = new JFileChooser();
-        File myFile = new File("/Users/joshualoew/NetBeansProjects/FiniteStateMachine/saves");
+        File myFile = new File("/Users/joshualoew/NetBeansProjects/FiniteStateMachine/");
         
         browser.setCurrentDirectory(myFile);
         browser.showOpenDialog(null);

@@ -7,15 +7,13 @@
 package union.codebreakers.controller;
 
 import java.awt.Point;
-import union.codebreakers.gui.MainFrame;
 import union.codebreakers.helper.enums.FormatterType;
 import union.codebreakers.helper.enums.StateType;
 import union.codebreakers.model.Automaton;
 import union.codebreakers.model.ModelAutomaton;
 import union.codebreakers.model.ModelState;
 import union.codebreakers.model.ModelLabel;
-import union.codebreakers.view.drawable.DrawableState;
-import union.codebreakers.view.drawer.stateDrawer.StateDrawerStarting;
+import union.codebreakers.model.Path;
 import union.codebreakers.view.formatter.FormattableAutomaton;
 import union.codebreakers.view.formatter.ModelFormatterVisitor;
 
@@ -56,6 +54,10 @@ public class ControllerPersonalJosh extends ControllerPersonal{
         
         firstState.addPath(secondState);
         
+        for (Path myPath : firstState.getPaths()) {
+            System.out.println(myPath.getLabel().getName());
+        }
+                        
         FormattableAutomaton myFormattable = new FormattableAutomaton(fsm);
         
         formatter.visitElement(myFormattable, FormatterType.eReadable);

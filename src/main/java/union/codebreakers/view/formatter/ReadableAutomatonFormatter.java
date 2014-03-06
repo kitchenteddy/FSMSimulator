@@ -9,7 +9,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * TODO
+ * Get outgoing paths up and running
  */
 public class ReadableAutomatonFormatter implements FormatterTool{
     
@@ -62,7 +63,7 @@ public class ReadableAutomatonFormatter implements FormatterTool{
                 
         for (Path myPath: myState.getPaths())
             {
-                toReturn.append(myPath.getLabel().getName()).append(delim); 
+                toReturn.append(myPath.getEndPoint().getLabel().getName()).append(delim); 
                 delim = ",";
             }
         
