@@ -42,6 +42,15 @@ public class ModelAutomaton implements Automaton, Serializable
     {
         this.collectionStates.remove(el);
         this.removeCollidable((Collidable)el);
+        
+        // check other states, if they have outgoing paths to this state => if so, remove those paths
+        for( State state : this.collectionStates) {
+            for(Path path : state.getPaths() ){
+                if( path.getEndPoint() == state ){
+                    state.removePath(path);
+                }
+            }
+        }
     }
 
      /**

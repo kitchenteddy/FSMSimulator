@@ -33,8 +33,8 @@ public class LabelDrawerNormal implements DrawerSpecific{
         //CHANGE THIS
         //System.out.println("running code for path label drawing");
         //g.drawImage(toDraw, 100, 100, Color.white, myLabel);
-        System.out.println("label name under here");
-        System.out.println("OOO" + dl.getLabel().getName() + "OOO");
+//        System.out.println("label name under here");
+//        System.out.println("OOO" + dl.getLabel().getName() + "OOO");
         
         g.drawString(dl.getLabel().getName(), dl.getLabel().getPos().x, dl.getLabel().getPos().y);
         //g.drawImage(toDraw, dl.getLabel().getPos().x, dl.getLabel().getPos().y, Color.yellow, myLabel);

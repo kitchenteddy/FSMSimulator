@@ -4,8 +4,8 @@ import union.codebreakers.command.CommandCenter;
 import union.codebreakers.controller.AutomatonController;
 import union.codebreakers.controller.MainController;
 import union.codebreakers.controller.ToolbarController;
-import union.codebreakers.controller.behavior.KeyboardBehaviorManager;
-import union.codebreakers.controller.behavior.MouseBehaviorManager;
+import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
+import union.codebreakers.controller.behaviorManager.MouseBehaviorManager;
 import union.codebreakers.gui.FsmPanel;
 
 /**
@@ -60,7 +60,7 @@ public class Container{
     public void setToolbarController(ToolbarController tc){
         this.toolbarController = tc;
     }
-    
+
     /**
      * Gets pointer to the current automaton controller
      * 

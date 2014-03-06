@@ -38,20 +38,11 @@ public class ViewImage implements View
     }
     
     /**
-     * Gets drawing tools object
-     * 
-     * @return Instance of drawing tools
-     */
-    public DrawerStockGeneric getDrawerStocck(){
-        return this.drawingTools;
-    }
-    
-    /**
      * Sets drawing tools object
      * 
      * @param newDrawer Instance of drawing tools
      */
-    public void setDrawerStocck(DrawerStockGeneric newDrawer){
+    public void setDrawerStock(DrawerStockGeneric newDrawer){
         this.drawingTools = newDrawer;
     }
 
