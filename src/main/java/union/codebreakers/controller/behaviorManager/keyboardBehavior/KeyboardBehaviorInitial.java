@@ -3,6 +3,7 @@ package union.codebreakers.controller.behaviorManager.keyboardBehavior;
 import java.awt.event.KeyEvent;
 import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
 import static java.awt.event.KeyEvent.*;
+import union.codebreakers.command.CommandDeleteState;
 import union.codebreakers.helper.enums.KeyboardBehaviorType;
 import union.codebreakers.helper.enums.MouseBehaviorType;
 import union.codebreakers.helper.enums.StateType;
@@ -52,7 +53,15 @@ public class KeyboardBehaviorInitial extends KeyboardBehaviorDummy{
             case VK_DELETE:
                 // delete selected element
                 if( this.kbm.getContainer().getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
-                    this.kbm.getContainer().getMainController().getAutomaton().removeState(this.kbm.getContainer().getCollisionHandler().getSelectedState());
+                    // user clicked on nothing so try to create a new state
+                    CommandDeleteState deleteState = new CommandDeleteState(
+                                                                this.kbm.getContainer(),
+                                                                this.kbm.getContainer().getCollisionHandler().getSelectedState());
+                    if( this.kbm.getContainer().getCommandCenter().execute(deleteState) ){
+                        // we created the state so change mouse behavior and repaint
+                        this.kbm.getContainer().getMouseBehaviorManager().setMouseBehavior(MouseBehaviorType.eInitial, false);
+                       return true; // repaint canvas in case we highlight selected state somehow
+                    }
                     return true;
                 }
                 break;

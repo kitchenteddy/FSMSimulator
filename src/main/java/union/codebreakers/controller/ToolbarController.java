@@ -21,7 +21,6 @@ import union.codebreakers.view.ViewText;
  */
 public class ToolbarController implements ActionListener{
     
-    private MainFrame mainFrame = null;
     private Container container;
     
     /**
@@ -31,15 +30,6 @@ public class ToolbarController implements ActionListener{
      */
     public void setContainer(Container c){
         this.container = c;
-    }
-
-    /**
-     * Sets pointer to main frame
-     * 
-     * @param frame 
-     */
-    public void setMainFrame(MainFrame frame){
-        this.mainFrame = frame;
     }
 
     /**
@@ -63,14 +53,13 @@ public class ToolbarController implements ActionListener{
                 this.doQuit();
             }
         }
-        this.mainFrame.getDrawingPlace().repaint();
+        this.container.getDrawingArea().repaint();
     }
 
     private void doNew(){
-//        this.mainFrame.update(this.mainFrame.getGraphicsPainting());
         ModelAutomaton newFsm = new ModelAutomaton();
-        this.mainFrame.getMainController().setAutomaton(newFsm);
-        this.mainFrame.getDrawingPlace().repaint();        
+        this.container.getMainController().setAutomaton(newFsm);
+        this.container.getDrawingArea().repaint();        
     }
 
     private void doOpen(){
@@ -84,7 +73,7 @@ public class ToolbarController implements ActionListener{
     }
 
     private void doSave(){
-        ViewText view = new ViewText( this.mainFrame.getMainController().getAutomaton());
+        ViewText view = new ViewText( this.container.getMainController().getAutomaton());
         PrintWriter out;
         try{
             out = new PrintWriter("automaton.read");
@@ -99,10 +88,10 @@ public class ToolbarController implements ActionListener{
     private void doSaveAs(){
         
 //        this.mainFrame.getGraphicsPainting()
-        BufferedImage bImg = new BufferedImage(this.mainFrame.getDrawingPlace().getWidth(), this.mainFrame.getDrawingPlace().getHeight(), BufferedImage.TYPE_INT_RGB);
+        BufferedImage bImg = new BufferedImage(this.container.getDrawingArea().getWidth(), this.container.getDrawingArea().getHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D cg = bImg.createGraphics();
-        this.mainFrame.getMainController().getViewImage().setOutput(cg);
-        this.mainFrame.getMainController().getViewImage().drawOutput();
+        this.container.getMainController().getViewImage().setOutput(cg);
+        this.container.getMainController().getViewImage().drawOutput();
         try {
                 if (ImageIO.write(bImg, "png", new File("./automaton.png")))
                 {
@@ -112,7 +101,7 @@ public class ToolbarController implements ActionListener{
             //TODO catch this exception
         }
         finally{
-        this.mainFrame.getMainController().getViewImage().setOutput(this.mainFrame.getGraphicsPainting());            
+        this.container.getMainController().getViewImage().setOutput(this.container.getDrawingArea().getGraphics());            
         }
     }
     

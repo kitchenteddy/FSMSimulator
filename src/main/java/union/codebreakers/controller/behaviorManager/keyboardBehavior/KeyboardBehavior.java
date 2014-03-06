@@ -1,7 +1,6 @@
 package union.codebreakers.controller.behaviorManager.keyboardBehavior;
 
 import java.awt.event.KeyEvent;
-import java.util.HashMap;
 import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
 
 /**
