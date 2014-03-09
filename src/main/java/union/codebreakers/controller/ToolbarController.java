@@ -10,11 +10,17 @@ import java.io.PrintWriter;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
-import union.codebreakers.gui.MainFrame;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.FormatterType;
 import union.codebreakers.model.ModelAutomaton;
 import union.codebreakers.view.ViewText;
+
+// New class takes file and automaton from container
+// Should contain a load method using visitor
+/**
+ * visited.load
+ * loader.doLoad - pass all info and do work
+ */
 
 /**
  * Controller handling manipulation with menu
