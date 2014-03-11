@@ -18,6 +18,7 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     private StateType type;
     private Point position;
     private ArrayList<Path> outgoingPaths;
+    private ArrayList<Path> incomingPaths;
     private Label stateLabel;
     
     /**
@@ -34,6 +35,7 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         this.position = msPos;
         this.stateLabel = msLabel;
         this.outgoingPaths = new ArrayList<Path>();
+        this.incomingPaths = new ArrayList<Path>();
         this.getAutomaton().addCollidable(this);
         
         if( msLabel instanceof Collidable ) {
@@ -59,6 +61,8 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         if( destination instanceof Collidable ) {
             this.getAutomaton().addCollidable((Collidable)destination);
         }
+        destination.addIncomingPath(newPath);
+        
         
         
         
@@ -73,6 +77,7 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     public void removePath(Path toRemove)
     {
         this.outgoingPaths.remove(toRemove);
+        toRemove.getEndPoint().getIncomingPaths().remove(toRemove);
         if( toRemove instanceof Collidable ) {
             this.getAutomaton().removeCollidable((Collidable)toRemove);
         }
@@ -122,6 +127,10 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         //TBK
         this.updateLabelPos();
         for (Path currentPath : this.outgoingPaths)
+        {
+            currentPath.updateLabelPos();
+        }
+        for (Path currentPath : this.incomingPaths)
         {
             currentPath.updateLabelPos();
         }
@@ -246,6 +255,27 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     private void updateLabelPos()
     {
         this.stateLabel.setPos(this.position);
+    }
+
+    
+    
+    /**
+     * gets list of incoming paths
+     * @return incoming paths list
+     */
+    @Override
+    public List<Path> getIncomingPaths() {
+        return this.incomingPaths;
+    }
+
+    
+    /**
+     * adds an incoming path
+     * @param incoming 
+     */
+    @Override
+    public void addIncomingPath(Path incoming) {
+        this.incomingPaths.add(incoming);
     }
     
     

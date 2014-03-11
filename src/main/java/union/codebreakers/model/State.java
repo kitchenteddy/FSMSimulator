@@ -74,6 +74,20 @@ public  interface State
     public List<Path> getPaths();
     
     /**
+     * 
+     * @return list of incoming paths
+     */
+    public List<Path> getIncomingPaths();
+    
+    
+    /**
+     * adds an incoming path
+     * @param incoming 
+     */
+    public void addIncomingPath(Path incoming);
+    
+    
+    /**
      * Returns the path going to the destination State
      * 
      * @param destination Gets path between these two states

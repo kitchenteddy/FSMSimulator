@@ -2,6 +2,7 @@ package union.codebreakers.view.drawer.pathDrawer;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.geom.AffineTransform;
 import union.codebreakers.view.drawable.Drawable;
@@ -26,7 +27,9 @@ public class PathDrawerNormal  implements DrawerSpecific
         }
         if( el instanceof DrawablePath ){
             DrawablePath dp = (DrawablePath)el;
-            g.setColor(Color.orange);
+            Graphics2D g2d = (Graphics2D)g.create();
+            g2d.setColor(Color.orange);
+            
             
            
             int x1 = dp.getPath().getStartPoint().getPos().x;
@@ -35,22 +38,28 @@ public class PathDrawerNormal  implements DrawerSpecific
             int y2 = dp.getPath().getEndPoint().getPos().y;
             
             
-            g.drawLine(x1, y1, x2, y2);
+            g2d.drawLine(x1, y1, x2, y2);
             
+            if (x1 != x2 || y1 != y2)
+            {
+                AffineTransform tx = new AffineTransform();
+                Polygon arrowHead = new Polygon();
+                arrowHead.addPoint( 0,5);
+                arrowHead.addPoint( -5, -5);
+                arrowHead.addPoint( 5,-5);
             
-            AffineTransform tx = new AffineTransform();
-            Polygon arrowHead = new Polygon();
-            arrowHead.addPoint( 0,5);
-            arrowHead.addPoint( -5, -5);
-            arrowHead.addPoint( 5,-5);
+                tx.setToIdentity();
+                double angle = Math.atan2(y2-y1, x2-x1);
+                tx.translate(x2, y2);
+                tx.rotate((angle-Math.PI/2d));
             
-            tx.setToIdentity();
-            double angle = Math.atan2(y2-y1, x2-x1);
-            tx.translate(x2, y2);
-            tx.rotate((angle-Math.PI/2d));
-            
+                g2d.setTransform(tx);
+                g2d.fill(arrowHead);
+                g2d.dispose();
 
-            g.drawPolygon(arrowHead);
+                g.drawPolygon(arrowHead);
+            }
+            
             
             
            
