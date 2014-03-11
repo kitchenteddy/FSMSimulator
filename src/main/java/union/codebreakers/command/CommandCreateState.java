@@ -54,7 +54,21 @@ public class CommandCreateState implements Command{
         int size = this.fsm.getCollectionStates().size();
         ModelLabel ml = new ModelLabel();
         String myName = JOptionPane.showInputDialog("input state name");
-        ml.setName(myName);
+        
+        //TBK
+        // THIS keeps the app from crashing if cancel is selected by user in dailog box
+        // Also makes cancel no longer still create a state
+        if (myName == null)
+        {
+            return res;
+        }
+        else
+        {
+            
+            ml.setName(myName);
+        }
+        
+        
         ml.setType(LabelType.eState);
         StateType type = size == 0 ? StateType.eStart : StateType.eNormal;                
 

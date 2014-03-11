@@ -2,6 +2,7 @@ package union.codebreakers.view;
 
 import java.awt.Graphics;
 import java.util.List;
+import union.codebreakers.helper.CollisionHandler;
 import union.codebreakers.model.Automaton;
 import union.codebreakers.model.Path;
 import union.codebreakers.model.State;
@@ -9,6 +10,8 @@ import union.codebreakers.view.drawable.DrawableLabel;
 import union.codebreakers.view.drawable.DrawablePath;
 import union.codebreakers.view.drawable.DrawableState;
 import union.codebreakers.view.drawer.DrawerStockGeneric;
+import union.codebreakers.view.drawer.featureDrawer.FeatureDrawer;
+import union.codebreakers.view.drawer.featureDrawer.SelectorDrawer;
 
 /**
  * Graphical representation of automata
@@ -18,6 +21,17 @@ public class ViewImage implements View
     private Automaton fsm;
     private Graphics canvas = null;
     private DrawerStockGeneric drawingTools = null;
+    
+    //TBK
+    private CollisionHandler collisionHandler = null;
+    
+    
+    
+    public void setCollisionHandler(CollisionHandler ch)
+    {
+        this.collisionHandler = ch;
+    }
+    
     
     /**
      * Sets output graphic canvas for this view
@@ -74,6 +88,17 @@ public class ViewImage implements View
                     dl.setupDrawing(this.drawingTools, this.canvas);                
                 }
             }
+            
+            //Draw Features TBK
+            
+            
+            if (this.collisionHandler.getSelectedState() != null)
+            {
+                FeatureDrawer myDrawer = new SelectorDrawer();
+                myDrawer.drawFeature(this.collisionHandler.getSelectedState().getPos(), canvas);
+                
+            }
+            
         }
     }
 }

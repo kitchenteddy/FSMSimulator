@@ -86,6 +86,12 @@ public class MainController{
         this.myFrame.setMainController(this);
 
         this.myFrame.init();
+        
+        //TBK
+        this.view.setCollisionHandler(this.myFrame.getContainer().getCollisionHandler());
+        //TBk
+        
+        
         this.myFrame.run();
     }
 

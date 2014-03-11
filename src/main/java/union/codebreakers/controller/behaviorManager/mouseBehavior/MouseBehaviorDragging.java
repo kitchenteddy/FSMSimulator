@@ -39,9 +39,12 @@ public class MouseBehaviorDragging extends MouseBehaviorDummy{
      */
     @Override
     public boolean mouseDragged(MouseEvent me){
+        
         switch( me.getButton() ){
-            case 0: // left button
+            case 1: // left button //Changed to 1 TBK
+               
                 if(this.mbm.getContainer().getCollisionHandler().getSelectedState() != null) {
+                    
                     this.mbm.getContainer().getCollisionHandler().getSelectedState().setPos(me.getPoint());
                     return true;
                 }

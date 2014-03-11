@@ -8,6 +8,7 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 import union.codebreakers.command.CommandCenter;
 import union.codebreakers.controller.AutomatonController;
