@@ -149,8 +149,8 @@ public class ModelPath implements Path, Collidable, Serializable, AutomatonPart
         Point p1 = this.getStartPoint().getPos();
         Point p2 = this.getEndPoint().getPos();
         
-        int labelX = Math.abs(p1.x - p2.x);
-        int labelY = Math.abs(p1.y - p2.y);
+        int labelX = (p1.x + p2.x)/2;
+        int labelY = (p1.y + p2.y)/2;
         Point newLabelPos = new Point(labelX, labelY);
         this.getLabel().setPos(newLabelPos);
         

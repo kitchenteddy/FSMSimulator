@@ -54,10 +54,14 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     public void addPath(State destination)
     { 
         Path newPath = new ModelPath(this, destination, this.fsm);
+        this.getAutomaton().addCollidable((Collidable)newPath);
         this.outgoingPaths.add(newPath);
         if( destination instanceof Collidable ) {
             this.getAutomaton().addCollidable((Collidable)destination);
         }
+        
+        
+        
     }
 
    /**
