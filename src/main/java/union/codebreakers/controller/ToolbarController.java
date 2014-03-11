@@ -9,10 +9,18 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.FormatterType;
 import union.codebreakers.model.ModelAutomaton;
 import union.codebreakers.view.ViewText;
+
+// New class takes file and automaton from container
+// Should contain a load method using visitor
+/**
+ * visited.load
+ * loader.doLoad - pass all info and do work
+ */
 
 /**
  * Controller handling manipulation with menu
@@ -61,6 +69,13 @@ public class ToolbarController implements ActionListener{
     }
 
     private void doOpen(){
+        
+        JFileChooser browser = new JFileChooser();
+        File myFile = new File("/Users/joshualoew/NetBeansProjects/FiniteStateMachine/");
+        
+        browser.setCurrentDirectory(myFile);
+        browser.showOpenDialog(null);
+        
     }
 
     private void doSave(){
@@ -77,6 +92,7 @@ public class ToolbarController implements ActionListener{
     }
 
     private void doSaveAs(){
+        
 //        this.mainFrame.getGraphicsPainting()
         BufferedImage bImg = new BufferedImage(this.container.getDrawingArea().getWidth(), this.container.getDrawingArea().getHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D cg = bImg.createGraphics();
