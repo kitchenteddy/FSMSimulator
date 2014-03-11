@@ -31,6 +31,9 @@ public class FormattableAutomaton implements Formattable{
             case eLoadable:
                 myFormatter = new LoadableAutomatonFormatter();
                 break;
+            case eLatex:
+                myFormatter = new LatexAutomatonFormatter();
+                break;
             default:
                 myFormatter = new ReadableAutomatonFormatter();
                 break;
