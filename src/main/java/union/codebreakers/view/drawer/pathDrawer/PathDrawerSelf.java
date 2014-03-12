@@ -32,7 +32,7 @@ public class PathDrawerSelf implements DrawerSpecific {
             int y1 = dp.getPath().getStartPoint().getPos().y;
                     
             g.setColor(Color.orange);  
-            g.fillArc(x1, y1, 20, 20, 0, 180);
+            g.drawArc(x1, y1-25, 20, 20, -45, 180);
             
         }    
         
