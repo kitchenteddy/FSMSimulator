@@ -1,15 +1,11 @@
 package union.codebreakers.gui;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.Toolkit;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JTextField;
-import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 import union.codebreakers.command.CommandCenter;
 import union.codebreakers.controller.AutomatonController;
@@ -122,6 +118,9 @@ public class MainFrame extends JFrame{
     private void initToolbar(){
         JToolBar toolbar = new JToolBar();
         toolbar.setFloatable(false);
+        
+        JToolBar simBar = new JToolBar();
+        simBar.setFloatable(false);
 
         ImageIcon newi = new ImageIcon("resources/Clipboard.png");
         ImageIcon open = new ImageIcon("resources/Box.png");
@@ -171,10 +170,14 @@ public class MainFrame extends JFrame{
         toolbar.add(saveb);
         toolbar.add(save_asb);
         toolbar.add(quitb);
-        toolbar.add(pathb);
-        toolbar.add(startb);
         toolbar.setAlignmentY(0);
+        
+        simBar.add(pathb);
+        simBar.add(startb);
+        simBar.setAlignmentY(0);
+        
         this.getContentPane().add(toolbar);
+        this.getContentPane().add(simBar);
     }
     
     /**
