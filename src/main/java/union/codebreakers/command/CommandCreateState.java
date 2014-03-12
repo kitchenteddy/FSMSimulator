@@ -67,8 +67,7 @@ public class CommandCreateState implements Command{
             
             ml.setName(myName);
         }
-        
-        
+                
         ml.setType(LabelType.eState);
         StateType type = size == 0 ? StateType.eStart : StateType.eNormal;                
 

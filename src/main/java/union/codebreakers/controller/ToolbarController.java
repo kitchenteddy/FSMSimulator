@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.FormatterType;
 import union.codebreakers.model.ModelAutomaton;
@@ -113,6 +114,10 @@ public class ToolbarController implements ActionListener{
     }
     
     private void doPrompt() {
+        
+        String myName = JOptionPane.showInputDialog("input path to simulate");
+        
+        // Make some boolean value to verify no null/empty
         
     }
     
