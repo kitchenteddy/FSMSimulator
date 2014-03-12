@@ -8,6 +8,7 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 import union.codebreakers.command.CommandCenter;
@@ -28,8 +29,8 @@ import union.codebreakers.view.drawer.DrawerStock;
  */
 public class MainFrame extends JFrame{
 
-    static private int windowsW = 512;
-    static private int windowsH = 512;
+    static private int windowsW = 650;
+    static private int windowsH = 600;
        
     private MainController mainController;
     private Container container;
@@ -127,6 +128,8 @@ public class MainFrame extends JFrame{
         ImageIcon save = new ImageIcon("resources/Pencil.png");
         ImageIcon save_as = new ImageIcon("resources/Pencil.png");
         ImageIcon quit = new ImageIcon("resources/Delete.png");
+        ImageIcon start = new ImageIcon("resources/Play.png");
+        ImageIcon enterPath = new ImageIcon("resources/Arrow.png");
 
         JButton newb = new JButton(newi);
         newb.setText("New");
@@ -152,12 +155,24 @@ public class MainFrame extends JFrame{
         quitb.setText("Quit");
         quitb.setName("buttonQuit");
         quitb.addActionListener(this.getContainer().getToolbarController());
+        
+        JButton pathb = new JButton(enterPath);
+        pathb.setText("Enter Path");
+        pathb.setName("buttonPathPrompt");
+        pathb.addActionListener(this.getContainer().getToolbarController());
+        
+        JButton startb = new JButton(start);
+        startb.setText("Start Simulation");
+        startb.setName("buttonStart");
+        startb.addActionListener(this.getContainer().getToolbarController());
 
         toolbar.add(newb);
         toolbar.add(openb);
         toolbar.add(saveb);
         toolbar.add(save_asb);
         toolbar.add(quitb);
+        toolbar.add(pathb);
+        toolbar.add(startb);
         toolbar.setAlignmentY(0);
         this.getContentPane().add(toolbar);
     }
