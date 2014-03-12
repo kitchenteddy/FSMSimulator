@@ -16,6 +16,10 @@ public class PathDrawer implements DrawerGeneric
      * Tool to draw a normal path
      */
     static protected PathDrawerNormal pdn = null;
+    
+    /**
+     * Tool to draw a self path
+     */
     static protected PathDrawerSelf pds = null;
 
     /**
@@ -43,16 +47,6 @@ public class PathDrawer implements DrawerGeneric
         if(el == null ) {
             throw new ExceptionUnexpectedInput( "Unsupported input" );
         }
-
-//        if( el instanceof DrawablePath ) {
-//            if( PathDrawer.pdn == null ) {
-//                this.setPathDrawerNormal();
-//            }
-//            PathDrawer.pdn.draw(el, g);
-//            
-//        } else {
-//            throw new ExceptionUnexpectedInput( "Unsupported input" );                
-//        }
         
         if (el instanceof DrawablePath) {
             DrawablePath element = (DrawablePath) el;

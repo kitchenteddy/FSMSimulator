@@ -1,5 +1,6 @@
 package union.codebreakers.command;
 
+import union.codebreakers.helper.enums.PathType;
 import union.codebreakers.model.State;
 
 /**
@@ -18,6 +19,7 @@ public class CommandCreatePath implements Command{
     public CommandCreatePath(State newFrom, State newTo){
         this.from = newFrom;
         this.to = newTo;
+        
     }
     
     /**
@@ -26,9 +28,17 @@ public class CommandCreatePath implements Command{
     * @return Whether the execution was successful or not
     */
     @Override
-    public boolean execute() {        
-        this.from.addPath(to);
+    public boolean execute() {  
         
+        PathType type;
+        if (from == to) {
+            type = PathType.eSelf;
+        } else {
+            type = PathType.eNormal;
+        }
+  
+        this.from.addPath(to);
+        this.from.getPathTo(to).setType(type);
         // add creating label here
         return true;
     }
