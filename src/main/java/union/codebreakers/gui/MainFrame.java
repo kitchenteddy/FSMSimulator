@@ -2,11 +2,14 @@ package union.codebreakers.gui;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import javax.swing.AbstractAction;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JToolBar;
+import javax.swing.KeyStroke;
 import union.codebreakers.command.CommandCenter;
 import union.codebreakers.controller.AutomatonController;
 import union.codebreakers.controller.ControllerPersonal;
@@ -18,6 +21,7 @@ import union.codebreakers.helper.CollisionHandler;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.KeyboardBehaviorType;
 import union.codebreakers.helper.enums.MouseBehaviorType;
+import union.codebreakers.keyboardHandler.SpacebarAction;
 import union.codebreakers.view.drawer.DrawerStock;
 
 /**
@@ -108,6 +112,18 @@ public class MainFrame extends JFrame{
         this.machinePanel.addMouseMotionListener(this.getContainer().getAutomatonController());
 
         this.layout = new BoxLayout(this.getContentPane(), BoxLayout.PAGE_AXIS);
+        
+        
+        AbstractAction mySpaceAction = new SpacebarAction();
+        this.machinePanel.getInputMap().put(KeyStroke.getKeyStroke(" "), mySpaceAction);
+        
+        
+        
+        
+        
+        
+        
+        
         
         this.getContentPane().setLayout(layout);
         this.getContentPane().add(this.machinePanel);
