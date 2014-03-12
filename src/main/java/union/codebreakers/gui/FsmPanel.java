@@ -33,7 +33,6 @@ public class FsmPanel extends JPanel{
             BufferedImage bImg = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_RGB);
             Graphics2D newGraphics = bImg.createGraphics();
             
-            
             this.view.setOutput(newGraphics);
             this.view.drawOutput();
             this.getGraphics().drawImage(bImg, 0, 0, null);
