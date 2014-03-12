@@ -10,8 +10,10 @@ import java.io.PrintWriter;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.FormatterType;
+import union.codebreakers.helper.enums.KeyboardBehaviorType;
 import union.codebreakers.model.ModelAutomaton;
 import union.codebreakers.view.ViewText;
 
@@ -38,6 +40,7 @@ public class ToolbarController implements ActionListener{
      */
     @Override
     public void actionPerformed(ActionEvent e){
+        
         if( e.getSource() instanceof JButton ) {
             JButton item = (JButton)e.getSource();
             if( item.getName().equals("buttonNew") ){
@@ -115,9 +118,18 @@ public class ToolbarController implements ActionListener{
     
     private void doPrompt() {
         
+        String userInput = JOptionPane.showInputDialog("executing doPrompt");
+        
+        //give user input to container and have that give it to simulator
+        this.container.getKeyboardBehaviorManager().setKeyboardBehavior(KeyboardBehaviorType.eInitial, true);
+        System.out.println(userInput);
+        
     }
     
     private void doStart() {
+        this.container.getKeyboardBehaviorManager().setKeyboardBehavior(KeyboardBehaviorType.eInitial, true);
+
+        //let the simulator take over drawing etc
         
     }
 }

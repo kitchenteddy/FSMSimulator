@@ -62,6 +62,8 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
      */
     @Override
     public void mousePressed(MouseEvent me) {
+        System.out.println(this.container.getKeyboardBehaviorManager().getCurrentBehavior().toString());
+        System.out.println(this.container.getKeyboardBehaviorManager().getCurrentType().name());
         if( this.container.getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
             boolean repaint = this.container.getMouseBehaviorManager().getCurrentBehavior().mousePressed(me);
             if( repaint ){
@@ -136,6 +138,7 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
      */
     @Override
     public void keyPressed(KeyEvent ke) {
+        System.out.println(this.container.getKeyboardBehaviorManager().getCurrentType().name());
         if( this.container.getKeyboardBehaviorManager().getCurrentType() != KeyboardBehaviorType.eUnspecified ){
             boolean repaint = this.container.getKeyboardBehaviorManager().getCurrentBehavior().keyPressed(ke);
             if( repaint ){
