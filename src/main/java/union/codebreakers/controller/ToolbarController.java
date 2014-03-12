@@ -50,7 +50,11 @@ public class ToolbarController implements ActionListener{
                 this.doSaveAs();
             } else if(item.getName().equals("buttonQuit")){
                 this.doQuit();
-            }
+            } else if(item.getName().equals("buttonPathPrompt")) {
+                this.doPrompt();
+            } else if(item.getName().equals("buttonStart")) { 
+                this.doStart();
+            }    
         }
         this.container.getDrawingArea().repaint();
     }
@@ -106,5 +110,13 @@ public class ToolbarController implements ActionListener{
     
     private void doQuit(){
         System.exit(0);
+    }
+    
+    private void doPrompt() {
+        
+    }
+    
+    private void doStart() {
+        
     }
 }
