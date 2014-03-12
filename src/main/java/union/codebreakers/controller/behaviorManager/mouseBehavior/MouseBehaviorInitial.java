@@ -61,6 +61,7 @@ public class MouseBehaviorInitial extends MouseBehaviorDummy {
                    
                    
                 } else {
+                    System.out.println("create State should execute");
                     // user clicked on nothing so try to create a new state
                     CommandCreateState createState = new CommandCreateState(
                                                                 this.mbm.getContainer().getMainController().getAutomaton(), 

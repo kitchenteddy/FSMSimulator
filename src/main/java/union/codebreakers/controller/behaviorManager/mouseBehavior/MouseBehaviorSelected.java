@@ -54,7 +54,11 @@ public class MouseBehaviorSelected extends MouseBehaviorDummy{
                    if( this.mbm.getContainer().getCollisionHandler().getHitElement() instanceof State ){
                        
                        if( this.mbm.getContainer().getKeyboardBehaviorManager().getCurrentType() == KeyboardBehaviorType.eAddPath ){
-                            // user clicked on nothing so try to create a new state
+                           
+                           
+                           
+                           // THis seems to be adding paths not states
+                           
                             CommandCreatePath createPath = new CommandCreatePath(
                                         this.mbm.getContainer().getCollisionHandler().getSelectedState(),
                                         (State)this.mbm.getContainer().getCollisionHandler().getHitElement()
