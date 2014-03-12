@@ -6,19 +6,19 @@
 
 package union.codebreakers.controller.loader;
 
+import union.codebreakers.helper.enums.LoadableType;
+
 /**
  *
  * @author joshualoew
  */
-public class LoadAutomaton implements LoaderTool {
-
-    @Override
-    public String load(Loadable toLoad) {
-        
-        
-        
-        return "";
-        
-    }
+public interface Visitor {
+    
+    /**
+     * Use the correct code based on the file type sent
+     * @param toFormat
+     * @return 
+     */
+    public String visit(LoadableType myType);
     
 }

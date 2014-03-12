@@ -16,6 +16,11 @@ public class PathDrawer implements DrawerGeneric
      * Tool to draw a normal path
      */
     static protected PathDrawerNormal pdn = null;
+    
+    /**
+     * Tool to draw a self path
+     */
+    static protected PathDrawerSelf pds = null;
 
     /**
      * Setter for tool to draw a normal path
@@ -23,11 +28,18 @@ public class PathDrawer implements DrawerGeneric
     protected void setPathDrawerNormal() {
         PathDrawer.pdn = new PathDrawerNormal();
     }
+    
+    /**
+     * Setter for tool to draw a self path
+     */
+    protected void setPathDrawerSelf() {
+        PathDrawer.pds = new PathDrawerSelf();
+    }
 
     /**
      * Calls the proper drawing tool for supplied drawable element and draws it on the canvas
      * 
-     * @param el    Drawable element which should be drawn
+     * @param el Drawable element which should be drawn
      * @param g Canvas on which the element should've been drawn
      */
     @Override
@@ -35,15 +47,27 @@ public class PathDrawer implements DrawerGeneric
         if(el == null ) {
             throw new ExceptionUnexpectedInput( "Unsupported input" );
         }
-
-        if( el instanceof DrawablePath ) {
-            if( PathDrawer.pdn == null ) {
-                this.setPathDrawerNormal();
+        
+        if (el instanceof DrawablePath) {
+            DrawablePath element = (DrawablePath) el;
+            switch (element.getPath().getType()) {
+                case eNormal:
+                    if (PathDrawer.pdn == null) {
+                        this.setPathDrawerNormal();
+                    }
+                    PathDrawer.pdn.draw(el, g);
+                    break;
+                case eSelf:
+                    if (PathDrawer.pds == null) {
+                        this.setPathDrawerSelf();
+                    }
+                    PathDrawer.pds.draw(el, g);
+                    break;
             }
-            PathDrawer.pdn.draw(el, g);
         } else {
             throw new ExceptionUnexpectedInput( "Unsupported input" );                
         }
+        
     }
 }
 

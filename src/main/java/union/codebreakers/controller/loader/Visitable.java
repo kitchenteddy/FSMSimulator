@@ -7,12 +7,11 @@
 package union.codebreakers.controller.loader;
 
 /**
- * Loads a .csv file
  *
  * @author joshualoew
  */
-public interface LoaderTool {
-    
-    public String load(Loadable toLoad);
+public interface Visitable {
+
+    public String accept(Visitor visitor);
     
 }
