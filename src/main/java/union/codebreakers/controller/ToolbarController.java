@@ -53,6 +53,7 @@ public class ToolbarController implements ActionListener{
             } else if(item.getName().equals("buttonPathPrompt")) {
                 this.doPrompt();
             } else if(item.getName().equals("buttonStart")) { 
+                System.out.println("StartButtonPressed");
                 this.doStart();
             }    
         }
