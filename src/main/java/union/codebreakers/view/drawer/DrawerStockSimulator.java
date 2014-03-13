@@ -7,10 +7,12 @@
 package union.codebreakers.view.drawer;
 
 import java.awt.Graphics;
+import union.codebreakers.controller.simulator.SimulationDrawer;
 import union.codebreakers.helper.Container;
 import union.codebreakers.view.drawable.DrawableState;
 import union.codebreakers.view.drawer.featureDrawer.FeatureDrawer;
 import union.codebreakers.view.drawer.featureDrawer.SelectorDrawer;
+import union.codebreakers.view.drawer.featureDrawer.SimulatorInfoDrawer;
 
 /**
  *
@@ -18,10 +20,10 @@ import union.codebreakers.view.drawer.featureDrawer.SelectorDrawer;
  */
 public class DrawerStockSimulator extends DrawerStock{
     private Container container;
+    private SimulationDrawer simulationDrawer;
     
     public DrawerStockSimulator(Container c){
         this.container = c;
-        
     }
     
     
@@ -30,10 +32,8 @@ public class DrawerStockSimulator extends DrawerStock{
         super.setDrawer(el, g);
         
         if (this.container.getSimulatorManager() != null){
-            
-            this.container.getSimulatorManager().draw(g);
-            
-            
+            this.simulationDrawer = new SimulationDrawer(this.container.getSimulatorManager());
+            this.simulationDrawer.draw(g);
         }
         if( this.container.getCollisionHandler() != null ){
             if( this.container.getCollisionHandler().getSelectedState().equals(el.getState())){

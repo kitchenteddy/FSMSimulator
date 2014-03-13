@@ -10,9 +10,6 @@ import union.codebreakers.view.drawable.DrawableLabel;
 import union.codebreakers.view.drawable.DrawablePath;
 import union.codebreakers.view.drawable.DrawableState;
 import union.codebreakers.view.drawer.DrawerStockGeneric;
-import union.codebreakers.view.drawer.featureDrawer.FeatureDrawer;
-import union.codebreakers.view.drawer.featureDrawer.SelectorDrawer;
-import union.codebreakers.view.drawer.featureDrawer.SimulatedStateDrawer;
 
 /**
  * Graphical representation of automata
@@ -85,8 +82,10 @@ public class ViewImage implements View
                     dp.setPath(p);
                     dp.setupDrawing(this.drawingTools, this.canvas);                    
                     // draw label
-                    dl.setLabel(p.getLabel());
-                    dl.setupDrawing(this.drawingTools, this.canvas);                
+                    if( p.getLabel() != null ){
+                        dl.setLabel(p.getLabel());
+                        dl.setupDrawing(this.drawingTools, this.canvas);                        
+                    }
                 }
             }
         }

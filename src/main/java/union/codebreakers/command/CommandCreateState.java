@@ -71,6 +71,7 @@ public class CommandCreateState implements Command{
             ModelState ms = new ModelState(type, this.pos, ml, this.container.getMainController().getAutomaton());
             ml.addObserver(this.container.getObserverView());
             ms.addObserver(this.container.getObserverView());
+            ml.setParent(ms);
             if( this.handler != null ){
                 this.handler.setSelectedState(ms);                
             }

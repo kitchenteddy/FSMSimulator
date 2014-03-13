@@ -2,6 +2,10 @@ package union.codebreakers.view.drawer.labelDrawer;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
+import union.codebreakers.model.ModelLabel;
+import union.codebreakers.model.ModelPath;
+import union.codebreakers.model.ModelState;
 import union.codebreakers.view.drawable.Drawable;
 import union.codebreakers.view.drawable.DrawableLabel;
 import union.codebreakers.view.drawer.DrawerSpecific;
@@ -21,30 +25,28 @@ public class LabelDrawerNormal implements DrawerSpecific{
         DrawableLabel dl = (DrawableLabel)el;
         
         g.setColor(Color.orange);
-        
-        //JLabel myLabel = new JLabel(dl.getLabel().getName());
-        
-       //JLabel myLabel = new JLabel("TESTING LABEL");
-        //myLabel.setOpaque(true);
-        //Image toDraw = (Image)myLabel.getIcon();
-        //Icon myIcon = myLabel.getIcon();
-        //Component myComponent = new JLabel("here is a label");
-        //myIcon.paintIcon(myComponent, g, 100, 100);
-        //CHANGE THIS
-        //System.out.println("running code for path label drawing");
-        //g.drawImage(toDraw, 100, 100, Color.white, myLabel);
-//        System.out.println("label name under here");
-//        System.out.println("OOO" + dl.getLabel().getName() + "OOO");
-        
-        g.drawString(dl.getLabel().getName(), dl.getLabel().getPos().x, dl.getLabel().getPos().y);
-        //g.drawImage(toDraw, dl.getLabel().getPos().x, dl.getLabel().getPos().y, Color.yellow, myLabel);
-        
-        //Integer myInteger =  (Integer)dl.getLabel().getPos().x;
-        //String myString = myInteger.toString();
-        //System.out.println("BELOW HERE");
-        //System.out.println(myString);
-        //System.out.println("above HERE");
-        
-        //g.drawRect(100, 100, 100, 100);
+        Point pos = this.getPos( (ModelLabel)dl.getLabel() );
+        g.drawString(dl.getLabel().getName(), pos.x, pos.y);
     }    
+    
+    private Point getPos(ModelLabel label){
+        switch( label.getType() ){
+            case eState:
+                {
+                    return ((ModelState)(label.getParent())).getPos();
+                }
+            case ePath:
+                {
+                    ModelPath path = ((ModelPath)(label.getParent()));
+                    Point p1 = path.getStartPoint().getPos();
+                    Point p2 = path.getEndPoint().getPos();
+
+                    int labelX = (p1.x + p2.x)/2;
+                    int labelY = (p1.y + p2.y)/2;
+                    return new Point(labelX, labelY);
+            
+                }
+        }
+        return new Point();
+    }
 }

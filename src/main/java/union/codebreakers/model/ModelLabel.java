@@ -6,11 +6,12 @@ import java.awt.Shape;
 import java.io.Serializable;
 import java.util.Observable;
 
-public class ModelLabel extends Observable implements Movable, Label, Collidable, Serializable
+public class ModelLabel extends Observable implements Movable, Label, Collidable, Serializable, IsAttached
 {
     private String name;
     private LabelType type;
     public Point position;
+    private AutomatonPart parent;
 
     /**
      * Constructor for ModelLabel
@@ -67,28 +68,6 @@ public class ModelLabel extends Observable implements Movable, Label, Collidable
         this.setChanged();
         this.notifyObservers(true);
     }
-    
-     /**
-     * gets the position of this label
-     * @return Point
-     */
-    @Override
-    public Point getPos()
-    {
-        return this.position;
-    }
-
-    /**
-     * sets the position of this label
-     * @param newPos
-     */
-    @Override
-    public void setPos(Point newPos)
-    {
-        this.position = newPos;
-        this.setChanged();
-        this.notifyObservers(true);
-    }
 
     /**
      * Gets shape of this element
@@ -99,4 +78,22 @@ public class ModelLabel extends Observable implements Movable, Label, Collidable
     public Shape getShape(){
         return null;
     }
+
+    /**
+     * Returns parents it is attached to
+     * @return instance of the parent
+     */
+    @Override
+    public AutomatonPart getParent(){
+        return this.parent;
+    }
+
+    /**
+     * Sets parents it is attached to
+     * @param newParent Instane of the parent
+     */
+    @Override
+    public void setParent( AutomatonPart newParent ){
+        this.parent = newParent;
+    }    
 }

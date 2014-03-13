@@ -3,12 +3,13 @@ package union.codebreakers.helper;
 import union.codebreakers.model.Collidable;
 import java.awt.Rectangle;
 import java.util.List;
+import java.util.Observable;
 import union.codebreakers.model.State;
 
 /**
  * Collision handler
  */
-public class CollisionHandler
+public class CollisionHandler extends Observable
 {
     private Container  container = null;
     private State selected = null; // state we're currently editing
@@ -48,6 +49,8 @@ public class CollisionHandler
      */
     public void setSelectedState(State newSelect){
         this.selected = newSelect;
+        this.setChanged();
+        this.notifyObservers(true);
     }
 
     /**

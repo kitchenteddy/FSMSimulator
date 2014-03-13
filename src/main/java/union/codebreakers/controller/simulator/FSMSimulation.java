@@ -31,8 +31,6 @@ public class FSMSimulation implements Simulation{
         }
             
     }
-
-    
     
     /**
      * processes an input string

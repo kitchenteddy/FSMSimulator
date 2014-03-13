@@ -6,24 +6,22 @@
 
 package union.codebreakers.controller.simulator;
 
-import java.awt.Graphics;
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Observable;
 import union.codebreakers.helper.Container;
-import union.codebreakers.model.ModelState;
 import union.codebreakers.model.State;
 
 /**
  * Class for Managing simulation of FSM
  * @author teddykitchen
  */
-public class SimulatorManager {
+public class SimulatorManager extends Observable{
     
     private Container container;
     private Simulation mySimulation;
     private TextReader myReader;
     private String myInputString;
-    private SimulationDrawer drawer;
     
     
     private Point infoPosition;
@@ -44,13 +42,11 @@ public class SimulatorManager {
         }
         
         this.myReader = new TextReader();
-        this.drawer = new SimulationDrawer(this,this.container.getDrawingArea().getGraphics());
         this.currentInstruction = 0;
         
     }
     
     public void setInputString(String input){
-        System.out.println("calling setInputString");
         this.myInputString = input;
         this.instructions = this.myReader.interpretText(this.myInputString);
         for (String s : instructions){
@@ -58,9 +54,6 @@ public class SimulatorManager {
         }
         
     }
-    
-    
-    
     public Point getSimulatedStatePosition(){
         
         return this.mySimulation.getSelectedPosition();
@@ -71,26 +64,20 @@ public class SimulatorManager {
         return this.infoPosition;
     }
     
-    
-    
     /**
      * processes one input command and draws the result to screen
      */
     public void Simulate(){
         
-        System.out.println("calling simulate in simulator manager");
-        
         if (this.currentInstruction < this.instructions.size()){
             this.mySimulation.processIput(this.instructions.get(this.currentInstruction));
             this.currentInstruction ++;
+
+            this.setChanged();
+            this.notifyObservers(true);
         }
         
         
-    }
-    
-    public void draw(Graphics g){
-        this.drawer.draw(g);
-        //this.container.getDrawingArea().repaint();
     }
     
     public Container getContainer(){

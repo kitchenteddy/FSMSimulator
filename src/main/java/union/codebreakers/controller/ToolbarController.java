@@ -76,8 +76,8 @@ public class ToolbarController implements ActionListener{
     private void doPrompt() {
         
         String myName = JOptionPane.showInputDialog("input path to simulate");
-        System.out.println(myName);
-        this.container.setSimulatorManager(new SimulatorManager(this.container));
+        this.container.setSimulatorManager(new SimulatorManager(this.container) );
+        this.container.getSimulatorManager().addObserver(this.container.getObserverView());
         this.container.getSimulatorManager().setInputString(myName);
     }
     
@@ -86,9 +86,7 @@ public class ToolbarController implements ActionListener{
         System.out.println("doStartCalled");
         
         if (this.container.getSimulatorManager() != null){
-            System.out.println("simulator manager is not null");
             this.container.getSimulatorManager().Simulate();
-            System.out.println("got through");
         }
     }
 }

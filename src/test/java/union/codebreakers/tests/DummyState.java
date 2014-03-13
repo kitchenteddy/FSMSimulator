@@ -1,4 +1,4 @@
-package union.codebreakers.model;
+package union.codebreakers.tests;
 
 import java.util.ArrayList;
 import java.awt.Point;
@@ -6,14 +6,22 @@ import java.awt.Shape;
 import java.io.Serializable;
 import java.util.List;
 import union.codebreakers.helper.enums.StateType;
+import union.codebreakers.model.Automaton;
+import union.codebreakers.model.AutomatonPart;
+import union.codebreakers.model.Collidable;
+import union.codebreakers.model.Label;
+import union.codebreakers.model.ModelLabel;
+import union.codebreakers.model.ModelPath;
+import union.codebreakers.model.Movable;
+import union.codebreakers.model.Path;
+import union.codebreakers.model.State;
 
 /**
  * A dummy implementation of the state class for testing purposes
  * 
  * @author joshualoew
  */
-/*
-public class DummyState{  implements State, Movable, Collidable, Serializable, AutomatonPart {
+public class DummyState  implements State, Movable, Collidable, Serializable, AutomatonPart {
     
     private Automaton fsm;
     private StateType type;
@@ -22,10 +30,10 @@ public class DummyState{  implements State, Movable, Collidable, Serializable, A
     private Label stateLabel;
     private Point dummyPoint = new Point(0, 0);
     
-    public DummyState(Automaton fsm, Label msLabel) {
+    public DummyState(Label msLabel, Automaton fsm) {
         this.fsm = fsm;
         this.type = StateType.eStart;
-        this.position = dummyPoint;
+        this.position = new Point(0,0);
         this.stateLabel = msLabel;
         this.outgoingPaths = new ArrayList<Path>();
     }
@@ -36,9 +44,8 @@ public class DummyState{  implements State, Movable, Collidable, Serializable, A
     }
 
     @Override
-    public void addPath(State destination) {
-        Path newPath = new ModelPath(this, destination, this.fsm);
-        this.outgoingPaths.add(newPath);
+    public void addPath(Path path) {
+        this.outgoingPaths.add(path);
     }
 
     @Override
@@ -80,7 +87,7 @@ public class DummyState{  implements State, Movable, Collidable, Serializable, A
 
     @Override
     public Path getPathTo(State destination) {
-        DummyState newDummyState = new DummyState(fsm, stateLabel);
+        DummyState newDummyState = new DummyState(stateLabel, fsm);
         Path myPath = new ModelPath(this, newDummyState, fsm);
         return myPath;
     }
@@ -94,6 +101,4 @@ public class DummyState{  implements State, Movable, Collidable, Serializable, A
     public Automaton getAutomaton() {
         return this.fsm;
     }
-   
 }
-*/

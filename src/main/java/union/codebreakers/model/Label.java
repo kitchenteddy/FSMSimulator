@@ -34,30 +34,10 @@ public interface Label
      */
     public LabelType getType();
     
-    
-    
-    
-    
     /**
      * Sets type of this label
      * @param newType
      */
     public void setType(LabelType newType);
-    
-    
-    /**
-     * gets the position of this label
-     * @return Point
-     */
-    public Point getPos();
-    
-    
-    
-    /**
-     * sets the position of this label
-     * @param newPos
-     */
-    public void setPos(Point newPos);
-    
 }
 

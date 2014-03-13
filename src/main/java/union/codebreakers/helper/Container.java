@@ -12,9 +12,7 @@ import union.codebreakers.gui.FsmPanel;
 
 /**
  * Container is a class containing useful classes for the window. It enables us to decouple all these classes from every class in which we want to use them.
- * Therefore, it is easier to add a class which should be accessible to more than one class across application in future. The difference between Container class and
- * ToolsFactory is that we can have several Container tools across the application, if needed (i. e. taking are of multiple graphic canvases), but only one ToolsFactory
- * (one set of formatting tools, graphics tools and etc.)
+ * Therefore, it is easier to add a class which should be accessible to more than one class across application in future.
  */
 public class Container{
     
