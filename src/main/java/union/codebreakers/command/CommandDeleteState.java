@@ -1,7 +1,6 @@
 package union.codebreakers.command;
 
 import union.codebreakers.helper.Container;
-import union.codebreakers.helper.enums.KeyboardBehaviorType;
 import union.codebreakers.model.State;
 
 /**

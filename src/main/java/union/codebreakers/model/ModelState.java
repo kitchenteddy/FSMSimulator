@@ -18,7 +18,6 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     private StateType type;
     private Point position;
     private ArrayList<Path> outgoingPaths;
-    private ArrayList<Path> incomingPaths;
     private Label stateLabel;
     
     /**
@@ -35,8 +34,7 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         this.position = msPos;
         this.stateLabel = msLabel;
         this.outgoingPaths = new ArrayList<Path>();
-        this.incomingPaths = new ArrayList<Path>();
-        this.getAutomaton().addCollidable(this);
+        this.getAutomaton().addCollidable((Collidable)this);
         
         if( msLabel instanceof Collidable ) {
             this.getAutomaton().addCollidable((Collidable)msLabel);            
@@ -61,11 +59,6 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         if( destination instanceof Collidable ) {
             this.getAutomaton().addCollidable((Collidable)destination);
         }
-        destination.addIncomingPath(newPath);
-        
-        
-        
-        
     }
 
    /**
@@ -76,7 +69,6 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     @Override
     public void removePath(Path toRemove)
     {
-        toRemove.getEndPoint().getIncomingPaths().remove(toRemove);
         this.outgoingPaths.remove(toRemove);
         
         if( toRemove instanceof Collidable ) {
@@ -144,10 +136,6 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         //TBK
         this.updateLabelPos();
         for (Path currentPath : this.outgoingPaths)
-        {
-            currentPath.updateLabelPos();
-        }
-        for (Path currentPath : this.incomingPaths)
         {
             currentPath.updateLabelPos();
         }
@@ -260,9 +248,7 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     public Automaton getAutomaton(){
         return this.fsm;
     }
-    
-    
-    
+  
     
     /**
      * TBK
@@ -273,28 +259,10 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     {
         this.stateLabel.setPos(this.position);
     }
-
     
-    
-    /**
-     * gets list of incoming paths
-     * @return incoming paths list
-     */
-    @Override
-    public List<Path> getIncomingPaths() {
-        return this.incomingPaths;
+    public boolean equals( Object obj){
+        State anotherState = (State)obj;
+        return this.getPos().equals(anotherState.getPos());
     }
-
-    
-    /**
-     * adds an incoming path
-     * @param incoming 
-     */
-    @Override
-    public void addIncomingPath(Path incoming) {
-        this.incomingPaths.add(incoming);
-    }
-    
-    
 }
 

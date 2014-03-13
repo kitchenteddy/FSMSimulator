@@ -93,17 +93,5 @@ public class DummyState implements State, Movable, Collidable, Serializable, Aut
     public Automaton getAutomaton() {
         return this.fsm;
     }
-
-    @Override
-    public List<Path> getIncomingPaths() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void addIncomingPath(Path incoming) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
+   
 }
