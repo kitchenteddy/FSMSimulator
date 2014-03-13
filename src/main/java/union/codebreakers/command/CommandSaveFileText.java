@@ -14,12 +14,24 @@ public class CommandSaveFileText implements Command{
     private FormatterType formatterType;
     private String path;
     
+    /**
+     * Constructor
+     * 
+     * @param newFsm        Automaton
+     * @param newFT         Format of file
+     * @param destination   Where to save the file
+     */
     public CommandSaveFileText(Automaton newFsm, FormatterType newFT, String destination){
         this.fsm = newFsm;
         this.formatterType = newFT;
         this.path = destination;
     }
     
+    /**
+     * Executes the command
+     * 
+     * @return Result of operation
+     */
     @Override
     public boolean execute() {
         boolean res = true;
