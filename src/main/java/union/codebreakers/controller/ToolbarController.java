@@ -60,6 +60,7 @@ public class ToolbarController implements ActionListener{
                 this.doStart();
             }    
         }
+        this.container.getDrawingArea().grabFocus();
         this.container.getDrawingArea().repaint();
     }
 

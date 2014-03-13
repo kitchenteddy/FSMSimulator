@@ -7,6 +7,7 @@ import javax.swing.AbstractAction;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
@@ -114,8 +115,21 @@ public class MainFrame extends JFrame{
         this.layout = new BoxLayout(this.getContentPane(), BoxLayout.PAGE_AXIS);
         
         
+        
+        //TBK MAKE BUTTONS WORK HERE
         AbstractAction mySpaceAction = new SpacebarAction();
-        this.machinePanel.getInputMap().put(KeyStroke.getKeyStroke(" "), mySpaceAction);
+        System.out.println("In mainframe setting keystroke thing");
+        
+        
+        Character myCharacter = new Character(' ');
+        this.machinePanel.grabFocus();
+        this.machinePanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(myCharacter), "Spacebar");
+        
+        this.machinePanel.getActionMap().put("Spacebar", mySpaceAction);
+        //this.machinePanel.grabFocus();
+        
+        
+        
         
         
         
