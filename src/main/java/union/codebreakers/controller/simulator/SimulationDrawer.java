@@ -7,7 +7,6 @@
 package union.codebreakers.controller.simulator;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
 import union.codebreakers.view.drawer.featureDrawer.FeatureDrawer;
 import union.codebreakers.view.drawer.featureDrawer.SimulatedStateDrawer;
 import union.codebreakers.view.drawer.featureDrawer.SimulatorInfoDrawer;
@@ -19,24 +18,18 @@ import union.codebreakers.view.drawer.featureDrawer.SimulatorInfoDrawer;
 public class SimulationDrawer {
     
     SimulatorManager manager;
-    Graphics myGraphics;
     FeatureDrawer simulatedInfoDrawer, simulatedStateDrawer;
     
-    public SimulationDrawer(SimulatorManager myManager, Graphics g){
+    public SimulationDrawer(SimulatorManager myManager){
         this.manager = myManager;
-        this.myGraphics = g;
         this.simulatedInfoDrawer = new SimulatorInfoDrawer();
         this.simulatedStateDrawer = new SimulatedStateDrawer();
         
     }
     
     public void draw(Graphics g){
-        
         this.simulatedInfoDrawer.drawFeature(this.manager.getInfoDrawingPosition(), g);
         this.simulatedStateDrawer.drawFeature(this.manager.getSimulatedStatePosition(), g);
-        
-        
-        
     }
     
     
