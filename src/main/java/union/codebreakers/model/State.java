@@ -24,9 +24,9 @@ public  interface State
    /**
     * Adds an outgoing path to the state
     * 
-    * @param destination  destination of the path;
+    * @param path Path to be added;
     */   
-    public void addPath(State destination);
+    public void addPath(Path path);
     
    /**
     * Returns the state's type

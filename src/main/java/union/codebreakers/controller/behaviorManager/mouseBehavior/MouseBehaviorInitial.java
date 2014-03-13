@@ -64,9 +64,8 @@ public class MouseBehaviorInitial extends MouseBehaviorDummy {
                     
                     // user clicked on nothing so try to create a new state
                     CommandCreateState createState = new CommandCreateState(
-                                                                this.mbm.getContainer().getMainController().getAutomaton(), 
                                                                 me.getPoint(),
-                                                                this.mbm.getContainer().getDrawingArea());
+                                                                this.mbm.getContainer());
                     createState.setUpdateSelected(this.mbm.getContainer().getCollisionHandler());
                     if( this.mbm.getContainer().getCommandCenter().execute(createState) ){
                         // we created the state so change mouse behavior and repaint

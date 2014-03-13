@@ -12,7 +12,8 @@ import union.codebreakers.helper.enums.StateType;
  * 
  * @author joshualoew
  */
-public class DummyState implements State, Movable, Collidable, Serializable, AutomatonPart {
+/*
+public class DummyState{  implements State, Movable, Collidable, Serializable, AutomatonPart {
     
     private Automaton fsm;
     private StateType type;
@@ -95,3 +96,4 @@ public class DummyState implements State, Movable, Collidable, Serializable, Aut
     }
    
 }
+*/

@@ -49,16 +49,14 @@ public class ModelState extends Observable implements State, Movable, Collidable
     /**
      * Adds outgoing path from this state
      * 
-     * @param destination Destination state
+     * @param path  Path to be added
      */
     @Override
-    public void addPath(State destination)
+    public void addPath(Path path)
     { 
-        Path newPath = new ModelPath(this, destination, this.fsm);
-        this.getAutomaton().addCollidable((Collidable)newPath);
-        this.outgoingPaths.add(newPath);
-        if( destination instanceof Collidable ) {
-            this.getAutomaton().addCollidable((Collidable)destination);
+        this.outgoingPaths.add(path);
+        if( path instanceof Collidable ) {
+            this.getAutomaton().addCollidable((Collidable)path);
         }
         this.setChanged();
         this.notifyObservers(true);

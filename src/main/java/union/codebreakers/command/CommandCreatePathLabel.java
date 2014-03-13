@@ -7,8 +7,7 @@
 package union.codebreakers.command;
 
 import javax.swing.JOptionPane;
-import union.codebreakers.model.Automaton;
-import union.codebreakers.model.Label;
+import union.codebreakers.helper.Container;
 import union.codebreakers.model.ModelLabel;
 import union.codebreakers.model.Path;
 
@@ -19,14 +18,14 @@ import union.codebreakers.model.Path;
 public class CommandCreatePathLabel implements Command{
     
     
-    private Automaton fsm;
     private Path path;
+    private Container container;
     
     
     
-    public CommandCreatePathLabel(Path p)
+    public CommandCreatePathLabel(Path p, Container newContainer)
     {
-        
+        this.container = newContainer;
         this.path = p;
     }
     
@@ -41,7 +40,8 @@ public class CommandCreatePathLabel implements Command{
     {
         String myName = JOptionPane.showInputDialog("input path name");
         if (myName != null){
-            Label myLabel = new ModelLabel();
+            ModelLabel myLabel = new ModelLabel();
+            myLabel.addObserver( this.container.getObserverView() );
             myLabel.setName(myName);
             this.path.setLabel(myLabel);
             return true;

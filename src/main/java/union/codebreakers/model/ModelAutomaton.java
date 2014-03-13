@@ -143,6 +143,7 @@ public class ModelAutomaton extends Observable implements Automaton, Serializabl
      * if no states in FSM returns null
      * @return State, starting state
      */
+    @Override
     public State getStartingState()
     {
         for (State currentState: this.getCollectionStates()){

@@ -9,13 +9,11 @@ package union.codebreakers.controller.behaviorManager.mouseBehavior;
 import union.codebreakers.controller.behaviorManager.MouseBehaviorManager;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
-import javax.swing.JOptionPane;
 import union.codebreakers.command.CommandCreatePath;
 import union.codebreakers.command.CommandCreatePathLabel;
 import union.codebreakers.command.CommandCreateState;
 import union.codebreakers.helper.enums.KeyboardBehaviorType;
 import union.codebreakers.helper.enums.MouseBehaviorType;
-import union.codebreakers.model.ModelPath;
 import union.codebreakers.model.Path;
 import union.codebreakers.model.State;
 
@@ -45,7 +43,6 @@ public class MouseBehaviorSelected extends MouseBehaviorDummy{
     public boolean mousePressed(MouseEvent me){
         this.mbm.getContainer().getCollisionHandler().setHitElement(null);
         Rectangle mouse_rect = new Rectangle(me.getX() - 2, me.getY() - 2, 4, 4);
-        boolean repaint = false;
         
         switch( me.getButton() ){
             case 1: // left button
@@ -61,7 +58,8 @@ public class MouseBehaviorSelected extends MouseBehaviorDummy{
                            
                             CommandCreatePath createPath = new CommandCreatePath(
                                         this.mbm.getContainer().getCollisionHandler().getSelectedState(),
-                                        (State)this.mbm.getContainer().getCollisionHandler().getHitElement()
+                                        (State)this.mbm.getContainer().getCollisionHandler().getHitElement(),
+                                        this.mbm.getContainer()
                                                                         );
 
                             if( this.mbm.getContainer().getCommandCenter().execute(createPath) ){
@@ -80,7 +78,7 @@ public class MouseBehaviorSelected extends MouseBehaviorDummy{
                    else if(this.mbm.getContainer().getCollisionHandler().getHitElement() instanceof Path)
                    {
                        
-                       CommandCreatePathLabel createPathLabel = new CommandCreatePathLabel((Path)this.mbm.getContainer().getCollisionHandler().getHitElement());
+                       CommandCreatePathLabel createPathLabel = new CommandCreatePathLabel((Path)this.mbm.getContainer().getCollisionHandler().getHitElement(), this.mbm.getContainer());
                        if (this.mbm.getContainer().getCommandCenter().execute(createPathLabel))
                        {
                            return true;
@@ -93,9 +91,8 @@ public class MouseBehaviorSelected extends MouseBehaviorDummy{
                 } else {
                     // user clicked on nothing so try to create a new state
                     CommandCreateState createState = new CommandCreateState(
-                                                                this.mbm.getContainer().getMainController().getAutomaton(), 
                                                                 me.getPoint(),
-                                                                this.mbm.getContainer().getDrawingArea());
+                                                                this.mbm.getContainer());
                     createState.setUpdateSelected(this.mbm.getContainer().getCollisionHandler());                    
                     if( this.mbm.getContainer().getCommandCenter().execute(createState) ){
                         // we created the state so change mouse behavior and repaint

@@ -36,7 +36,7 @@ public class ControllerPersonalJosh extends ControllerPersonal{
         StateDrawerStarting sd = new StateDrawerStarting();
         sd.draw(ds, this.getFrame().getGraphicsPainting());
         */
-        
+/*        
         Automaton fsm = new ModelAutomaton();
         
         ModelFormatterVisitor formatter = new ModelFormatterVisitor();
@@ -61,6 +61,6 @@ public class ControllerPersonalJosh extends ControllerPersonal{
         FormattableAutomaton myFormattable = new FormattableAutomaton(fsm);
         
         formatter.visitElement(myFormattable, FormatterType.eReadable);
-               
+*/               
     }    
 }

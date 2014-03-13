@@ -30,12 +30,9 @@ public class ObserverView implements Observer{
      */
     @Override
     public void update(Observable obj, Object arg) {
-        if( obj instanceof AutomatonPart || 
-            obj instanceof Automaton ){
-            Boolean doRepaint = (Boolean)arg;
-            if( doRepaint ){
-                this.view.repaint();
-            }
+        Boolean doRepaint = (Boolean)arg;
+        if( doRepaint ){
+            this.view.repaint();
         }
    }    
 }
