@@ -41,6 +41,9 @@ public class FSMSimulation implements Simulation{
      */
     @Override
     public boolean processIput(String input) {
+        
+        System.out.println(this.currentState.getLabel().getName() + "current state in FSMSImulation");
+        
         if (!possibleMoves.isEmpty())
         {
             for (String possibleMove: possibleMoves){
@@ -48,7 +51,7 @@ public class FSMSimulation implements Simulation{
                     
                     currentState = this.getMap().get(input);
                     this.updatePossibleMoves();
-                    
+                    return true;
                 }
             }
         }

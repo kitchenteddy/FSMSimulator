@@ -31,6 +31,7 @@ public class SimulationDrawer {
     }
     
     public void draw(){
+        
         this.simulatedInfoDrawer.drawFeature(this.manager.getInfoDrawingPosition(), this.myGraphics);
         this.simulatedStateDrawer.drawFeature(this.manager.getSimulatedStatePosition(), this.myGraphics);
         

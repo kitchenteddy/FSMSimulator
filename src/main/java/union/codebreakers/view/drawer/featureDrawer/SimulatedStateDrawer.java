@@ -6,6 +6,7 @@
 
 package union.codebreakers.view.drawer.featureDrawer;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
@@ -14,10 +15,15 @@ import java.awt.Point;
  * @author teddykitchen
  */
 public class SimulatedStateDrawer implements FeatureDrawer {
-
+    
+    private int width = 30;
+    private int height = 30;
+    
+    
     @Override
     public void drawFeature(Point destination, Graphics g) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        System.out.println("calling drawFeature in simulatedStateDrawer");
+        g.setColor(Color.blue);
+        g.drawRect(destination.x - this.width/2, destination.y - this.height/2, this.width, this.height);    }
     
 }

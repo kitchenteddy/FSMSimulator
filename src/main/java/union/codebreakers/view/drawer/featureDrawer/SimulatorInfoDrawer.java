@@ -17,7 +17,7 @@ public class SimulatorInfoDrawer implements FeatureDrawer{
 
     @Override
     public void drawFeature(Point destination, Graphics g) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
     
 }
