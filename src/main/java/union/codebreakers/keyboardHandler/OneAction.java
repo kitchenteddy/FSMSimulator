@@ -8,6 +8,9 @@ package union.codebreakers.keyboardHandler;
 
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
+import union.codebreakers.helper.Container;
+import union.codebreakers.helper.enums.MouseBehaviorType;
+import union.codebreakers.helper.enums.StateType;
 
 /**
  *
@@ -15,6 +18,11 @@ import javax.swing.AbstractAction;
  */
 public class OneAction extends AbstractAction {
     
+    private Container container;
+    
+    public OneAction(Container container) {
+        this.container = container;
+    }
     
     /**
      * performs the one key action
@@ -22,7 +30,9 @@ public class OneAction extends AbstractAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(container.getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
+            container.getCollisionHandler().getSelectedState().setType(StateType.eStart);
+        }
     }
 
     

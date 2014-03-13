@@ -12,26 +12,16 @@ import java.awt.Point;
 
 /**
  *
- * @author teddykitchen
+ * @author joshualoew
  */
-public class SelectorDrawer implements FeatureDrawer {
-    
-    
-    private int width = 60;
-    private int height = 60;
-    
-    
-    
-    /**
-     * draws a specified feature to the screen
-     */
-    public void drawFeature(Point destination, Graphics g)
-    {
-        g.setColor(Color.red);
+public class PathPressed implements FeatureDrawer {
+
+    @Override
+    public void drawFeature(Point destination, Graphics g) {
+        
+        g.setColor(Color.blue);
         g.drawLine(0, 0, 10, 0);
         
     }
-    
-    
     
 }

@@ -23,8 +23,7 @@ import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.KeyboardBehaviorType;
 import union.codebreakers.helper.enums.MouseBehaviorType;
 import union.codebreakers.keyboardHandler.OneAction;
-import union.codebreakers.keyboardHandler.ShiftAction;
-import union.codebreakers.keyboardHandler.SpacebarAction;
+import union.codebreakers.keyboardHandler.ZeroAction;
 import union.codebreakers.keyboardHandler.ThreeAction;
 import union.codebreakers.keyboardHandler.TwoAction;
 import union.codebreakers.view.drawer.DrawerStock;
@@ -121,22 +120,21 @@ public class MainFrame extends JFrame{
         
         
         //TBK MAKE BUTTONS WORK HERE
+        
+        
+        this.initKeyBindings();
         //Insert helper method
-        AbstractAction mySpaceAction = new SpacebarAction();
-        System.out.println("In mainframe setting keystroke thing");
-        
-        
-        Character myCharacter = new Character(' ');
-        this.machinePanel.grabFocus();
-        this.machinePanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(myCharacter), "Spacebar");
-        
-        this.machinePanel.getActionMap().put("Spacebar", mySpaceAction);
+//        AbstractAction mySpaceAction = new SpacebarAction();
+//        System.out.println("In mainframe setting keystroke thing");
+//        
+//        
+//        Character myCharacter = new Character(' ');
+//        this.machinePanel.grabFocus();
+//        this.machinePanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(myCharacter), "Spacebar");
+//        
+//        this.machinePanel.getActionMap().put("Spacebar", mySpaceAction);
         //this.machinePanel.grabFocus();
-        
-        
-        
-        
-        
+
         
         
         
@@ -196,7 +194,7 @@ public class MainFrame extends JFrame{
         pathb.addActionListener(this.getContainer().getToolbarController());
         
         JButton startb = new JButton(start);
-        startb.setText("Start Simulation");
+        startb.setText("Step Through");
         startb.setName("buttonStart");
         startb.addActionListener(this.getContainer().getToolbarController());
 
@@ -242,26 +240,18 @@ public class MainFrame extends JFrame{
     
     
     private void initKeyBindings(){
-        AbstractAction mySpaceAction, myOneAction, myTwoAction, myThreeAction, myShiftAction;      
+        AbstractAction mySpaceAction, myOneAction, myTwoAction, myThreeAction, myZeroAction;      
         
-        mySpaceAction = new SpacebarAction();
-        myOneAction = new OneAction();
-        myTwoAction = new TwoAction();
-        myThreeAction = new ThreeAction();
-        myShiftAction = new ShiftAction();
+        myOneAction = new OneAction(container);
+        myTwoAction = new TwoAction(container);
+        myThreeAction = new ThreeAction(container);
+        myZeroAction = new ZeroAction(container);
         
         
         this.machinePanel.grabFocus(); 
         
-        
-        
         Character myCharacter;
-        
-        //Spacebar
-        myCharacter = new Character(' ');
-        this.addKeyBinding(myCharacter, "Spacebar", mySpaceAction);
-        
-        
+         
         //One
         myCharacter = new Character('1');
         this.addKeyBinding(myCharacter, "One", myOneAction);
@@ -274,13 +264,10 @@ public class MainFrame extends JFrame{
         myCharacter = new Character('3');
         this.addKeyBinding(myCharacter, "Three", myThreeAction);
         
-        //Shift MAKE THIS WORK
-        //this.machinePanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_SHIFT));
-        
-        
-        
-        
-        
+        //Zero
+        myCharacter = new Character('0');
+        this.addKeyBinding(myCharacter, "Zero", myZeroAction);
+                
     }
     
     private void addKeyBinding(Character myCharacter, String myString, AbstractAction myAction){

@@ -8,6 +8,9 @@ package union.codebreakers.keyboardHandler;
 
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
+import union.codebreakers.helper.Container;
+import union.codebreakers.helper.enums.MouseBehaviorType;
+import union.codebreakers.helper.enums.StateType;
 
 /**
  *
@@ -15,13 +18,23 @@ import javax.swing.AbstractAction;
  */
 public class ThreeAction extends AbstractAction {
     
+    private Container container;
+    
+    public ThreeAction(Container container) {
+        this.container = container;
+    }
+    
     /**
      * performs the Three key action
      * @param e 
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        if(container.getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
+            container.getCollisionHandler().getSelectedState().setType(StateType.eEnd);
+        }
+        
     }
     
 }
