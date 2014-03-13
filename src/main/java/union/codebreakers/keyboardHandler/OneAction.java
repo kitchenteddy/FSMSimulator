@@ -32,6 +32,7 @@ public class OneAction extends AbstractAction {
     public void actionPerformed(ActionEvent e) {
         if(container.getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
             container.getCollisionHandler().getSelectedState().setType(StateType.eStart);
+            container.getDrawingArea().repaint();
         }
     }
 

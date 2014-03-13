@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import union.codebreakers.controller.simulator.SimulatorManager;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.FormatterType;
 import union.codebreakers.helper.enums.KeyboardBehaviorType;
@@ -120,18 +121,23 @@ public class ToolbarController implements ActionListener{
     private void doPrompt() {
         
         String myName = JOptionPane.showInputDialog("input path to simulate");
-        
+        this.container.setSimulatorManager(new SimulatorManager(this.container));
+        //this.container.getSimulatorManager().setInputString(myName);
         // Make some boolean value to verify no null/empty
         //String userInput = JOptionPane.showInputDialog("executing doPrompt");
         
         //give user input to container and have that give it to simulator
-        this.container.getKeyboardBehaviorManager().setKeyboardBehavior(KeyboardBehaviorType.eInitial, true);
-        System.out.println(myName);
+        //this.container.getKeyboardBehaviorManager().setKeyboardBehavior(KeyboardBehaviorType.eInitial, true);
+        //System.out.println(myName);
         
     }
     
     private void doStart() {
-        this.container.getKeyboardBehaviorManager().setKeyboardBehavior(KeyboardBehaviorType.eInitial, true);
+        
+        if (this.container.getSimulatorManager() != null){
+            this.container.getSimulatorManager().Simulate();
+        }
+        //this.container.getKeyboardBehaviorManager().setKeyboardBehavior(KeyboardBehaviorType.eInitial, true);
 
         //let the simulator take over drawing etc
         

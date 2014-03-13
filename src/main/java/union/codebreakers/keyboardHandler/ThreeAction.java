@@ -33,6 +33,7 @@ public class ThreeAction extends AbstractAction {
         
         if(container.getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
             container.getCollisionHandler().getSelectedState().setType(StateType.eEnd);
+            container.getDrawingArea().repaint();
         }
         
     }

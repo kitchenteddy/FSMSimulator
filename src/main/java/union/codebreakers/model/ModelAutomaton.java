@@ -1,5 +1,6 @@
 package union.codebreakers.model;
 
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,17 +41,35 @@ public class ModelAutomaton implements Automaton, Serializable
     @Override
     public void removeState(State el)
     {
+        
+        for (Path myPath: el.getPaths()){
+            el.removePath(myPath);
+            if (myPath instanceof ModelPath){
+                
+                this.removeCollidable((Collidable)myPath);
+                System.out.println("in model automaton removed collidable");
+            }
+        }
+        
         this.collectionStates.remove(el);
         this.removeCollidable((Collidable)el);
         
         // check other states, if they have outgoing paths to this state => if so, remove those paths
-        for( State state : this.collectionStates) {
-            for(Path path : state.getPaths() ){
-                if( path.getEndPoint() == state ){
-                    state.removePath(path);
-                }
-            }
-        }
+//        for( State state : this.collectionStates) {
+//            
+//            
+//            for(Path path : state.getPaths() ){
+//                
+//                //if self path
+//                if( path.getEndPoint().equals(state) ){
+//                    state.removePath(path);
+//                    this.removeCollidable((ModelPath)path);
+//                }
+//            }
+//            for (Path path : state.getIncomingPaths()){
+//                if (path.getEndPo
+//            }
+       
     }
 
      /**

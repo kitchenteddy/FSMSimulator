@@ -17,6 +17,10 @@ public  interface State
     */   
     public void removePath(Path toRemove);
     
+    
+    
+    
+    
    /**
     * Adds an outgoing path to the state
     * 

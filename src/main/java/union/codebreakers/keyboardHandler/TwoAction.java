@@ -33,6 +33,7 @@ public class TwoAction extends AbstractAction {
         
         if(container.getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected ) {
             container.getCollisionHandler().getSelectedState().setType(StateType.eNormal);
+            container.getDrawingArea().repaint();
         }
         
     }

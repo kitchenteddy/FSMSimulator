@@ -76,12 +76,18 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     @Override
     public void removePath(Path toRemove)
     {
-        this.outgoingPaths.remove(toRemove);
         toRemove.getEndPoint().getIncomingPaths().remove(toRemove);
+        this.outgoingPaths.remove(toRemove);
+        
         if( toRemove instanceof Collidable ) {
             this.getAutomaton().removeCollidable((Collidable)toRemove);
         }
     }
+    
+    
+    
+    
+    
 
    /**
     * Returns the state's type

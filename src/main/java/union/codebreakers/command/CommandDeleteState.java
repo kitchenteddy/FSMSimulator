@@ -27,6 +27,7 @@ public class CommandDeleteState implements Command{
     public boolean execute() {
         this.container.getMainController().getAutomaton().removeState(this.container.getCollisionHandler().getSelectedState());
         this.container.getCollisionHandler().setSelectedState(null);
+        
         return true;
     }
     

@@ -23,6 +23,7 @@ import union.codebreakers.helper.CollisionHandler;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.KeyboardBehaviorType;
 import union.codebreakers.helper.enums.MouseBehaviorType;
+import union.codebreakers.keyboardHandler.FourAction;
 import union.codebreakers.keyboardHandler.OneAction;
 import union.codebreakers.keyboardHandler.ZeroAction;
 import union.codebreakers.keyboardHandler.ThreeAction;
@@ -96,7 +97,7 @@ public class MainFrame extends JFrame{
         this.container.getToolbarController().setContainer(this.container);
         this.container.getAutomatonController().setContainer(this.container);
         
-        this.container.setSimulatorManager(new SimulatorManager(this.container));
+        
     }
 
  private void initFrame(){
@@ -126,17 +127,7 @@ public class MainFrame extends JFrame{
         
         
         this.initKeyBindings();
-        //Insert helper method
-//        AbstractAction mySpaceAction = new SpacebarAction();
-//        System.out.println("In mainframe setting keystroke thing");
-//        
-//        
-//        Character myCharacter = new Character(' ');
-//        this.machinePanel.grabFocus();
-//        this.machinePanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(myCharacter), "Spacebar");
-//        
-//        this.machinePanel.getActionMap().put("Spacebar", mySpaceAction);
-        //this.machinePanel.grabFocus();
+        
 
         
         
@@ -243,11 +234,12 @@ public class MainFrame extends JFrame{
     
     
     private void initKeyBindings(){
-        AbstractAction mySpaceAction, myOneAction, myTwoAction, myThreeAction, myZeroAction;      
+        AbstractAction mySpaceAction, myOneAction, myTwoAction, myThreeAction, myFourAction, myZeroAction;      
         
         myOneAction = new OneAction(container);
         myTwoAction = new TwoAction(container);
         myThreeAction = new ThreeAction(container);
+        myFourAction = new FourAction(container);
         myZeroAction = new ZeroAction(container);
         
         
@@ -266,6 +258,13 @@ public class MainFrame extends JFrame{
         //Three
         myCharacter = new Character('3');
         this.addKeyBinding(myCharacter, "Three", myThreeAction);
+        
+        
+        //Four
+        myCharacter = new Character('4');
+        this.addKeyBinding(myCharacter, "Four", myFourAction);
+        
+        
         
         //Zero
         myCharacter = new Character('0');
