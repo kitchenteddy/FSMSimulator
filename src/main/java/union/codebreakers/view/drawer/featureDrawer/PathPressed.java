@@ -20,7 +20,7 @@ public class PathPressed implements FeatureDrawer {
     public void drawFeature(Point destination, Graphics g) {
         
         g.setColor(Color.blue);
-        g.drawLine(0, 0, 10, 0);
+        g.drawLine(destination.x, destination.x, destination.y, destination.x);
         
     }
     

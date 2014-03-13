@@ -6,9 +6,12 @@
 
 package union.codebreakers.keyboardHandler;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import union.codebreakers.helper.Container;
+import union.codebreakers.helper.enums.MouseBehaviorType;
 
 /**
  *
@@ -55,12 +58,27 @@ public class ZeroAction extends AbstractAction {
      * @param e 
      */
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {   
+        
+        Graphics g = container.getDrawingArea().getGraphics();
+        g.setColor(Color.red);
+
+                
+        // Test if the button has been pressed, change the boolean
         
         if (isPressed == false) {
             isPressed = true;
+            g.fillRect(0, 0, 10, 10);
         } else {
             isPressed = false;
+            g.setColor(Color.black);
+            g.fillRect(0, 0, 10, 10);
+        }
+                
+        // Make sure that the button has been pressed
+        
+        if((container.getMouseBehaviorManager().getCurrentType() == MouseBehaviorType.eSelected) && (isPressed == true)) {
+            //this.kbm.setKeyboardBehavior(KeyboardBehaviorType.eAddPath, false);
         }
         
     }
