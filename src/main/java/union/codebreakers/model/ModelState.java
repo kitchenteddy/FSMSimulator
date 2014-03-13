@@ -100,7 +100,18 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     */
     @Override
     public void setType(StateType newType){
+        if (newType == StateType.eStart){
+            for(State currentState : this.getAutomaton().getCollectionStates()){
+                if (currentState.getType() == StateType.eStart){
+                    currentState.setType(StateType.eNormal);
+                }
+            }
+        }
+        
         this.type = newType;
+        //if this type is starting, change other starting state to normal
+        
+        
     }
         
    /**

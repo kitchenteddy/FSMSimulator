@@ -22,7 +22,11 @@ import union.codebreakers.helper.CollisionHandler;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.KeyboardBehaviorType;
 import union.codebreakers.helper.enums.MouseBehaviorType;
+import union.codebreakers.keyboardHandler.OneAction;
+import union.codebreakers.keyboardHandler.ShiftAction;
 import union.codebreakers.keyboardHandler.SpacebarAction;
+import union.codebreakers.keyboardHandler.ThreeAction;
+import union.codebreakers.keyboardHandler.TwoAction;
 import union.codebreakers.view.drawer.DrawerStock;
 
 /**
@@ -117,6 +121,7 @@ public class MainFrame extends JFrame{
         
         
         //TBK MAKE BUTTONS WORK HERE
+        //Insert helper method
         AbstractAction mySpaceAction = new SpacebarAction();
         System.out.println("In mainframe setting keystroke thing");
         
@@ -234,4 +239,55 @@ public class MainFrame extends JFrame{
     public Container getContainer(){
         return this.container;
     }
+    
+    
+    private void initKeyBindings(){
+        AbstractAction mySpaceAction, myOneAction, myTwoAction, myThreeAction, myShiftAction;      
+        
+        mySpaceAction = new SpacebarAction();
+        myOneAction = new OneAction();
+        myTwoAction = new TwoAction();
+        myThreeAction = new ThreeAction();
+        myShiftAction = new ShiftAction();
+        
+        
+        this.machinePanel.grabFocus(); 
+        
+        
+        
+        Character myCharacter;
+        
+        //Spacebar
+        myCharacter = new Character(' ');
+        this.addKeyBinding(myCharacter, "Spacebar", mySpaceAction);
+        
+        
+        //One
+        myCharacter = new Character('1');
+        this.addKeyBinding(myCharacter, "One", myOneAction);
+        
+        //Two
+        myCharacter = new Character('2');
+        this.addKeyBinding(myCharacter, "Two", myTwoAction);
+        
+        //Three
+        myCharacter = new Character('3');
+        this.addKeyBinding(myCharacter, "Three", myThreeAction);
+        
+        //Shift MAKE THIS WORK
+        //this.machinePanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_SHIFT));
+        
+        
+        
+        
+        
+    }
+    
+    private void addKeyBinding(Character myCharacter, String myString, AbstractAction myAction){
+        this.machinePanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(myCharacter), myString);
+        this.machinePanel.getActionMap().put(myString, myAction);
+        
+    }
+    
+    
 }

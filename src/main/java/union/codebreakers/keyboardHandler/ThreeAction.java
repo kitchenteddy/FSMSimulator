@@ -6,10 +6,23 @@
 
 package union.codebreakers.keyboardHandler;
 
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+
 /**
  *
  * @author joshualoew
  */
-public class ThreeAction {
+public class ThreeAction extends AbstractAction{
+
+    
+    /**
+     * performs the Three key action
+     * @param e 
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
