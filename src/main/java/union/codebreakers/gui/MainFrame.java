@@ -18,6 +18,7 @@ import union.codebreakers.controller.MainController;
 import union.codebreakers.controller.ToolbarController;
 import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
 import union.codebreakers.controller.behaviorManager.MouseBehaviorManager;
+import union.codebreakers.controller.simulator.SimulatorManager;
 import union.codebreakers.helper.CollisionHandler;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.KeyboardBehaviorType;
@@ -94,6 +95,8 @@ public class MainFrame extends JFrame{
         this.container.getMouseBehaviorManager().setMouseBehavior(MouseBehaviorType.eInitial, true);
         this.container.getToolbarController().setContainer(this.container);
         this.container.getAutomatonController().setContainer(this.container);
+        
+        this.container.setSimulatorManager(new SimulatorManager(this.container));
     }
 
  private void initFrame(){
