@@ -32,6 +32,7 @@ public class CommandSaveFileImage implements Command{
         BufferedImage bImg = new BufferedImage(this.drawingArea.getWidth(), this.drawingArea.getHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D cg = bImg.createGraphics();
         ViewImage view = new ViewImage();
+        view.setAutomaton( this.fsm );
         view.setDrawerStock( new DrawerStock() );
         view.setOutput( cg );
         view.drawOutput();
