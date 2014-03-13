@@ -89,19 +89,6 @@ public class ViewImage implements View
                     dl.setupDrawing(this.drawingTools, this.canvas);                
                 }
             }
-            
-            //Draw Features TBK
-            
-            
-            if (this.collisionHandler.getSelectedState() != null)
-            {
-                FeatureDrawer myDrawer = new SelectorDrawer();
-                myDrawer.drawFeature(this.collisionHandler.getSelectedState().getPos(), canvas);
-                
-                
-            }
-            
-            
         }
     }
 }

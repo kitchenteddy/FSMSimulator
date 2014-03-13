@@ -30,7 +30,7 @@ public class CommandSaveFile implements Command{
         dialog.addChoosableFileFilter( new FileChooserFilterTextFile() );
         dialog.addChoosableFileFilter( new FileChooserFilterLatexFile() );
         dialog.addChoosableFileFilter( new FileChooserFilterImageFile() );
-        int returnVal = dialog.showOpenDialog(this.container.getMainController().getMainFrame());
+        int returnVal = dialog.showSaveDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             Command command;
             File file = dialog.getSelectedFile();

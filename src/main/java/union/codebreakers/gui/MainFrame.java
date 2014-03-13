@@ -19,7 +19,6 @@ import union.codebreakers.controller.ObserverView;
 import union.codebreakers.controller.ToolbarController;
 import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
 import union.codebreakers.controller.behaviorManager.MouseBehaviorManager;
-import union.codebreakers.controller.simulator.SimulatorManager;
 import union.codebreakers.helper.CollisionHandler;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.KeyboardBehaviorType;
@@ -30,7 +29,6 @@ import union.codebreakers.keyboardHandler.ZeroAction;
 import union.codebreakers.keyboardHandler.ThreeAction;
 import union.codebreakers.keyboardHandler.TwoAction;
 import union.codebreakers.model.ModelAutomaton;
-import union.codebreakers.view.drawer.DrawerStock;
 import union.codebreakers.view.drawer.DrawerStockSimulator;
 
 /**
@@ -171,11 +169,6 @@ public class MainFrame extends JFrame{
         saveb.setName("buttonSave");
         saveb.addActionListener(this.getContainer().getToolbarController());
 
-        JButton save_asb = new JButton(save_as);
-        save_asb.setText("Save As ...");
-        save_asb.setName("buttonSaveAs");
-        save_asb.addActionListener(this.getContainer().getToolbarController());
-
         JButton quitb = new JButton(quit);
         quitb.setText("Quit");
         quitb.setName("buttonQuit");
@@ -194,7 +187,6 @@ public class MainFrame extends JFrame{
         toolbar.add(newb);
         toolbar.add(openb);
         toolbar.add(saveb);
-        toolbar.add(save_asb);
         toolbar.add(quitb);
         toolbar.setAlignmentY(0);
         
