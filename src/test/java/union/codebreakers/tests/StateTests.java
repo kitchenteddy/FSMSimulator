@@ -110,21 +110,6 @@ public class StateTests
         s1.setPos(newPos);
         assertEquals(newPos, s1.getPos());
     }
-
-    @Test
-    public void getPaths()
-    {
-        ModelPath p1 = new ModelPath( s1, s2, myAutomaton );
-        ModelPath p2 = new ModelPath( s1, s1, myAutomaton );
-
-        s1.addPath(p1);
-        s1.addPath(p2);
-        myList.add(s1.getPathTo(s2));
-        myList.add(s1.getPathTo(s1));
-        
-        assertEquals(s1.getPaths(), myList);
-        
-    }
     
     
     @Test

@@ -12,7 +12,6 @@ import union.codebreakers.model.Collidable;
 import union.codebreakers.model.Label;
 import union.codebreakers.model.ModelLabel;
 import union.codebreakers.model.ModelPath;
-import union.codebreakers.model.ModelState;
 import union.codebreakers.model.Movable;
 import union.codebreakers.model.Path;
 import union.codebreakers.model.State;
@@ -22,17 +21,21 @@ import union.codebreakers.model.State;
  * 
  * @author joshualoew
  */
-public class DummyState extends ModelState  implements State, Movable, Collidable, Serializable, AutomatonPart {
+public class DummyState  implements State, Movable, Collidable, Serializable, AutomatonPart {
     
     private Automaton fsm;
     private StateType type;
     private Point position;
     private ArrayList<Path> outgoingPaths;
     private Label stateLabel;
-    static private Point dummyPoint = new Point(0, 0);
+    private Point dummyPoint = new Point(0, 0);
     
-    public DummyState(Automaton fsm, Label msLabel) {
-        super(StateType.eNormal, DummyState.dummyPoint, msLabel, fsm );
+    public DummyState(Label msLabel, Automaton fsm) {
+        this.fsm = fsm;
+        this.type = StateType.eStart;
+        this.position = new Point(0,0);
+        this.stateLabel = msLabel;
+        this.outgoingPaths = new ArrayList<Path>();
     }
 
     @Override
@@ -84,7 +87,7 @@ public class DummyState extends ModelState  implements State, Movable, Collidabl
 
     @Override
     public Path getPathTo(State destination) {
-        DummyState newDummyState = new DummyState(fsm, stateLabel);
+        DummyState newDummyState = new DummyState(stateLabel, fsm);
         Path myPath = new ModelPath(this, newDummyState, fsm);
         return myPath;
     }

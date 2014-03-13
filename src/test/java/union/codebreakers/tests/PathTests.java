@@ -61,10 +61,8 @@ public class PathTests
         s1 = new ModelState(StateType.eNormal, s1Pos, s1L, myAutomaton);
         s2 = new ModelState(StateType.eNormal, s2Pos, s2L, myAutomaton);
         
-        Path p1 = new ModelPath(s1, s2, myAutomaton);
+        p1 = new ModelPath(s1, s2, myAutomaton);
         s1.addPath(p1);
-        
-        p1 = s1.getPathTo(s2);
         
         
         myList = new ArrayList<State>();

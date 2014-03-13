@@ -32,7 +32,7 @@ public class DummyStateTests
         fsm = new ModelAutomaton();      
         myLabel = new ModelLabel();
         
-        myDummyState = new DummyState(fsm, myLabel);
+        myDummyState = new DummyState(myLabel, fsm);
     }
 
     @After
