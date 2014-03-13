@@ -15,7 +15,4 @@ public interface FeatureDrawer {
      */
     public void drawFeature(Point destination, Graphics g);
     
-    
-    
-    
 }

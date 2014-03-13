@@ -15,12 +15,9 @@ import java.awt.Point;
  * @author teddykitchen
  */
 public class SelectorDrawer implements FeatureDrawer {
-    
-    
+        
     private int width = 60;
     private int height = 60;
-    
-    
     
     /**
      * draws a specified feature to the screen
