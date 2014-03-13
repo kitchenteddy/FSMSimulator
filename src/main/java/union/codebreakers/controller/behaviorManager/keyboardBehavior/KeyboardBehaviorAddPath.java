@@ -1,4 +1,4 @@
-package union.codebreakers.controller.behaviorManager.keyboardBehavior;
+    package union.codebreakers.controller.behaviorManager.keyboardBehavior;
 
 import java.awt.event.KeyEvent;
 import static java.awt.event.KeyEvent.VK_SHIFT;

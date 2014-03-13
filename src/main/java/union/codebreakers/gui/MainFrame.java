@@ -149,7 +149,7 @@ public class MainFrame extends JFrame{
         ImageIcon newi = new ImageIcon("resources/Clipboard.png");
         ImageIcon open = new ImageIcon("resources/Box.png");
         ImageIcon save = new ImageIcon("resources/Pencil.png");
-        ImageIcon save_as = new ImageIcon("resources/Pencil.png");
+        // ImageIcon save_as = new ImageIcon("resources/Pencil.png");
         ImageIcon quit = new ImageIcon("resources/Delete.png");
         ImageIcon start = new ImageIcon("resources/Play.png");
         ImageIcon enterPath = new ImageIcon("resources/Arrow.png");

@@ -7,6 +7,7 @@ import union.codebreakers.helper.fileChooserFilter.FileChooserFilterTextFile;
 import union.codebreakers.helper.enums.FormatterType;
 import union.codebreakers.helper.fileChooserFilter.FileChooserFilterImageFile;
 import union.codebreakers.helper.fileChooserFilter.FileChooserFilterLatexFile;
+import union.codebreakers.helper.fileChooserFilter.FileChooserFilterCsvFile;
 
 /**
  *
@@ -30,6 +31,7 @@ public class CommandSaveFile implements Command{
         dialog.addChoosableFileFilter( new FileChooserFilterTextFile() );
         dialog.addChoosableFileFilter( new FileChooserFilterLatexFile() );
         dialog.addChoosableFileFilter( new FileChooserFilterImageFile() );
+        dialog.addChoosableFileFilter( new FileChooserFilterCsvFile() );
         int returnVal = dialog.showSaveDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             Command command;
@@ -39,8 +41,11 @@ public class CommandSaveFile implements Command{
             if( file.getAbsolutePath().endsWith(".png") ){
                 command = new CommandSaveFileImage((this.container.getDrawingArea()), file.getAbsolutePath(), this.container.getMainController().getAutomaton());
             } else {
+                // Where to add save to CSV/Loadable????
                 if( file.getAbsolutePath().endsWith(".txt") ){
                     command = new CommandSaveFileText((this.container.getMainController().getAutomaton()), FormatterType.eReadable, file.getAbsolutePath());
+                } else if (file.getAbsolutePath().endsWith(".csv")) {
+                    command = new CommandSaveFileLoadable(this.container.getMainController().getAutomaton(), FormatterType.eLoadable, file.getAbsolutePath());
                 } else {
                     command = new CommandSaveFileText((this.container.getMainController().getAutomaton()), FormatterType.eLatex, file.getAbsolutePath());
                 }
