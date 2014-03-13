@@ -43,7 +43,7 @@ public class CommandSaveFileLoadable implements Command {
 
     @Override
     public boolean execute() {
-        boolean res = true;
+        boolean res = false;
         
         try {
             writer = buildFile(path);
@@ -65,12 +65,16 @@ public class CommandSaveFileLoadable implements Command {
             
             pathToString(myState);
             
-            toSave.append("\n");          
+            toSave.append("\n");
+            
+            res = true;
 
         }
         
-        writeToCsv(toSave);
-        closeFile();
+        if (res) {
+            writeToCsv(toSave);
+            closeFile();
+        }
         
         return res;
         
