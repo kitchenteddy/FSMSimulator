@@ -32,8 +32,6 @@ public class FormattablePath implements Formattable{
                 myFormatter = new ReadablePathFormatter();
                 break;
             case eLoadable:
-                myFormatter = new LoadablePathFormatter();
-                break;
             default:
                 myFormatter = new ReadablePathFormatter();
                 break;
@@ -41,10 +39,6 @@ public class FormattablePath implements Formattable{
         
         return myFormatter.format(this);
     }
-    
-    
-    
-    
     
     /**
      * returns the path in the model representing this Formattable

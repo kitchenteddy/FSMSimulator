@@ -7,17 +7,13 @@ import union.codebreakers.helper.enums.FormatterType;
  */
 public class ModelFormatterVisitor implements FormatterVisitor {
 
-    
     /**
      * visit method for ModelState
      * @param toFormat
+     * @param myType
      * @return 
      */
     @Override
-   
-    // Should this take a State or a formattable state?
-    // Initially easier to do it this way but may need
-    // to be changed in all these methods later.
     public String visitElement(FormattableState toFormat, FormatterType myType) {
         return toFormat.acceptFormatter(this, myType);
       
@@ -27,6 +23,7 @@ public class ModelFormatterVisitor implements FormatterVisitor {
     /**
      * visit method for Label
      * @param toFormat
+     * @param myType
      * @return 
      */
     @Override
@@ -37,31 +34,23 @@ public class ModelFormatterVisitor implements FormatterVisitor {
     /**
      * visit method for Path
      * @param toFormat
+     * @param myType
      * @return 
      */
     @Override
     public String visitElement(FormattablePath toFormat, FormatterType myType) {
 
         return toFormat.acceptFormatter(this, myType);
-        
-        
     }
-   
-    
-    
     
     /**
      * visit method for Automata
      * @param toFormat
+     * @param myType
      * @return 
      */
     public String visitElement(FormattableAutomaton toFormat, FormatterType myType)
     {
         return toFormat.acceptFormatter(this, myType);
     }
-    
-    
-    
-    
-    
 }

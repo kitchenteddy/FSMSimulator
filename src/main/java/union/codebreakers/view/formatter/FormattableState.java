@@ -26,11 +26,11 @@ public class FormattableState implements Formattable{
         
         switch(myType)
         {
+            case eLatex:
+                myFormatter = new LatexStateFormatter();
+                break;
             case eReadable:
                 myFormatter = new ReadableStateFormatter();
-                break;
-            case eLoadable:
-                myFormatter = new LoadableStateFormatter();
                 break;
             default:
                 myFormatter = new ReadableStateFormatter();

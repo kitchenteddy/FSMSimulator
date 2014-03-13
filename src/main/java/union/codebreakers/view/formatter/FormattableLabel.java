@@ -26,9 +26,6 @@ public class FormattableLabel implements Formattable
             case eReadable:
                 myFormatter = new ReadableLabelFormatter();
                 break;
-            case eLoadable:
-                myFormatter = new LoadableLabelFormatter();
-                break;
             default:
                 myFormatter = new ReadableLabelFormatter();
                 break;

@@ -8,11 +8,8 @@ package union.codebreakers.view.formatter;
 
 /**
  *
- * @author teddykitchen
  */
-public class LatexAutomatonFormatter implements FormatterTool
-{
- 
+public class LatexAutomatonFormatter implements FormatterTool{
     
     public String format(Formattable toFormat) 
     {
@@ -35,18 +32,5 @@ public class LatexAutomatonFormatter implements FormatterTool
         "\\end{document}";
         
         return start + middle + end;
-    }
-    
-    
-    private String formatState()
-    {
-        return null;
-    }
-    
-    
-    
-    private String formatPath()
-    {
-        return null;
     }
 }

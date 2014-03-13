@@ -114,6 +114,15 @@ public class MainController{
     }
     
     /**
+     * This method returns main frame
+     * 
+     * @return Instance of MainFrame
+     */
+    public MainFrame getMainFrame(){
+        return this.myFrame;
+    }
+    
+    /**
      * Gets pointer to the current Automaton
      * 
      * @return instance of Automaton

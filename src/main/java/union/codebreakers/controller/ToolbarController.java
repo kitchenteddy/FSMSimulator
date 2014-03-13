@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import union.codebreakers.command.CommandSaveFile;
 import union.codebreakers.controller.simulator.SimulatorManager;
 import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.FormatterType;
@@ -81,16 +82,8 @@ public class ToolbarController implements ActionListener{
     }
 
     private void doSave(){
-        ViewText view = new ViewText( this.container.getMainController().getAutomaton());
-        PrintWriter out;
-        try{
-            out = new PrintWriter("automaton.read");
-            view.setTypeOutput(FormatterType.eReadable);
-            out.println(view.getOutput());
-            out.flush();
-            out.close();
-        } catch (Exception e){
-        }
+        CommandSaveFile commandSaveFile = new CommandSaveFile(this.container);
+        this.container.getCommandCenter().execute(commandSaveFile);
     }
 
     private void doSaveAs(){
