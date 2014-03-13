@@ -50,4 +50,16 @@ public  interface Automaton
      * @return Whether the element was removed from the collection
      */
     public boolean removeCollidable(Collidable element);
+    
+    
+    
+    /**
+     * gets the starting state of this FSM
+     * if no starting state, returns a different state
+     * if no states in FSM returns null
+     * @return State, starting state
+     */
+    public State getStartingState();
+    
+    
 }

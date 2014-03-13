@@ -9,6 +9,8 @@ package union.codebreakers.controller.simulator;
 import java.awt.Point;
 import java.util.ArrayList;
 import union.codebreakers.helper.Container;
+import union.codebreakers.model.ModelState;
+import union.codebreakers.model.State;
 
 /**
  * Class for Managing simulation of FSM
@@ -35,7 +37,11 @@ public class SimulatorManager {
     {
         this.infoPosition = new Point(100,100);
         this.container = c;
-        this.mySimulation = new FSMSimulation();
+        State startState = this.container.getMainController().getAutomaton().getStartingState();
+        if (startState != null){
+            this.mySimulation = new FSMSimulation(startState);
+        }
+        
         this.myReader = new TextReader();
         this.drawer = new SimulationDrawer(this,this.container.getDrawingArea().getGraphics());
         this.currentInstruction = 0;
@@ -43,6 +49,7 @@ public class SimulatorManager {
     }
     
     public void setInputString(String input){
+        System.out.println("calling setInputString");
         this.myInputString = input;
         this.instructions = this.myReader.interpretText(this.myInputString);
         
@@ -67,11 +74,15 @@ public class SimulatorManager {
      * processes one input command and draws the result to screen
      */
     public void Simulate(){
+        
+        System.out.println("calling simulate in simulator manager");
+        
         if (this.currentInstruction < this.instructions.size()){
             this.mySimulation.processIput(this.instructions.get(this.currentInstruction));
             this.currentInstruction ++;
         }
-        
+        this.drawer.draw();
+        this.container.getDrawingArea().repaint();
         
     }
     

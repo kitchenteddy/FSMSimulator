@@ -26,10 +26,11 @@ public class TextReader {
         //get index of first comma indexOf()
         //save string upto comma to list substring(0,index of coma -1)
         //remove everything up to the comma by replacing self with substring(indexOfComma+1) 
-        while(!text.isEmpty()){
+        while(text != ""){
             
             if (!text.contains(",")){
                 myList.add(text);
+                text = "";
             }
             else{
                 int commaIndex = text.indexOf(",");
@@ -44,7 +45,7 @@ public class TextReader {
         
         
         
-        return null;
+        return myList;
     }
     
     

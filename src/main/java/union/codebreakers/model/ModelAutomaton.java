@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
+import union.codebreakers.helper.enums.StateType;
 
 /**
  * Automaton model
@@ -135,5 +136,28 @@ public class ModelAutomaton extends Observable implements Automaton, Serializabl
             return false;
         }        
     }
+    
+    /**
+     * gets the starting state of this FSM
+     * if no starting state, returns a different state
+     * if no states in FSM returns null
+     * @return State, starting state
+     */
+    public State getStartingState()
+    {
+        for (State currentState: this.getCollectionStates()){
+            if (currentState.getType() == StateType.eStart){
+                return currentState;
+            }
+        }
+        if (!this.getCollectionStates().isEmpty()){
+            return this.getCollectionStates().get(0);
+        }
+        else{
+            return null;
+        }
+        
+        
+    }   
 }
 

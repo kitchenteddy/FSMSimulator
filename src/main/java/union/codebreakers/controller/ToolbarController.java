@@ -56,8 +56,7 @@ public class ToolbarController implements ActionListener{
                 this.doQuit();
             } else if(item.getName().equals("buttonPathPrompt")) {
                 this.doPrompt();
-            } else if(item.getName().equals("buttonStart")) { 
-                System.out.println("StartButtonPressed");
+            } else if(item.getName().equals("buttonStart")) {                
                 this.doStart();
             }    
         }
@@ -122,20 +121,19 @@ public class ToolbarController implements ActionListener{
         
         String myName = JOptionPane.showInputDialog("input path to simulate");
         this.container.setSimulatorManager(new SimulatorManager(this.container));
-        //this.container.getSimulatorManager().setInputString(myName);
-        // Make some boolean value to verify no null/empty
-        //String userInput = JOptionPane.showInputDialog("executing doPrompt");
+        this.container.getSimulatorManager().setInputString(myName);
         
-        //give user input to container and have that give it to simulator
-        //this.container.getKeyboardBehaviorManager().setKeyboardBehavior(KeyboardBehaviorType.eInitial, true);
-        //System.out.println(myName);
         
     }
     
     private void doStart() {
         
+        System.out.println("doStartCalled");
+        
         if (this.container.getSimulatorManager() != null){
+            System.out.println("simulator manager is not null");
             this.container.getSimulatorManager().Simulate();
+            System.out.println("got through");
         }
         //this.container.getKeyboardBehaviorManager().setKeyboardBehavior(KeyboardBehaviorType.eInitial, true);
 

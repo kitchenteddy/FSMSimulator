@@ -20,6 +20,17 @@ public class FSMSimulation implements Simulation{
     
     private State currentState;
     private ArrayList<String>  possibleMoves;
+    
+    
+    public FSMSimulation(State myCurrent){
+        this.currentState = myCurrent;
+        this.possibleMoves = new ArrayList<String>();
+        
+        for (Path currentPath : this.currentState.getPaths()){
+            this.possibleMoves.add(currentPath.getLabel().getName());
+        }
+            
+    }
 
     
     
@@ -30,6 +41,9 @@ public class FSMSimulation implements Simulation{
      */
     @Override
     public boolean processIput(String input) {
+        
+        System.out.println(this.currentState.getLabel().getName() + "current state in FSMSImulation");
+        
         if (!possibleMoves.isEmpty())
         {
             for (String possibleMove: possibleMoves){
@@ -37,7 +51,7 @@ public class FSMSimulation implements Simulation{
                     
                     currentState = this.getMap().get(input);
                     this.updatePossibleMoves();
-                    
+                    return true;
                 }
             }
         }
