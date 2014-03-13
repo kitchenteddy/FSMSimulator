@@ -30,6 +30,7 @@ public class TextReader {
             
             if (!text.contains(",")){
                 myList.add(text);
+                text = "";
             }
             else{
                 int commaIndex = text.indexOf(",");
@@ -44,7 +45,7 @@ public class TextReader {
         
         
         
-        return null;
+        return myList;
     }
     
     

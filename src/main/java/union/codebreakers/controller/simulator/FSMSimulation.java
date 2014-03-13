@@ -20,6 +20,17 @@ public class FSMSimulation implements Simulation{
     
     private State currentState;
     private ArrayList<String>  possibleMoves;
+    
+    
+    public FSMSimulation(State myCurrent){
+        this.currentState = myCurrent;
+        this.possibleMoves = new ArrayList<String>();
+        
+        for (Path currentPath : this.currentState.getPaths()){
+            this.possibleMoves.add(currentPath.getLabel().getName());
+        }
+            
+    }
 
     
     

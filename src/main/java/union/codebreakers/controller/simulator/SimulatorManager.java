@@ -9,6 +9,7 @@ package union.codebreakers.controller.simulator;
 import java.awt.Point;
 import java.util.ArrayList;
 import union.codebreakers.helper.Container;
+import union.codebreakers.model.ModelState;
 
 /**
  * Class for Managing simulation of FSM
@@ -35,7 +36,7 @@ public class SimulatorManager {
     {
         this.infoPosition = new Point(100,100);
         this.container = c;
-        this.mySimulation = new FSMSimulation();
+        //this.mySimulation = new FSMSimulation();
         this.myReader = new TextReader();
         this.drawer = new SimulationDrawer(this,this.container.getDrawingArea().getGraphics());
         this.currentInstruction = 0;
@@ -43,6 +44,7 @@ public class SimulatorManager {
     }
     
     public void setInputString(String input){
+        System.out.println("calling setInputString");
         this.myInputString = input;
         this.instructions = this.myReader.interpretText(this.myInputString);
         
