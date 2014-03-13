@@ -13,7 +13,7 @@ import union.codebreakers.helper.enums.MouseBehaviorType;
 /**
  * Controller handling manipulation with automaton
  */
-public class AutomatonController  implements KeyListener, MouseListener, MouseMotionListener{
+public class AutomatonController  implements KeyListener, MouseListener, MouseMotionListener {
     
     private MainFrame mainFrame = null;
     private Container container;
@@ -191,4 +191,5 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
             }
         }
     }
+    
 }
