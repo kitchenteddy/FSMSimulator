@@ -98,6 +98,7 @@ public class MainFrame extends JFrame{
         this.container.getMouseBehaviorManager().setMouseBehavior(MouseBehaviorType.eInitial, true);
         this.container.getToolbarController().setContainer(this.container);
         this.container.getAutomatonController().setContainer(this.container);
+        this.container.getCollisionHandler().addObserver(this.container.getObserverView());
         
         ModelAutomaton fsm = (ModelAutomaton)this.container.getMainController().getAutomaton();
         fsm.addObserver(this.container.getObserverView());
@@ -129,11 +130,6 @@ public class MainFrame extends JFrame{
         this.getContentPane().setLayout(layout);
         this.getContentPane().add(this.machinePanel);
         this.container.setDrawingArea(this.machinePanel);
-        
-        
-        
-        //we need to extend drawer stock, make state drawer be how we want it
-        //then set it here
         
         this.container.getMainController().getViewImage().setDrawerStock(new DrawerStockSimulator(this.container));
         this.container.getObserverView().setView(this.machinePanel);
