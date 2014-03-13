@@ -261,8 +261,15 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
     }
     
     public boolean equals( Object obj){
-        State anotherState = (State)obj;
-        return this.getPos().equals(anotherState.getPos());
+        if( obj == null ){
+            return false;
+        }
+        if( obj instanceof State ){
+            State anotherState = (State)obj;
+            return this.getPos().equals(anotherState.getPos());            
+        } else {
+            return false;
+        }
     }
 }
 
