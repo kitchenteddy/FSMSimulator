@@ -40,10 +40,6 @@ public class ModelState extends Observable implements State, Movable, Collidable
         if( msLabel instanceof Collidable ) {
             this.getAutomaton().addCollidable((Collidable)msLabel);            
         }
-        
-        
-        //TBK
-        this.updateLabelPos();
     }
     
     /**
@@ -79,11 +75,6 @@ public class ModelState extends Observable implements State, Movable, Collidable
         this.notifyObservers(true);
     }
     
-    
-    
-    
-    
-
    /**
     * Returns the state's type
     * 
@@ -111,6 +102,8 @@ public class ModelState extends Observable implements State, Movable, Collidable
         
         this.type = newType;
         //if this type is starting, change other starting state to normal
+        this.setChanged();
+        this.notifyObservers(true);
     }
         
    /**
@@ -133,13 +126,8 @@ public class ModelState extends Observable implements State, Movable, Collidable
     public void setPos(Point position)
     {
         this.position = position;
-        
-        //TBK
-        this.updateLabelPos();
-        for (Path currentPath : this.outgoingPaths)
-        {
-            currentPath.updateLabelPos();
-        }
+        this.setChanged();
+        this.notifyObservers(true);
     }
     
    /**
@@ -170,11 +158,8 @@ public class ModelState extends Observable implements State, Movable, Collidable
         if( this.stateLabel instanceof Collidable ) {
             this.getAutomaton().addCollidable((Collidable)this.stateLabel);
         }
-        
-        
-        //TBK
-        this.updateLabelPos();
-        
+        this.setChanged();
+        this.notifyObservers(true);        
     }
 
     /**
@@ -201,8 +186,6 @@ public class ModelState extends Observable implements State, Movable, Collidable
         
         for (Path currentPath: this.outgoingPaths)
         {
-            
-            
             ////Changed this to work.  found bug in tests @author TBK
             if (currentPath.getEndPoint().equals(destination))
             {
@@ -249,18 +232,8 @@ public class ModelState extends Observable implements State, Movable, Collidable
     public Automaton getAutomaton(){
         return this.fsm;
     }
-  
     
-    /**
-     * TBK
-     * updates the position of the label based on state's position
-     * 
-     */
-    private void updateLabelPos()
-    {
-        this.stateLabel.setPos(this.position);
-    }
-    
+    @Override
     public boolean equals( Object obj){
         if( obj == null ){
             return false;

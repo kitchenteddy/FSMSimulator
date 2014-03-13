@@ -31,13 +31,9 @@ public class ModelPath extends Observable implements Path, Collidable, Serializa
         this.startPoint = from;
         this.endPoint = to;
         this.position = new Point(0,0);
-        this.label = new ModelLabel();
+        this.label = null;
         this.type = PathType.eNormal;
         this.fsm = fsm;
-        
-        
-        //TBK
-        this.updateLabelPos();
     }
         
     /**
@@ -82,9 +78,8 @@ public class ModelPath extends Observable implements Path, Collidable, Serializa
     public void setLabel(Label newLabel)
     {
         this.label = newLabel;
-        
-        //TBK
-        this.updateLabelPos();
+        this.setChanged();
+        this.notifyObservers(true);
     }
     
     /**
@@ -107,6 +102,8 @@ public class ModelPath extends Observable implements Path, Collidable, Serializa
     public void setType(PathType newType)
     {
         this.type = newType;
+        this.setChanged();
+        this.notifyObservers(true);
     }
 
     /**
@@ -136,20 +133,5 @@ public class ModelPath extends Observable implements Path, Collidable, Serializa
     @Override
     public Automaton getAutomaton() {
         return this.fsm;
-    }
-    
-    /**
-     * TBK
-     * updates the position of the label for the path
-     */    
-    public void updateLabelPos()
-    {
-        Point p1 = this.getStartPoint().getPos();
-        Point p2 = this.getEndPoint().getPos();
-        
-        int labelX = (p1.x + p2.x)/2;
-        int labelY = (p1.y + p2.y)/2;
-        Point newLabelPos = new Point(labelX, labelY);
-        this.getLabel().setPos(newLabelPos);
     }
 }

@@ -17,10 +17,6 @@ public  interface State
     */   
     public void removePath(Path toRemove);
     
-    
-    
-    
-    
    /**
     * Adds an outgoing path to the state
     * 
@@ -77,7 +73,6 @@ public  interface State
     */
     public List<Path> getPaths();
    
-    
     /**
      * Returns the path going to the destination State
      * 
