@@ -15,6 +15,7 @@ import union.codebreakers.command.CommandCenter;
 import union.codebreakers.controller.AutomatonController;
 import union.codebreakers.controller.ControllerPersonal;
 import union.codebreakers.controller.MainController;
+import union.codebreakers.controller.ObserverView;
 import union.codebreakers.controller.ToolbarController;
 import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
 import union.codebreakers.controller.behaviorManager.MouseBehaviorManager;
@@ -28,6 +29,7 @@ import union.codebreakers.keyboardHandler.OneAction;
 import union.codebreakers.keyboardHandler.ZeroAction;
 import union.codebreakers.keyboardHandler.ThreeAction;
 import union.codebreakers.keyboardHandler.TwoAction;
+import union.codebreakers.model.ModelAutomaton;
 import union.codebreakers.view.drawer.DrawerStock;
 
 /**
@@ -89,6 +91,7 @@ public class MainFrame extends JFrame{
         this.container.setToolbarController(new ToolbarController());
         this.container.setAutomatonController(new AutomatonController());
         this.container.setCommandCenter( new CommandCenter() );
+        this.container.setObserverView(new ObserverView() );
 
         this.container.getCollisionHandler().setHitElement(null);
         this.container.getCollisionHandler().setSelectedState(null);
@@ -97,7 +100,8 @@ public class MainFrame extends JFrame{
         this.container.getToolbarController().setContainer(this.container);
         this.container.getAutomatonController().setContainer(this.container);
         
-        
+        ModelAutomaton fsm = (ModelAutomaton)this.container.getMainController().getAutomaton();
+        fsm.addObserver(this.container.getObserverView());
     }
 
  private void initFrame(){
@@ -120,26 +124,14 @@ public class MainFrame extends JFrame{
         this.machinePanel.addMouseMotionListener(this.getContainer().getAutomatonController());
 
         this.layout = new BoxLayout(this.getContentPane(), BoxLayout.PAGE_AXIS);
-        
-        
-        
         //TBK MAKE BUTTONS WORK HERE
-        
-        
         this.initKeyBindings();
-        
-
-        
-        
-        
-        
-        
-        
         
         this.getContentPane().setLayout(layout);
         this.getContentPane().add(this.machinePanel);
         this.container.setDrawingArea(this.machinePanel);
         this.container.getMainController().getViewImage().setDrawerStock(new DrawerStock());
+        this.container.getObserverView().setView(this.machinePanel);
     }
     
     private void initToolbar(){

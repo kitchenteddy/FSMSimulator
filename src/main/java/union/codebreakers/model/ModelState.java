@@ -5,6 +5,7 @@ import java.awt.Point;
 import java.awt.Shape;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Observable;
 import union.codebreakers.helper.ShapeFactory;
 import union.codebreakers.helper.enums.StateType;
 import union.codebreakers.view.drawer.stateDrawer.StateDrawer;
@@ -12,7 +13,7 @@ import union.codebreakers.view.drawer.stateDrawer.StateDrawer;
 /**
  * ModelState class
  */
-public class ModelState implements State, Movable, Collidable, Serializable, AutomatonPart
+public class ModelState extends Observable implements State, Movable, Collidable, Serializable, AutomatonPart
 {
     private Automaton fsm;
     private StateType type;
@@ -59,6 +60,8 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         if( destination instanceof Collidable ) {
             this.getAutomaton().addCollidable((Collidable)destination);
         }
+        this.setChanged();
+        this.notifyObservers(true);
     }
 
    /**
@@ -74,6 +77,8 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         if( toRemove instanceof Collidable ) {
             this.getAutomaton().removeCollidable((Collidable)toRemove);
         }
+        this.setChanged();
+        this.notifyObservers(true);
     }
     
     
@@ -108,8 +113,6 @@ public class ModelState implements State, Movable, Collidable, Serializable, Aut
         
         this.type = newType;
         //if this type is starting, change other starting state to normal
-        
-        
     }
         
    /**

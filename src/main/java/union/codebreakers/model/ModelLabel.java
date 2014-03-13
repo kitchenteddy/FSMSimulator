@@ -4,8 +4,9 @@ import union.codebreakers.helper.enums.LabelType;
 import java.awt.Point;
 import java.awt.Shape;
 import java.io.Serializable;
+import java.util.Observable;
 
-public class ModelLabel implements Movable, Label, Collidable, Serializable
+public class ModelLabel extends Observable implements Movable, Label, Collidable, Serializable
 {
     private String name;
     private LabelType type;
@@ -40,6 +41,8 @@ public class ModelLabel implements Movable, Label, Collidable, Serializable
     public void setName(String newName)
     {
         this.name = newName;
+        this.setChanged();
+        this.notifyObservers(true);
     }
 
     /**
@@ -61,38 +64,31 @@ public class ModelLabel implements Movable, Label, Collidable, Serializable
     @Override
     public void setType(LabelType newType){
         this.type = newType;
+        this.setChanged();
+        this.notifyObservers(true);
     }
-    
-    
-    
-    
-    
-    
     
      /**
      * gets the position of this label
      * @return Point
      */
+    @Override
     public Point getPos()
     {
         return this.position;
     }
-    
-    
-    
+
     /**
      * sets the position of this label
      * @param newPos
      */
+    @Override
     public void setPos(Point newPos)
     {
         this.position = newPos;
+        this.setChanged();
+        this.notifyObservers(true);
     }
-    
-    
-    
-    
-    
 
     /**
      * Gets shape of this element

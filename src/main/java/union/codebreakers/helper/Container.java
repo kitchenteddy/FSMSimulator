@@ -3,6 +3,7 @@ package union.codebreakers.helper;
 import union.codebreakers.command.CommandCenter;
 import union.codebreakers.controller.AutomatonController;
 import union.codebreakers.controller.MainController;
+import union.codebreakers.controller.ObserverView;
 import union.codebreakers.controller.ToolbarController;
 import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
 import union.codebreakers.controller.behaviorManager.MouseBehaviorManager;
@@ -26,6 +27,7 @@ public class Container{
     private CollisionHandler collisionHandler = null; // collision handler for this FSM
     private CommandCenter commandCenter = null;
     private SimulatorManager simulatorManager = null;
+    private ObserverView observerView = null;
     
     /**
      * Gets pointer to the current main controller
@@ -171,8 +173,6 @@ public class Container{
         return this.commandCenter;
     }
     
-    
-    
     /**
      * returns the simulator manager
      * @return Simulator Manager
@@ -184,11 +184,28 @@ public class Container{
     
     /**
      * returns the simulator manager
-     * @return Simulator Manager
+     * @param simulator Simulator Manager
      */
     public void setSimulatorManager(SimulatorManager simulator){
         this.simulatorManager = simulator;
         
+    }    
+
+    /**
+     * This method sets ObserverView for this container
+     * 
+     * @param newObserver Instance of ObserverView
+     */
+    public void setObserverView(ObserverView newObserver ){
+        this.observerView = newObserver;
     }
-    
+
+    /**
+     * This method gets ObserverView from this container
+     * 
+     * @return Instance of ObserverView
+     */
+    public ObserverView getObserverView(){
+        return this.observerView;
+    }
 }
