@@ -6,6 +6,7 @@ import union.codebreakers.controller.MainController;
 import union.codebreakers.controller.ToolbarController;
 import union.codebreakers.controller.behaviorManager.KeyboardBehaviorManager;
 import union.codebreakers.controller.behaviorManager.MouseBehaviorManager;
+import union.codebreakers.controller.simulator.SimulatorManager;
 import union.codebreakers.gui.FsmPanel;
 
 /**
@@ -24,6 +25,7 @@ public class Container{
     private FsmPanel drawingArea = null; // actual area for drawing FSM
     private CollisionHandler collisionHandler = null; // collision handler for this FSM
     private CommandCenter commandCenter = null;
+    private SimulatorManager simulatorManager = null;
     
     /**
      * Gets pointer to the current main controller
@@ -168,4 +170,25 @@ public class Container{
     public CommandCenter getCommandCenter(){
         return this.commandCenter;
     }
+    
+    
+    
+    /**
+     * returns the simulator manager
+     * @return Simulator Manager
+     */
+    public SimulatorManager getSimulatorManager(){
+        return this.simulatorManager;
+        
+    }
+    
+    /**
+     * returns the simulator manager
+     * @return Simulator Manager
+     */
+    public void setSimulatorManager(SimulatorManager simulator){
+        this.simulatorManager = simulator;
+        
+    }
+    
 }

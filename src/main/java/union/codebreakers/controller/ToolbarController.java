@@ -122,11 +122,11 @@ public class ToolbarController implements ActionListener{
         String myName = JOptionPane.showInputDialog("input path to simulate");
         
         // Make some boolean value to verify no null/empty
-        String userInput = JOptionPane.showInputDialog("executing doPrompt");
+        //String userInput = JOptionPane.showInputDialog("executing doPrompt");
         
         //give user input to container and have that give it to simulator
         this.container.getKeyboardBehaviorManager().setKeyboardBehavior(KeyboardBehaviorType.eInitial, true);
-        System.out.println(userInput);
+        System.out.println(myName);
         
     }
     
