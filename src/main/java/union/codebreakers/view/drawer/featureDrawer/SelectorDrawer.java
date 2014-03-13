@@ -28,8 +28,7 @@ public class SelectorDrawer implements FeatureDrawer {
     public void drawFeature(Point destination, Graphics g)
     {
         g.setColor(Color.red);
-        g.drawLine(0, 0, 10, 0);
-        
+        g.drawRect(destination.x - this.width/2 , destination.y - this.height/2, this.width, this.height);
     }
     
     
