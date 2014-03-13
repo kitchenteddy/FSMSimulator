@@ -32,22 +32,6 @@ public class ZeroAction extends AbstractAction {
      * 
      * @return boolean whether or not the key has been pressed
      */
-   
-    
-    
-    
-    
-    
-    // THIS NEEDS TO COMMUNICATE WITH CONTROLLER
-    // Ask Josh
-    
-    // VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
-    
-    
-    
-    
-    
-    
     
     public boolean getIsPressed() {
         return isPressed;
