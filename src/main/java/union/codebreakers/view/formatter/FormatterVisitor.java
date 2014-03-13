@@ -13,7 +13,7 @@ public interface FormatterVisitor {
      * @param toFormat
      * @return 
      */
-    public String visitElement(FormattableState toFormat, FormatterType myType);
+    public String acceptFormattable(FormattableState toFormat, FormatterType myType);
     
     
     /**
@@ -21,7 +21,7 @@ public interface FormatterVisitor {
      * @param toFormat
      * @return 
      */
-    public String visitElement(FormattableLabel toFormat, FormatterType myType);
+    public String acceptFormattable(FormattableLabel toFormat, FormatterType myType);
     
     
     /**
@@ -29,7 +29,7 @@ public interface FormatterVisitor {
      * @param toFormat
      * @return 
      */
-    public String visitElement(FormattablePath toFormat, FormatterType myType);
+    public String acceptFormattable(FormattablePath toFormat, FormatterType myType);
     
     
     /**
@@ -37,6 +37,6 @@ public interface FormatterVisitor {
      * @param toFormat
      * @return 
      */
-    public String visitElement(FormattableAutomaton toFormat, FormatterType myType);
+    public String acceptFormattable(FormattableAutomaton toFormat, FormatterType myType);
     
 }

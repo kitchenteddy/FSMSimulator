@@ -11,30 +11,15 @@ public class FormattableLabel implements Formattable
     
     private Label myLabel;
     
-    
     /**
      * accept method for things that are visitable by the formatter
      * @param myVisitor
      * @return 
      */
-    public String acceptFormatter(FormatterVisitor myVisitor, FormatterType myType)
+    public String visitFormatter(FormatterVisitor fv, FormatterType myType)
     {
-        FormatterTool myFormatter;
-        
-        switch(myType)
-        {
-            case eReadable:
-                myFormatter = new ReadableLabelFormatter();
-                break;
-            default:
-                myFormatter = new ReadableLabelFormatter();
-                break;
-        }
-        
-        return myFormatter.format(this);
+        return fv.acceptFormattable(this, myType);
     }
-    
-    
     
     /**
      * returns the Label in the model representing this Formattable
@@ -43,5 +28,15 @@ public class FormattableLabel implements Formattable
     public Label getLabel()
     {
         return myLabel;
+    }
+    
+    /**
+     * returns the Label in the model representing this Formattable
+     * 
+     * @paran newLabel  new label
+     */
+    public void setLabel(Label newLabel)
+    {
+        this.myLabel = newLabel;
     }
 }

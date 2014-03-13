@@ -18,26 +18,9 @@ public class FormattableAutomaton implements Formattable{
      * @param myVisitor
      * @return 
      */
-    public String acceptFormatter(FormatterVisitor myVisitor, FormatterType myType)
+    public String visitFormatter(FormatterVisitor fv, FormatterType myType)
     {
-        
-        FormatterTool myFormatter;
-        
-        switch(myType)
-        {
-            case eReadable:
-                myFormatter = new ReadableAutomatonFormatter();
-                break;
-            case eLatex:
-                myFormatter = new LatexAutomatonFormatter();
-                break;
-            default:
-                myFormatter = new ReadableAutomatonFormatter();
-                break;
-        }
-        
-        return myFormatter.format(this);
-        
+        return fv.acceptFormattable(this, myType);
     }
     
     

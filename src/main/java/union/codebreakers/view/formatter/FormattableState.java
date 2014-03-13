@@ -9,39 +9,17 @@ import union.codebreakers.model.*;
  */
 public class FormattableState implements Formattable{
     
-    
-    
-    
     private State myState;
-    
-    
+
     /**
      * accept method for things that are visitable by the formatter
      * @param myVisitor
      * @return 
      */
-    public String acceptFormatter(FormatterVisitor myVisitor, FormatterType myType)
+    public String visitFormatter(FormatterVisitor fv, FormatterType myType)
     {
-        FormatterTool myFormatter;
-        
-        switch(myType)
-        {
-            case eLatex:
-                myFormatter = new LatexStateFormatter();
-                break;
-            case eReadable:
-                myFormatter = new ReadableStateFormatter();
-                break;
-            default:
-                myFormatter = new ReadableStateFormatter();
-                break;
-        }
-        
-        return myFormatter.format(this);
-        
-        
+        return fv.acceptFormattable(this, myType);
     }
-    
     
     /**
      * returns the state in the model representing this Formattable
@@ -50,5 +28,14 @@ public class FormattableState implements Formattable{
     public State getState()
     {
         return myState;
+    }
+    
+    /**
+     * returns the state in the model representing this Formattable
+     * @param   newState    New state
+     */
+    public void setState(State newState)
+    {
+        this.myState = newState;
     }
 }

@@ -8,36 +8,16 @@ import union.codebreakers.model.*;
  */
 public class FormattablePath implements Formattable{
     
-    
-    
-    
-    
-    
     private Path myPath;
-    
     
     /**
      * accept method for things that are visitable by the formatter
      * @param myVisitor
      * @return 
      */
-    public String acceptFormatter(FormatterVisitor myVisitor, FormatterType myType)
+    public String visitFormatter(FormatterVisitor fv, FormatterType myType)
     {
-        
-        FormatterTool myFormatter;
-        
-        switch(myType)
-        {
-            case eReadable:
-                myFormatter = new ReadablePathFormatter();
-                break;
-            case eLoadable:
-            default:
-                myFormatter = new ReadablePathFormatter();
-                break;
-        }
-        
-        return myFormatter.format(this);
+        return fv.acceptFormattable(this, myType);
     }
     
     /**
@@ -49,4 +29,13 @@ public class FormattablePath implements Formattable{
         return myPath;
     }
     
+    /**
+     * returns the path in the model representing this Formattable
+     * 
+     * @param newPath   New path
+     */
+    public void setPath(Path newPath)
+    {
+        this.myPath = newPath;
+    }    
 }

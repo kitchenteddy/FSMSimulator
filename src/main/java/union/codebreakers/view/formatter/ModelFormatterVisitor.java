@@ -14,9 +14,23 @@ public class ModelFormatterVisitor implements FormatterVisitor {
      * @return 
      */
     @Override
-    public String visitElement(FormattableState toFormat, FormatterType myType) {
-        return toFormat.acceptFormatter(this, myType);
-      
+    public String acceptFormattable(FormattableState toFormat, FormatterType myType) {
+        FormatterTool myFormatter;
+        
+        switch(myType)
+        {
+            case eReadable:
+                myFormatter = new ReadableStateFormatter();
+                break;
+            case eLatex:
+                myFormatter = new LatexStateFormatter();
+                break;
+            default:
+                myFormatter = new ReadableStateFormatter();
+                break;
+        }
+        
+        return myFormatter.format(toFormat);
     }
 
     
@@ -27,8 +41,23 @@ public class ModelFormatterVisitor implements FormatterVisitor {
      * @return 
      */
     @Override
-    public String visitElement(FormattableLabel toFormat, FormatterType myType) {
-        return toFormat.acceptFormatter(this, myType);
+    public String acceptFormattable(FormattableLabel toFormat, FormatterType myType) {
+        FormatterTool myFormatter;
+        
+        switch(myType)
+        {
+            case eReadable:
+                myFormatter = new ReadableLabelFormatter();
+                break;
+            case eLatex:
+                myFormatter = new LatexLabelFormatter();
+                break;
+            default:
+                myFormatter = new ReadableLabelFormatter();
+                break;
+        }
+        
+        return myFormatter.format(toFormat);
     }
     
     /**
@@ -38,9 +67,23 @@ public class ModelFormatterVisitor implements FormatterVisitor {
      * @return 
      */
     @Override
-    public String visitElement(FormattablePath toFormat, FormatterType myType) {
-
-        return toFormat.acceptFormatter(this, myType);
+    public String acceptFormattable(FormattablePath toFormat, FormatterType myType) {
+        FormatterTool myFormatter;
+        
+        switch(myType)
+        {
+            case eReadable:
+                myFormatter = new ReadablePathFormatter();
+                break;
+            case eLatex:
+                myFormatter = new LatexPathFormatter();
+                break;
+            default:
+                myFormatter = new ReadablePathFormatter();
+                break;
+        }
+        
+        return myFormatter.format(toFormat);
     }
     
     /**
@@ -49,8 +92,24 @@ public class ModelFormatterVisitor implements FormatterVisitor {
      * @param myType
      * @return 
      */
-    public String visitElement(FormattableAutomaton toFormat, FormatterType myType)
+    @Override
+    public String acceptFormattable(FormattableAutomaton toFormat, FormatterType myType)
     {
-        return toFormat.acceptFormatter(this, myType);
+        FormatterTool myFormatter;
+        
+        switch(myType)
+        {
+            case eReadable:
+                myFormatter = new ReadableAutomatonFormatter();
+                break;
+            case eLatex:
+                myFormatter = new LatexAutomatonFormatter();
+                break;
+            default:
+                myFormatter = new ReadableAutomatonFormatter();
+                break;
+        }
+        
+        return myFormatter.format(toFormat);
     }
 }

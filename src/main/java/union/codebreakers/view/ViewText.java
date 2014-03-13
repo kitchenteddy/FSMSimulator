@@ -38,7 +38,7 @@ public class ViewText implements View
         FormatterVisitor fv = new ModelFormatterVisitor();
         if( this.fsm != null ){
             FormattableAutomaton fa = new FormattableAutomaton(fsm);
-            output = fa.acceptFormatter(null, this.ft);
+            output = fa.visitFormatter(fv, this.ft);
         }
         return output;
     }

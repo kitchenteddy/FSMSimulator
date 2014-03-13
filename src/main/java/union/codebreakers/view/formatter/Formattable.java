@@ -13,5 +13,5 @@ public interface Formattable {
      * @param myType       Type of file format
      * @return 
      */
-    public String acceptFormatter(FormatterVisitor myVisitor, FormatterType myType);
+    public String visitFormatter(FormatterVisitor myVisitor, FormatterType myType);
 }
