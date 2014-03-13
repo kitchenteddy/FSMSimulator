@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package union.codebreakers.controller;
+package union.codebreakers.view.formatter;
 
 /**
  *

@@ -1,6 +1,9 @@
 package union.codebreakers.command;
 
+import union.codebreakers.helper.Container;
 import union.codebreakers.helper.enums.PathType;
+import union.codebreakers.model.AutomatonPart;
+import union.codebreakers.model.ModelPath;
 import union.codebreakers.model.State;
 
 /**
@@ -9,17 +12,19 @@ import union.codebreakers.model.State;
 public class CommandCreatePath implements Command{
 
     private State from, to;
+    private Container container;
     
     /**
      * Constructor
      * 
-     * @param newFrom    Starting point for path
-     * @param newTo      Ending point for path
+     * @param newFrom       Starting point for path
+     * @param newTo         Ending point for path
+     * @param newContainer  Shared Container
      */
-    public CommandCreatePath(State newFrom, State newTo){
+    public CommandCreatePath(State newFrom, State newTo, Container newContainer){
         this.from = newFrom;
         this.to = newTo;
-        
+        this.container = newContainer;
     }
     
     /**
@@ -29,16 +34,16 @@ public class CommandCreatePath implements Command{
     */
     @Override
     public boolean execute() {  
-        
+        ModelPath newPath = new ModelPath(this.from, this.to, ((AutomatonPart)(this.from)).getAutomaton());
+        newPath.addObserver(this.container.getObserverView() );
         PathType type;
         if (from == to) {
-            type = PathType.eSelf;
+            newPath.setType(PathType.eSelf);
         } else {
-            type = PathType.eNormal;
+            newPath.setType(PathType.eNormal);
         }
   
-        this.from.addPath(to);
-        this.from.getPathTo(to).setType(type);
+        this.from.addPath(newPath);
         // add creating label here
         return true;
     }

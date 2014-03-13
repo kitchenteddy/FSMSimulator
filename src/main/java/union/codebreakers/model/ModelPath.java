@@ -3,14 +3,14 @@ package union.codebreakers.model;
 import java.awt.Point;
 import java.awt.Shape;
 import java.io.Serializable;
+import java.util.Observable;
 import union.codebreakers.helper.ShapeFactory;
 import union.codebreakers.helper.enums.PathType;
-import java.lang.Math;
 
 /**
  * Concrete implementation of Path model
  */
-public class ModelPath implements Path, Collidable, Serializable, AutomatonPart
+public class ModelPath extends Observable implements Path, Collidable, Serializable, AutomatonPart
 {
     private State startPoint;
     private State endPoint;
@@ -138,12 +138,10 @@ public class ModelPath implements Path, Collidable, Serializable, AutomatonPart
         return this.fsm;
     }
     
-    
     /**
      * TBK
      * updates the position of the label for the path
-     */
-    
+     */    
     public void updateLabelPos()
     {
         Point p1 = this.getStartPoint().getPos();
@@ -153,8 +151,5 @@ public class ModelPath implements Path, Collidable, Serializable, AutomatonPart
         int labelY = (p1.y + p2.y)/2;
         Point newLabelPos = new Point(labelX, labelY);
         this.getLabel().setPos(newLabelPos);
-        
     }
 }
-
-

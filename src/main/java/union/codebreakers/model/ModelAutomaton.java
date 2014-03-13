@@ -4,12 +4,13 @@ package union.codebreakers.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 import union.codebreakers.helper.enums.StateType;
 
 /**
  * Automaton model
  */
-public class ModelAutomaton implements Automaton, Serializable
+public class ModelAutomaton extends Observable implements Automaton, Serializable
 {
     public ArrayList<State> collectionStates;
     public ArrayList<Collidable> collectionCollidable;
@@ -32,6 +33,8 @@ public class ModelAutomaton implements Automaton, Serializable
     { 
         this.collectionStates.add(toAdd);
         this.addCollidable((Collidable)toAdd);
+        this.setChanged();
+        this.notifyObservers(true);
     }
     
    /**      
@@ -61,6 +64,8 @@ public class ModelAutomaton implements Automaton, Serializable
                 }
             }
         }
+        this.setChanged();
+        this.notifyObservers(true);
     }
 
      /**
@@ -126,7 +131,7 @@ public class ModelAutomaton implements Automaton, Serializable
     public boolean removeCollidable(Collidable element){
         boolean res = this.existCollidable(element);
         if( res ){
-            return this.collectionCollidable.remove(res);
+            return this.collectionCollidable.remove(element);
         } else { // cant remove element which doesnt exist
             return false;
         }        
@@ -138,6 +143,7 @@ public class ModelAutomaton implements Automaton, Serializable
      * if no states in FSM returns null
      * @return State, starting state
      */
+    @Override
     public State getStartingState()
     {
         for (State currentState: this.getCollectionStates()){
@@ -153,9 +159,6 @@ public class ModelAutomaton implements Automaton, Serializable
         }
         
         
-    }
-    
-    
-    
+    }   
 }
 

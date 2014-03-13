@@ -45,9 +45,6 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
     public void mouseClicked(MouseEvent me) {
         if( this.container.getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
             boolean repaint = this.container.getMouseBehaviorManager().getCurrentBehavior().mouseClicked(me);
-            if( repaint ){
-                this.container.getDrawingArea().repaint();
-            }
         }
         
         if( me.getButton() == 3 ){
@@ -66,9 +63,6 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
         //System.out.println(this.container.getKeyboardBehaviorManager().getCurrentType().name());
         if( this.container.getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
             boolean repaint = this.container.getMouseBehaviorManager().getCurrentBehavior().mousePressed(me);
-            if( repaint ){
-                this.container.getDrawingArea().repaint();
-            }
         }
     }
 
@@ -81,9 +75,6 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
     public void mouseReleased(MouseEvent me) {
         if( this.container.getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
             boolean repaint = this.container.getMouseBehaviorManager().getCurrentBehavior().mouseReleased(me);
-            if( repaint ){
-                this.container.getDrawingArea().repaint();
-            }
         }
     }
 
@@ -96,9 +87,6 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
     public void mouseEntered(MouseEvent me) {
         if( this.container.getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
             boolean repaint = this.container.getMouseBehaviorManager().getCurrentBehavior().mouseEntered(me);
-            if( repaint ){
-                this.container.getDrawingArea().repaint();
-            }
         }
     }
 
@@ -111,9 +99,6 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
     public void mouseExited(MouseEvent me) {
         if( this.container.getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
             boolean repaint = this.container.getMouseBehaviorManager().getCurrentBehavior().mouseExited(me);
-            if( repaint ){
-                this.container.getDrawingArea().repaint();
-            }
         }
     }
     /**
@@ -126,9 +111,6 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
         
         if( this.container.getKeyboardBehaviorManager().getCurrentType() != KeyboardBehaviorType.eUnspecified ){
             boolean repaint = this.container.getKeyboardBehaviorManager().getCurrentBehavior().keyTyped(ke);
-            if( repaint ){
-                this.container.getDrawingArea().repaint();
-            }
         }
     }
 
@@ -142,9 +124,6 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
         //System.out.println(this.container.getKeyboardBehaviorManager().getCurrentType().name());
         if( this.container.getKeyboardBehaviorManager().getCurrentType() != KeyboardBehaviorType.eUnspecified ){
             boolean repaint = this.container.getKeyboardBehaviorManager().getCurrentBehavior().keyPressed(ke);
-            if( repaint ){
-                this.container.getDrawingArea().repaint();
-            }
         }
     }
 
@@ -157,9 +136,6 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
     public void keyReleased(KeyEvent ke) {
         if( this.container.getKeyboardBehaviorManager().getCurrentType() != KeyboardBehaviorType.eUnspecified ){
             boolean repaint = this.container.getKeyboardBehaviorManager().getCurrentBehavior().keyReleased(ke);
-            if( repaint ){
-                this.container.getDrawingArea().repaint();
-            }
         }
     }
 
@@ -172,9 +148,6 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
     public void mouseDragged(MouseEvent me) {
         if( this.container.getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
             boolean repaint = this.container.getMouseBehaviorManager().getCurrentBehavior().mouseDragged(me);
-            if( repaint ){
-                this.container.getDrawingArea().repaint();
-            }
         }
     }
 
@@ -187,9 +160,6 @@ public class AutomatonController  implements KeyListener, MouseListener, MouseMo
     public void mouseMoved(MouseEvent me) {
         if( this.container.getMouseBehaviorManager().getCurrentType() != MouseBehaviorType.eUnspecified ){
             boolean repaint = this.container.getMouseBehaviorManager().getCurrentBehavior().mouseMoved(me);
-            if( repaint ){
-                this.container.getDrawingArea().repaint();
-            }
         }
     }
     
