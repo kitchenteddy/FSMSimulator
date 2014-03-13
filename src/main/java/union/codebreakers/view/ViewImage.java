@@ -98,8 +98,7 @@ public class ViewImage implements View
                 FeatureDrawer myDrawer = new SelectorDrawer();
                 myDrawer.drawFeature(this.collisionHandler.getSelectedState().getPos(), canvas);
                 
-                FeatureDrawer other = new SimulatedStateDrawer();
-                other.drawFeature(this.collisionHandler.getSelectedState().getPos(), canvas);
+                
             }
             
             

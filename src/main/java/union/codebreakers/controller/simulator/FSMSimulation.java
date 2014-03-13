@@ -46,10 +46,22 @@ public class FSMSimulation implements Simulation{
         
         if (!possibleMoves.isEmpty())
         {
+            System.out.println("possible moces is not empty in FSMSimulation");
+            for (String possibleMove : possibleMoves){
+                System.out.println(possibleMove);
+                System.out.println("input: "+ input);
+            }
             for (String possibleMove: possibleMoves){
-                if (input.equals(possibleMoves)){
+                if (input.equals(possibleMove)){
                     
-                    currentState = this.getMap().get(input);
+                    
+                    
+                    HashMap<String, State> myMap = this.getMap(possibleMoves);
+                    
+                    System.out.println("here is the hashmap in FSMSimulation");
+                    System.out.println(myMap.toString());
+                    
+                    currentState = myMap.get(input);
                     this.updatePossibleMoves();
                     return true;
                 }
@@ -76,14 +88,15 @@ public class FSMSimulation implements Simulation{
      * private method that maps string path names to the correct ending state
      * @return 
      */
-    private HashMap<String, State> getMap(){
+    private HashMap<String, State> getMap(ArrayList<String> moveList){
         
         HashMap<String, State> myMap = new HashMap<String, State>();
-        for (String myString : this.possibleMoves){
+        for (String myString : moveList){
             
             for (Path transition: this.currentState.getPaths()){
                 
                 if (myString.equals(transition.getLabel().getName())){
+                    System.out.println("pathName equals transition in FSMSImulator");
                     myMap.put(myString, transition.getEndPoint());
                 }
                 
@@ -94,7 +107,7 @@ public class FSMSimulation implements Simulation{
         }
         
         
-        return null;
+        return myMap;
     }
     
     /**

@@ -6,6 +6,7 @@
 
 package union.codebreakers.controller.simulator;
 
+import java.awt.Graphics;
 import java.awt.Point;
 import java.util.ArrayList;
 import union.codebreakers.helper.Container;
@@ -52,7 +53,9 @@ public class SimulatorManager {
         System.out.println("calling setInputString");
         this.myInputString = input;
         this.instructions = this.myReader.interpretText(this.myInputString);
-        
+        for (String s : instructions){
+            System.out.println(s);
+        }
         
     }
     
@@ -81,9 +84,13 @@ public class SimulatorManager {
             this.mySimulation.processIput(this.instructions.get(this.currentInstruction));
             this.currentInstruction ++;
         }
-        this.drawer.draw();
-        this.container.getDrawingArea().repaint();
         
+        
+    }
+    
+    public void draw(Graphics g){
+        this.drawer.draw(g);
+        //this.container.getDrawingArea().repaint();
     }
     
     public Container getContainer(){

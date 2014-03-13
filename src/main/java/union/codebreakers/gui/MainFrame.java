@@ -31,6 +31,7 @@ import union.codebreakers.keyboardHandler.ThreeAction;
 import union.codebreakers.keyboardHandler.TwoAction;
 import union.codebreakers.model.ModelAutomaton;
 import union.codebreakers.view.drawer.DrawerStock;
+import union.codebreakers.view.drawer.DrawerStockSimulator;
 
 /**
  * Main frame of the application
@@ -130,7 +131,13 @@ public class MainFrame extends JFrame{
         this.getContentPane().setLayout(layout);
         this.getContentPane().add(this.machinePanel);
         this.container.setDrawingArea(this.machinePanel);
-        this.container.getMainController().getViewImage().setDrawerStock(new DrawerStock());
+        
+        
+        
+        //we need to extend drawer stock, make state drawer be how we want it
+        //then set it here
+        
+        this.container.getMainController().getViewImage().setDrawerStock(new DrawerStockSimulator(this.container));
         this.container.getObserverView().setView(this.machinePanel);
     }
     
