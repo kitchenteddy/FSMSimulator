@@ -12,6 +12,7 @@ import union.codebreakers.view.drawable.DrawableState;
 import union.codebreakers.view.drawer.DrawerStockGeneric;
 import union.codebreakers.view.drawer.featureDrawer.FeatureDrawer;
 import union.codebreakers.view.drawer.featureDrawer.SelectorDrawer;
+import union.codebreakers.view.drawer.featureDrawer.SimulatedStateDrawer;
 
 /**
  * Graphical representation of automata
@@ -97,7 +98,9 @@ public class ViewImage implements View
                 FeatureDrawer myDrawer = new SelectorDrawer();
                 myDrawer.drawFeature(this.collisionHandler.getSelectedState().getPos(), canvas);
                 
+                
             }
+            
             
         }
     }

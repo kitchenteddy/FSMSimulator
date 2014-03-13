@@ -34,9 +34,10 @@ public class TextReader {
             }
             else{
                 int commaIndex = text.indexOf(",");
-                String toAdd = text.substring(0,commaIndex-1);
+                String toAdd = text.substring(0,commaIndex);
                 myList.add(toAdd);
                 text = text.substring(commaIndex+1);
+                
                 
             }
             

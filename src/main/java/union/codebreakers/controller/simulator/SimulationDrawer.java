@@ -30,10 +30,10 @@ public class SimulationDrawer {
         
     }
     
-    public void draw(){
+    public void draw(Graphics g){
         
-        this.simulatedInfoDrawer.drawFeature(this.manager.getInfoDrawingPosition(), this.myGraphics);
-        this.simulatedStateDrawer.drawFeature(this.manager.getSimulatedStatePosition(), this.myGraphics);
+        this.simulatedInfoDrawer.drawFeature(this.manager.getInfoDrawingPosition(), g);
+        this.simulatedStateDrawer.drawFeature(this.manager.getSimulatedStatePosition(), g);
         
         
         

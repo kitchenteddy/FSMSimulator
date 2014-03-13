@@ -6,6 +6,7 @@
 
 package union.codebreakers.view.drawer.featureDrawer;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
@@ -17,7 +18,9 @@ public class SimulatorInfoDrawer implements FeatureDrawer{
 
     @Override
     public void drawFeature(Point destination, Graphics g) {
-
+        g.setColor(Color.red);
+        
+        g.drawRect(100, 100, 100, 100);
     }
     
 }

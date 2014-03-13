@@ -22,7 +22,7 @@ public class SimulatedStateDrawer implements FeatureDrawer {
     
     @Override
     public void drawFeature(Point destination, Graphics g) {
-        System.out.println("calling drawFeature in simulatedStateDrawer");
+        
         g.setColor(Color.blue);
         g.drawRect(destination.x - this.width/2, destination.y - this.height/2, this.width, this.height);    }
     

@@ -113,6 +113,7 @@ public class ToolbarController implements ActionListener{
     private void doPrompt() {
         
         String myName = JOptionPane.showInputDialog("input path to simulate");
+        System.out.println(myName);
         this.container.setSimulatorManager(new SimulatorManager(this.container));
         this.container.getSimulatorManager().setInputString(myName);
         
