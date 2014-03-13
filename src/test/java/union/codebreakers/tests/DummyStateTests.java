@@ -10,10 +10,10 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import union.codebreakers.helper.enums.StateType;
 import union.codebreakers.model.Automaton;
-import union.codebreakers.model.DummyState;
 import union.codebreakers.model.Label;
 import union.codebreakers.model.ModelAutomaton;
 import union.codebreakers.model.ModelLabel;
+import union.codebreakers.model.ModelPath;
 
 
 
@@ -33,7 +33,6 @@ public class DummyStateTests
         myLabel = new ModelLabel();
         
         myDummyState = new DummyState(fsm, myLabel);
-        
     }
 
     @After
@@ -61,8 +60,8 @@ public class DummyStateTests
     @Test
     public void testAddRemove() {
         
-        DummyState newDummyState = new DummyState(fsm, myLabel);
-        myDummyState.addPath(newDummyState);
+        ModelPath path = new ModelPath(myDummyState, myDummyState, fsm);
+        myDummyState.addPath(path);
        
         assertTrue("The outgoing paths are no longer null", (myDummyState.getPaths() != null));        
         

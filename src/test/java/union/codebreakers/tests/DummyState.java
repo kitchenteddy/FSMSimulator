@@ -1,4 +1,4 @@
-package union.codebreakers.model;
+package union.codebreakers.tests;
 
 import java.util.ArrayList;
 import java.awt.Point;
@@ -6,28 +6,33 @@ import java.awt.Shape;
 import java.io.Serializable;
 import java.util.List;
 import union.codebreakers.helper.enums.StateType;
+import union.codebreakers.model.Automaton;
+import union.codebreakers.model.AutomatonPart;
+import union.codebreakers.model.Collidable;
+import union.codebreakers.model.Label;
+import union.codebreakers.model.ModelLabel;
+import union.codebreakers.model.ModelPath;
+import union.codebreakers.model.ModelState;
+import union.codebreakers.model.Movable;
+import union.codebreakers.model.Path;
+import union.codebreakers.model.State;
 
 /**
  * A dummy implementation of the state class for testing purposes
  * 
  * @author joshualoew
  */
-/*
-public class DummyState{  implements State, Movable, Collidable, Serializable, AutomatonPart {
+public class DummyState extends ModelState  implements State, Movable, Collidable, Serializable, AutomatonPart {
     
     private Automaton fsm;
     private StateType type;
     private Point position;
     private ArrayList<Path> outgoingPaths;
     private Label stateLabel;
-    private Point dummyPoint = new Point(0, 0);
+    static private Point dummyPoint = new Point(0, 0);
     
     public DummyState(Automaton fsm, Label msLabel) {
-        this.fsm = fsm;
-        this.type = StateType.eStart;
-        this.position = dummyPoint;
-        this.stateLabel = msLabel;
-        this.outgoingPaths = new ArrayList<Path>();
+        super(StateType.eNormal, DummyState.dummyPoint, msLabel, fsm );
     }
 
     @Override
@@ -36,9 +41,8 @@ public class DummyState{  implements State, Movable, Collidable, Serializable, A
     }
 
     @Override
-    public void addPath(State destination) {
-        Path newPath = new ModelPath(this, destination, this.fsm);
-        this.outgoingPaths.add(newPath);
+    public void addPath(Path path) {
+        this.outgoingPaths.add(path);
     }
 
     @Override
@@ -94,6 +98,4 @@ public class DummyState{  implements State, Movable, Collidable, Serializable, A
     public Automaton getAutomaton() {
         return this.fsm;
     }
-   
 }
-*/

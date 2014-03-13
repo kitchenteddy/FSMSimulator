@@ -14,6 +14,7 @@ import union.codebreakers.model.Automaton;
 import union.codebreakers.model.Label;
 import union.codebreakers.model.ModelAutomaton;
 import union.codebreakers.model.ModelLabel;
+import union.codebreakers.model.ModelPath;
 import union.codebreakers.model.ModelState;
 import union.codebreakers.model.State;
 
@@ -87,7 +88,8 @@ public class StateTests
     @Test
     public void addPath()
     {
-        s1.addPath(s2);
+        ModelPath p1 = new ModelPath( s1, s2, myAutomaton );
+        s1.addPath(p1);
         assertEquals(s1.getPathTo(s2).getEndPoint(),s2);
         assertEquals(s1.getPathTo(s2).getStartPoint(),s1);
     }
@@ -112,8 +114,11 @@ public class StateTests
     @Test
     public void getPaths()
     {
-        s1.addPath(s2);
-        s1.addPath(s1);
+        ModelPath p1 = new ModelPath( s1, s2, myAutomaton );
+        ModelPath p2 = new ModelPath( s1, s1, myAutomaton );
+
+        s1.addPath(p1);
+        s1.addPath(p2);
         myList.add(s1.getPathTo(s2));
         myList.add(s1.getPathTo(s1));
         
